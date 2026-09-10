@@ -15,16 +15,28 @@
 
     body {
       background: #0b0b0b;
-      color: #fff;
+      color: white;
     }
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>رشفة | مستلزمات القهوة</title>
+    header {
+      background: #0b0b0b;
+      border-bottom: 1px solid #d4af37;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d4af37;
+    }
+
+    .cart {
       border: 1px solid #d4af37;
       padding: 9px 16px;
       border-radius: 25px;
@@ -53,14 +65,29 @@
       margin-bottom: 30px;
     }
 
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .button {
       display: inline-block;
-      background: #d4af37;
-      color: #111;
-      padding: 14px 30px;
+      padding: 14px 25px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .products-button {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .whatsapp-button {
+      border: 1px solid #d4af37;
+      color: #d4af37;
     }
 
     .section {
@@ -86,12 +113,6 @@
       border-radius: 18px;
       padding: 25px;
       text-align: center;
-      transition: 0.3s;
-    }
-
-    .product:hover {
-      transform: translateY(-5px);
-      border-color: #d4af37;
     }
 
     .product-icon {
@@ -101,6 +122,10 @@
 
     .product h3 {
       margin-bottom: 10px;
+    }
+
+    .product p {
+      color: #ccc;
     }
 
     .price {
@@ -145,19 +170,31 @@
 <body>
 
 <header>
-<div class="logo">رَشْفَة</div>
+  <div class="logo">رَشْفَة ☕</div>
   <div class="cart">🛒 السلة</div>
 </header>
 
 <section class="hero">
   <div>
-    <h1>رَشْفَة</h1>
+    <h1>رَشْفَة ☕</h1>
     <p>كل ما تحتاجه لعالم القهوة في مكان واحد</p>
-    <a href="#products" class="button">تصفح المنتجات</a>
+
+    <div class="buttons">
+      <a href="#products" class="button products-button">
+        تصفح المنتجات
+      </a>
+
+      <a href="https://wa.me/962799563650?text=مرحبا%20رشفة،%20أريد%20الاستفسار%20عن%20المنتجات" 
+         class="button whatsapp-button" 
+         target="_blank">
+        📱 اطلب عبر واتساب
+      </a>
+    </div>
   </div>
 </section>
 
 <section class="section" id="products">
+
   <h2>منتجاتنا</h2>
 
   <div class="products">
@@ -167,7 +204,10 @@
       <h3>أكواب القهوة</h3>
       <p>أكواب أنيقة لعشاق القهوة</p>
       <div class="price">ابتداءً من 2 د.أ</div>
-      <a href="#" class="order">اطلب الآن</a>
+      <a href="https://wa.me/962799563650?text=مرحبا%20رشفة،%20أريد%20طلب%20أكواب%20القهوة" 
+         class="order" target="_blank">
+        اطلب الآن
+      </a>
     </div>
 
     <div class="product">
@@ -175,7 +215,10 @@
       <h3>أدوات التقطير</h3>
       <p>أدوات V60 وتحضير القهوة المختصة</p>
       <div class="price">ابتداءً من 5 د.أ</div>
-      <a href="#" class="order">اطلب الآن</a>
+      <a href="https://wa.me/962799563650?text=مرحبا%20رشفة،%20أريد%20طلب%20أدوات%20التقطير" 
+         class="order" target="_blank">
+        اطلب الآن
+      </a>
     </div>
 
     <div class="product">
@@ -183,7 +226,10 @@
       <h3>موازين القهوة</h3>
       <p>دقة عالية لتحضير قهوتك</p>
       <div class="price">ابتداءً من 8 د.أ</div>
-      <a href="#" class="order">اطلب الآن</a>
+      <a href="https://wa.me/962799563650?text=مرحبا%20رشفة،%20أريد%20طلب%20ميزان%20قهوة" 
+         class="order" target="_blank">
+        اطلب الآن
+      </a>
     </div>
 
     <div class="product">
@@ -191,7 +237,10 @@
       <h3>مستلزمات البن</h3>
       <p>كل ما تحتاجه لتحضير قهوة مميزة</p>
       <div class="price">ابتداءً من 3 د.أ</div>
-      <a href="#" class="order">اطلب الآن</a>
+      <a href="https://wa.me/962799563650?text=مرحبا%20رشفة،%20أريد%20طلب%20مستلزمات%20البن" 
+         class="order" target="_blank">
+        اطلب الآن
+      </a>
     </div>
 
   </div>
