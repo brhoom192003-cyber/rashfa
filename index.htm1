@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رشفة | مستلزمات القهوة</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+}
+
+header {
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.cart {
+    border: 1px solid #d4af37;
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    color: #d4af37;
+    font-size: 48px;
+}
+
+.hero p {
+    color: #bbb;
+    font-size: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background: #d4af37;
+    color: #111;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 50px 7%;
+}
+
+.title {
+    text-align: center;
+    color: #d4af37;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+}
+
+.icon {
+    font-size: 55px;
+}
+
+.card h3 {
+    font-size: 22px;
+}
+
+.card p {
+    color: #aaa;
+}
+
+.price {
+    color: #d4af37;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+button {
+    border: none;
+    background: #d4af37;
+    color: #111;
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    border-top: 1px solid #333;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">رَشْفَة</div>
+
+    <div class="cart">
+        🛒 السلة:
+        <span id="count">0</span>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>كل رشفة تبدأ من هنا ☕</h1>
+
+    <p>
+        مستلزمات القهوة المختارة لعشاق القهوة
+    </p>
+
+    <a href="#products" class="btn">
+        تصفح المنتجات
+    </a>
+</div>
+
+<section id="products">
+
+    <h2 class="title">
+        منتجات رشفة
+    </h2>
+
+    <div class="products">
+
+        <div class="card">
+            <div class="icon">☕</div>
+            <h3>أكواب قهوة</h3>
+            <p>أكواب أنيقة للاستخدام اليومي</p>
+            <div class="price">ابتداءً من 2 د.أ</div>
+            <button onclick="addToCart()">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🫖</div>
+            <h3>أدوات التقطير</h3>
+            <p>أدوات لتحضير قهوتك بطريقة احترافية</p>
+            <div class="price">ابتداءً من 5 د.أ</div>
+            <button onclick="addToCart()">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🫘</div>
+            <h3>مستلزمات البن</h3>
+            <p>كل ما تحتاجه لتجربة قهوة مميزة</p>
+            <div class="price">ابتداءً من 3 د.أ</div>
+            <button onclick="addToCart()">أضف للسلة</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚖️</div>
+            <h3>موازين القهوة</h3>
+            <p>دقة أعلى لتحضير أفضل</p>
+            <div class="price">ابتداءً من 8 د.أ</div>
+            <button onclick="addToCart()">أضف للسلة</button>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 رَشْفَة — مستلزمات القهوة
+</footer>
+
+<script>
+
+let count = 0;
+
+function addToCart() {
+    count++;
+
+    document.getElementById("count").innerText = count;
+}
+
+</script>
+
+</body>
+</html>
