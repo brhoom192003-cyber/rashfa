@@ -3,269 +3,682 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>رشفة | مستلزمات القهوة</title>
+  <title>رشفة | RASHFA - مستلزمات القهوة</title>
 
   <style>
+    :root {
+      --black: #080808;
+      --black2: #111111;
+      --gold: #d4af37;
+      --gold2: #f0d477;
+      --white: #ffffff;
+      --gray: #bdbdbd;
+      --card: #171717;
+      --border: rgba(212,175,55,0.25);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, Tahoma, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0b0b0b;
-      color: #fff;
+      font-family: Arial, Tahoma, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+    }
+
+    /* HEADER */
     header {
-      background: #080808;
-      border-bottom: 1px solid #c9a227;
-      padding: 15px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 75px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #d4af37;
-      font-size: 26px;
+      font-size: 25px;
       font-weight: bold;
+      color: var(--gold);
+      white-space: nowrap;
     }
 
-    .logo span {
-      color: white;
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
+      color: #eee;
+      transition: 0.3s;
       font-size: 15px;
     }
 
     nav a:hover {
-      color: #d4af37;
+      color: var(--gold);
     }
 
+    .cart-btn {
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      padding: 10px 16px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .cart-btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* HERO */
     .hero {
-      min-height: 500px;
+      min-height: 600px;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 40px 20px;
+      padding: 80px 20px;
       background:
-        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
-        radial-gradient(circle at center, #3b2a0d, #080808 65%);
+        radial-gradient(circle at center, rgba(212,175,55,0.12), transparent 45%),
+        linear-gradient(180deg, #0d0d0d, #080808);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero small {
+      color: var(--gold);
+      font-size: 17px;
+      letter-spacing: 2px;
     }
 
     .hero h1 {
-      font-size: 55px;
-      color: #d4af37;
-      margin-bottom: 15px;
+      font-size: clamp(55px, 10vw, 100px);
+      color: var(--gold);
+      margin: 10px 0;
     }
 
     .hero h2 {
-      font-size: 25px;
-      margin-bottom: 15px;
+      font-size: clamp(25px, 5vw, 42px);
+      margin-bottom: 18px;
     }
 
     .hero p {
-      color: #ccc;
-      font-size: 17px;
-      margin-bottom: 25px;
+      color: var(--gray);
+      max-width: 700px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
-      background: #d4af37;
-      color: #080808;
-      padding: 13px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      border: none;
+      padding: 13px 25px;
+      border-radius: 30px;
+      border: 1px solid var(--gold);
       cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
     }
 
-    .btn:hover {
-      background: #f0cf55;
+    .btn-gold {
+      background: var(--gold);
+      color: #000;
+      font-weight: bold;
     }
 
+    .btn-gold:hover {
+      background: var(--gold2);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: var(--gold);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* GENERAL */
     section {
-      padding: 60px 6%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 75px 20px;
     }
 
-    .title {
+    .section-title {
       text-align: center;
-      color: #d4af37;
-      font-size: 32px;
-      margin-bottom: 35px;
+      margin-bottom: 45px;
     }
 
+    .section-title h2 {
+      font-size: 35px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+    }
+
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: var(--gray);
+    }
+
+    /* CATEGORIES */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      background: linear-gradient(145deg, #191919, #101010);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 25px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .category-icon {
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    .category h3 {
+      font-size: 17px;
+      color: #eee;
+    }
+
+    /* PRODUCTS */
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
     .product {
-      background: #151515;
-      border: 1px solid #292929;
-      border-radius: 14px;
-      padding: 20px;
-      text-align: center;
-      transition: .3s;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: 0.3s;
     }
 
     .product:hover {
       transform: translateY(-5px);
-      border-color: #d4af37;
+      border-color: var(--gold);
     }
 
     .product-image {
-      height: 170px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #242424, #111);
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 55px;
-      margin-bottom: 18px;
+      background: #101010;
+      font-size: 65px;
     }
 
-    .product h3 {
-      margin-bottom: 10px;
-      font-size: 19px;
+    .product-info {
+      padding: 20px;
     }
 
-    .product p {
-      color: #aaa;
-      margin-bottom: 12px;
+    .product-info h3 {
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+
+    .product-info p {
+      color: var(--gray);
       font-size: 14px;
+      min-height: 45px;
+    }
+
+    .product-bottom {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
 
     .price {
-      color: #d4af37;
-      font-size: 21px;
+      color: var(--gold);
       font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .about {
-      background: #111;
-      text-align: center;
-    }
-
-    .about p {
-      max-width: 750px;
-      margin: auto;
-      line-height: 2;
-      color: #ccc;
       font-size: 17px;
     }
 
-    .contact {
-      text-align: center;
-    }
-
-    .whatsapp {
-      position: fixed;
-      bottom: 22px;
-      left: 22px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #25D366;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 30px;
-      z-index: 9999;
-      box-shadow: 0 5px 20px rgba(0,0,0,.5);
-    }
-
-    footer {
-      background: #050505;
-      border-top: 1px solid #292929;
-      padding: 25px;
-      text-align: center;
-      color: #999;
-    }
-
-    .cart {
-      position: fixed;
-      top: 80px;
-      left: 20px;
-      background: #151515;
-      border: 1px solid #d4af37;
-      padding: 18px;
-      border-radius: 12px;
-      width: 300px;
-      display: none;
-      z-index: 2000;
-    }
-
-    .cart.active {
-      display: block;
-    }
-
-    .cart h3 {
-      color: #d4af37;
-      margin-bottom: 15px;
-    }
-
-    #cartItems {
-      max-height: 250px;
-      overflow-y: auto;
-    }
-
-    .cart-item {
-      border-bottom: 1px solid #333;
-      padding: 10px 0;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .cart-total {
-      margin-top: 15px;
-      color: #d4af37;
+    .add-btn {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      padding: 9px 15px;
+      border-radius: 20px;
+      cursor: pointer;
       font-weight: bold;
     }
 
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
+    .add-btn:hover {
+      background: var(--gold2);
+    }
+
+    .coming {
+      grid-column: 1 / -1;
+      text-align: center;
+      background: var(--card);
+      border: 1px dashed var(--border);
+      padding: 40px;
+      border-radius: 18px;
+      color: var(--gray);
+    }
+
+    .coming strong {
+      display: block;
+      color: var(--gold);
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    /* ABOUT */
+    .about-box {
+      background: linear-gradient(145deg, #171717, #0e0e0e);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .about-box h2 {
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: var(--gray);
+      max-width: 850px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      text-align: center;
+      background: #111;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 45px 20px;
+    }
+
+    .contact-box h2 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: var(--gray);
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--gray);
+      background: #050505;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    /* CART OVERLAY */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 1999;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* CART */
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -480px;
+      width: min(460px, 100%);
+      height: 100vh;
+      background: #0d0d0d;
+      z-index: 2000;
+      border-left: 1px solid var(--gold);
+      transition: 0.35s;
+      overflow-y: auto;
+      padding: 25px;
+    }
+
+    .cart-panel.active {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+
+    .cart-header h2 {
+      color: var(--gold);
+    }
+
+    .close-cart {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-info h4 {
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-info span {
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .remove-btn {
+      background: transparent;
+      border: 1px solid #555;
+      color: #ddd;
+      padding: 5px 9px;
+      border-radius: 8px;
+      cursor: pointer;
+      height: fit-content;
+    }
+
+    .remove-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .empty-cart {
+      color: var(--gray);
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      padding: 15px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .cart-total span:last-child {
+      color: var(--gold);
+    }
+
+    /* CHECKOUT */
+    .checkout-title {
+      color: var(--gold);
+      font-size: 21px;
+      margin: 25px 0 15px;
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #eee;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: #171717;
+      border: 1px solid #333;
+      color: white;
+      padding: 12px;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .phone-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phone-prefix {
+      width: 105px !important;
+      flex-shrink: 0;
+      color: var(--gold) !important;
+      font-weight: bold;
+    }
+
+    .delivery-note {
+      background: rgba(212,175,55,0.08);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      color: var(--gray);
+      font-size: 13px;
+      margin: 15px 0;
+    }
+
+    .send-order {
+      width: 100%;
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .send-order:hover {
+      opacity: 0.9;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      z-index: 1500;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        min-height: 65px;
       }
 
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero h2 {
+      .logo {
         font-size: 21px;
       }
 
-      .cart {
-        width: calc(100% - 40px);
+      .cart-btn {
+        padding: 8px 12px;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      section {
+        padding: 55px 15px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-image {
+        height: 160px;
+      }
+
+      .about-box {
+        padding: 30px 20px;
+      }
+
+      .phone-prefix {
+        width: 90px !important;
       }
     }
   </style>
@@ -273,355 +686,907 @@
 
 <body>
 
-<header>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
 
-  <div class="logo">
-    ☕ رشفة
-    <span>| RASHFA</span>
-  </div>
+      <a href="#home" class="logo">☕ رشفة | RASHFA</a>
 
-  <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#products">المنتجات</a>
-    <a href="#about">عن رشفة</a>
-    <a href="#contact">تواصل معنا</a>
+      <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">الأقسام</a>
+        <a href="#products">المنتجات</a>
+        <a href="#about">عن رشفة</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
 
-    <a href="javascript:void(0)" onclick="toggleCart()">
-      🛒 السلة (<span id="cartCount">0</span>)
-    </a>
-  </nav>
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 السلة (<span id="cartCount">0</span>)
+      </button>
 
-</header>
+    </div>
+  </header>
 
 
-<section class="hero" id="home">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
 
-  <div>
+      <small>RASHFA COFFEE SUPPLIES</small>
 
-    <h1>رشفة</h1>
+      <h1>رشفة</h1>
 
-    <h2>كل ما تحتاجه لعالم القهوة</h2>
+      <h2>كل ما تحتاجه لعالم القهوة</h2>
 
+      <p>
+        متجر رشفة لمستلزمات القهوة المختصة،
+        من الأدوات والإكسسوارات إلى المنتجات التي تضيف
+        لمسة مميزة لكل كوب.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#categories" class="btn btn-gold">اكتشف الأقسام</a>
+        <a href="https://wa.me/962799563650" target="_blank" class="btn btn-outline">
+          تواصل معنا
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FEATURES -->
+  <section>
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">☕</div>
+        <h3>منتجات القهوة</h3>
+        <p>اختيارات متنوعة لعشاق القهوة.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">📦</div>
+        <h3>طلب سهل</h3>
+        <p>اطلب مباشرة من الموقع عبر واتساب.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🌍</div>
+        <h3>جاهزون للتوسع</h3>
+        <p>الموقع مصمم لاستقبال الطلبات من الأردن والخليج.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+
+    <div class="section-title">
+      <h2>أقسام رشفة</h2>
+      <p>اختر القسم الذي تبحث عنه</p>
+    </div>
+
+    <div class="categories">
+
+      <a href="#machines" class="category">
+        <div class="category-icon">☕</div>
+        <h3>ماكينات القهوة</h3>
+      </a>
+
+      <a href="#capsules" class="category">
+        <div class="category-icon">🫘</div>
+        <h3>كبسولات القهوة</h3>
+      </a>
+
+      <a href="#beans" class="category">
+        <div class="category-icon">🌱</div>
+        <h3>حبوب القهوة</h3>
+      </a>
+
+      <a href="#matcha" class="category">
+        <div class="category-icon">🍵</div>
+        <h3>الماتشا</h3>
+      </a>
+
+      <a href="#syrups" class="category">
+        <div class="category-icon">🍯</div>
+        <h3>السيربات</h3>
+      </a>
+
+      <a href="#flavors" class="category">
+        <div class="category-icon">🍓</div>
+        <h3>النكهات</h3>
+      </a>
+
+      <a href="#tools" class="category">
+        <div class="category-icon">⚖️</div>
+        <h3>المطاحن والموازين</h3>
+      </a>
+
+      <a href="#cups" class="category">
+        <div class="category-icon">🥤</div>
+        <h3>الأكواب والإكسسوارات</h3>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- MACHINES -->
+  <section id="machines">
+
+    <div class="section-title">
+      <h2>ماكينات القهوة</h2>
+      <p>قريبًا في رشفة</p>
+    </div>
+
+    <div class="coming">
+      <strong>قريبًا ☕</strong>
+      سيتم إضافة مجموعة مختارة من ماكينات القهوة.
+    </div>
+
+  </section>
+
+
+  <!-- CAPSULES -->
+  <section id="capsules">
+
+    <div class="section-title">
+      <h2>كبسولات القهوة</h2>
+      <p>قريبًا في رشفة</p>
+    </div>
+
+    <div class="coming">
+      <strong>قريبًا 🫘</strong>
+      كبسولات متنوعة لعشاق القهوة.
+    </div>
+
+  </section>
+
+
+  <!-- BEANS -->
+  <section id="beans">
+
+    <div class="section-title">
+      <h2>حبوب القهوة</h2>
+      <p>قريبًا في رشفة</p>
+    </div>
+
+    <div class="coming">
+      <strong>قريبًا 🌱</strong>
+      حبوب قهوة مختارة بعناية.
+    </div>
+
+  </section>
+
+
+  <!-- MATCHA -->
+  <section id="matcha">
+
+    <div class="section-title">
+      <h2>الماتشا</h2>
+      <p>منتجات الماتشا ومستلزماتها</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">🍵</div>
+        <div class="product-info">
+          <h3>ماتشا</h3>
+          <p>ماتشا لعشاق المشروبات اليابانية.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🥄</div>
+        <div class="product-info">
+          <h3>أدوات تحضير الماتشا</h3>
+          <p>أدوات تساعدك على تحضير الماتشا بطريقة مميزة.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🧋</div>
+        <div class="product-info">
+          <h3>خفاقة الماتشا</h3>
+          <p>أداة أساسية لتحضير الماتشا.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SYRUPS -->
+  <section id="syrups">
+
+    <div class="section-title">
+      <h2>السيربات</h2>
+      <p>نكهات تضيف لمشروبك لمسة خاصة</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">🍦</div>
+        <div class="product-info">
+          <h3>فانيلا</h3>
+          <p>نكهة فانيلا للمشروبات الساخنة والباردة.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🍮</div>
+        <div class="product-info">
+          <h3>كراميل</h3>
+          <p>نكهة كراميل لمحبي الطعم الغني.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🌰</div>
+        <div class="product-info">
+          <h3>بندق</h3>
+          <p>نكهة بندق مميزة للقهوة والمشروبات.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🍫</div>
+        <div class="product-info">
+          <h3>شوكولاتة</h3>
+          <p>نكهة شوكولاتة لعشاق المشروبات الحلوة.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FLAVORS -->
+  <section id="flavors">
+
+    <div class="section-title">
+      <h2>النكهات</h2>
+      <p>نكهات متنوعة لمشروباتك</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">🍓</div>
+        <div class="product-info">
+          <h3>فراولة</h3>
+          <p>نكهة فراولة للمشروبات والحلويات.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🫐</div>
+        <div class="product-info">
+          <h3>توت أزرق</h3>
+          <p>نكهة منعشة لمحبي التوت.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🥭</div>
+        <div class="product-info">
+          <h3>مانجا</h3>
+          <p>نكهة مانجا مناسبة للمشروبات الباردة.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🥥</div>
+        <div class="product-info">
+          <h3>جوز الهند</h3>
+          <p>نكهة استوائية مميزة.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- TOOLS -->
+  <section id="tools">
+
+    <div class="section-title">
+      <h2>المطاحن والموازين</h2>
+      <p>أدوات تساعدك على تحضير قهوة أفضل</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">⚖️</div>
+        <div class="product-info">
+          <h3>ميزان قهوة</h3>
+          <p>للحصول على دقة أفضل في تحضير القهوة.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">⚙️</div>
+        <div class="product-info">
+          <h3>مطحنة قهوة</h3>
+          <p>طحن القهوة بالطريقة التي تناسبك.</p>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🫖</div>
+        <div class="product-info">
+          <h3>أدوات التقطير</h3>
+          <p>كل ما تحتاجه لتحضير القهوة المقطرة.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CUPS -->
+  <section id="cups">
+
+    <div class="section-title">
+      <h2>الأكواب والإكسسوارات</h2>
+      <p>قريبًا في رشفة</p>
+    </div>
+
+    <div class="coming">
+      <strong>قريبًا 🥤</strong>
+      مجموعة مميزة من الأكواب والإكسسوارات.
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="about-box">
+
+      <h2>عن رشفة</h2>
+
+      <p>
+        رشفة هي علامة تهدف لتوفير مستلزمات القهوة
+        والمشروبات بطريقة سهلة ومميزة.
+        نبدأ من الأردن، ونسعى مستقبلًا للتوسع
+        وخدمة محبي القهوة في دول الخليج والمنطقة.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="contact-box">
+
+      <h2>تواصل مع رشفة</h2>
+
+      <p>
+        للاستفسار أو الطلب يمكنك التواصل معنا مباشرة عبر واتساب.
+      </p>
+
+      <a
+        href="https://wa.me/962799563650"
+        target="_blank"
+        class="btn btn-gold">
+        💬 تواصل عبر واتساب
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
     <p>
-      مستلزمات القهوة المختصة والأدوات التي تجعل كل رشفة أجمل.
+      © 2026 <strong>رشفة | RASHFA</strong> —
+      جميع الحقوق محفوظة
     </p>
-
-    <a href="#products" class="btn">
-      تصفح المنتجات
-    </a>
-
-  </div>
-
-</section>
+  </footer>
 
 
-<section id="products">
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="toggleCart()"></div>
 
-  <h2 class="title">منتجاتنا</h2>
 
-  <div class="products">
+  <!-- CART -->
+  <aside class="cart-panel" id="cartPanel">
 
-    <div class="product">
+    <div class="cart-header">
 
-      <div class="product-image">☕</div>
+      <h2>🛒 سلة الطلب</h2>
 
-      <h3>أكواب قهوة</h3>
-
-      <p>أكواب أنيقة للقهوة والمشروبات الساخنة.</p>
-
-      <div class="price">ابتداءً من 2 JD</div>
-
-      <button class="btn" onclick="addToCart('أكواب قهوة', 2)">
-        أضف للسلة
-      </button>
+      <button class="close-cart" onclick="toggleCart()">×</button>
 
     </div>
 
 
-    <div class="product">
+    <!-- CART ITEMS -->
+    <div id="cartItems">
+      <div class="empty-cart">
+        السلة فارغة حاليًا.
+      </div>
+    </div>
 
-      <div class="product-image">🫖</div>
 
-      <h3>أدوات التقطير</h3>
+    <!-- TOTAL -->
+    <div class="cart-total">
+      <span>المجموع</span>
+      <span><span id="cartTotal">0.00</span> د.أ</span>
+    </div>
 
-      <p>أدوات مناسبة لتحضير القهوة بطريقة احترافية.</p>
 
-      <div class="price">ابتداءً من 5 JD</div>
+    <!-- CHECKOUT -->
+    <h3 class="checkout-title">
+      📦 بيانات الطلب
+    </h3>
 
-      <button class="btn" onclick="addToCart('أدوات التقطير', 5)">
-        أضف للسلة
-      </button>
+    <div class="form-group">
+      <label for="customerName">الاسم الكامل *</label>
+      <input
+        type="text"
+        id="customerName"
+        placeholder="اكتب اسمك الكامل">
+    </div>
+
+
+    <div class="form-group">
+      <label for="country">الدولة *</label>
+
+      <select id="country" onchange="updatePhonePrefix()">
+
+        <option value="">اختر الدولة</option>
+
+        <option value="الأردن" data-prefix="+962">
+          🇯🇴 الأردن
+        </option>
+
+        <option value="السعودية" data-prefix="+966">
+          🇸🇦 السعودية
+        </option>
+
+        <option value="الإمارات" data-prefix="+971">
+          🇦🇪 الإمارات
+        </option>
+
+        <option value="الكويت" data-prefix="+965">
+          🇰🇼 الكويت
+        </option>
+
+        <option value="قطر" data-prefix="+974">
+          🇶🇦 قطر
+        </option>
+
+        <option value="البحرين" data-prefix="+973">
+          🇧🇭 البحرين
+        </option>
+
+        <option value="عُمان" data-prefix="+968">
+          🇴🇲 عُمان
+        </option>
+
+      </select>
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="customerPhone">
+        رقم الهاتف *
+      </label>
+
+      <div class="phone-row">
+
+        <input
+          type="text"
+          id="phonePrefix"
+          class="phone-prefix"
+          value="+962"
+          readonly>
+
+        <input
+          type="tel"
+          id="customerPhone"
+          placeholder="مثال: 799999999"
+          inputmode="tel">
+
+      </div>
 
     </div>
 
 
-    <div class="product">
+    <div class="form-group">
 
-      <div class="product-image">⚖️</div>
+      <label for="customerCity">
+        المدينة *
+      </label>
 
-      <h3>ميزان قهوة</h3>
-
-      <p>تحكم أدق بكمية القهوة والماء أثناء التحضير.</p>
-
-      <div class="price">ابتداءً من 10 JD</div>
-
-      <button class="btn" onclick="addToCart('ميزان قهوة', 10)">
-        أضف للسلة
-      </button>
+      <input
+        type="text"
+        id="customerCity"
+        placeholder="مثال: عمّان">
 
     </div>
 
 
-    <div class="product">
+    <div class="form-group">
 
-      <div class="product-image">🫘</div>
+      <label for="customerAddress">
+        عنوان التوصيل *
+      </label>
 
-      <h3>حبوب القهوة</h3>
-
-      <p>حبوب قهوة مختارة لعشاق القهوة.</p>
-
-      <div class="price">ابتداءً من 7 JD</div>
-
-      <button class="btn" onclick="addToCart('حبوب القهوة', 7)">
-        أضف للسلة
-      </button>
+      <textarea
+        id="customerAddress"
+        placeholder="المنطقة، الشارع، رقم المبنى، وأي تفاصيل تساعد في الوصول إليك"></textarea>
 
     </div>
 
 
-    <div class="product">
+    <div class="form-group">
 
-      <div class="product-image">🥤</div>
+      <label for="orderNotes">
+        ملاحظات إضافية
+      </label>
 
-      <h3>أكواب سفر</h3>
-
-      <p>خذ قهوتك معك أينما ذهبت.</p>
-
-      <div class="price">ابتداءً من 8 JD</div>
-
-      <button class="btn" onclick="addToCart('أكواب سفر', 8)">
-        أضف للسلة
-      </button>
+      <textarea
+        id="orderNotes"
+        placeholder="أي ملاحظات خاصة بالطلب (اختياري)"></textarea>
 
     </div>
 
 
-    <div class="product">
-
-      <div class="product-image">🧰</div>
-
-      <h3>إكسسوارات القهوة</h3>
-
-      <p>مجموعة متنوعة من مستلزمات القهوة.</p>
-
-      <div class="price">ابتداءً من 3 JD</div>
-
-      <button class="btn" onclick="addToCart('إكسسوارات القهوة', 3)">
-        أضف للسلة
-      </button>
-
+    <div class="delivery-note">
+      🚚 <strong>التوصيل:</strong>
+      يتم تأكيد توفر التوصيل وتكلفة الشحن حسب الدولة والمدينة
+      عبر واتساب قبل تأكيد الطلب.
     </div>
 
-  </div>
 
-</section>
+    <button class="send-order" onclick="sendOrder()">
+      💬 إرسال الطلب عبر واتساب
+    </button>
 
-
-<section class="about" id="about">
-
-  <h2 class="title">عن رشفة</h2>
-
-  <p>
-    رشفة متجر يهتم بكل ما يتعلق بالقهوة ومستلزماتها.
-    هدفنا نوفر لك منتجات عملية وأنيقة بأسعار مناسبة،
-    حتى تستمتع بتجربة قهوة أفضل في كل يوم.
-  </p>
-
-</section>
+  </aside>
 
 
-<section class="contact" id="contact">
-
-  <h2 class="title">تواصل معنا</h2>
-
-  <p style="color:#ccc; margin-bottom:20px;">
-    للاستفسار أو الطلب، تواصل معنا مباشرة عبر واتساب.
-  </p>
-
+  <!-- FLOATING WHATSAPP -->
   <a
-    class="btn"
     href="https://wa.me/962799563650"
     target="_blank"
-  >
-    💬 تواصل عبر واتساب
+    class="whatsapp-float"
+    aria-label="واتساب">
+    💬
   </a>
 
-</section>
+
+  <script>
+
+    /* =========================
+       RASHFA CART
+    ========================= */
+
+    let cart = [];
 
 
-<div class="cart" id="cart">
+    /* ADD PRODUCT */
 
-  <h3>🛒 سلة المشتريات</h3>
+    function addToCart(name, price) {
 
-  <div id="cartItems">
-    السلة فارغة
-  </div>
+      const existing = cart.find(item => item.name === name);
 
-  <div class="cart-total">
-    المجموع: <span id="cartTotal">0</span> JD
-  </div>
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({
+          name: name,
+          price: Number(price),
+          quantity: 1
+        });
+      }
 
-  <br>
+      updateCart();
 
-  <button class="btn" onclick="sendOrder()">
-    إرسال الطلب عبر واتساب
-  </button>
-
-</div>
-
-
-<a
-  class="whatsapp"
-  href="https://wa.me/962799563650"
-  target="_blank"
-  aria-label="WhatsApp"
->
-  ☎️
-</a>
-
-
-<footer>
-
-  © 2026 رشفة - RASHFA
-  <br>
-  جميع الحقوق محفوظة
-
-</footer>
-
-
-<script>
-
-  let cart = [];
-
-  function addToCart(name, price) {
-
-    cart.push({
-      name: name,
-      price: price
-    });
-
-    updateCart();
-
-    alert("تمت إضافة المنتج إلى السلة ✅");
-  }
-
-
-  function updateCart() {
-
-    const cartItems = document.getElementById("cartItems");
-    const cartCount = document.getElementById("cartCount");
-    const cartTotal = document.getElementById("cartTotal");
-
-    cartCount.textContent = cart.length;
-
-    if (cart.length === 0) {
-
-      cartItems.innerHTML = "السلة فارغة";
-      cartTotal.textContent = "0";
-
-      return;
+      document.getElementById("cartPanel").classList.add("active");
+      document.getElementById("overlay").classList.add("active");
     }
 
-    let total = 0;
 
-    cartItems.innerHTML = "";
+    /* UPDATE CART */
 
-    cart.forEach((item, index) => {
+    function updateCart() {
 
-      total += item.price;
+      const cartItems = document.getElementById("cartItems");
+      const cartCount = document.getElementById("cartCount");
+      const cartTotal = document.getElementById("cartTotal");
 
-      cartItems.innerHTML += `
+      if (cart.length === 0) {
 
-        <div class="cart-item">
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            السلة فارغة حاليًا.
+          </div>
+        `;
 
-          <span>
-            ${item.name}
-          </span>
+        cartCount.textContent = "0";
+        cartTotal.textContent = "0.00";
 
-          <span>
-            ${item.price} JD
-          </span>
+        return;
+      }
+
+
+      let total = 0;
+      let count = 0;
+
+
+      cartItems.innerHTML = "";
+
+
+      cart.forEach((item, index) => {
+
+        const itemTotal = item.price * item.quantity;
+
+        total += itemTotal;
+        count += item.quantity;
+
+
+        const div = document.createElement("div");
+
+        div.className = "cart-item";
+
+        div.innerHTML = `
+
+          <div class="cart-item-info">
+
+            <h4>${item.name}</h4>
+
+            <span>
+              ${item.price.toFixed(2)} د.أ × ${item.quantity}
+            </span>
+
+            <br>
+
+            <span>
+              المجموع: ${itemTotal.toFixed(2)} د.أ
+            </span>
+
+          </div>
 
           <button
-            onclick="removeFromCart(${index})"
-            style="
-              background:none;
-              border:none;
-              color:#d4af37;
-              cursor:pointer;
-            "
-          >
-            ✕
+            class="remove-btn"
+            onclick="removeFromCart(${index})">
+            حذف
           </button>
 
-        </div>
-
-      `;
-
-    });
-
-    cartTotal.textContent = total;
-  }
+        `;
 
 
-  function removeFromCart(index) {
+        cartItems.appendChild(div);
 
-    cart.splice(index, 1);
-
-    updateCart();
-  }
+      });
 
 
-  function toggleCart() {
+      cartCount.textContent = count;
+      cartTotal.textContent = total.toFixed(2);
 
-    document
-      .getElementById("cart")
-      .classList.toggle("active");
-
-  }
-
-
-  function sendOrder() {
-
-    if (cart.length === 0) {
-
-      alert("السلة فارغة ❌");
-
-      return;
     }
 
-    let message = "السلام عليكم، أريد طلب المنتجات التالية من رشفة:%0A%0A";
 
-    let total = 0;
+    /* REMOVE */
 
-    cart.forEach((item, index) => {
+    function removeFromCart(index) {
 
-      message +=
-        ${index + 1}. ${item.name} - ${item.price} JD%0A;
+      cart.splice(index, 1);
 
-      total += item.price;
-    });
+      updateCart();
 
-    message += %0Aالمجموع: ${total} JD;
+    }
 
-    window.open(
-      "https://wa.me/962799563650?text=" + message,
-      "_blank"
-    );
 
-  }
+    /* OPEN / CLOSE CART */
 
-</script>
+    function toggleCart() {
+
+      const panel = document.getElementById("cartPanel");
+      const overlay = document.getElementById("overlay");
+
+      panel.classList.toggle("active");
+      overlay.classList.toggle("active");
+
+    }
+
+
+    /* COUNTRY PHONE PREFIX */
+
+    function updatePhonePrefix() {
+
+      const country =
+        document.getElementById("country");
+
+      const selected =
+        country.options[country.selectedIndex];
+
+      const prefix =
+        selected.getAttribute("data-prefix");
+
+      document.getElementById("phonePrefix").value =
+        prefix || "+962";
+
+    }
+
+
+    /* SEND ORDER */
+
+    function sendOrder() {
+
+      if (cart.length === 0) {
+
+        alert("السلة فارغة. أضف منتجًا أولًا.");
+
+        return;
+      }
+
+
+      const name =
+        document.getElementById("customerName").value.trim();
+
+      const country =
+        document.getElementById("country").value;
+
+      const phone =
+        document.getElementById("customerPhone").value.trim();
+
+      const prefix =
+        document.getElementById("phonePrefix").value;
+
+      const city =
+        document.getElementById("customerCity").value.trim();
+
+      const address =
+        document.getElementById("customerAddress").value.trim();
+
+      const notes =
+        document.getElementById("orderNotes").value.trim();
+
+
+      /* VALIDATION */
+
+      if (!name) {
+
+        alert("يرجى كتابة الاسم الكامل.");
+
+        document.getElementById("customerName").focus();
+
+        return;
+      }
+
+
+      if (!country) {
+
+        alert("يرجى اختيار الدولة.");
+
+        document.getElementById("country").focus();
+
+        return;
+      }
+
+
+      if (!phone) {
+
+        alert("يرجى كتابة رقم الهاتف.");
+
+        document.getElementById("customerPhone").focus();
+
+        return;
+      }
+
+
+      if (!city) {
+
+        alert("يرجى كتابة المدينة.");
+
+        document.getElementById("customerCity").focus();
+
+        return;
+      }
+
+
+      if (!address) {
+
+        alert("يرجى كتابة عنوان التوصيل.");
+
+        document.getElementById("customerAddress").focus();
+
+        return;
+      }
+
+
+      /* ORDER TOTAL */
+
+      let total = 0;
+
+      let productsText = "";
+
+
+      cart.forEach((item, index) => {
+
+        const itemTotal =
+          item.price * item.quantity;
+
+        total += itemTotal;
+
+
+        productsText +=
+          ${index + 1}. ${item.name} — الكمية: ${item.quantity} — ${itemTotal.toFixed(2)} د.أ\n;
+
+      });
+
+
+      /* WHATSAPP MESSAGE */
+
+      let message =
+
+`☕ طلب جديد من متجر رشفة | RASHFA
+
+━━━━━━━━━━━━━━
+
+👤 بيانات العميل
+
+الاسم: ${name}
+الدولة: ${country}
+رقم الهاتف: ${prefix}${phone}
+المدينة: ${city}
+العنوان: ${address}
+
+━━━━━━━━━━━━━━
+
+🛒 تفاصيل الطلب
+
+${productsText}
+━━━━━━━━━━━━━━
+
+💰 إجمالي المنتجات: ${total.toFixed(2)} د.أ
+
+🚚 الشحن:
+يرجى تأكيد تكلفة وتوفر التوصيل حسب الدولة والمدينة.
+
+${notes ? 📝 ملاحظات العميل:\n${notes}\n\n : ""}شكراً لاختياركم رشفة | RASHFA ☕
+`;
+
+
+      const whatsappNumber =
+        "962799563650";
+
+
+      const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+      window.open(whatsappURL, "_blank");
+
+    }
+
+
+    /* INITIAL UPDATE */
+
+    updateCart();
+
+  </script>
 
 </body>
 </html>
