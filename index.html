@@ -13,23 +13,27 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Tahoma, sans-serif;
       background: #f3eadc;
       color: #2d241d;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     header {
       background: #fffaf2;
-      padding: 22px 7%;
+      padding: 20px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.07);
     }
 
     .logo {
@@ -41,7 +45,7 @@
 
     .logo span {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 4px;
       color: #6f5841;
       text-align: center;
@@ -57,8 +61,10 @@
     }
 
     nav a:hover {
-      color: #a27b4f;
+      color: #9a754c;
     }
+
+    /* HERO */
 
     .hero {
       min-height: 500px;
@@ -68,24 +74,32 @@
       text-align: center;
       padding: 70px 20px;
       background:
-        linear-gradient(rgba(243,234,220,0.88), rgba(243,234,220,0.88)),
-        radial-gradient(circle at center, #fffaf2, #e7d5bc);
+        linear-gradient(rgba(243,234,220,0.92), rgba(243,234,220,0.92)),
+        radial-gradient(circle at center, #fffaf2, #e5d1b5);
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 820px;
     }
 
     .hero h1 {
-      font-size: 58px;
+      font-size: 62px;
       color: #725436;
-      margin-bottom: 12px;
+      margin-bottom: 5px;
+    }
+
+    .hero-brand {
+      font-size: 14px;
+      letter-spacing: 6px;
+      color: #8a6b4b;
+      direction: ltr;
+      margin-bottom: 20px;
     }
 
     .hero h2 {
       font-size: 24px;
-      margin-bottom: 15px;
       color: #3b2d22;
+      margin-bottom: 15px;
     }
 
     .hero p {
@@ -99,7 +113,7 @@
       background: #8b6a45;
       color: white;
       text-decoration: none;
-      padding: 13px 28px;
+      padding: 13px 30px;
       border-radius: 30px;
       font-weight: bold;
       transition: 0.3s;
@@ -110,24 +124,66 @@
       transform: translateY(-2px);
     }
 
+    /* GENERAL */
+
     section {
-      padding: 65px 7%;
+      padding: 70px 7%;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 38px;
     }
 
     .section-title h2 {
       font-size: 32px;
       color: #6f5235;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .section-title p {
       color: #806d5a;
     }
+
+    /* ABOUT */
+
+    .about {
+      background: #fffaf2;
+    }
+
+    .about-box {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-box .about-title {
+      font-size: 38px;
+      color: #725436;
+      margin-bottom: 8px;
+    }
+
+    .about-subtitle {
+      font-size: 19px;
+      font-weight: bold;
+      color: #6f5235;
+      margin-bottom: 25px;
+    }
+
+    .about-box p {
+      color: #665646;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .about-ending {
+      font-size: 21px !important;
+      font-weight: bold;
+      color: #725436 !important;
+      margin-top: 25px;
+    }
+
+    /* CATEGORIES */
 
     .categories {
       display: grid;
@@ -142,7 +198,6 @@
       text-align: center;
       box-shadow: 0 5px 20px rgba(78,54,31,0.08);
       transition: 0.3s;
-      cursor: pointer;
     }
 
     .category:hover {
@@ -159,6 +214,8 @@
       color: #5d432c;
       font-size: 20px;
     }
+
+    /* PRODUCTS */
 
     .products {
       display: grid;
@@ -203,6 +260,12 @@
       font-size: 14px;
     }
 
+    /* BUNDLES */
+
+    .bundle-section {
+      background: #eee0cd;
+    }
+
     .bundle {
       background: #fffaf2;
       border-radius: 22px;
@@ -225,7 +288,6 @@
 
     .bundle ul {
       list-style: none;
-      padding: 0;
     }
 
     .bundle li {
@@ -239,11 +301,13 @@
       font-weight: bold;
     }
 
+    /* CONTACT */
+
     .contact {
       background: #e6d4bb;
       text-align: center;
       border-radius: 30px;
-      margin: 40px 7%;
+      margin: 50px 7%;
       padding: 55px 20px;
     }
 
@@ -276,13 +340,24 @@
       transform: scale(1.03);
     }
 
+    /* FOOTER */
+
     footer {
       background: #fffaf2;
       text-align: center;
-      padding: 25px;
+      padding: 28px;
       color: #796754;
       border-top: 1px solid #e7d8c5;
     }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #8b6a45;
+      margin-bottom: 5px;
+    }
+
+    /* FLOATING WHATSAPP */
 
     .floating-whatsapp {
       position: fixed;
@@ -302,7 +377,10 @@
       z-index: 2000;
     }
 
+    /* MOBILE */
+
     @media (max-width: 700px) {
+
       header {
         padding: 16px 5%;
         flex-direction: column;
@@ -314,20 +392,36 @@
         font-size: 13px;
       }
 
+      .hero {
+        min-height: 460px;
+      }
+
       .hero h1 {
-        font-size: 43px;
+        font-size: 47px;
       }
 
       .hero h2 {
         font-size: 20px;
       }
 
+      .hero p {
+        font-size: 15px;
+      }
+
       section {
-        padding: 50px 5%;
+        padding: 55px 5%;
+      }
+
+      .about-box .about-title {
+        font-size: 32px;
+      }
+
+      .about-box p {
+        font-size: 15px;
       }
 
       .contact {
-        margin: 25px 5%;
+        margin: 30px 5%;
       }
     }
   </style>
@@ -335,8 +429,10 @@
 
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
+
   <header>
+
     <div class="logo">
       مِداد
       <span>MIDAD</span>
@@ -344,37 +440,99 @@
 
     <nav>
       <a href="#home">الرئيسية</a>
+      <a href="#about">عن مِداد</a>
       <a href="#categories">الأقسام</a>
       <a href="#bundles">البكجات</a>
       <a href="#contact">تواصل معنا</a>
     </nav>
+
   </header>
 
 
-  <!-- Hero -->
+  <!-- HERO -->
+
   <section class="hero" id="home">
+
     <div class="hero-content">
+
       <h1>مِداد</h1>
-      <h2>مستلزمات القهوة والمشروبات</h2>
+
+      <div class="hero-brand">
+        MIDAD
+      </div>
+
+      <h2>
+        من التفاصيل تبدأ الحكاية
+      </h2>
 
       <p>
-        كل ما تحتاجه لتجربة مشروبات مميزة،
-        من الأدوات المختارة إلى الشاي والماتشا والبكجات.
+        أدوات القهوة والشاي المختصة وإكسسواراتها،
+        لمن يقدّر الحرفة والجمال في كل لحظة.
       </p>
 
       <a href="#categories" class="hero-btn">
-        اكتشف منتجاتنا
+        اكتشف مِداد
       </a>
+
     </div>
+
   </section>
 
 
-  <!-- Categories -->
+  <!-- ABOUT MIDAD -->
+
+  <section class="about" id="about">
+
+    <div class="about-box">
+
+      <div class="about-title">
+        مِداد
+      </div>
+
+      <div class="about-subtitle">
+        من الحبر يبدأ الأثر، ومن التفاصيل تبدأ الحكاية.
+      </div>
+
+      <p>
+        مِداد اسمٌ مستوحى من الكلمة العربية الأصيلة التي ارتبطت
+        بالكتابة والمعرفة، وبما يتركه الإنسان خلفه من أثر.
+        اخترنا الاسم لأننا نؤمن أن القهوة والشاي ليسا مجرد مشروب؛
+        بل تجربة تُصنع بتأنٍ، وتُحفظ تفاصيلها في الذاكرة.
+      </p>
+
+      <p>
+        في مِداد، نختار أدواتنا بعناية لمن يؤمن بأن لكل تفصيل قيمته؛
+        من أول حبة تُطحن، إلى آخر قطرة تُصب، ومن ملمس الأداة إلى شكل الكوب،
+        ومن لحظة التحضير إلى لحظة الاستمتاع.
+      </p>
+
+      <p>
+        نقدم أدوات القهوة والشاي المختصة وإكسسواراتها لمن يبحث
+        عن أكثر من الأداء؛ لمن يقدّر الحرفة، التفاصيل،
+        والجمال في كل لحظة.
+      </p>
+
+      <p class="about-ending">
+        مِداد — لأن التفاصيل هي التي تترك الأثر.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
   <section id="categories">
 
     <div class="section-title">
+
       <h2>أقسام مِداد</h2>
-      <p>اختار القسم اللي يناسبك</p>
+
+      <p>
+        اختيارات بعناية لعشاق التفاصيل
+      </p>
+
     </div>
 
     <div class="categories">
@@ -404,12 +562,18 @@
   </section>
 
 
-  <!-- Tea -->
+  <!-- TEA -->
+
   <section>
 
     <div class="section-title">
+
       <h2>قسم الشاي</h2>
-      <p>خيارات مختارة لعشاق الشاي</p>
+
+      <p>
+        خيارات مختارة لعشاق الشاي
+      </p>
+
     </div>
 
     <div class="products">
@@ -433,7 +597,7 @@
       </div>
 
       <div class="product">
-        <div class="product-icon">🍋</div>
+        <div class="product-icon">🫖</div>
         <h3>شاي منكّه</h3>
         <p>نكهات متنوعة لمحبي التجديد</p>
       </div>
@@ -443,12 +607,18 @@
   </section>
 
 
-  <!-- Matcha -->
+  <!-- MATCHA -->
+
   <section>
 
     <div class="section-title">
+
       <h2>قسم الماتشا</h2>
-      <p>مستلزمات وتجهيزات الماتشا</p>
+
+      <p>
+        مستلزمات وتجهيزات الماتشا
+      </p>
+
     </div>
 
     <div class="products">
@@ -482,12 +652,18 @@
   </section>
 
 
-  <!-- Coffee Tools -->
+  <!-- COFFEE TOOLS -->
+
   <section>
 
     <div class="section-title">
+
       <h2>مستلزمات القهوة</h2>
-      <p>أدوات أساسية لمحبي القهوة والتحضير المنزلي</p>
+
+      <p>
+        أدوات أساسية لمحبي القهوة والتحضير المنزلي
+      </p>
+
     </div>
 
     <div class="products">
@@ -539,19 +715,28 @@
   </section>
 
 
-  <!-- Bundles -->
-  <section id="bundles">
+  <!-- BUNDLES -->
+
+  <section class="bundle-section" id="bundles">
 
     <div class="section-title">
+
       <h2>بكجات مِداد 🎁</h2>
-      <p>تشكيلات جاهزة تجمع أكثر من منتج في باقة واحدة</p>
+
+      <p>
+        تشكيلات تجمع أكثر من منتج في باقة واحدة
+      </p>
+
     </div>
 
 
     <div class="bundle">
+
       <h3>☕ بكج القهوة للمبتدئين</h3>
 
-      <p>تشكيلة أساسية مناسبة للي حاب يبدأ عالم التحضير في البيت.</p>
+      <p>
+        تشكيلة أساسية مناسبة للي حاب يبدأ عالم التحضير في البيت.
+      </p>
 
       <ul>
         <li>ميزان</li>
@@ -559,13 +744,17 @@
         <li>بتشر</li>
         <li>شوت إسبريسو</li>
       </ul>
+
     </div>
 
 
     <div class="bundle">
+
       <h3>🍃 بكج الماتشا</h3>
 
-      <p>كل الأساسيات لتحضير الماتشا بطريقة جميلة.</p>
+      <p>
+        كل الأساسيات لتحضير الماتشا بطريقة جميلة.
+      </p>
 
       <ul>
         <li>ماتشا</li>
@@ -573,13 +762,17 @@
         <li>خفاقة ماتشا</li>
         <li>ملعقة ماتشا</li>
       </ul>
+
     </div>
 
 
     <div class="bundle">
+
       <h3>🍵 بكج عشاق الشاي</h3>
 
-      <p>تشكيلة مناسبة لمحبي الشاي وتجربة نكهات مختلفة.</p>
+      <p>
+        تشكيلة مناسبة لمحبي الشاي وتجربة نكهات مختلفة.
+      </p>
 
       <ul>
         <li>شاي أسود</li>
@@ -587,13 +780,17 @@
         <li>شاي أعشاب</li>
         <li>شاي منكّه</li>
       </ul>
+
     </div>
 
 
     <div class="bundle">
+
       <h3>🏠 بكج البيت</h3>
 
-      <p>مجموعة عملية لمحبي تجهيز المشروبات في المنزل.</p>
+      <p>
+        مجموعة عملية لمحبي تجهيز المشروبات في المنزل.
+      </p>
 
       <ul>
         <li>ميزان</li>
@@ -602,15 +799,19 @@
         <li>شوت إسبريسو</li>
         <li>فرشاة تنظيف المطحنة</li>
       </ul>
+
     </div>
 
   </section>
 
 
-  <!-- Contact -->
+  <!-- CONTACT -->
+
   <div class="contact" id="contact">
 
-    <h2>بدك تطلب أو تستفسر؟</h2>
+    <h2>
+      بدك تطلب أو تستفسر؟
+    </h2>
 
     <p>
       تواصل معنا مباشرة عبر واتساب
@@ -628,13 +829,27 @@
   </div>
 
 
-  <!-- Footer -->
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 مِداد | MIDAD — جميع الحقوق محفوظة</p>
+
+    <div class="footer-logo">
+      مِداد
+    </div>
+
+    <p>
+      لأن التفاصيل هي التي تترك الأثر.
+    </p>
+
+    <p>
+      © 2026 مِداد | MIDAD — جميع الحقوق محفوظة
+    </p>
+
   </footer>
 
 
-  <!-- Floating WhatsApp -->
+  <!-- FLOATING WHATSAPP -->
+
   <a
     class="floating-whatsapp"
     href="https://wa.me/962799563650"
