@@ -1,1394 +1,648 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>رشفة | مستلزمات القهوة</title>
+  <title>مِداد | MIDAD</title>
 
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:#0b0b0b;
-    color:#fff;
-    line-height:1.7;
-}
-
-:root{
-    --gold:#d4af37;
-    --gold-light:#f1d878;
-    --black:#0b0b0b;
-    --card:#151515;
-    --border:#2c2c2c;
-}
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(11,11,11,.96);
-    border-bottom:1px solid #292929;
-    backdrop-filter:blur(10px);
-}
-
-.navbar{
-    max-width:1200px;
-    margin:auto;
-    padding:14px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:var(--gold);
-    font-size:28px;
-    font-weight:bold;
-    text-decoration:none;
-}
-
-.logo-icon{
-    width:43px;
-    height:43px;
-    border:2px solid var(--gold);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:23px;
-}
-
-.nav-links{
-    display:flex;
-    gap:18px;
-    list-style:none;
-}
-
-.nav-links a{
-    color:#fff;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:var(--gold);
-}
-
-.cart-btn{
-    border:1px solid var(--gold);
-    background:transparent;
-    color:var(--gold);
-    padding:9px 14px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:15px;
-}
-
-.hero{
-    min-height:500px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:70px 20px;
-    background:
-        radial-gradient(circle at center,#241d0c 0%,#0b0b0b 55%);
-}
-
-.hero-content{
-    max-width:800px;
-}
-
-.hero h1{
-    color:var(--gold);
-    font-size:55px;
-    margin-bottom:12px;
-}
-
-.hero h2{
-    font-size:25px;
-    margin-bottom:15px;
-}
-
-.hero p{
-    color:#cfcfcf;
-    font-size:18px;
-    margin-bottom:28px;
-}
-
-.hero-btn{
-    display:inline-block;
-    background:var(--gold);
-    color:#000;
-    text-decoration:none;
-    padding:13px 28px;
-    border-radius:12px;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.hero-btn:hover{
-    background:var(--gold-light);
-    transform:translateY(-2px);
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:50px 20px;
-}
-
-.section{
-    margin-bottom:65px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.section-title h2{
-    color:var(--gold);
-    font-size:32px;
-    margin-bottom:5px;
-}
-
-.section-title p{
-    color:#aaa;
-}
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:18px;
-}
-
-.product{
-    background:linear-gradient(145deg,#181818,#101010);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:20px;
-    text-align:center;
-    transition:.3s;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    min-height:210px;
-}
-
-.product:hover{
-    border-color:var(--gold);
-    transform:translateY(-4px);
-    box-shadow:0 8px 25px rgba(212,175,55,.08);
-}
-
-.product-icon{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    margin:0 auto 15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#211b0c;
-    border:1px solid #66531d;
-    font-size:34px;
-}
-
-.product h3{
-    font-size:18px;
-    margin-bottom:15px;
-}
-
-.add-btn{
-    width:100%;
-    border:none;
-    background:var(--gold);
-    color:#000;
-    padding:10px;
-    border-radius:9px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.add-btn:hover{
-    background:var(--gold-light);
-}
-
-.search-box{
-    max-width:600px;
-    margin:0 auto 35px;
-}
-
-.search-box input{
-    width:100%;
-    padding:14px 18px;
-    border-radius:12px;
-    border:1px solid #333;
-    background:#151515;
-    color:#fff;
-    outline:none;
-}
-
-.search-box input:focus{
-    border-color:var(--gold);
-}
-
-.order-info{
-    background:#141414;
-    border:1px solid #292929;
-    border-radius:18px;
-    padding:25px;
-    margin-top:20px;
-}
-
-.order-info h3{
-    color:var(--gold);
-    margin-bottom:15px;
-}
-
-.country-select{
-    width:100%;
-    padding:13px;
-    background:#0d0d0d;
-    color:#fff;
-    border:1px solid #333;
-    border-radius:10px;
-    margin-top:10px;
-}
-
-.cart-overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.7);
-    z-index:1999;
-}
-
-.cart{
-    position:fixed;
-    top:0;
-    left:-430px;
-    width:400px;
-    max-width:92%;
-    height:100vh;
-    background:#111;
-    border-right:1px solid #333;
-    z-index:2000;
-    padding:25px;
-    transition:.35s;
-    overflow-y:auto;
-}
-
-.cart.open{
-    left:0;
-}
-
-.cart-overlay.show{
-    display:block;
-}
-
-.cart-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #292929;
-    padding-bottom:15px;
-    margin-bottom:20px;
-}
-
-.cart-header h2{
-    color:var(--gold);
-}
-
-.close-cart{
-    background:none;
-    border:none;
-    color:#fff;
-    font-size:25px;
-    cursor:pointer;
-}
-
-.cart-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    background:#181818;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:10px;
-}
-
-.cart-item-info{
-    flex:1;
-}
-
-.cart-item-info strong{
-    display:block;
-}
-
-.cart-item-info small{
-    color:#aaa;
-}
-
-.qty{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.qty button{
-    width:28px;
-    height:28px;
-    border-radius:7px;
-    border:1px solid #555;
-    background:#222;
-    color:#fff;
-    cursor:pointer;
-}
-
-.remove{
-    color:#e66;
-    background:none;
-    border:none;
-    cursor:pointer;
-}
-
-.empty{
-    color:#999;
-    text-align:center;
-    padding:30px 0;
-}
-
-.cart-count-box{
-    margin:20px 0;
-    padding:15px;
-    border:1px solid #333;
-    border-radius:10px;
-    color:#ccc;
-}
-
-.checkout{
-    margin-top:20px;
-}
-
-.checkout input,
-.checkout textarea{
-    width:100%;
-    margin-bottom:10px;
-    padding:12px;
-    background:#181818;
-    color:#fff;
-    border:1px solid #333;
-    border-radius:9px;
-    outline:none;
-}
-
-.checkout textarea{
-    resize:vertical;
-    min-height:80px;
-}
-
-.whatsapp{
-    width:100%;
-    border:none;
-    padding:13px;
-    border-radius:10px;
-    background:#25D366;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:16px;
-}
-
-footer{
-    border-top:1px solid #292929;
-    text-align:center;
-    padding:35px 20px;
-    color:#999;
-}
-
-footer strong{
-    color:var(--gold);
-}
-
-@media(max-width:700px){
-
-    .nav-links{
-        display:none;
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .hero h1{
-        font-size:42px;
+    body {
+      font-family: Arial, Tahoma, sans-serif;
+      background: #f3eadc;
+      color: #2d241d;
+      line-height: 1.7;
     }
 
-    .hero h2{
-        font-size:21px;
+    header {
+      background: #fffaf2;
+      padding: 22px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     }
 
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #8b6a45;
+      letter-spacing: 1px;
     }
 
-    .product{
-        padding:14px 10px;
-        min-height:195px;
+    .logo span {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #6f5841;
+      text-align: center;
+      direction: ltr;
     }
 
-    .product h3{
-        font-size:15px;
+    nav a {
+      text-decoration: none;
+      color: #3a2d22;
+      margin-right: 20px;
+      font-weight: bold;
+      font-size: 15px;
     }
 
-    .cart{
-        width:350px;
-    }
-}
-
-@media(max-width:420px){
-
-    .products{
-        grid-template-columns:1fr 1fr;
+    nav a:hover {
+      color: #a27b4f;
     }
 
-    .logo{
-        font-size:23px;
+    .hero {
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        linear-gradient(rgba(243,234,220,0.88), rgba(243,234,220,0.88)),
+        radial-gradient(circle at center, #fffaf2, #e7d5bc);
     }
 
-    .cart-btn{
-        padding:8px 10px;
-        font-size:13px;
+    .hero-content {
+      max-width: 800px;
     }
-}
-</style>
+
+    .hero h1 {
+      font-size: 58px;
+      color: #725436;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #3b2d22;
+    }
+
+    .hero p {
+      color: #705f4e;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #8b6a45;
+      color: white;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero-btn:hover {
+      background: #65492f;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 65px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: #6f5235;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #806d5a;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 20px;
+    }
+
+    .category {
+      background: #fffaf2;
+      padding: 30px 20px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(78,54,31,0.08);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .category:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(78,54,31,0.13);
+    }
+
+    .category .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .category h3 {
+      color: #5d432c;
+      font-size: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .product {
+      background: #fffaf2;
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 18px rgba(78,54,31,0.08);
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-icon {
+      width: 90px;
+      height: 90px;
+      margin: auto;
+      border-radius: 50%;
+      background: #ead9c2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      font-size: 19px;
+      color: #4f3926;
+      margin-bottom: 7px;
+    }
+
+    .product p {
+      color: #816e5b;
+      font-size: 14px;
+    }
+
+    .bundle {
+      background: #fffaf2;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 7px 25px rgba(78,54,31,0.09);
+      margin-bottom: 22px;
+      border: 1px solid #eadbc8;
+    }
+
+    .bundle h3 {
+      color: #715235;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .bundle p {
+      color: #756451;
+      margin-bottom: 12px;
+    }
+
+    .bundle ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bundle li {
+      padding: 5px 0;
+      color: #4d3b2b;
+    }
+
+    .bundle li::before {
+      content: "✓ ";
+      color: #967149;
+      font-weight: bold;
+    }
+
+    .contact {
+      background: #e6d4bb;
+      text-align: center;
+      border-radius: 30px;
+      margin: 40px 7%;
+      padding: 55px 20px;
+    }
+
+    .contact h2 {
+      color: #5e452f;
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
+
+    .contact p {
+      color: #725e49;
+      margin-bottom: 25px;
+    }
+
+    .whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #6d8f65;
+      color: white;
+      text-decoration: none;
+      padding: 14px 27px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .whatsapp:hover {
+      background: #55764f;
+      transform: scale(1.03);
+    }
+
+    footer {
+      background: #fffaf2;
+      text-align: center;
+      padding: 25px;
+      color: #796754;
+      border-top: 1px solid #e7d8c5;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      background: #6d8f65;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 27px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.18);
+      z-index: 2000;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 16px 5%;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 6px;
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero h2 {
+        font-size: 20px;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+
+      .contact {
+        margin: 25px 5%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <nav class="navbar">
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      مِداد
+      <span>MIDAD</span>
+    </div>
 
-        <a href="#" class="logo">
-            <span class="logo-icon">☕</span>
-            رشفة
-        </a>
-
-        <ul class="nav-links">
-            <li><a href="#coffee">القهوة</a></li>
-            <li><a href="#matcha">ماتشا</a></li>
-            <li><a href="#machines">ماكينات</a></li>
-            <li><a href="#capsules">كبسولات</a></li>
-            <li><a href="#accessories">أدوات</a></li>
-            <li><a href="#syrups">سربات</a></li>
-            <li><a href="#puree">بيوريه</a></li>
-        </ul>
-
-        <button class="cart-btn" onclick="openCart()">
-            🛒 السلة <span id="cartCount">0</span>
-        </button>
-
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">الأقسام</a>
+      <a href="#bundles">البكجات</a>
+      <a href="#contact">تواصل معنا</a>
     </nav>
-</header>
+  </header>
 
-<section class="hero">
 
+  <!-- Hero -->
+  <section class="hero" id="home">
     <div class="hero-content">
+      <h1>مِداد</h1>
+      <h2>مستلزمات القهوة والمشروبات</h2>
 
-        <h1>رشفة</h1>
+      <p>
+        كل ما تحتاجه لتجربة مشروبات مميزة،
+        من الأدوات المختارة إلى الشاي والماتشا والبكجات.
+      </p>
 
-        <h2>كل مستلزمات القهوة بمكان واحد ☕</h2>
+      <a href="#categories" class="hero-btn">
+        اكتشف منتجاتنا
+      </a>
+    </div>
+  </section>
 
-        <p>
-            قهوة، ماتشا، ماكينات، كبسولات، أدوات، سربات وبيوريه
-        </p>
 
-        <a href="#products" class="hero-btn">
-            تصفح المنتجات
-        </a>
+  <!-- Categories -->
+  <section id="categories">
+
+    <div class="section-title">
+      <h2>أقسام مِداد</h2>
+      <p>اختار القسم اللي يناسبك</p>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="icon">🍵</div>
+        <h3>الشاي</h3>
+      </div>
+
+      <div class="category">
+        <div class="icon">🍃</div>
+        <h3>الماتشا</h3>
+      </div>
+
+      <div class="category">
+        <div class="icon">⚖️</div>
+        <h3>مستلزمات القهوة</h3>
+      </div>
+
+      <div class="category">
+        <div class="icon">🎁</div>
+        <h3>البكجات</h3>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
-<main class="container" id="products">
 
-<div class="search-box">
-    <input
-        type="text"
-        id="search"
-        placeholder="🔎 ابحث عن المنتج..."
-        oninput="searchProducts()"
+  <!-- Tea -->
+  <section>
+
+    <div class="section-title">
+      <h2>قسم الشاي</h2>
+      <p>خيارات مختارة لعشاق الشاي</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-icon">🍵</div>
+        <h3>شاي أسود</h3>
+        <p>شاي أسود بطابع غني ومميز</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🌿</div>
+        <h3>شاي أخضر</h3>
+        <p>خيار منعش وخفيف</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🌸</div>
+        <h3>شاي أعشاب</h3>
+        <p>تشكيلة من النكهات العطرية</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🍋</div>
+        <h3>شاي منكّه</h3>
+        <p>نكهات متنوعة لمحبي التجديد</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Matcha -->
+  <section>
+
+    <div class="section-title">
+      <h2>قسم الماتشا</h2>
+      <p>مستلزمات وتجهيزات الماتشا</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-icon">🍃</div>
+        <h3>ماتشا</h3>
+        <p>ماتشا مختارة لعشاق الماتشا</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🥄</div>
+        <h3>ملعقة ماتشا</h3>
+        <p>أداة مناسبة لتحضير الماتشا</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🫖</div>
+        <h3>وعاء ماتشا</h3>
+        <p>وعاء مخصص للتحضير والتقديم</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🧹</div>
+        <h3>خفاقة ماتشا</h3>
+        <p>لتحضير ماتشا بقوام ناعم</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Coffee Tools -->
+  <section>
+
+    <div class="section-title">
+      <h2>مستلزمات القهوة</h2>
+      <p>أدوات أساسية لمحبي القهوة والتحضير المنزلي</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-icon">⚖️</div>
+        <h3>ميزان</h3>
+        <p>لوزن القهوة والماء بدقة</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🌡️</div>
+        <h3>ميزان حرارة</h3>
+        <p>لمراقبة درجة حرارة التحضير</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🗑️</div>
+        <h3>نوك بوكس</h3>
+        <p>لتفريغ بقايا القهوة بسهولة</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">☕</div>
+        <h3>بورتافلتر</h3>
+        <p>من مستلزمات تحضير الإسبريسو</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🥛</div>
+        <h3>بتشرات</h3>
+        <p>لتبخير وصب الحليب</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🧹</div>
+        <h3>فرشاة تنظيف المطحنة</h3>
+        <p>للمحافظة على نظافة المطحنة</p>
+      </div>
+
+      <div class="product">
+        <div class="product-icon">🥃</div>
+        <h3>شوت إسبريسو</h3>
+        <p>لتحضير وقياس شوت الإسبريسو</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Bundles -->
+  <section id="bundles">
+
+    <div class="section-title">
+      <h2>بكجات مِداد 🎁</h2>
+      <p>تشكيلات جاهزة تجمع أكثر من منتج في باقة واحدة</p>
+    </div>
+
+
+    <div class="bundle">
+      <h3>☕ بكج القهوة للمبتدئين</h3>
+
+      <p>تشكيلة أساسية مناسبة للي حاب يبدأ عالم التحضير في البيت.</p>
+
+      <ul>
+        <li>ميزان</li>
+        <li>بورتافلتر</li>
+        <li>بتشر</li>
+        <li>شوت إسبريسو</li>
+      </ul>
+    </div>
+
+
+    <div class="bundle">
+      <h3>🍃 بكج الماتشا</h3>
+
+      <p>كل الأساسيات لتحضير الماتشا بطريقة جميلة.</p>
+
+      <ul>
+        <li>ماتشا</li>
+        <li>وعاء ماتشا</li>
+        <li>خفاقة ماتشا</li>
+        <li>ملعقة ماتشا</li>
+      </ul>
+    </div>
+
+
+    <div class="bundle">
+      <h3>🍵 بكج عشاق الشاي</h3>
+
+      <p>تشكيلة مناسبة لمحبي الشاي وتجربة نكهات مختلفة.</p>
+
+      <ul>
+        <li>شاي أسود</li>
+        <li>شاي أخضر</li>
+        <li>شاي أعشاب</li>
+        <li>شاي منكّه</li>
+      </ul>
+    </div>
+
+
+    <div class="bundle">
+      <h3>🏠 بكج البيت</h3>
+
+      <p>مجموعة عملية لمحبي تجهيز المشروبات في المنزل.</p>
+
+      <ul>
+        <li>ميزان</li>
+        <li>ميزان حرارة</li>
+        <li>بتشر</li>
+        <li>شوت إسبريسو</li>
+        <li>فرشاة تنظيف المطحنة</li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+  <div class="contact" id="contact">
+
+    <h2>بدك تطلب أو تستفسر؟</h2>
+
+    <p>
+      تواصل معنا مباشرة عبر واتساب
+      وسيتم الرد عليك بأقرب وقت.
+    </p>
+
+    <a
+      class="whatsapp"
+      href="https://wa.me/962799563650"
+      target="_blank"
     >
-</div>
-
-
-<!-- القهوة -->
-
-<section class="section" id="coffee">
-
-<div class="section-title">
-    <h2>☕ القهوة</h2>
-    <p>اختيارات متنوعة لعشاق القهوة</p>
-</div>
-
-<div class="products">
-
-    <div class="product" data-name="قهوة تركية وسط بالهيل">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>قهوة تركية وسط بالهيل</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('قهوة تركية وسط بالهيل')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="قهوة تركية فاتحة بالهيل">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>قهوة تركية فاتحة بالهيل</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('قهوة تركية فاتحة بالهيل')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="قهوة تركية غامقة بالهيل">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>قهوة تركية غامقة بالهيل</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('قهوة تركية غامقة بالهيل')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="قهوة تركية وسط بدون هيل">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>قهوة تركية وسط بدون هيل</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('قهوة تركية وسط بدون هيل')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="قهوة لبنانية">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>قهوة لبنانية</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('قهوة لبنانية')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="فرنش بندق">
-        <div>
-            <div class="product-icon">🌰</div>
-            <h3>فرنش بندق</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('فرنش بندق')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="فرنش كراميل">
-        <div>
-            <div class="product-icon">🍯</div>
-            <h3>فرنش كراميل</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('فرنش كراميل')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="أمريكانو">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>أمريكانو</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('أمريكانو')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="إسبريسو">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>إسبريسو</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('إسبريسو')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="ديكاف">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>ديكاف</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('ديكاف')">اطلب الآن</button>
-    </div>
-
-</div>
-</section>
-
-
-<!-- ماتشا -->
-
-<section class="section" id="matcha">
-
-<div class="section-title">
-    <h2>🍵 الماتشا</h2>
-    <p>منتجات الماتشا لعشاق الطعم المميز</p>
-</div>
-
-<div class="products">
-
-    <div class="product" data-name="ماتشا">
-        <div>
-            <div class="product-icon">🍵</div>
-            <h3>ماتشا</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('ماتشا')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="ماتشا لاتيه">
-        <div>
-            <div class="product-icon">🍵</div>
-            <h3>ماتشا لاتيه</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('ماتشا لاتيه')">اطلب الآن</button>
-    </div>
-
-</div>
-</section>
-
-
-<!-- الماكينات -->
-
-<section class="section" id="machines">
-
-<div class="section-title">
-    <h2>⚙️ ماكينات القهوة</h2>
-    <p>ماكينات وتحضير القهوة</p>
-</div>
-
-<div class="products">
-
-    <div class="product" data-name="ماكينة إسبريسو">
-        <div>
-            <div class="product-icon">⚙️</div>
-            <h3>ماكينة إسبريسو</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('ماكينة إسبريسو')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="ماكينة قهوة">
-        <div>
-            <div class="product-icon">☕</div>
-            <h3>ماكينة قهوة</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('ماكينة قهوة')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="ماكينة كبسولات">
-        <div>
-            <div class="product-icon">⚙️</div>
-            <h3>ماكينة كبسولات</h3>
-        </div>
-        <button class="add-btn" onclick="addToCart('ماكينة كبسولات')">اطلب الآن</button>
-    </div>
-
-</div>
-</section>
-
-
-<!-- الكبسولات -->
-
-<section class="section" id="capsules">
-
-<div class="section-title">
-    <h2>🔴 كبسولات القهوة</h2>
-    <p>نكهات متنوعة</p>
-</div>
-
-<div class="products">
-
-    <div class="product" data-name="كبسولات كلاسيك">
-        <div><div class="product-icon">🔴</div><h3>كبسولات كلاسيك</h3></div>
-        <button class="add-btn" onclick="addToCart('كبسولات كلاسيك')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كبسولات كراميل">
-        <div><div class="product-icon">🍯</div><h3>كبسولات كراميل</h3></div>
-        <button class="add-btn" onclick="addToCart('كبسولات كراميل')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كبسولات بندق">
-        <div><div class="product-icon">🌰</div><h3>كبسولات بندق</h3></div>
-        <button class="add-btn" onclick="addToCart('كبسولات بندق')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كبسولات كولومبي">
-        <div><div class="product-icon">☕</div><h3>كبسولات كولومبي</h3></div>
-        <button class="add-btn" onclick="addToCart('كبسولات كولومبي')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كبسولات لونغو">
-        <div><div class="product-icon">☕</div><h3>كبسولات لونغو</h3></div>
-        <button class="add-btn" onclick="addToCart('كبسولات لونغو')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كبسولات ديكاف">
-        <div><div class="product-icon">☕</div><h3>كبسولات ديكاف</h3></div>
-        <button class="add-btn" onclick="addToCart('كبسولات ديكاف')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كبسولات فانيلا">
-        <div><div class="product-icon">🍦</div><h3>كبسولات فانيلا</h3></div>
-        <button class="add-btn" onclick="addToCart('كبسولات فانيلا')">اطلب الآن</button>
-    </div>
-
-</div>
-</section>
-
-
-<!-- الأدوات -->
-
-<section class="section" id="accessories">
-
-<div class="section-title">
-    <h2>🛠️ أدوات ومستلزمات القهوة</h2>
-    <p>كل الأدوات التي تحتاجها لتحضير قهوتك</p>
-</div>
-
-<div class="products">
-
-    <div class="product" data-name="ميزان القهوة">
-        <div><div class="product-icon">⚖️</div><h3>ميزان القهوة</h3></div>
-        <button class="add-btn" onclick="addToCart('ميزان القهوة')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="ميزان حرارة">
-        <div><div class="product-icon">🌡️</div><h3>ميزان حرارة</h3></div>
-        <button class="add-btn" onclick="addToCart('ميزان حرارة')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="نوك بوكس">
-        <div><div class="product-icon">🥊</div><h3>نوك بوكس</h3></div>
-        <button class="add-btn" onclick="addToCart('نوك بوكس')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بورتافلتر">
-        <div><div class="product-icon">☕</div><h3>بورتافلتر</h3></div>
-        <button class="add-btn" onclick="addToCart('بورتافلتر')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بتشر">
-        <div><div class="product-icon">🥛</div><h3>بتشر</h3></div>
-        <button class="add-btn" onclick="addToCart('بتشر')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="فرشاة تنظيف المطحنة">
-        <div><div class="product-icon">🧹</div><h3>فرشاة تنظيف المطحنة</h3></div>
-        <button class="add-btn" onclick="addToCart('فرشاة تنظيف المطحنة')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="شوت إسبريسو">
-        <div><div class="product-icon">🥃</div><h3>شوت إسبريسو</h3></div>
-        <button class="add-btn" onclick="addToCart('شوت إسبريسو')">اطلب الآن</button>
-    </div>
-
-</div>
-</section>
-
-
-<!-- السربات -->
-
-<section class="section" id="syrups">
-
-<div class="section-title">
-    <h2>🍯 السربات</h2>
-    <p>نكهات متنوعة للقهوة والمشروبات</p>
-</div>
-
-<div class="products">
-
-    <div class="product" data-name="كراميل عادي">
-        <div><div class="product-icon">🍯</div><h3>كراميل عادي</h3></div>
-        <button class="add-btn" onclick="addToCart('كراميل عادي')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كراميل شوقر فري">
-        <div><div class="product-icon">🍯</div><h3>كراميل شوقر فري</h3></div>
-        <button class="add-btn" onclick="addToCart('كراميل شوقر فري')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="فانيلا">
-        <div><div class="product-icon">🍦</div><h3>فانيلا</h3></div>
-        <button class="add-btn" onclick="addToCart('فانيلا')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="فانيلا شوقر فري">
-        <div><div class="product-icon">🍦</div><h3>فانيلا شوقر فري</h3></div>
-        <button class="add-btn" onclick="addToCart('فانيلا شوقر فري')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بندق">
-        <div><div class="product-icon">🌰</div><h3>بندق</h3></div>
-        <button class="add-btn" onclick="addToCart('بندق')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بندق شوقر فري">
-        <div><div class="product-icon">🌰</div><h3>بندق شوقر فري</h3></div>
-        <button class="add-btn" onclick="addToCart('بندق شوقر فري')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="سولتد كراميل">
-        <div><div class="product-icon">🍮</div><h3>سولتد كراميل</h3></div>
-        <button class="add-btn" onclick="addToCart('سولتد كراميل')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="خوخ">
-        <div><div class="product-icon">🍑</div><h3>خوخ</h3></div>
-        <button class="add-btn" onclick="addToCart('خوخ')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="باشن فروت">
-        <div><div class="product-icon">🥭</div><h3>باشن فروت</h3></div>
-        <button class="add-btn" onclick="addToCart('باشن فروت')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="فراولة">
-        <div><div class="product-icon">🍓</div><h3>فراولة</h3></div>
-        <button class="add-btn" onclick="addToCart('فراولة')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="كرز">
-        <div><div class="product-icon">🍒</div><h3>كرز</h3></div>
-        <button class="add-btn" onclick="addToCart('كرز')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="مانجا">
-        <div><div class="product-icon">🥭</div><h3>مانجا</h3></div>
-        <button class="add-btn" onclick="addToCart('مانجا')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بلو كرسو">
-        <div><div class="product-icon">🫐</div><h3>بلو كرسو</h3></div>
-        <button class="add-btn" onclick="addToCart('بلو كرسو')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="رمان">
-        <div><div class="product-icon">❤️</div><h3>رمان</h3></div>
-        <button class="add-btn" onclick="addToCart('رمان')">اطلب الآن</button>
-    </div>
-
-</div>
-</section>
-
-
-<!-- البيوريه -->
-
-<section class="section" id="puree">
-
-<div class="section-title">
-    <h2>🥭 البيوريه</h2>
-    <p>بيوريه الفواكه للمشروبات</p>
-</div>
-
-<div class="products">
-
-    <div class="product" data-name="بيوريه مانجا">
-        <div><div class="product-icon">🥭</div><h3>مانجا</h3></div>
-        <button class="add-btn" onclick="addToCart('بيوريه مانجا')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بيوريه باشن فروت">
-        <div><div class="product-icon">🥭</div><h3>باشن فروت</h3></div>
-        <button class="add-btn" onclick="addToCart('بيوريه باشن فروت')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بيوريه خوخ">
-        <div><div class="product-icon">🍑</div><h3>خوخ</h3></div>
-        <button class="add-btn" onclick="addToCart('بيوريه خوخ')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بيوريه فراولة">
-        <div><div class="product-icon">🍓</div><h3>فراولة</h3></div>
-        <button class="add-btn" onclick="addToCart('بيوريه فراولة')">اطلب الآن</button>
-    </div>
-
-    <div class="product" data-name="بيوريه بلوبري">
-        <div><div class="product-icon">🫐</div><h3>بلوبري</h3></div>
-        <button class="add-btn" onclick="addToCart('بيوريه بلوبري')">اطلب الآن</button>
-    </div>
-
-</div>
-</section>
-
-
-<!-- الدول -->
-
-<section class="section">
-
-<div class="section-title">
-    <h2>🌍 الطلب من دول الخليج</h2>
-    <p>اختر بلد التوصيل عند إتمام الطلب</p>
-</div>
-
-<div class="order-info">
-
-    <h3>الدول المتاحة في نموذج الطلب</h3>
-
-    <select id="country" class="country-select">
-
-        <option value="الأردن">🇯🇴 الأردن</option>
-
-        <option value="السعودية">🇸🇦 السعودية</option>
-
-        <option value="الإمارات">🇦🇪 الإمارات</option>
-
-        <option value="الكويت">🇰🇼 الكويت</option>
-
-        <option value="قطر">🇶🇦 قطر</option>
-
-        <option value="البحرين">🇧🇭 البحرين</option>
-
-        <option value="عُمان">🇴🇲 عُمان</option>
-
-    </select>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- السلة -->
-
-<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-
-<aside class="cart" id="cart">
-
-    <div class="cart-header">
-
-        <h2>🛒 سلة رشفة</h2>
-
-        <button class="close-cart" onclick="closeCart()">×</button>
-
-    </div>
-
-    <div id="cartItems"></div>
-
-    <div class="cart-count-box">
-        عدد المنتجات في السلة:
-        <strong id="cartTotalItems">0</strong>
-    </div>
-
-    <div class="checkout">
-
-        <input
-            type="text"
-            id="customerName"
-            placeholder="الاسم الكامل"
-        >
-
-        <input
-            type="tel"
-            id="customerPhone"
-            placeholder="رقم الهاتف"
-        >
-
-        <textarea
-            id="customerAddress"
-            placeholder="العنوان بالتفصيل"
-        ></textarea>
-
-        <button class="whatsapp" onclick="sendWhatsApp()">
-            💬 إرسال الطلب عبر واتساب
-        </button>
-
-    </div>
-
-</aside>
-
-
-<footer>
-
-    <p>
-        <strong>رشفة</strong> ☕
-    </p>
-
-    <p>
-        مستلزمات القهوة والمشروبات في مكان واحد
-    </p>
-
-    <p style="margin-top:10px;">
-        © 2026 RASHFA
-    </p>
-
-</footer>
-
-
-<script>
-
-let cart = JSON.parse(localStorage.getItem("rashfaCart")) || [];
-
-
-function saveCart(){
-
-    localStorage.setItem(
-        "rashfaCart",
-        JSON.stringify(cart)
-    );
-
-}
-
-
-function addToCart(name){
-
-    const existing = cart.find(
-        item => item.name === name
-    );
-
-    if(existing){
-
-        existing.qty++;
-
-    }else{
-
-        cart.push({
-            name:name,
-            qty:1
-        });
-
-    }
-
-    saveCart();
-
-    updateCart();
-
-    openCart();
-
-}
-
-
-function increase(name){
-
-    const item = cart.find(
-        item => item.name === name
-    );
-
-    if(item){
-
-        item.qty++;
-
-    }
-
-    saveCart();
-
-    updateCart();
-
-}
-
-
-function decrease(name){
-
-    const item = cart.find(
-        item => item.name === name
-    );
-
-    if(!item) return;
-
-    item.qty--;
-
-    if(item.qty <= 0){
-
-        cart = cart.filter(
-            x => x.name !== name
-        );
-
-    }
-
-    saveCart();
-
-    updateCart();
-
-}
-
-
-function removeItem(name){
-
-    cart = cart.filter(
-        item => item.name !== name
-    );
-
-    saveCart();
-
-    updateCart();
-
-}
-
-
-function updateCart(){
-
-    const container =
-        document.getElementById("cartItems");
-
-    const count =
-        cart.reduce(
-            (sum,item) => sum + item.qty,
-            0
-        );
-
-    document.getElementById("cartCount").textContent =
-        count;
-
-    document.getElementById("cartTotalItems").textContent =
-        count;
-
-
-    if(cart.length === 0){
-
-        container.innerHTML =
-            `<div class="empty">
-                السلة فارغة 🛒
-             </div>`;
-
-        return;
-
-    }
-
-
-    container.innerHTML = cart.map(item => `
-
-        <div class="cart-item">
-
-            <div class="cart-item-info">
-
-                <strong>${item.name}</strong>
-
-                <small>
-                    الكمية: ${item.qty}
-                </small>
-
-            </div>
-
-            <div class="qty">
-
-                <button onclick="increase('${escapeQuotes(item.name)}')">
-                    +
-                </button>
-
-                <span>${item.qty}</span>
-
-                <button onclick="decrease('${escapeQuotes(item.name)}')">
-                    −
-                </button>
-
-            </div>
-
-            <button
-                class="remove"
-                onclick="removeItem('${escapeQuotes(item.name)}')"
-            >
-                حذف
-            </button>
-
-        </div>
-
-    `).join("");
-
-}
-
-
-function escapeQuotes(text){
-
-    return text
-        .replace(/'/g,"\\'")
-        .replace(/"/g,'\\"');
-
-}
-
-
-function openCart(){
-
-    document
-        .getElementById("cart")
-        .classList.add("open");
-
-    document
-        .getElementById("cartOverlay")
-        .classList.add("show");
-
-}
-
-
-function closeCart(){
-
-    document
-        .getElementById("cart")
-        .classList.remove("open");
-
-    document
-        .getElementById("cartOverlay")
-        .classList.remove("show");
-
-}
-
-
-function sendWhatsApp(){
-
-    if(cart.length === 0){
-
-        alert("السلة فارغة. أضف المنتجات أولاً.");
-
-        return;
-
-    }
-
-
-    const name =
-        document
-        .getElementById("customerName")
-        .value
-        .trim();
-
-    const phone =
-        document
-        .getElementById("customerPhone")
-        .value
-        .trim();
-
-    const address =
-        document
-        .getElementById("customerAddress")
-        .value
-        .trim();
-
-    const country =
-        document
-        .getElementById("country")
-        .value;
-
-
-    if(!name || !phone || !address){
-
-        alert("يرجى تعبئة الاسم ورقم الهاتف والعنوان.");
-
-        return;
-
-    }
-
-
-    let message =
-        "☕ طلب جديد من متجر رشفة%0A%0A";
-
-
-    message +=
-        "👤 الاسم: " +
-        encodeURIComponent(name) +
-        "%0A";
-
-    message +=
-        "📱 الهاتف: " +
-        encodeURIComponent(phone) +
-        "%0A";
-
-    message +=
-        "🌍 الدولة: " +
-        encodeURIComponent(country) +
-        "%0A";
-
-    message +=
-        "📍 العنوان: " +
-        encodeURIComponent(address) +
-        "%0A%0A";
-
-
-    message +=
-        "🛒 المنتجات:%0A";
-
-
-    cart.forEach((item,index) => {
-
-        message +=
-            (index + 1) +
-            ". " +
-            encodeURIComponent(item.name) +
-            " × " +
-            item.qty +
-            "%0A";
-
-    });
-
-
-    message +=
-        "%0Aشكراً لاختياركم رشفة ☕";
-
-
-    const whatsappNumber =
-        "962799563650";
-
-
-    const url =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        message;
-
-
-    window.open(
-        url,
-        "_blank"
-    );
-
-}
-
-
-function searchProducts(){
-
-    const value =
-        document
-        .getElementById("search")
-        .value
-        .trim()
-        .toLowerCase();
-
-
-    document
-        .querySelectorAll(".product")
-        .forEach(product => {
-
-            const name =
-                product
-                .dataset
-                .name
-                .toLowerCase();
-
-
-            if(name.includes(value)){
-
-                product.style.display =
-                    "flex";
-
-            }else{
-
-                product.style.display =
-                    "none";
-
-            }
-
-        });
-
-}
-
-
-updateCart();
-
-</script>
+      💬 تواصل عبر واتساب
+    </a>
+
+  </div>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 مِداد | MIDAD — جميع الحقوق محفوظة</p>
+  </footer>
+
+
+  <!-- Floating WhatsApp -->
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/962799563650"
+    target="_blank"
+    aria-label="واتساب"
+  >
+    💬
+  </a>
 
 </body>
 </html>
