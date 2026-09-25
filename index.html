@@ -39,6 +39,12 @@
       backdrop-filter: blur(10px);
     }
 
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .logo {
       font-size: 31px;
       font-weight: bold;
@@ -57,10 +63,50 @@
       margin-top: 3px;
     }
 
+    /* COFFEE BEANS */
+
+    .beans {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transform: rotate(-12deg);
+    }
+
+    .bean {
+      width: 16px;
+      height: 24px;
+      background: #6d492c;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: inset 2px 2px 3px rgba(255,255,255,0.12);
+    }
+
+    .bean::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 17px;
+      background: #3f2819;
+      left: 7px;
+      top: 4px;
+      border-radius: 50%;
+      transform: rotate(18deg);
+    }
+
+    .bean:nth-child(2) {
+      transform: rotate(18deg) translateY(3px);
+      background: #795435;
+    }
+
+    .bean:nth-child(3) {
+      transform: rotate(-5deg) translateY(-2px);
+      background: #5e3d26;
+    }
+
     nav {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
     }
 
     nav a {
@@ -73,6 +119,43 @@
 
     nav a:hover {
       color: #a17a4f;
+    }
+
+    /* CART BUTTON */
+
+    .cart-button {
+      position: relative;
+      border: 1px solid #d7c4ab;
+      background: #fffaf2;
+      color: #60462e;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    .cart-button:hover {
+      background: #795a3d;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      left: -4px;
+      background: #8a6040;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
     }
 
     /* HERO */
@@ -260,7 +343,7 @@
       margin-top: 28px;
     }
 
-    /* WHY MIDAD */
+    /* WHY */
 
     .why {
       background: #eee1cf;
@@ -346,7 +429,6 @@
     .search-box {
       max-width: 650px;
       margin: 0 auto 35px;
-      position: relative;
     }
 
     .search-box input {
@@ -410,6 +492,7 @@
       box-shadow: 0 5px 18px rgba(78,54,31,0.08);
       transition: 0.3s;
       border: 1px solid #eee1d1;
+      position: relative;
     }
 
     .product:hover {
@@ -442,15 +525,25 @@
       margin-bottom: 15px;
     }
 
+    .product-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
     .product-btn {
       display: inline-block;
+      border: none;
       text-decoration: none;
       background: #795a3d;
       color: white;
-      padding: 8px 18px;
+      padding: 9px 18px;
       border-radius: 22px;
       font-size: 13px;
       font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
       transition: 0.3s;
     }
 
@@ -458,7 +551,25 @@
       background: #5d4028;
     }
 
-    /* NEW PRODUCTS */
+    .favorite-btn {
+      border: 1px solid #d8c4aa;
+      background: transparent;
+      color: #806348;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .favorite-btn:hover,
+    .favorite-btn.active {
+      background: #ead9c2;
+      color: #8b553d;
+    }
+
+    /* NEW */
 
     .new-section {
       background: #fffaf2;
@@ -526,12 +637,10 @@
       font-weight: bold;
     }
 
-    /* GLOBAL CTA */
+    /* CTA */
 
     .cta {
-      background:
-        linear-gradient(rgba(104,76,48,0.93), rgba(104,76,48,0.93)),
-        #765536;
+      background: #765536;
       color: white;
       text-align: center;
       padding: 65px 20px;
@@ -652,6 +761,154 @@
       transform: scale(1.08);
     }
 
+    /* CART PANEL */
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(45,31,20,0.45);
+      z-index: 3000;
+      display: none;
+    }
+
+    .cart-overlay.active {
+      display: block;
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: min(420px, 92%);
+      height: 100vh;
+      background: #fffaf2;
+      z-index: 4000;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
+      transition: 0.35s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.active {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 22px;
+      border-bottom: 1px solid #e5d5c0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h2 {
+      color: #63472f;
+    }
+
+    .close-cart {
+      border: none;
+      background: transparent;
+      font-size: 27px;
+      color: #72563d;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .empty-cart {
+      text-align: center;
+      color: #806d5a;
+      padding: 50px 15px;
+    }
+
+    .cart-item {
+      background: #f4ecdf;
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-item-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #ead9c2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-info h4 {
+      color: #523b27;
+      margin-bottom: 5px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quantity-controls button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #d2bea4;
+      background: #fffaf2;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #60462e;
+    }
+
+    .remove-item {
+      border: none;
+      background: transparent;
+      color: #a06d5d;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid #e5d5c0;
+    }
+
+    .cart-footer p {
+      text-align: center;
+      color: #806d5a;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      border: none;
+      background: #6d8f65;
+      color: white;
+      padding: 14px;
+      border-radius: 28px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .checkout-btn:hover {
+      background: #55764f;
+    }
+
     /* HIDDEN */
 
     .hidden {
@@ -687,13 +944,20 @@
     @media (max-width: 650px) {
 
       header {
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 12px;
+      }
+
+      .logo-area {
+        width: 100%;
+        justify-content: center;
       }
 
       nav {
         flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
       }
 
       .hero {
@@ -766,6 +1030,10 @@
       .hero-brand {
         letter-spacing: 5px;
       }
+
+      .beans {
+        transform: scale(0.8) rotate(-12deg);
+      }
     }
   </style>
 </head>
@@ -776,9 +1044,19 @@
 
   <header>
 
-    <div class="logo">
-      مِداد
-      <span>MIDAD</span>
+    <div class="logo-area">
+
+      <div class="logo">
+        مِداد
+        <span>MIDAD</span>
+      </div>
+
+      <div class="beans" aria-hidden="true">
+        <div class="bean"></div>
+        <div class="bean"></div>
+        <div class="bean"></div>
+      </div>
+
     </div>
 
     <nav>
@@ -788,6 +1066,11 @@
       <a href="#bundles">البكجات</a>
       <a href="#about">عن مِداد</a>
       <a href="#contact">تواصل</a>
+
+      <button class="cart-button" onclick="openCart()" aria-label="سلة الطلب">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
     </nav>
 
   </header>
@@ -923,7 +1206,7 @@
         <div class="why-icon">💬</div>
         <h3>طلب بسهولة</h3>
         <p>
-          تواصل معنا مباشرة عبر واتساب للاستفسار والطلب.
+          أضف منتجاتك للسلة وأرسل طلبك مباشرة عبر واتساب.
         </p>
       </div>
 
@@ -1005,17 +1288,15 @@
 
         <h3>ميزان قهوة</h3>
 
-        <p>
-          دقة أفضل لتحضير القهوة في المنزل.
-        </p>
+        <p>دقة أفضل لتحضير القهوة في المنزل.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20ميزان%20القهوة"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('ميزان قهوة','⚖️')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
 
       </div>
 
@@ -1028,17 +1309,15 @@
 
         <h3>مستلزمات ماتشا</h3>
 
-        <p>
-          أدوات تساعدك على تحضير الماتشا بطريقة جميلة.
-        </p>
+        <p>أدوات تساعدك على تحضير الماتشا بطريقة جميلة.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20مستلزمات%20الماتشا"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('مستلزمات ماتشا','🍃')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
 
       </div>
 
@@ -1051,17 +1330,15 @@
 
         <h3>بتشر</h3>
 
-        <p>
-          مناسب لتبخير وصب الحليب.
-        </p>
+        <p>مناسب لتبخير وصب الحليب.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20البتشر"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('بتشر','🥛')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
 
       </div>
 
@@ -1074,17 +1351,15 @@
 
         <h3>شوت إسبريسو</h3>
 
-        <p>
-          لتقديم وقياس شوت الإسبريسو.
-        </p>
+        <p>لتقديم وقياس شوت الإسبريسو.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20شوت%20الإسبريسو"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('شوت إسبريسو','🥃')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
 
       </div>
 
@@ -1093,7 +1368,7 @@
   </section>
 
 
-  <!-- SEARCH & FILTERS -->
+  <!-- SEARCH -->
 
   <section>
 
@@ -1166,55 +1441,68 @@
         <h3>شاي أسود</h3>
         <p>شاي أسود بطابع غني ومميز.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20الشاي%20الأسود"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('شاي أسود','🍵')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable tea">
         <div class="product-icon">🌿</div>
         <h3>شاي أخضر</h3>
         <p>خيار منعش وخفيف.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20الشاي%20الأخضر"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('شاي أخضر','🌿')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable tea">
         <div class="product-icon">🌸</div>
         <h3>شاي أعشاب</h3>
         <p>تشكيلة من النكهات العطرية.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20شاي%20الأعشاب"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('شاي أعشاب','🌸')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable tea">
         <div class="product-icon">🫖</div>
         <h3>شاي منكّه</h3>
         <p>نكهات متنوعة لمحبي التجديد.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20الشاي%20المنكه"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('شاي منكّه','🫖')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
+      </div>
+
+
+      <div class="product searchable tea">
+        <div class="product-icon">🌿</div>
+        <h3>شاي هيل وزعفران</h3>
+        <p>مزيج مميز لعشاق النكهة العربية.</p>
+
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('شاي هيل وزعفران','🌿')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
 
     </div>
@@ -1245,55 +1533,54 @@
         <h3>ماتشا</h3>
         <p>ماتشا مختارة لعشاق الماتشا.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20الماتشا"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('ماتشا','🍃')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable matcha">
         <div class="product-icon">🥄</div>
         <h3>ملعقة ماتشا</h3>
         <p>أداة مناسبة لتحضير الماتشا.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20ملعقة%20الماتشا"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('ملعقة ماتشا','🥄')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable matcha">
         <div class="product-icon">🫖</div>
         <h3>وعاء ماتشا</h3>
         <p>وعاء مخصص للتحضير والتقديم.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20وعاء%20الماتشا"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('وعاء ماتشا','🫖')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable matcha">
         <div class="product-icon">🧹</div>
         <h3>خفاقة ماتشا</h3>
         <p>لتحضير ماتشا بقوام ناعم.</p>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20خفاقة%20الماتشا"
-          target="_blank"
-        >
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('خفاقة ماتشا','🧹')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
 
     </div>
@@ -1324,83 +1611,96 @@
         <h3>ميزان</h3>
         <p>لوزن القهوة والماء بدقة.</p>
 
-        <a class="product-btn"
-           href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20الميزان"
-           target="_blank">
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('ميزان','⚖️')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable coffee">
         <div class="product-icon">🌡️</div>
         <h3>ميزان حرارة</h3>
         <p>لمراقبة درجة حرارة التحضير.</p>
 
-        <a class="product-btn"
-           href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20ميزان%20الحرارة"
-           target="_blank">
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('ميزان حرارة','🌡️')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable coffee">
         <div class="product-icon">🗑️</div>
         <h3>نوك بوكس</h3>
         <p>لتفريغ بقايا القهوة بسهولة.</p>
 
-        <a class="product-btn"
-           href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20النوك%20بوكس"
-           target="_blank">
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('نوك بوكس','🗑️')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable coffee">
         <div class="product-icon">☕</div>
         <h3>بورتافلتر</h3>
         <p>من مستلزمات تحضير الإسبريسو.</p>
 
-        <a class="product-btn"
-           href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20البورتافلتر"
-           target="_blank">
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('بورتافلتر','☕')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable coffee">
         <div class="product-icon">🥛</div>
         <h3>بتشرات</h3>
         <p>لتبخير وصب الحليب.</p>
 
-        <a class="product-btn"
-           href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20البتشرات"
-           target="_blank">
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('بتشرات','🥛')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable coffee">
         <div class="product-icon">🧹</div>
         <h3>فرشاة تنظيف المطحنة</h3>
         <p>للمحافظة على نظافة المطحنة.</p>
 
-        <a class="product-btn"
-           href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20فرشاة%20تنظيف%20المطحنة"
-           target="_blank">
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('فرشاة تنظيف المطحنة','🧹')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
+
 
       <div class="product searchable coffee">
         <div class="product-icon">🥃</div>
         <h3>شوت إسبريسو</h3>
         <p>لتحضير وقياس شوت الإسبريسو.</p>
 
-        <a class="product-btn"
-           href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20شوت%20الإسبريسو"
-           target="_blank">
-          اطلب الآن
-        </a>
+        <div class="product-actions">
+          <button class="product-btn" onclick="addToCart('شوت إسبريسو','🥃')">
+            أضف للسلة
+          </button>
+          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+        </div>
       </div>
 
     </div>
@@ -1427,7 +1727,6 @@
     <div class="bundle-grid">
 
       <div class="bundle">
-
         <h3>☕ بكج القهوة للمبتدئين</h3>
 
         <p>
@@ -1441,14 +1740,10 @@
           <li>شوت إسبريسو</li>
         </ul>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20بكج%20القهوة%20للمبتدئين"
-          target="_blank"
-        >
-          اطلب البكج
-        </a>
-
+        <button class="product-btn"
+          onclick="addBundleToCart('بكج القهوة للمبتدئين','☕')">
+          أضف البكج للسلة
+        </button>
       </div>
 
 
@@ -1467,13 +1762,10 @@
           <li>ملعقة ماتشا</li>
         </ul>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20بكج%20الماتشا"
-          target="_blank"
-        >
-          اطلب البكج
-        </a>
+        <button class="product-btn"
+          onclick="addBundleToCart('بكج الماتشا','🍃')">
+          أضف البكج للسلة
+        </button>
 
       </div>
 
@@ -1490,16 +1782,13 @@
           <li>شاي أسود</li>
           <li>شاي أخضر</li>
           <li>شاي أعشاب</li>
-          <li>شاي منكّه</li>
+          <li>شاي هيل وزعفران</li>
         </ul>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20بكج%20عشاق%20الشاي"
-          target="_blank"
-        >
-          اطلب البكج
-        </a>
+        <button class="product-btn"
+          onclick="addBundleToCart('بكج عشاق الشاي','🍵')">
+          أضف البكج للسلة
+        </button>
 
       </div>
 
@@ -1520,13 +1809,10 @@
           <li>فرشاة تنظيف المطحنة</li>
         </ul>
 
-        <a
-          class="product-btn"
-          href="https://wa.me/962799563650?text=مرحباً%20مِداد،%20أريد%20الاستفسار%20عن%20بكج%20البيت"
-          target="_blank"
-        >
-          اطلب البكج
-        </a>
+        <button class="product-btn"
+          onclick="addBundleToCart('بكج البيت','🏠')">
+          أضف البكج للسلة
+        </button>
 
       </div>
 
@@ -1544,16 +1830,12 @@
     </h2>
 
     <p>
-      اختر منتجاتك أو تواصل معنا مباشرة وساعدنا في اختيار ما يناسبك.
+      اختر منتجاتك وأضفها إلى السلة ثم أرسل طلبك مباشرة.
     </p>
 
-    <a
-      href="https://wa.me/962799563650"
-      target="_blank"
-      class="cta-btn"
-    >
-      تواصل مع مِداد
-    </a>
+    <button class="cta-btn" onclick="openCart()">
+      🛒 افتح سلة الطلب
+    </button>
 
   </section>
 
@@ -1616,28 +1898,290 @@
   </a>
 
 
+  <!-- CART -->
+
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+  <aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+
+      <h2>🛒 سلة الطلب</h2>
+
+      <button class="close-cart" onclick="closeCart()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+      <div class="empty-cart">
+        السلة فارغة حاليًا 🤎
+        <br>
+        اختر المنتجات التي تعجبك وأضفها للسلة.
+      </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+      <p>
+        لا توجد أسعار معروضة — سيتم تأكيد التفاصيل عبر واتساب.
+      </p>
+
+      <button class="checkout-btn" onclick="sendOrder()">
+        إرسال الطلب عبر واتساب
+      </button>
+
+    </div>
+
+  </aside>
+
+
   <!-- JAVASCRIPT -->
 
   <script>
 
-    function filterProducts(category, button) {
+    let cart = [];
 
-      const products = document.querySelectorAll(".searchable");
-      const buttons = document.querySelectorAll(".filter-btn");
 
-      buttons.forEach(btn => {
-        btn.classList.remove("active");
+    /* ADD PRODUCT */
+
+    function addToCart(name, icon) {
+
+      const existing = cart.find(item => item.name === name);
+
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({
+          name: name,
+          icon: icon,
+          quantity: 1
+        });
+      }
+
+      updateCart();
+
+      openCart();
+    }
+
+
+    /* ADD BUNDLE */
+
+    function addBundleToCart(name, icon) {
+
+      const existing = cart.find(item => item.name === name);
+
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({
+          name: name,
+          icon: icon,
+          quantity: 1
+        });
+      }
+
+      updateCart();
+
+      openCart();
+    }
+
+
+    /* UPDATE CART */
+
+    function updateCart() {
+
+      const cartItems = document.getElementById("cartItems");
+      const cartCount = document.getElementById("cartCount");
+
+      const totalQuantity = cart.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+
+      cartCount.textContent = totalQuantity;
+
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+          <div class="empty-cart">
+            السلة فارغة حاليًا 🤎
+            <br>
+            اختر المنتجات التي تعجبك وأضفها للسلة.
+          </div>
+        `;
+
+        return;
+      }
+
+
+      cartItems.innerHTML = cart.map((item, index) => {
+
+        return `
+          <div class="cart-item">
+
+            <div class="cart-item-icon">
+              ${item.icon}
+            </div>
+
+            <div class="cart-item-info">
+
+              <h4>${item.name}</h4>
+
+              <div class="quantity-controls">
+
+                <button onclick="changeQuantity(${index}, 1)">
+                  +
+                </button>
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+                <button onclick="changeQuantity(${index}, -1)">
+                  −
+                </button>
+
+              </div>
+
+            </div>
+
+            <button
+              class="remove-item"
+              onclick="removeFromCart(${index})"
+            >
+              🗑️
+            </button>
+
+          </div>
+        `;
+
+      }).join("");
+
+    }
+
+
+    /* CHANGE QUANTITY */
+
+    function changeQuantity(index, change) {
+
+      cart[index].quantity += change;
+
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+
+      updateCart();
+    }
+
+
+    /* REMOVE */
+
+    function removeFromCart(index) {
+
+      cart.splice(index, 1);
+
+      updateCart();
+    }
+
+
+    /* OPEN CART */
+
+    function openCart() {
+
+      document
+        .getElementById("cartPanel")
+        .classList.add("active");
+
+      document
+        .getElementById("cartOverlay")
+        .classList.add("active");
+
+    }
+
+
+    /* CLOSE CART */
+
+    function closeCart() {
+
+      document
+        .getElementById("cartPanel")
+        .classList.remove("active");
+
+      document
+        .getElementById("cartOverlay")
+        .classList.remove("active");
+
+    }
+
+
+    /* SEND ORDER */
+
+    function sendOrder() {
+
+      if (cart.length === 0) {
+
+        alert("السلة فارغة، أضف منتجًا أولًا 🤎");
+
+        return;
+      }
+
+
+      let message =
+        "مرحباً مِداد 🤎%0A%0A" +
+        "أرغب بطلب المنتجات التالية:%0A%0A";
+
+
+      cart.forEach(item => {
+
+        message +=
+          "• " +
+          item.name +
+          " — الكمية: " +
+          item.quantity +
+          "%0A";
+
       });
 
-      button.classList.add("active");
+
+      message +=
+        "%0Aأرجو تزويدي بتفاصيل الطلب والتوفر.";
+
+
+      const whatsappURL =
+        "https://wa.me/962799563650?text=" +
+        message;
+
+
+      window.open(whatsappURL, "_blank");
+
+    }
+
+
+    /* SEARCH */
+
+    function searchProducts() {
+
+      const input =
+        document.getElementById("searchInput");
+
+      const search =
+        input.value.trim().toLowerCase();
+
+      const products =
+        document.querySelectorAll(".searchable");
+
 
       products.forEach(product => {
 
-        if (category === "all") {
-          product.classList.remove("hidden");
-        }
+        const text =
+          product.innerText.toLowerCase();
 
-        else if (product.classList.contains(category)) {
+        if (text.includes(search)) {
           product.classList.remove("hidden");
         }
 
@@ -1650,26 +2194,63 @@
     }
 
 
-    function searchProducts() {
+    /* FILTER */
 
-      const input = document.getElementById("searchInput");
-      const search = input.value.trim().toLowerCase();
+    function filterProducts(category, button) {
 
-      const products = document.querySelectorAll(".searchable");
+      const products =
+        document.querySelectorAll(".searchable");
+
+      const buttons =
+        document.querySelectorAll(".filter-btn");
+
+
+      buttons.forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+
+      button.classList.add("active");
+
 
       products.forEach(product => {
 
-        const text = product.innerText.toLowerCase();
+        if (category === "all") {
 
-        if (text.includes(search)) {
           product.classList.remove("hidden");
+
+        }
+
+        else if (product.classList.contains(category)) {
+
+          product.classList.remove("hidden");
+
         }
 
         else {
+
           product.classList.add("hidden");
+
         }
 
       });
+
+    }
+
+
+    /* FAVORITES */
+
+    function toggleFavorite(button) {
+
+      button.classList.toggle("active");
+
+      if (button.classList.contains("active")) {
+        button.textContent = "♥️";
+      }
+
+      else {
+        button.textContent = "♡";
+      }
 
     }
 
