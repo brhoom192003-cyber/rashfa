@@ -3,26 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>مِداد | MIDAD</title>
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       font-family: Arial, Tahoma, sans-serif;
       background: #f4ecdf;
       color: #30271f;
       line-height: 1.8;
     }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
     /* =========================
-       COFFEE BEANS DECORATION
-       ديكور فقط - غير قابل للضغط
-    ========================== */
+       DECORATIVE COFFEE BEANS
+    ========================= */
+
     .coffee-decor {
       position: fixed;
       inset: 0;
@@ -30,17 +44,19 @@
       overflow: hidden;
       z-index: 1;
     }
+
     .decor-bean {
       position: absolute;
       width: 18px;
       height: 27px;
       background: #6d492c;
       border-radius: 50% 48% 52% 50%;
-      opacity: 0.45;
+      opacity: .45;
       box-shadow:
-        inset 2px 2px 3px rgba(255,255,255,0.12),
-        2px 4px 8px rgba(70,45,25,0.10);
+        inset 2px 2px 3px rgba(255,255,255,.12),
+        2px 4px 8px rgba(70,45,25,.10);
     }
+
     .decor-bean::after {
       content: "";
       position: absolute;
@@ -52,54 +68,23 @@
       border-radius: 50%;
       transform: rotate(18deg);
     }
-    .bean-1 {
-      top: 18%;
-      right: 3%;
-      transform: rotate(25deg);
-    }
-    .bean-2 {
-      top: 34%;
-      left: 2%;
-      transform: rotate(-35deg) scale(.8);
-    }
-    .bean-3 {
-      top: 48%;
-      right: 4%;
-      transform: rotate(55deg) scale(.75);
-    }
-    .bean-4 {
-      top: 63%;
-      left: 3%;
-      transform: rotate(-15deg) scale(1.1);
-    }
-    .bean-5 {
-      top: 78%;
-      right: 2%;
-      transform: rotate(-30deg) scale(.7);
-    }
-    .bean-6 {
-      top: 88%;
-      left: 6%;
-      transform: rotate(35deg) scale(.85);
-    }
-    .bean-7 {
-      top: 12%;
-      left: 7%;
-      transform: rotate(-20deg) scale(.65);
-    }
-    .bean-8 {
-      top: 55%;
-      left: 7%;
-      transform: rotate(45deg) scale(.55);
-    }
-    .bean-9 {
-      top: 73%;
-      right: 8%;
-      transform: rotate(-45deg) scale(.55);
-    }
-    /* HEADER */
+
+    .bean-1 { top:18%; right:3%; transform:rotate(25deg); }
+    .bean-2 { top:34%; left:2%; transform:rotate(-35deg) scale(.8); }
+    .bean-3 { top:48%; right:4%; transform:rotate(55deg) scale(.75); }
+    .bean-4 { top:63%; left:3%; transform:rotate(-15deg) scale(1.1); }
+    .bean-5 { top:78%; right:2%; transform:rotate(-30deg) scale(.7); }
+    .bean-6 { top:88%; left:6%; transform:rotate(35deg) scale(.85); }
+    .bean-7 { top:12%; left:7%; transform:rotate(-20deg) scale(.65); }
+    .bean-8 { top:55%; left:7%; transform:rotate(45deg) scale(.55); }
+    .bean-9 { top:73%; right:8%; transform:rotate(-45deg) scale(.55); }
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      background: rgba(255,250,242,0.97);
+      background: rgba(255,250,242,.97);
       padding: 17px 7%;
       display: flex;
       align-items: center;
@@ -107,825 +92,981 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 18px rgba(60,42,25,0.08);
+      box-shadow: 0 3px 18px rgba(70,50,30,.08);
       backdrop-filter: blur(10px);
     }
+
     .logo-area {
       display: flex;
       align-items: center;
       gap: 12px;
     }
+
     .logo {
       font-size: 31px;
       font-weight: bold;
       color: #765536;
-      letter-spacing: 1px;
-      line-height: 1.1;
     }
+
     .logo span {
       display: block;
       font-size: 10px;
       letter-spacing: 5px;
       color: #8d745c;
-      text-align: center;
       direction: ltr;
-      margin-top: 3px;
     }
+
+    .beans {
+      font-size: 25px;
+      opacity: .8;
+    }
+
     nav {
       display: flex;
-      align-items: center;
       gap: 20px;
+      align-items: center;
     }
+
     nav a {
-      text-decoration: none;
-      color: #3d3025;
-      font-weight: bold;
       font-size: 14px;
-      transition: 0.3s;
+      font-weight: bold;
+      color: #4c3a2b;
+      transition: .3s;
     }
+
     nav a:hover {
-      color: #a17a4f;
+      color: #9b7448;
     }
-    /* CART BUTTON */
+
     .cart-button {
-      position: relative;
-      border: 1px solid #d7c4ab;
-      background: #fffaf2;
-      color: #60462e;
       width: 45px;
       height: 45px;
       border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
-      transition: 0.3s;
-    }
-    .cart-button:hover {
+      border: none;
       background: #795a3d;
       color: white;
-      transform: translateY(-2px);
+      cursor: pointer;
+      font-size: 20px;
+      position: relative;
+      transition: .3s;
     }
+
+    .cart-button:hover {
+      transform: translateY(-2px);
+      background: #62472f;
+    }
+
     .cart-count {
       position: absolute;
       top: -5px;
-      left: -4px;
-      background: #8a6040;
-      color: white;
+      right: -4px;
       width: 20px;
       height: 20px;
       border-radius: 50%;
+      background: #a88455;
+      color: white;
       font-size: 11px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
     }
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
       min-height: 650px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 20px;
+      padding: 80px 7%;
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.75), transparent 28%),
-        radial-gradient(circle at 80% 70%, rgba(224,203,174,0.7), transparent 32%),
-        linear-gradient(135deg, #f7efe3, #ead9c0);
+        radial-gradient(circle at 20% 20%, rgba(168,132,85,.18), transparent 28%),
+        radial-gradient(circle at 80% 75%, rgba(121,90,61,.15), transparent 30%),
+        #f4ecdf;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 450px;
-      height: 450px;
-      border: 1px solid rgba(122,89,54,0.13);
-      border-radius: 50%;
-      top: -170px;
-      right: -120px;
-    }
+
+    .hero::before,
     .hero::after {
       content: "";
       position: absolute;
+      border: 1px solid rgba(121,90,61,.13);
+      border-radius: 50%;
+    }
+
+    .hero::before {
+      width: 430px;
+      height: 430px;
+      right: -170px;
+      top: -170px;
+    }
+
+    .hero::after {
       width: 330px;
       height: 330px;
-      border: 1px solid rgba(122,89,54,0.1);
-      border-radius: 50%;
-      bottom: -150px;
-      left: -100px;
+      left: -130px;
+      bottom: -130px;
     }
+
     .hero-content {
       max-width: 850px;
       position: relative;
       z-index: 2;
     }
+
     .small-label {
       display: inline-block;
-      color: #8a6947;
-      font-size: 13px;
-      letter-spacing: 3px;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #8d745c;
       margin-bottom: 12px;
       direction: ltr;
     }
+
     .hero h1 {
       font-size: 76px;
       color: #6f4e30;
-      margin-bottom: 0;
-      font-weight: 700;
+      margin-bottom: 5px;
     }
+
     .hero-brand {
       font-size: 13px;
       letter-spacing: 7px;
-      color: #987755;
+      color: #8d745c;
       direction: ltr;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
+
     .hero h2 {
       font-size: 28px;
-      color: #35281e;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
+      color: #403126;
     }
+
     .hero p {
-      color: #75624e;
       font-size: 17px;
       max-width: 650px;
-      margin: auto auto 30px;
+      margin: auto;
+      color: #6d5b49;
     }
+
     .hero-buttons {
+      margin-top: 30px;
       display: flex;
-      justify-content: center;
       gap: 12px;
+      justify-content: center;
       flex-wrap: wrap;
     }
+
     .hero-btn {
-      display: inline-block;
-      background: #7b5a39;
-      color: white;
-      text-decoration: none;
-      padding: 13px 30px;
+      padding: 12px 28px;
       border-radius: 30px;
       font-weight: bold;
-      transition: 0.3s;
+      transition: .3s;
     }
+
+    .hero-btn.main {
+      background: #795a3d;
+      color: white;
+    }
+
+    .hero-btn.secondary {
+      border: 1px solid #795a3d;
+      color: #795a3d;
+    }
+
     .hero-btn:hover {
-      background: #5d4028;
       transform: translateY(-3px);
     }
-    .hero-btn.secondary {
-      background: transparent;
-      color: #6e4e31;
-      border: 1px solid #a98a69;
-    }
-    .hero-btn.secondary:hover {
-      background: #fffaf2;
-    }
-    /* GENERAL */
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
     section {
       padding: 75px 7%;
       position: relative;
       z-index: 2;
     }
+
     .section-title {
       text-align: center;
       margin-bottom: 40px;
     }
+
     .section-title .mini {
-      color: #a17b53;
       font-size: 12px;
+      color: #a88455;
       letter-spacing: 3px;
       direction: ltr;
-      margin-bottom: 5px;
     }
+
     .section-title h2 {
       font-size: 34px;
-      color: #6f5134;
-      margin-bottom: 7px;
+      color: #4b3828;
+      margin: 5px 0;
     }
+
     .section-title p {
-      color: #806d5a;
+      color: #796957;
       font-size: 15px;
     }
-    /* ABOUT */
+
+    /* =========================
+       ABOUT
+    ========================= */
+
     .about {
       background: #fffaf2;
     }
-    .about-box {
-      max-width: 900px;
+
+    .about-content {
+      max-width: 850px;
       margin: auto;
       text-align: center;
     }
-    .about-title {
-      font-size: 42px;
-      color: #725436;
-      margin-bottom: 7px;
+
+    .about-content p {
+      font-size: 17px;
+      color: #655444;
+      margin-bottom: 14px;
+    }
+
+    .about-highlight {
+      font-size: 20px !important;
       font-weight: bold;
+      color: #795a3d !important;
     }
-    .about-subtitle {
-      font-size: 19px;
-      font-weight: bold;
-      color: #6f5235;
-      margin-bottom: 25px;
-    }
-    .about-box p {
-      color: #665646;
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-    .about-ending {
-      font-size: 21px !important;
-      font-weight: bold;
-      color: #725436 !important;
-      margin-top: 28px;
-    }
-    /* WHY */
+
+    /* =========================
+       WHY
+    ========================= */
+
     .why {
       background: #eee1cf;
     }
+
     .why-grid {
+      max-width: 1100px;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
+
     .why-card {
       background: #fffaf2;
-      padding: 30px 20px;
-      border-radius: 20px;
+      padding: 25px 18px;
+      border-radius: 18px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(78,54,31,0.07);
-      transition: 0.3s;
+      box-shadow: 0 8px 25px rgba(70,50,30,.06);
     }
-    .why-card:hover {
-      transform: translateY(-5px);
+
+    .why-card .icon {
+      font-size: 32px;
+      margin-bottom: 8px;
     }
-    .why-icon {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
+
     .why-card h3 {
-      color: #5d432c;
-      margin-bottom: 7px;
-      font-size: 19px;
+      font-size: 17px;
+      margin-bottom: 5px;
+      color: #513d2b;
     }
+
     .why-card p {
-      color: #806d5a;
-      font-size: 14px;
+      font-size: 13px;
+      color: #7a6856;
     }
-    /* CATEGORIES */
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
     .categories {
+      max-width: 1100px;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
-    .category {
+
+    .category-card {
       background: #fffaf2;
-      padding: 34px 20px;
-      border-radius: 20px;
+      padding: 30px 20px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(78,54,31,0.08);
-      transition: 0.3s;
+      border-radius: 20px;
+      border: 1px solid #e6d9c8;
       cursor: pointer;
-      border: 1px solid #eee1d1;
+      transition: .3s;
     }
-    .category:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 12px 28px rgba(78,54,31,0.13);
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(70,50,30,.09);
     }
-    .category .icon {
+
+    .category-card .category-icon {
       font-size: 42px;
       margin-bottom: 10px;
     }
-    .category h3 {
-      color: #5d432c;
-      font-size: 20px;
+
+    .category-card h3 {
+      color: #513d2b;
     }
-    .category p {
-      color: #806d5a;
-      font-size: 13px;
-      margin-top: 4px;
+
+    /* =========================
+       SECTION BANNERS
+    ========================= */
+
+    .section-banner {
+      max-width: 1100px;
+      height: 280px;
+      margin: 0 auto 35px;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(78,54,31,.12);
+      border: 1px solid #e5d5c0;
     }
-    /* SEARCH */
-    .search-box {
-      max-width: 650px;
+
+    .section-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(48,35,25,.68),
+        rgba(48,35,25,.10)
+      );
+    }
+
+    .section-banner-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .section-banner-content h3 {
+      font-size: 36px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+
+    .section-banner-content p {
+      font-size: 15px;
+      margin-top: 5px;
+      color: #f6eee3;
+    }
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search-area {
+      max-width: 1100px;
       margin: 0 auto 35px;
     }
+
+    .search-box {
+      background: #fffaf2;
+      border: 1px solid #e0d1bd;
+      border-radius: 18px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .search-box input {
       width: 100%;
-      padding: 15px 20px;
-      border: 1px solid #dbcab4;
-      border-radius: 30px;
-      background: #fffaf2;
-      color: #3d3025;
+      border: none;
       outline: none;
+      background: transparent;
+      font-family: inherit;
       font-size: 15px;
-      text-align: right;
+      color: #30271f;
     }
-    .search-box input:focus {
-      border-color: #9a7651;
-      box-shadow: 0 0 0 3px rgba(154,118,81,0.1);
-    }
-    /* FILTERS */
+
     .filters {
       display: flex;
       justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-bottom: 30px;
     }
+
     .filter-btn {
-      border: 1px solid #d6c3aa;
-      background: #fffaf2;
-      color: #60462e;
-      padding: 9px 18px;
+      border: 1px solid #cdb99f;
+      background: transparent;
+      color: #6d5844;
+      padding: 8px 18px;
       border-radius: 25px;
       cursor: pointer;
-      font-family: inherit;
-      transition: 0.3s;
+      transition: .3s;
     }
-    .filter-btn:hover,
-    .filter-btn.active {
+
+    .filter-btn.active,
+    .filter-btn:hover {
       background: #795a3d;
       color: white;
       border-color: #795a3d;
     }
-    /* PRODUCTS */
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
     .products {
+      max-width: 1100px;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
+      gap: 20px;
     }
+
     .product {
       background: #fffaf2;
+      padding: 15px;
       border-radius: 20px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 5px 18px rgba(78,54,31,0.08);
-      transition: 0.3s;
-      border: 1px solid #eee1d1;
+      border: 1px solid #e4d7c7;
       position: relative;
+      transition: .3s;
+      overflow: hidden;
     }
+
     .product:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(78,54,31,0.13);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(70,50,30,.10);
     }
-    .product-icon {
-      width: 95px;
-      height: 95px;
-      margin: auto;
-      border-radius: 50%;
-      background: #ead9c2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 43px;
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
       margin-bottom: 15px;
+      background: #eadbc7;
     }
+
     .product h3 {
-      font-size: 19px;
-      color: #4f3926;
+      font-size: 17px;
+      color: #4f3b2a;
       margin-bottom: 7px;
     }
+
     .product p {
-      color: #816e5b;
-      font-size: 14px;
-      margin-bottom: 15px;
+      font-size: 13px;
+      color: #7b6855;
+      min-height: 45px;
     }
+
     .product-actions {
       display: flex;
-      justify-content: center;
-      align-items: center;
       gap: 8px;
+      margin-top: 15px;
     }
-    .product-btn {
-      display: inline-block;
+
+    .add-btn {
+      flex: 1;
       border: none;
-      text-decoration: none;
       background: #795a3d;
       color: white;
-      padding: 9px 18px;
-      border-radius: 22px;
-      font-size: 13px;
+      padding: 10px;
+      border-radius: 12px;
+      cursor: pointer;
       font-weight: bold;
-      cursor: pointer;
-      font-family: inherit;
-      transition: 0.3s;
+      transition: .3s;
     }
-    .product-btn:hover {
-      background: #5d4028;
+
+    .add-btn:hover {
+      background: #62472f;
     }
+
     .favorite-btn {
-      border: 1px solid #d8c4aa;
+      width: 43px;
+      border: 1px solid #d5c4ae;
       background: transparent;
-      color: #806348;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
+      border-radius: 12px;
       cursor: pointer;
-      font-size: 18px;
-      transition: 0.3s;
+      font-size: 19px;
+      color: #795a3d;
     }
-    .favorite-btn:hover,
+
     .favorite-btn.active {
-      background: #ead9c2;
-      color: #8b553d;
+      background: #795a3d;
+      color: white;
     }
-    /* NEW */
+
+    /* =========================
+       NEW PRODUCTS
+    ========================= */
+
     .new-section {
       background: #fffaf2;
     }
-    .new-badge {
-      display: inline-block;
-      background: #d8c19f;
-      color: #60462e;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 11px;
-      margin-bottom: 10px;
-    }
-    /* BUNDLES */
+
+    /* =========================
+       BUNDLES
+    ========================= */
+
     .bundle-section {
       background: #eadbc7;
     }
+
     .bundle-grid {
+      max-width: 1100px;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
-    .bundle {
+
+    .bundle-card {
       background: #fffaf2;
+      padding: 15px;
       border-radius: 22px;
-      padding: 30px;
-      box-shadow: 0 7px 25px rgba(78,54,31,0.09);
-      border: 1px solid #e5d5c0;
-      transition: 0.3s;
+      border: 1px solid #ddcbb5;
+      box-shadow: 0 8px 25px rgba(70,50,30,.06);
     }
-    .bundle:hover {
-      transform: translateY(-5px);
+
+    .bundle-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 15px;
+      display: block;
     }
-    .bundle h3 {
-      color: #715235;
-      font-size: 23px;
-      margin-bottom: 10px;
+
+    .bundle-card h3 {
+      color: #4f3b2a;
+      margin-bottom: 8px;
+      font-size: 20px;
     }
-    .bundle p {
-      color: #756451;
-      margin-bottom: 12px;
+
+    .bundle-card p {
+      color: #725f4d;
+      font-size: 14px;
+      margin-bottom: 15px;
     }
-    .bundle ul {
-      list-style: none;
+
+    .bundle-list {
+      padding-right: 20px;
+      color: #665342;
+      font-size: 14px;
       margin-bottom: 18px;
     }
-    .bundle li {
-      padding: 5px 0;
-      color: #4d3b2b;
-    }
-    .bundle li::before {
-      content: "✓ ";
-      color: #967149;
+
+    .bundle-btn {
+      width: 100%;
+      border: none;
+      background: #795a3d;
+      color: white;
+      padding: 11px;
+      border-radius: 12px;
+      cursor: pointer;
       font-weight: bold;
     }
-    /* CTA */
+
+    /* =========================
+       CTA
+    ========================= */
+
     .cta {
-      background: #765536;
+      background: #30271f;
       color: white;
       text-align: center;
-      padding: 65px 20px;
     }
+
     .cta h2 {
-      font-size: 31px;
-      margin-bottom: 10px;
+      font-size: 32px;
+      margin-bottom: 8px;
     }
+
     .cta p {
-      color: #eadfce;
-      margin-bottom: 25px;
+      color: #d9cabb;
+      margin-bottom: 22px;
     }
+
     .cta-btn {
       display: inline-block;
-      background: #fffaf2;
-      color: #674a2f;
-      text-decoration: none;
-      padding: 13px 30px;
+      background: #a88455;
+      color: white;
+      padding: 12px 28px;
       border-radius: 30px;
       font-weight: bold;
-      transition: 0.3s;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
     }
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      background: white;
-    }
-    /* CONTACT */
+
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact {
-      background: #e4d1b6;
+      background: #f4ecdf;
       text-align: center;
-      border-radius: 30px;
-      margin: 55px 7%;
-      padding: 55px 20px;
-      position: relative;
-      z-index: 2;
     }
-    .contact h2 {
-      color: #5e452f;
-      margin-bottom: 10px;
-      font-size: 30px;
+
+    .contact-box {
+      max-width: 600px;
+      margin: auto;
     }
-    .contact p {
-      color: #725e49;
-      margin-bottom: 25px;
+
+    .contact-box p {
+      color: #6d5b49;
+      margin-bottom: 15px;
     }
-    .whatsapp {
+
+    .whatsapp-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: #6d8f65;
       color: white;
-      text-decoration: none;
-      padding: 14px 27px;
+      padding: 12px 25px;
       border-radius: 30px;
       font-weight: bold;
-      transition: 0.3s;
     }
-    .whatsapp:hover {
-      background: #55764f;
-      transform: scale(1.03);
-    }
-    /* FOOTER */
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
-      background: #fffaf2;
+      background: #241d18;
+      color: #cfc0b0;
       text-align: center;
-      padding: 30px;
-      color: #796754;
-      border-top: 1px solid #e7d8c5;
-      position: relative;
-      z-index: 2;
+      padding: 28px 7%;
+      font-size: 13px;
     }
-    .footer-logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: #8b6a45;
-      margin-bottom: 5px;
+
+    footer strong {
+      color: #eadbc7;
     }
-    .footer-brand {
-      direction: ltr;
-      letter-spacing: 5px;
-      font-size: 10px;
-      color: #9a8064;
-      margin-bottom: 8px;
-    }
-    /* FLOATING WHATSAPP */
+
+    /* =========================
+       FLOATING WHATSAPP
+    ========================= */
+
     .floating-whatsapp {
       position: fixed;
-      left: 20px;
-      bottom: 20px;
-      width: 58px;
-      height: 58px;
+      bottom: 22px;
+      left: 22px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
       background: #6d8f65;
       color: white;
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      font-size: 27px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.18);
+      font-size: 26px;
       z-index: 2000;
-      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
     }
-    .floating-whatsapp:hover {
-      transform: scale(1.08);
-    }
-    /* CART PANEL */
+
+    /* =========================
+       CART
+    ========================= */
+
     .cart-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(45,31,20,0.45);
+      background: rgba(30,20,15,.45);
       z-index: 3000;
       display: none;
     }
+
     .cart-overlay.active {
       display: block;
     }
+
     .cart-panel {
-      position: fixed;
+      position: absolute;
       top: 0;
-      right: -420px;
-      width: min(420px, 92%);
-      height: 100vh;
-      background: #fffaf2;
-      z-index: 4000;
-      box-shadow: -8px 0 30px rgba(0,0,0,0.15);
-      transition: 0.35s;
-      display: flex;
-      flex-direction: column;
-    }
-    .cart-panel.active {
       right: 0;
-    }
-    .cart-header {
-      padding: 22px;
-      border-bottom: 1px solid #e5d5c0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .cart-header h2 {
-      color: #63472f;
-    }
-    .close-cart {
-      border: none;
-      background: transparent;
-      font-size: 27px;
-      color: #72563d;
-      cursor: pointer;
-    }
-    .cart-items {
-      flex: 1;
+      width: min(430px, 100%);
+      height: 100%;
+      background: #fffaf2;
+      padding: 25px;
       overflow-y: auto;
-      padding: 20px;
+      box-shadow: -10px 0 30px rgba(0,0,0,.12);
     }
-    .empty-cart {
-      text-align: center;
-      color: #806d5a;
-      padding: 50px 15px;
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #e2d4c2;
     }
+
+    .cart-header h2 {
+      color: #4b3828;
+    }
+
+    .close-cart {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: #eadbc7;
+      cursor: pointer;
+      font-size: 20px;
+      color: #4f3b2a;
+    }
+
     .cart-item {
-      background: #f4ecdf;
-      border-radius: 16px;
-      padding: 14px;
-      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eadfd1;
     }
+
     .cart-item-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #ead9c2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 13px;
+      overflow: hidden;
       flex-shrink: 0;
+      background: #eadbc7;
     }
+
+    .cart-item-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .cart-item-info {
       flex: 1;
     }
-    .cart-item-info h4 {
-      color: #523b27;
-      margin-bottom: 5px;
+
+    .cart-item-info strong {
+      display: block;
+      font-size: 14px;
+      color: #4f3b2a;
     }
-    .quantity-controls {
+
+    .cart-item-info span {
+      font-size: 13px;
+      color: #806d5a;
+    }
+
+    .cart-quantity {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .quantity-controls button {
-      width: 28px;
-      height: 28px;
-      border: 1px solid #d2bea4;
-      background: #fffaf2;
-      border-radius: 50%;
-      cursor: pointer;
-      color: #60462e;
-    }
-    .remove-item {
+
+    .quantity-btn {
+      width: 27px;
+      height: 27px;
       border: none;
-      background: transparent;
-      color: #a06d5d;
+      border-radius: 8px;
+      background: #eadbc7;
+      color: #4f3b2a;
       cursor: pointer;
-      font-size: 18px;
     }
-    .cart-footer {
-      padding: 20px;
-      border-top: 1px solid #e5d5c0;
-    }
-    .cart-footer p {
+
+    .empty-cart {
       text-align: center;
       color: #806d5a;
-      font-size: 13px;
-      margin-bottom: 12px;
+      padding: 45px 10px;
     }
-    .checkout-btn {
+
+    .order-btn {
       width: 100%;
       border: none;
       background: #6d8f65;
       color: white;
       padding: 14px;
-      border-radius: 28px;
+      border-radius: 13px;
       cursor: pointer;
-      font-family: inherit;
       font-weight: bold;
+      margin-top: 20px;
       font-size: 15px;
     }
-    .checkout-btn:hover {
-      background: #55764f;
-    }
-    /* HIDDEN */
-    .hidden {
-      display: none !important;
-    }
-    /* MOBILE */
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
     @media (max-width: 900px) {
-      .categories,
-      .why-grid {
+
+      nav {
+        display: none;
+      }
+
+      .why-grid,
+      .categories {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .bundle-grid {
         grid-template-columns: 1fr;
       }
-      header {
-        padding: 16px 5%;
-      }
-      nav {
-        gap: 10px;
-      }
-      nav a {
-        font-size: 12px;
+
+      .hero h1 {
+        font-size: 60px;
       }
     }
+
     @media (max-width: 650px) {
+
       header {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
+        padding: 13px 5%;
       }
-      .logo-area {
-        width: 100%;
-        justify-content: center;
+
+      .logo {
+        font-size: 27px;
       }
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
+
+      .beans {
+        display: none;
       }
-      .hero {
-        min-height: 570px;
-        padding: 65px 18px;
-      }
-      .hero h1 {
-        font-size: 55px;
-      }
-      .hero h2 {
-        font-size: 22px;
-      }
-      .hero p {
-        font-size: 15px;
-      }
+
       section {
         padding: 55px 5%;
       }
+
+      .hero {
+        min-height: 580px;
+        padding: 60px 5%;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero h2 {
+        font-size: 23px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
       .section-title h2 {
         font-size: 29px;
       }
-      .about-title {
-        font-size: 35px;
+
+      .section-banner {
+        height: 210px;
+        margin-bottom: 25px;
       }
-      .about-box p {
-        font-size: 15px;
+
+      .section-banner-content h3 {
+        font-size: 28px;
       }
-      .categories,
-      .why-grid {
+
+      .section-banner-content p {
+        font-size: 13px;
+      }
+
+      .product-image {
+        height: 190px;
+      }
+
+      .why-grid,
+      .categories {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
-      .category {
-        padding: 25px 12px;
-      }
-      .category h3 {
-        font-size: 17px;
-      }
+
       .product {
-        padding: 22px 15px;
+        padding: 10px;
+        border-radius: 16px;
       }
-      .contact {
-        margin: 30px 5%;
+
+      .product-image {
+        height: 170px;
+        border-radius: 12px;
       }
-      .decor-bean {
-        opacity: 0.28;
+
+      .product h3 {
+        font-size: 14px;
+      }
+
+      .product p {
+        font-size: 12px;
+        min-height: 55px;
+      }
+
+      .add-btn {
+        font-size: 12px;
+        padding: 9px 5px;
+      }
+
+      .favorite-btn {
+        width: 38px;
+      }
+
+      .bundle-image {
+        height: 200px;
       }
     }
+
     @media (max-width: 430px) {
-      .categories,
-      .why-grid {
+
+      .hero h1 {
+        font-size: 46px;
+      }
+
+      .hero-brand {
+        letter-spacing: 4px;
+      }
+
+      .why-grid,
+      .categories {
         grid-template-columns: 1fr;
       }
-      .hero h1 {
-        font-size: 48px;
+
+      .products {
+        grid-template-columns: 1fr 1fr;
       }
-      .hero-brand {
-        letter-spacing: 5px;
+
+      .product-image {
+        height: 150px;
       }
-      .coffee-decor {
-        opacity: 0.8;
+
+      .floating-whatsapp {
+        width: 50px;
+        height: 50px;
+        left: 15px;
+        bottom: 15px;
       }
     }
   </style>
 </head>
+
 <body>
-  <!-- حبوب الإسبريسو - ديكور فقط -->
-  <div class="coffee-decor" aria-hidden="true">
+
+  <!-- Decorative beans -->
+  <div class="coffee-decor">
     <div class="decor-bean bean-1"></div>
     <div class="decor-bean bean-2"></div>
     <div class="decor-bean bean-3"></div>
@@ -936,802 +1077,1434 @@
     <div class="decor-bean bean-8"></div>
     <div class="decor-bean bean-9"></div>
   </div>
-  <!-- HEADER -->
+
+  <!-- Header -->
   <header>
+
     <div class="logo-area">
-      <div class="logo">
-        مِداد
+      <div>
+        <div class="logo">مِداد</div>
         <span>MIDAD</span>
       </div>
+
+      <div class="beans">☕</div>
     </div>
+
     <nav>
-      <a href="#home">الرئيسية</a>
-      <a href="#categories">الأقسام</a>
-      <a href="#new">وصل حديثًا</a>
-      <a href="#bundles">البكجات</a>
       <a href="#about">عن مِداد</a>
-      <a href="#contact">تواصل</a>
-      <button class="cart-button" onclick="openCart()" aria-label="سلة الطلب">
-        🛒
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
+      <a href="#categories">الأقسام</a>
+      <a href="#products">المنتجات</a>
+      <a href="#bundles">البكجات</a>
+      <a href="#contact">تواصل معنا</a>
     </nav>
+
+    <button class="cart-button" onclick="openCart()">
+      🛒
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
   </header>
-  <!-- HERO -->
-  <section class="hero" id="home">
+
+
+  <!-- Hero -->
+  <section class="hero">
+
     <div class="hero-content">
+
       <div class="small-label">
         MIDAD — COFFEE & TEA SUPPLIES
       </div>
+
       <h1>مِداد</h1>
+
       <div class="hero-brand">
-        MIDAD
+        M I D A D
       </div>
-      <h2>
-        من التفاصيل تبدأ الحكاية
-      </h2>
+
+      <h2>من التفاصيل تبدأ الحكاية</h2>
+
       <p>
-        أدوات القهوة والشاي والماتشا وإكسسواراتها،
-        مختارة لمن يقدّر الحرفة والجمال في كل لحظة.
+        كل ما تحتاجه لتجربة قهوة، شاي وماتشا أجمل،
+        اختيارات بعناية وتفاصيل تصنع الفرق.
       </p>
+
       <div class="hero-buttons">
-        <a href="#categories" class="hero-btn">
-          اكتشف مِداد
+        <a href="#products" class="hero-btn main">
+          استكشف المنتجات
         </a>
+
         <a href="#bundles" class="hero-btn secondary">
-          استكشف البكجات
+          اكتشف البكجات
         </a>
       </div>
+
     </div>
+
   </section>
-  <!-- ABOUT -->
+
+
+  <!-- About -->
   <section class="about" id="about">
-    <div class="about-box">
-      <div class="about-title">
-        مِداد
-      </div>
-      <div class="about-subtitle">
+
+    <div class="section-title">
+      <div class="mini">OUR STORY</div>
+      <h2>عن مِداد</h2>
+    </div>
+
+    <div class="about-content">
+
+      <p class="about-highlight">
         من الحبر يبدأ الأثر، ومن التفاصيل تبدأ الحكاية.
-      </div>
+      </p>
+
       <p>
         مِداد اسمٌ مستوحى من الكلمة العربية الأصيلة التي ارتبطت
         بالكتابة والمعرفة، وبما يتركه الإنسان خلفه من أثر.
-        اخترنا الاسم لأننا نؤمن أن القهوة والشاي ليسا مجرد مشروب؛
-        بل تجربة تُصنع بتأنٍ، وتُحفظ تفاصيلها في الذاكرة.
       </p>
+
       <p>
-        في مِداد، نختار أدواتنا بعناية لمن يؤمن بأن لكل تفصيل قيمته؛
-        من أول حبة تُطحن، إلى آخر قطرة تُصب، ومن ملمس الأداة إلى شكل الكوب،
-        ومن لحظة التحضير إلى لحظة الاستمتاع.
+        اخترنا الاسم لأننا نؤمن أن التفاصيل الصغيرة هي التي
+        تصنع التجربة الكبيرة؛ من اختيار الأداة إلى اللحظة التي
+        تستمتع فيها بمشروبك المفضل.
       </p>
-      <p>
-        نقدم أدوات القهوة والشاي والماتشا وإكسسواراتها لمن يبحث
-        عن أكثر من الأداء؛ لمن يقدّر الحرفة، التفاصيل،
-        والجمال في كل لحظة.
-      </p>
-      <p class="about-ending">
+
+      <p class="about-highlight">
         مِداد — لأن التفاصيل هي التي تترك الأثر.
       </p>
+
     </div>
+
   </section>
-  <!-- WHY MIDAD -->
+
+
+  <!-- Why MIDAD -->
   <section class="why">
+
     <div class="section-title">
       <div class="mini">WHY MIDAD</div>
-      <h2>لماذا مِداد؟</h2>
-      <p>
-        لأن التفاصيل الصغيرة تصنع التجربة الكبيرة.
-      </p>
+      <h2>ليش مِداد؟</h2>
+      <p>لأن التفاصيل الصغيرة تصنع الفرق.</p>
     </div>
+
     <div class="why-grid">
+
       <div class="why-card">
-        <div class="why-icon">✦</div>
+        <div class="icon">✨</div>
         <h3>اختيارات بعناية</h3>
-        <p>
-          نبحث عن المنتجات التي تجمع بين العملية والجمال.
-        </p>
+        <p>منتجات مختارة لتناسب احتياجاتك.</p>
       </div>
+
       <div class="why-card">
-        <div class="why-icon">☕</div>
-        <h3>لعشاق التفاصيل</h3>
-        <p>
-          كل ما تحتاجه لتجعل لحظة التحضير أكثر متعة.
-        </p>
+        <div class="icon">☕</div>
+        <h3>تجربة أجمل</h3>
+        <p>أدوات تساعدك تصنع مشروبك بطريقتك.</p>
       </div>
+
       <div class="why-card">
-        <div class="why-icon">🎁</div>
-        <h3>بكجات مميزة</h3>
-        <p>
-          تشكيلات تجمع لك أكثر من منتج في تجربة واحدة.
-        </p>
+        <div class="icon">📦</div>
+        <h3>بكجات متكاملة</h3>
+        <p>مجموعة أدوات مرتبة في خيار واحد.</p>
       </div>
+
       <div class="why-card">
-        <div class="why-icon">💬</div>
-        <h3>طلب بسهولة</h3>
-        <p>
-          أضف منتجاتك للسلة وأرسل طلبك مباشرة عبر واتساب.
-        </p>
+        <div class="icon">🤎</div>
+        <h3>تفاصيل مِداد</h3>
+        <p>هوية دافئة وبسيطة تهتم بكل تفصيلة.</p>
       </div>
+
     </div>
+
   </section>
-  <!-- CATEGORIES -->
+
+
+  <!-- Categories -->
   <section id="categories">
+
     <div class="section-title">
-      <div class="mini">COLLECTIONS</div>
-      <h2>أقسام مِداد</h2>
-      <p>
-        اختيارات بعناية لعشاق التفاصيل.
-      </p>
+      <div class="mini">CATEGORIES</div>
+      <h2>الأقسام</h2>
+      <p>اختار عالمك وابدأ رحلتك.</p>
     </div>
+
     <div class="categories">
-      <a href="#tea" class="category" style="text-decoration:none;">
-        <div class="icon">🍵</div>
+
+      <div class="category-card" onclick="scrollToSection('tea')">
+        <div class="category-icon">🍵</div>
         <h3>الشاي</h3>
-        <p>خيارات متنوعة لعشاق الشاي</p>
-      </a>
-      <a href="#matcha" class="category" style="text-decoration:none;">
-        <div class="icon">🍃</div>
+        <p>اختيارات متنوعة لمحبي الشاي.</p>
+      </div>
+
+      <div class="category-card" onclick="scrollToSection('matcha')">
+        <div class="category-icon">🍃</div>
         <h3>الماتشا</h3>
-        <p>مستلزمات وتجهيزات الماتشا</p>
-      </a>
-      <a href="#coffee-tools" class="category" style="text-decoration:none;">
-        <div class="icon">⚖️</div>
+        <p>كل ما تحتاجه لتجربة ماتشا مميزة.</p>
+      </div>
+
+      <div class="category-card" onclick="scrollToSection('coffee')">
+        <div class="category-icon">☕</div>
         <h3>مستلزمات القهوة</h3>
-        <p>أدوات التحضير والإكسسوارات</p>
-      </a>
-      <a href="#bundles" class="category" style="text-decoration:none;">
-        <div class="icon">🎁</div>
+        <p>أدوات القهوة الأساسية.</p>
+      </div>
+
+      <div class="category-card" onclick="scrollToSection('bundles')">
+        <div class="category-icon">🎁</div>
         <h3>البكجات</h3>
-        <p>تشكيلات جاهزة ومميزة</p>
-      </a>
+        <p>مجموعات مختارة بطريقة مميزة.</p>
+      </div>
+
     </div>
+
   </section>
-  <!-- NEW PRODUCTS -->
-  <section class="new-section" id="new">
-    <div class="section-title">
-      <div class="mini">NEW ARRIVALS</div>
-      <h2>وصل حديثًا</h2>
-      <p>
-        منتجات جديدة نضيفها إلى مجموعة مِداد.
-      </p>
-    </div>
-    <div class="products">
-      <div class="product">
-        <div class="new-badge">جديد</div>
-        <div class="product-icon">⚖️</div>
-        <h3>ميزان قهوة</h3>
-        <p>دقة أفضل لتحضير القهوة في المنزل.</p>
-        <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('ميزان قهوة','⚖️')">
-            أضف للسلة
-          </button>
-          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-        </div>
-      </div>
-      <div class="product">
-        <div class="new-badge">جديد</div>
-        <div class="product-icon">🍃</div>
-        <h3>مستلزمات ماتشا</h3>
-        <p>أدوات تساعدك على تحضير الماتشا بطريقة جميلة.</p>
-        <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('مستلزمات ماتشا','🍃')">
-            أضف للسلة
-          </button>
-          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-        </div>
-      </div>
-      <div class="product">
-        <div class="new-badge">جديد</div>
-        <div class="product-icon">🥛</div>
-        <h3>بتشر</h3>
-        <p>مناسب لتبخير وصب الحليب.</p>
-        <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('بتشر','🥛')">
-            أضف للسلة
-          </button>
-          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-        </div>
-      </div>
-      <div class="product">
-        <div class="new-badge">جديد</div>
-        <div class="product-icon">🥃</div>
-        <h3>شوت إسبريسو</h3>
-        <p>لتقديم وقياس شوت الإسبريسو.</p>
-        <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('شوت إسبريسو','🥃')">
-            أضف للسلة
-          </button>
-          <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- SEARCH -->
-  <section>
+
+
+  <!-- Products -->
+  <section class="new-section" id="products">
+
     <div class="section-title">
       <div class="mini">MIDAD COLLECTION</div>
-      <h2>اكتشف منتجات مِداد</h2>
-      <p>
-        ابحث عن المنتج الذي تحتاجه.
-      </p>
+      <h2>منتجات مِداد</h2>
+      <p>تفاصيل مختارة لعشاق القهوة والشاي والماتشا.</p>
     </div>
-    <div class="search-box">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="ابحث عن منتج... مثل ميزان أو ماتشا"
-        onkeyup="searchProducts()"
-      >
+
+    <div class="search-area">
+
+      <div class="search-box">
+        🔎
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="ابحث عن منتج..."
+          oninput="searchProducts()"
+        >
+      </div>
+
+      <div class="filters">
+
+        <button class="filter-btn active" onclick="filterProducts('all', this)">
+          الكل
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('tea', this)">
+          الشاي
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('matcha', this)">
+          الماتشا
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('coffee', this)">
+          القهوة
+        </button>
+
+      </div>
+
     </div>
-    <div class="filters">
-      <button class="filter-btn active" onclick="filterProducts('all', this)">
-        الكل
-      </button>
-      <button class="filter-btn" onclick="filterProducts('tea', this)">
-        الشاي
-      </button>
-      <button class="filter-btn" onclick="filterProducts('matcha', this)">
-        الماتشا
-      </button>
-      <button class="filter-btn" onclick="filterProducts('coffee', this)">
-        القهوة
-      </button>
+
+    <!-- New products -->
+    <div class="products">
+
+      <div class="product searchable" data-category="coffee">
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85"
+          alt="ميزان قهوة"
+          loading="lazy"
+        >
+
+        <h3>ميزان قهوة</h3>
+        <p>ميزان دقيق لتحضير القهوة باحتراف.</p>
+
+        <div class="product-actions">
+          <button class="add-btn" onclick="addToCart('ميزان قهوة', 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+            ♡
+          </button>
+        </div>
+      </div>
+
+
+      <div class="product searchable" data-category="matcha">
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=85"
+          alt="مستلزمات ماتشا"
+          loading="lazy"
+        >
+
+        <h3>مستلزمات ماتشا</h3>
+        <p>أدوات مختارة لتحضير الماتشا.</p>
+
+        <div class="product-actions">
+          <button class="add-btn" onclick="addToCart('مستلزمات ماتشا', 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=85')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+            ♡
+          </button>
+        </div>
+      </div>
+
+
+      <div class="product searchable" data-category="coffee">
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1572286258217-2c0e0c6d3b75?auto=format&fit=crop&w=900&q=85"
+          alt="بتشر"
+          loading="lazy"
+        >
+
+        <h3>بتشر</h3>
+        <p>بتشر أنيق لتحضير الحليب والمشروبات.</p>
+
+        <div class="product-actions">
+          <button class="add-btn" onclick="addToCart('بتشر', 'https://images.unsplash.com/photo-1572286258217-2c0e0c6d3b75?auto=format&fit=crop&w=900&q=85')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+            ♡
+          </button>
+        </div>
+      </div>
+
+
+      <div class="product searchable" data-category="coffee">
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=900&q=85"
+          alt="شوت إسبريسو"
+          loading="lazy"
+        >
+
+        <h3>شوت إسبريسو</h3>
+        <p>كوب مخصص لقياس وتقديم الإسبريسو.</p>
+
+        <div class="product-actions">
+          <button class="add-btn" onclick="addToCart('شوت إسبريسو', 'https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=900&q=85')">
+            أضف للسلة
+          </button>
+
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+            ♡
+          </button>
+        </div>
+      </div>
+
     </div>
+
   </section>
+
+
   <!-- TEA -->
   <section id="tea">
+
     <div class="section-title">
       <div class="mini">TEA</div>
-      <h2>قسم الشاي</h2>
-      <p>
-        خيارات مختارة لعشاق الشاي.
-      </p>
+      <h2>الشاي</h2>
+      <p>لحظات هادئة تبدأ من كوب شاي.</p>
     </div>
+
+    <div class="section-banner">
+
+      <img
+        src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1600&q=85"
+        alt="قسم الشاي"
+        loading="lazy"
+      >
+
+      <div class="section-banner-content">
+        <div>
+          <h3>عالم الشاي</h3>
+          <p>نكهات، تفاصيل وطقوس تستحق أن تعاش.</p>
+        </div>
+      </div>
+
+    </div>
+
+
     <div class="products">
-      <div class="product searchable tea">
-        <div class="product-icon">🍵</div>
+
+      <div class="product searchable" data-category="tea">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=900&q=85"
+          alt="شاي أسود"
+          loading="lazy"
+        >
+
         <h3>شاي أسود</h3>
-        <p>شاي أسود بطابع غني ومميز.</p>
+        <p>اختيار كلاسيكي لمحبي النكهة الغنية.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('شاي أسود','🍵')">
+          <button class="add-btn" onclick="addToCart('شاي أسود', 'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable tea">
-        <div class="product-icon">🌿</div>
+
+
+      <div class="product searchable" data-category="tea">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=900&q=85"
+          alt="شاي أخضر"
+          loading="lazy"
+        >
+
         <h3>شاي أخضر</h3>
-        <p>خيار منعش وخفيف.</p>
+        <p>طعم خفيف ومنعش لمحبي الشاي الأخضر.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('شاي أخضر','🌿')">
+          <button class="add-btn" onclick="addToCart('شاي أخضر', 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable tea">
-        <div class="product-icon">🌸</div>
+
+
+      <div class="product searchable" data-category="tea">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=900&q=85"
+          alt="شاي أعشاب"
+          loading="lazy"
+        >
+
         <h3>شاي أعشاب</h3>
-        <p>تشكيلة من النكهات العطرية.</p>
+        <p>خلطات عشبية مناسبة للأوقات الهادئة.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('شاي أعشاب','🌸')">
+          <button class="add-btn" onclick="addToCart('شاي أعشاب', 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable tea">
-        <div class="product-icon">🫖</div>
+
+
+      <div class="product searchable" data-category="tea">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=900&q=85"
+          alt="شاي منكّه"
+          loading="lazy"
+        >
+
         <h3>شاي منكّه</h3>
-        <p>نكهات متنوعة لمحبي التجديد.</p>
+        <p>نكهات متنوعة لعشاق التجارب المختلفة.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('شاي منكّه','🫖')">
+          <button class="add-btn" onclick="addToCart('شاي منكّه', 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable tea">
-        <div class="product-icon">🌿</div>
+
+
+      <div class="product searchable" data-category="tea">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=85"
+          alt="شاي هيل وزعفران"
+          loading="lazy"
+        >
+
         <h3>شاي هيل وزعفران</h3>
-        <p>مزيج مميز لعشاق النكهة العربية.</p>
+        <p>مزيج عربي فاخر بنكهة الهيل والزعفران.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('شاي هيل وزعفران','🌿')">
+          <button class="add-btn" onclick="addToCart('شاي هيل وزعفران', 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
+
     </div>
+
   </section>
+
+
   <!-- MATCHA -->
   <section id="matcha" class="new-section">
+
     <div class="section-title">
       <div class="mini">MATCHA</div>
-      <h2>قسم الماتشا</h2>
-      <p>
-        مستلزمات وتجهيزات الماتشا.
-      </p>
+      <h2>الماتشا</h2>
+      <p>طقوس الماتشا بكل تفاصيلها.</p>
     </div>
+
+    <div class="section-banner">
+
+      <img
+        src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=1600&q=85"
+        alt="قسم الماتشا"
+        loading="lazy"
+      >
+
+      <div class="section-banner-content">
+        <div>
+          <h3>طقوس الماتشا</h3>
+          <p>أدوات مختارة لتجربة ماتشا متكاملة.</p>
+        </div>
+      </div>
+
+    </div>
+
+
     <div class="products">
-      <div class="product searchable matcha">
-        <div class="product-icon">🍃</div>
+
+      <div class="product searchable" data-category="matcha">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=85"
+          alt="ماتشا"
+          loading="lazy"
+        >
+
         <h3>ماتشا</h3>
-        <p>ماتشا مختارة لعشاق الماتشا.</p>
+        <p>ماتشا مختارة لعشاق الطعم الأصيل.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('ماتشا','🍃')">
+          <button class="add-btn" onclick="addToCart('ماتشا', 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable matcha">
-        <div class="product-icon">🥄</div>
+
+
+      <div class="product searchable" data-category="matcha">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=900&q=85"
+          alt="ملعقة ماتشا"
+          loading="lazy"
+        >
+
         <h3>ملعقة ماتشا</h3>
-        <p>أداة مناسبة لتحضير الماتشا.</p>
+        <p>ملعقة تقليدية لقياس الماتشا.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('ملعقة ماتشا','🥄')">
+          <button class="add-btn" onclick="addToCart('ملعقة ماتشا', 'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable matcha">
-        <div class="product-icon">🫖</div>
+
+
+      <div class="product searchable" data-category="matcha">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1582793988951-9aed5509eb97?auto=format&fit=crop&w=900&q=85"
+          alt="وعاء ماتشا"
+          loading="lazy"
+        >
+
         <h3>وعاء ماتشا</h3>
-        <p>وعاء مخصص للتحضير والتقديم.</p>
+        <p>وعاء مناسب لتحضير الماتشا بطريقة مميزة.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('وعاء ماتشا','🫖')">
+          <button class="add-btn" onclick="addToCart('وعاء ماتشا', 'https://images.unsplash.com/photo-1582793988951-9aed5509eb97?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable matcha">
-        <div class="product-icon">🧹</div>
+
+
+      <div class="product searchable" data-category="matcha">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=900&q=85"
+          alt="خفاقة ماتشا"
+          loading="lazy"
+        >
+
         <h3>خفاقة ماتشا</h3>
-        <p>لتحضير ماتشا بقوام ناعم.</p>
+        <p>خفاقة تساعد على تحضير ماتشا ناعمة ومتجانسة.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('خفاقة ماتشا','🧹')">
+          <button class="add-btn" onclick="addToCart('خفاقة ماتشا', 'https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
+
     </div>
+
   </section>
+
+
   <!-- COFFEE TOOLS -->
-  <section id="coffee-tools">
+  <section id="coffee">
+
     <div class="section-title">
       <div class="mini">COFFEE TOOLS</div>
       <h2>مستلزمات القهوة</h2>
-      <p>
-        أدوات أساسية لمحبي القهوة والتحضير المنزلي.
-      </p>
+      <p>الأدوات التي تكمل تجربة القهوة.</p>
     </div>
+
+    <div class="section-banner">
+
+      <img
+        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=85"
+        alt="مستلزمات القهوة"
+        loading="lazy"
+      >
+
+      <div class="section-banner-content">
+        <div>
+          <h3>أدوات القهوة</h3>
+          <p>كل تفصيلة تصنع كوبك بطريقتك.</p>
+        </div>
+      </div>
+
+    </div>
+
+
     <div class="products">
-      <div class="product searchable coffee">
-        <div class="product-icon">⚖️</div>
+
+      <div class="product searchable" data-category="coffee">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85"
+          alt="ميزان"
+          loading="lazy"
+        >
+
         <h3>ميزان</h3>
         <p>لوزن القهوة والماء بدقة.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('ميزان','⚖️')">
+          <button class="add-btn" onclick="addToCart('ميزان', 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable coffee">
-        <div class="product-icon">🌡️</div>
+
+
+      <div class="product searchable" data-category="coffee">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=85"
+          alt="ميزان حرارة"
+          loading="lazy"
+        >
+
         <h3>ميزان حرارة</h3>
-        <p>لمراقبة درجة حرارة التحضير.</p>
+        <p>لضبط درجة حرارة المشروبات.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('ميزان حرارة','🌡️')">
+          <button class="add-btn" onclick="addToCart('ميزان حرارة', 'https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable coffee">
-        <div class="product-icon">🗑️</div>
+
+
+      <div class="product searchable" data-category="coffee">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=85"
+          alt="نوك بوكس"
+          loading="lazy"
+        >
+
         <h3>نوك بوكس</h3>
-        <p>لتفريغ بقايا القهوة بسهولة.</p>
+        <p>حل عملي وأنيق للتخلص من بقايا القهوة.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('نوك بوكس','🗑️')">
+          <button class="add-btn" onclick="addToCart('نوك بوكس', 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable coffee">
-        <div class="product-icon">☕</div>
+
+
+      <div class="product searchable" data-category="coffee">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=900&q=85"
+          alt="بورتافلتر"
+          loading="lazy"
+        >
+
         <h3>بورتافلتر</h3>
-        <p>من مستلزمات تحضير الإسبريسو.</p>
+        <p>أداة أساسية لمحبي الإسبريسو.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('بورتافلتر','☕')">
+          <button class="add-btn" onclick="addToCart('بورتافلتر', 'https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable coffee">
-        <div class="product-icon">🥛</div>
+
+
+      <div class="product searchable" data-category="coffee">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=900&q=85"
+          alt="بتشرات"
+          loading="lazy"
+        >
+
         <h3>بتشرات</h3>
-        <p>لتبخير وصب الحليب.</p>
+        <p>مجموعة بتشرات بأشكال عملية وأنيقة.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('بتشرات','🥛')">
+          <button class="add-btn" onclick="addToCart('بتشرات', 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable coffee">
-        <div class="product-icon">🧹</div>
+
+
+      <div class="product searchable" data-category="coffee">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?auto=format&fit=crop&w=900&q=85"
+          alt="فرشاة تنظيف المطحنة"
+          loading="lazy"
+        >
+
         <h3>فرشاة تنظيف المطحنة</h3>
-        <p>للمحافظة على نظافة المطحنة.</p>
+        <p>للمحافظة على نظافة المطحنة والأدوات.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('فرشاة تنظيف المطحنة','🧹')">
+          <button class="add-btn" onclick="addToCart('فرشاة تنظيف المطحنة', 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
-      <div class="product searchable coffee">
-        <div class="product-icon">🥃</div>
+
+
+      <div class="product searchable" data-category="coffee">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=900&q=85"
+          alt="شوت إسبريسو"
+          loading="lazy"
+        >
+
         <h3>شوت إسبريسو</h3>
-        <p>لتحضير وقياس شوت الإسبريسو.</p>
+        <p>كوب أنيق لتقديم وقياس الإسبريسو.</p>
+
         <div class="product-actions">
-          <button class="product-btn" onclick="addToCart('شوت إسبريسو','🥃')">
+          <button class="add-btn" onclick="addToCart('شوت إسبريسو', 'https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=900&q=85')">
             أضف للسلة
           </button>
+
           <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
         </div>
+
       </div>
+
     </div>
+
   </section>
+
+
   <!-- BUNDLES -->
   <section class="bundle-section" id="bundles">
+
     <div class="section-title">
       <div class="mini">MIDAD BUNDLES</div>
-      <h2>بكجات مِداد 🎁</h2>
-      <p>
-        تشكيلات تجمع أكثر من منتج في باقة واحدة.
-      </p>
+      <h2>البكجات</h2>
+      <p>اختيارات جاهزة تجمع لك التفاصيل في مكان واحد.</p>
     </div>
+
+    <div class="section-banner">
+
+      <img
+        src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=1600&q=85"
+        alt="بكجات مِداد"
+        loading="lazy"
+      >
+
+      <div class="section-banner-content">
+        <div>
+          <h3>بكجات مِداد</h3>
+          <p>هدية جميلة أو بداية جديدة لتجربتك.</p>
+        </div>
+      </div>
+
+    </div>
+
+
     <div class="bundle-grid">
-      <div class="bundle">
+
+      <!-- Bundle 1 -->
+      <div class="bundle-card">
+
+        <img
+          class="bundle-image"
+          src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=85"
+          alt="بكج القهوة للمبتدئين"
+          loading="lazy"
+        >
+
         <h3>☕ بكج القهوة للمبتدئين</h3>
+
         <p>
-          تشكيلة أساسية مناسبة للي حاب يبدأ عالم التحضير في البيت.
+          كل الأدوات الأساسية لبداية مرتبة.
         </p>
-        <ul>
+
+        <ul class="bundle-list">
           <li>ميزان</li>
           <li>بورتافلتر</li>
           <li>بتشر</li>
           <li>شوت إسبريسو</li>
         </ul>
-        <button class="product-btn"
-          onclick="addBundleToCart('بكج القهوة للمبتدئين','☕')">
+
+        <button
+          class="bundle-btn"
+          onclick="addBundleToCart(
+            'بكج القهوة للمبتدئين',
+            'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=85'
+          )"
+        >
           أضف البكج للسلة
         </button>
+
       </div>
-      <div class="bundle">
+
+
+      <!-- Bundle 2 -->
+      <div class="bundle-card">
+
+        <img
+          class="bundle-image"
+          src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=1200&q=85"
+          alt="بكج الماتشا"
+          loading="lazy"
+        >
+
         <h3>🍃 بكج الماتشا</h3>
+
         <p>
-          كل الأساسيات لتحضير الماتشا بطريقة جميلة.
+          كل ما تحتاجه لطقوس ماتشا متكاملة.
         </p>
-        <ul>
+
+        <ul class="bundle-list">
           <li>ماتشا</li>
           <li>وعاء ماتشا</li>
           <li>خفاقة ماتشا</li>
           <li>ملعقة ماتشا</li>
         </ul>
-        <button class="product-btn"
-          onclick="addBundleToCart('بكج الماتشا','🍃')">
+
+        <button
+          class="bundle-btn"
+          onclick="addBundleToCart(
+            'بكج الماتشا',
+            'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=1200&q=85'
+          )"
+        >
           أضف البكج للسلة
         </button>
+
       </div>
-      <div class="bundle">
+
+
+      <!-- Bundle 3 -->
+      <div class="bundle-card">
+
+        <img
+          class="bundle-image"
+          src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=85"
+          alt="بكج عشاق الشاي"
+          loading="lazy"
+        >
+
         <h3>🍵 بكج عشاق الشاي</h3>
+
         <p>
-          تشكيلة مناسبة لمحبي الشاي وتجربة نكهات مختلفة.
+          مجموعة متنوعة لمحبي الشاي.
         </p>
-        <ul>
+
+        <ul class="bundle-list">
           <li>شاي أسود</li>
           <li>شاي أخضر</li>
           <li>شاي أعشاب</li>
           <li>شاي هيل وزعفران</li>
         </ul>
-        <button class="product-btn"
-          onclick="addBundleToCart('بكج عشاق الشاي','🍵')">
+
+        <button
+          class="bundle-btn"
+          onclick="addBundleToCart(
+            'بكج عشاق الشاي',
+            'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=85'
+          )"
+        >
           أضف البكج للسلة
         </button>
+
       </div>
-      <div class="bundle">
+
+
+      <!-- Bundle 4 -->
+      <div class="bundle-card">
+
+        <img
+          class="bundle-image"
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85"
+          alt="بكج البيت"
+          loading="lazy"
+        >
+
         <h3>🏠 بكج البيت</h3>
+
         <p>
-          مجموعة عملية لمحبي تجهيز المشروبات في المنزل.
+          مجموعة عملية للاستخدام اليومي في البيت.
         </p>
-        <ul>
+
+        <ul class="bundle-list">
           <li>ميزان</li>
           <li>ميزان حرارة</li>
           <li>بتشر</li>
           <li>شوت إسبريسو</li>
           <li>فرشاة تنظيف المطحنة</li>
         </ul>
-        <button class="product-btn"
-          onclick="addBundleToCart('بكج البيت','🏠')">
+
+        <button
+          class="bundle-btn"
+          onclick="addBundleToCart(
+            'بكج البيت',
+            'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85'
+          )"
+        >
           أضف البكج للسلة
         </button>
+
       </div>
+
     </div>
+
   </section>
+
+
   <!-- CTA -->
   <section class="cta">
-    <h2>
-      جاهز تبدأ تجربتك مع مِداد؟
-    </h2>
+
+    <h2>جاهز تبدأ تفاصيلك؟</h2>
+
     <p>
-      اختر منتجاتك وأضفها إلى السلة ثم أرسل طلبك مباشرة.
+      اختار أدواتك، أضفها للسلة، وخلي الباقي علينا.
     </p>
-    <button class="cta-btn" onclick="openCart()">
-      🛒 افتح سلة الطلب
-    </button>
-  </section>
-  <!-- CONTACT -->
-  <div class="contact" id="contact">
-    <h2>
-      بدك تطلب أو تستفسر؟
-    </h2>
-    <p>
-      تواصل معنا مباشرة عبر واتساب وسيتم الرد عليك بأقرب وقت.
-    </p>
+
     <a
-      class="whatsapp"
+      class="cta-btn"
       href="https://wa.me/962799563650"
       target="_blank"
     >
-      💬 تواصل عبر واتساب
+      اطلب عبر واتساب
     </a>
-  </div>
-  <!-- FOOTER -->
+
+  </section>
+
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+      <div class="mini">CONTACT</div>
+      <h2>تواصل معنا</h2>
+      <p>للطلب والاستفسار، تواصل معنا مباشرة.</p>
+    </div>
+
+    <div class="contact-box">
+
+      <p>
+        يسعدنا نساعدك باختيار الأدوات المناسبة لك.
+      </p>
+
+      <a
+        class="whatsapp-btn"
+        href="https://wa.me/962799563650"
+        target="_blank"
+      >
+        💬 تواصل معنا عبر واتساب
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
   <footer>
-    <div class="footer-logo">
-      مِداد
-    </div>
-    <div class="footer-brand">
-      MIDAD
-    </div>
+
     <p>
-      لأن التفاصيل هي التي تترك الأثر.
+      <strong>مِداد | MIDAD</strong>
     </p>
+
     <p>
-      © 2026 مِداد | MIDAD — جميع الحقوق محفوظة
+      من التفاصيل تبدأ الحكاية.
     </p>
+
+    <p>
+      © 2026 MIDAD — جميع الحقوق محفوظة
+    </p>
+
   </footer>
-  <!-- FLOATING WHATSAPP -->
+
+
+  <!-- Floating WhatsApp -->
   <a
     class="floating-whatsapp"
     href="https://wa.me/962799563650"
     target="_blank"
-    aria-label="واتساب"
+    aria-label="WhatsApp"
   >
     💬
   </a>
+
+
   <!-- CART -->
-  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-  <aside class="cart-panel" id="cartPanel">
-    <div class="cart-header">
-      <h2>🛒 سلة الطلب</h2>
-      <button class="close-cart" onclick="closeCart()">
-        ×
-      </button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <div class="empty-cart">
-        السلة فارغة حاليًا 🤎
-        <br>
-        اختر المنتجات التي تعجبك وأضفها للسلة.
+  <div class="cart-overlay" id="cartOverlay">
+
+    <div class="cart-panel">
+
+      <div class="cart-header">
+
+        <h2>🛒 سلة مِداد</h2>
+
+        <button class="close-cart" onclick="closeCart()">
+          ×
+        </button>
+
       </div>
-    </div>
-    <div class="cart-footer">
-      <p>
-        لا توجد أسعار معروضة — سيتم تأكيد التفاصيل عبر واتساب.
-      </p>
-      <button class="checkout-btn" onclick="sendOrder()">
+
+      <div id="cartItems"></div>
+
+      <button class="order-btn" onclick="sendOrder()">
         إرسال الطلب عبر واتساب
       </button>
+
     </div>
-  </aside>
-  <!-- JAVASCRIPT -->
+
+  </div>
+
+
   <script>
+
+    /* =========================
+       CART
+    ========================= */
+
     let cart = [];
-    /* ADD PRODUCT */
-    function addToCart(name, icon) {
+
+
+    function addToCart(name, image) {
+
       const existing = cart.find(item => item.name === name);
+
       if (existing) {
+
         existing.quantity++;
+
       } else {
+
         cart.push({
           name: name,
-          icon: icon,
+          image: image,
           quantity: 1
         });
+
       }
+
       updateCart();
       openCart();
     }
-    /* ADD BUNDLE */
-    function addBundleToCart(name, icon) {
+
+
+    function addBundleToCart(name, image) {
+
       const existing = cart.find(item => item.name === name);
+
       if (existing) {
+
         existing.quantity++;
+
       } else {
+
         cart.push({
           name: name,
-          icon: icon,
+          image: image,
           quantity: 1
         });
+
       }
+
       updateCart();
       openCart();
     }
-    /* UPDATE CART */
+
+
     function updateCart() {
+
       const cartItems = document.getElementById("cartItems");
       const cartCount = document.getElementById("cartCount");
+
       const totalQuantity = cart.reduce(
         (total, item) => total + item.quantity,
         0
       );
+
       cartCount.textContent = totalQuantity;
+
+
       if (cart.length === 0) {
+
         cartItems.innerHTML = `
           <div class="empty-cart">
-            السلة فارغة حاليًا 🤎
+            🛒
             <br>
-            اختر المنتجات التي تعجبك وأضفها للسلة.
+            السلة فارغة حالياً
           </div>
         `;
+
         return;
       }
-      cartItems.innerHTML = cart.map((item, index) => {
-        return `
-          <div class="cart-item">
-            <div class="cart-item-icon">
-              ${item.icon}
-            </div>
-            <div class="cart-item-info">
-              <h4>${item.name}</h4>
-              <div class="quantity-controls">
-                <button onclick="changeQuantity(${index}, 1)">
-                  +
-                </button>
-                <span>
-                  ${item.quantity}
-                </span>
-                <button onclick="changeQuantity(${index}, -1)">
-                  −
-                </button>
-              </div>
-            </div>
-            <button
-              class="remove-item"
-              onclick="removeFromCart(${index})"
+
+
+      cartItems.innerHTML = cart.map((item, index) => `
+
+        <div class="cart-item">
+
+          <div class="cart-item-icon">
+
+            <img
+              src="${item.image}"
+              alt="${item.name}"
             >
-              🗑️
-            </button>
+
           </div>
-        `;
-      }).join("");
+
+
+          <div class="cart-item-info">
+
+            <strong>${item.name}</strong>
+
+            <span>
+              الكمية: ${item.quantity}
+            </span>
+
+          </div>
+
+
+          <div class="cart-quantity">
+
+            <button
+              class="quantity-btn"
+              onclick="changeQuantity(${index}, -1)"
+            >
+              −
+            </button>
+
+            <span>${item.quantity}</span>
+
+            <button
+              class="quantity-btn"
+              onclick="changeQuantity(${index}, 1)"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      `).join("");
+
     }
-    /* CHANGE QUANTITY */
+
+
     function changeQuantity(index, change) {
+
       cart[index].quantity += change;
+
       if (cart[index].quantity <= 0) {
+
         cart.splice(index, 1);
+
       }
+
       updateCart();
+
     }
-    /* REMOVE */
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCart();
-    }
-    /* OPEN CART */
+
+
     function openCart() {
-      document
-        .getElementById("cartPanel")
-        .classList.add("active");
+
       document
         .getElementById("cartOverlay")
         .classList.add("active");
+
     }
-    /* CLOSE CART */
+
+
     function closeCart() {
-      document
-        .getElementById("cartPanel")
-        .classList.remove("active");
+
       document
         .getElementById("cartOverlay")
         .classList.remove("active");
+
     }
-    /* SEND ORDER */
+
+
+    document
+      .getElementById("cartOverlay")
+      .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+          closeCart();
+        }
+
+      });
+
+
+    /* =========================
+       WHATSAPP ORDER
+    ========================= */
+
     function sendOrder() {
+
       if (cart.length === 0) {
-        alert("السلة فارغة، أضف منتجًا أولًا 🤎");
+
+        alert("السلة فارغة حالياً 🤎");
+
         return;
       }
+
+
       let message =
-        "مرحباً مِداد 🤎%0A%0A" +
-        "أرغب بطلب المنتجات التالية:%0A%0A";
+        "مرحباً مِداد 🤎\n\n" +
+        "أرغب بطلب المنتجات التالية:\n\n";
+
+
       cart.forEach(item => {
+
         message +=
           "• " +
           item.name +
           " — الكمية: " +
           item.quantity +
-          "%0A";
+          "\n";
+
       });
+
+
       message +=
-        "%0Aأرجو تزويدي بتفاصيل الطلب والتوفر.";
+        "\nأرغب بمعرفة تفاصيل الطلب والتوصيل. شكراً 🤎";
+
+
       const whatsappURL =
         "https://wa.me/962799563650?text=" +
-        message;
+        encodeURIComponent(message);
+
+
       window.open(whatsappURL, "_blank");
+
     }
-    /* SEARCH */
+
+
+    /* =========================
+       FAVORITES
+    ========================= */
+
+    function toggleFavorite(button) {
+
+      button.classList.toggle("active");
+
+      if (button.classList.contains("active")) {
+
+        button.textContent = "♥️";
+
+      } else {
+
+        button.textContent = "♡";
+
+      }
+
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
     function searchProducts() {
+
       const input =
-        document.getElementById("searchInput");
-      const search =
-        input.value.trim().toLowerCase();
+        document
+          .getElementById("searchInput")
+          .value
+          .trim()
+          .toLowerCase();
+
+
       const products =
         document.querySelectorAll(".searchable");
+
+
       products.forEach(product => {
+
         const text =
           product.innerText.toLowerCase();
-        if (text.includes(search)) {
-          product.classList.remove("hidden");
+
+
+        if (text.includes(input)) {
+
+          product.style.display = "";
+
+        } else {
+
+          product.style.display = "none";
+
         }
-        else {
-          product.classList.add("hidden");
-        }
+
       });
+
     }
-    /* FILTER */
+
+
+    /* =========================
+       FILTER
+    ========================= */
+
     function filterProducts(category, button) {
+
       const products =
         document.querySelectorAll(".searchable");
+
       const buttons =
         document.querySelectorAll(".filter-btn");
+
+
       buttons.forEach(btn => {
+
         btn.classList.remove("active");
+
       });
+
+
       button.classList.add("active");
+
+
       products.forEach(product => {
-        if (category === "all") {
-          product.classList.remove("hidden");
+
+        if (
+          category === "all" ||
+          product.dataset.category === category
+        ) {
+
+          product.style.display = "";
+
+        } else {
+
+          product.style.display = "none";
+
         }
-        else if (product.classList.contains(category)) {
-          product.classList.remove("hidden");
-        }
-        else {
-          product.classList.add("hidden");
-        }
+
       });
+
+
+      document
+        .getElementById("searchInput")
+        .value = "";
+
     }
-    /* FAVORITES */
-    function toggleFavorite(button) {
-      button.classList.toggle("active");
-      if (button.classList.contains("active")) {
-        button.textContent = "♥️";
+
+
+    /* =========================
+       SCROLL TO SECTION
+    ========================= */
+
+    function scrollToSection(id) {
+
+      const section =
+        document.getElementById(id);
+
+      if (section) {
+
+        section.scrollIntoView({
+          behavior: "smooth"
+        });
+
       }
-      else {
-        button.textContent = "♡";
-      }
+
     }
+
+
+    /* =========================
+       INITIAL CART
+    ========================= */
+
+    updateCart();
+
   </script>
+
 </body>
 </html>
