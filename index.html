@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>مِداد | MIDAD</title>
 
 <style>
@@ -12,25 +13,14 @@
   padding:0;
 }
 
-:root{
-  --brown:#2B211B;
-  --brown2:#4b3628;
-  --gold:#A88455;
-  --cream:#EFE7D8;
-  --light:#f8f2e8;
-  --white:#fffdf9;
-  --green:#6d8f65;
-  --red:#b84b4b;
-  --orange:#c48745;
-  --border:#ded2c2;
-  --shadow:0 12px 35px rgba(43,33,27,.09);
+html{
+  scroll-behavior:smooth;
 }
 
 body{
   font-family:Tahoma,Arial,sans-serif;
-  background:var(--cream);
+  background:#f4ecdf;
   color:#30271f;
-  line-height:1.7;
 }
 
 button,input,select,textarea{
@@ -41,908 +31,700 @@ button{
   cursor:pointer;
 }
 
-.hidden{
-  display:none!important;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-/* HEADER */
-
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(255,250,242,.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
+  background:#fffaf2;
+  border-bottom:1px solid #dfd1bd;
+  box-shadow:0 3px 15px #00000010;
 }
 
-.header-inner{
-  max-width:1400px;
+.nav{
+  max-width:1250px;
   margin:auto;
-  min-height:82px;
-  padding:12px 22px;
+  min-height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px;
+  gap:15px;
+  padding:12px 20px;
 }
 
 .logo-area{
-  display:flex;
-  align-items:center;
-  gap:15px;
+  position:relative;
+  text-align:center;
 }
 
 .logo{
-  text-align:center;
-  line-height:1;
-}
-
-.logo-ar{
-  font-size:36px;
-  font-weight:bold;
+  font-size:34px;
+  font-weight:900;
   color:#765536;
+  letter-spacing:1px;
 }
 
 .logo-en{
   font-size:11px;
   letter-spacing:4px;
-  color:var(--gold);
-  margin-top:6px;
+  color:#a88455;
 }
 
 .beans{
-  font-size:27px;
-  transform:rotate(-15deg);
-}
-
-.nav{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.nav button,
-.nav a{
-  border:0;
-  background:transparent;
-  color:var(--brown);
-  padding:10px 14px;
-  border-radius:10px;
-  font-size:14px;
-}
-
-.nav button:hover,
-.nav a:hover{
-  background:var(--cream);
-}
-
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.icon-btn{
-  position:relative;
-  width:43px;
-  height:43px;
-  border:1px solid var(--border);
-  background:var(--white);
-  border-radius:12px;
-  font-size:19px;
-}
-
-.badge{
   position:absolute;
-  top:-5px;
-  left:-5px;
-  min-width:19px;
-  height:19px;
-  background:var(--red);
-  color:white;
-  border-radius:50%;
-  font-size:10px;
+  left:-35px;
+  top:5px;
+  font-size:18px;
+  transform:rotate(-20deg);
+}
+
+.nav-actions{
   display:flex;
+  gap:8px;
   align-items:center;
-  justify-content:center;
 }
 
-/* PAGES */
-
-.page{
-  min-height:calc(100vh - 82px);
+.nav-btn{
+  border:1px solid #d6c5ae;
+  background:#f7efe4;
+  color:#5d432c;
+  padding:10px 13px;
+  border-radius:12px;
+  font-weight:bold;
 }
 
-.container{
-  max-width:1400px;
-  margin:auto;
-  padding:28px 20px;
+.nav-btn:hover{
+  background:#e9dbc8;
 }
-
-/* HERO */
 
 .hero{
-  min-height:520px;
-  display:flex;
-  align-items:center;
-  background:
-    radial-gradient(circle at 15% 30%,rgba(168,132,85,.17),transparent 30%),
-    linear-gradient(135deg,#f8f1e5,#e8dac6);
-}
-
-.hero-inner{
-  max-width:1400px;
-  width:100%;
+  max-width:1250px;
   margin:auto;
-  padding:70px 25px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  align-items:center;
-  gap:40px;
+  padding:70px 20px 55px;
+  text-align:center;
 }
 
 .hero-label{
-  color:var(--gold);
-  letter-spacing:3px;
+  color:#a88455;
   font-size:13px;
-  margin-bottom:18px;
+  letter-spacing:3px;
+  margin-bottom:12px;
 }
 
 .hero h1{
-  font-size:58px;
-  color:var(--brown);
+  font-size:48px;
+  color:#3b2b1f;
   margin-bottom:15px;
 }
 
-.hero h2{
-  font-size:27px;
-  font-weight:500;
-  margin-bottom:20px;
-}
-
 .hero p{
-  max-width:650px;
-  color:#66574a;
-  font-size:17px;
+  font-size:18px;
+  color:#715e4c;
+  line-height:1.9;
 }
 
-.hero-buttons{
-  margin-top:28px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  border:0;
-  padding:13px 21px;
-  border-radius:12px;
+.hero-btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 27px;
+  border:none;
+  border-radius:13px;
+  background:#795a3d;
+  color:white;
   font-weight:bold;
-  transition:.2s;
+  font-size:16px;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn-primary{
-  background:var(--brown);
-  color:white;
-}
-
-.btn-gold{
-  background:var(--gold);
-  color:white;
-}
-
-.btn-light{
-  background:var(--white);
-  border:1px solid var(--border);
-  color:var(--brown);
-}
-
-.btn-danger{
-  background:var(--red);
-  color:white;
-}
-
-.btn-green{
-  background:var(--green);
-  color:white;
-}
-
-.hero-art{
-  min-height:330px;
-  border-radius:35px;
-  background:
-    radial-gradient(circle at 50% 50%,#fff9ed 0 15%,transparent 16%),
-    radial-gradient(circle at 50% 50%,rgba(168,132,85,.25),transparent 60%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:150px;
-}
-
-/* SECTION */
-
-.section{
-  padding:60px 0;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.section-title span{
-  color:var(--gold);
-  font-size:12px;
-  letter-spacing:3px;
-}
-
-.section-title h2{
-  font-size:34px;
-  color:var(--brown);
-}
-
-/* FILTER */
-
-.store-tools{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:25px;
-  align-items:center;
-}
-
-.search-box{
-  flex:1;
-  min-width:220px;
-}
-
-.search-box input,
-.store-tools select{
-  width:100%;
-  padding:13px 15px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:white;
-  outline:none;
-}
-
-.store-tools select{
-  width:auto;
-  min-width:180px;
-}
-
-/* PRODUCTS */
-
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.product-card{
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:18px;
-  overflow:hidden;
-  position:relative;
-  box-shadow:0 7px 25px rgba(43,33,27,.05);
-  transition:.25s;
-}
-
-.product-card:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow);
-}
-
-.product-image{
-  height:230px;
-  background:#eee4d5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
-
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.product-info{
-  padding:17px;
+.container{
+  max-width:1250px;
+  margin:auto;
+  padding:0 20px 50px;
 }
 
 .category{
-  font-size:11px;
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:1px;
+  margin-top:50px;
+}
+
+.category-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #d7c7b2;
+  padding-bottom:13px;
+  margin-bottom:20px;
+}
+
+.category-head h2{
+  color:#4c3625;
+  font-size:26px;
+}
+
+.category-head span{
+  color:#a88455;
+  font-size:13px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  background:#fffaf2;
+  border:1px solid #e1d5c5;
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px #00000012;
+}
+
+.product-image{
+  width:100%;
+  height:220px;
+  background:#eee4d5;
+  display:block;
+}
+
+.product-info{
+  padding:16px;
 }
 
 .product-info h3{
-  font-size:18px;
-  color:var(--brown);
-  margin:5px 0 8px;
+  font-size:17px;
+  color:#4b3524;
+  margin-bottom:7px;
 }
 
-.product-desc{
-  color:#75675b;
+.product-info p{
   font-size:13px;
-  min-height:45px;
-}
-
-.product-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-top:15px;
+  color:#806f5c;
+  min-height:38px;
+  line-height:1.6;
 }
 
 .price{
+  margin:12px 0;
   font-weight:bold;
-  color:var(--brown);
+  color:#795a3d;
 }
 
 .price.request{
-  color:var(--gold);
-  font-size:13px;
+  color:#a88455;
 }
 
-.product-actions{
+.card-actions{
   display:flex;
-  gap:6px;
+  gap:8px;
 }
 
-.small-btn{
-  border:0;
-  padding:9px 12px;
-  border-radius:9px;
-  background:var(--brown);
-  color:white;
+.add{
+  flex:1;
+  border:none;
+  border-radius:10px;
+  background:#795a3d;
+  color:#fff;
+  padding:10px;
+  font-weight:bold;
 }
 
 .favorite{
-  position:absolute;
-  top:12px;
-  left:12px;
-  z-index:2;
-  width:36px;
-  height:36px;
-  border:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.9);
-  font-size:18px;
+  width:43px;
+  border:1px solid #d5c4ae;
+  background:#f8f0e5;
+  border-radius:10px;
+  font-size:19px;
+  color:#795a3d;
 }
 
 .favorite.active{
-  color:var(--red);
+  background:#795a3d;
+  color:#fff;
 }
-
-/* ABOUT */
 
 .about{
-  background:var(--brown);
-  color:white;
-}
-
-.about-inner{
-  max-width:900px;
-  margin:auto;
+  margin:50px 0;
+  background:#3b2b1f;
+  color:#fff;
+  border-radius:25px;
+  padding:45px 30px;
   text-align:center;
 }
 
 .about h2{
-  color:#fff4e4;
-  font-size:34px;
-  margin-bottom:20px;
+  color:#e6cda7;
+  margin-bottom:15px;
 }
 
 .about p{
-  color:#dfd2c2;
-  font-size:18px;
-}
-
-/* CUSTOMER */
-
-.customer-head{
-  background:var(--brown);
-  color:white;
-  padding:45px 20px;
-}
-
-.customer-head h1{
-  font-size:36px;
-}
-
-.customer-grid{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:25px;
-}
-
-.panel{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:22px;
-  box-shadow:0 5px 20px rgba(43,33,27,.05);
-}
-
-.panel h3{
-  color:var(--brown);
-  margin-bottom:17px;
-}
-
-.form-group{
-  margin-bottom:14px;
-}
-
-.form-group label{
-  display:block;
-  font-size:13px;
-  margin-bottom:5px;
-  color:#62564d;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  padding:11px 13px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  background:#fffdf9;
-  outline:none;
-}
-
-.form-group textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-/* TABLE */
-
-.table-wrap{
-  overflow:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:750px;
-}
-
-th,td{
-  padding:12px 10px;
-  border-bottom:1px solid #eee5da;
-  text-align:right;
-  white-space:nowrap;
-}
-
-th{
-  background:#f7f0e6;
-  color:var(--brown);
-  font-size:13px;
-}
-
-td{
-  font-size:13px;
-}
-
-.status{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.status-pending{
-  background:#fff0cf;
-  color:#9a681d;
-}
-
-.status-confirmed{
-  background:#e6f0ff;
-  color:#39679b;
-}
-
-.status-preparing{
-  background:#f0e7ff;
-  color:#6944a0;
-}
-
-.status-shipped{
-  background:#e2f4f0;
-  color:#34786e;
-}
-
-.status-delivered{
-  background:#e5f4df;
-  color:#44783b;
-}
-
-.status-cancelled{
-  background:#ffe2e2;
-  color:#a33d3d;
-}
-
-/* MANAGEMENT */
-
-.management{
-  background:#f2ece3;
-  min-height:100vh;
-}
-
-.admin-header{
-  background:var(--brown);
-  color:white;
-  padding:28px 25px;
-}
-
-.admin-header-inner{
-  max-width:1500px;
+  max-width:750px;
   margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
+  line-height:2;
+  color:#eadfd1;
 }
-
-.admin-header h1{
-  font-size:30px;
-}
-
-.admin-header p{
-  color:#d8cbbc;
-  font-size:13px;
-}
-
-.admin-layout{
-  max-width:1500px;
-  margin:auto;
-  padding:25px;
-  display:grid;
-  grid-template-columns:235px 1fr;
-  gap:22px;
-}
-
-.admin-sidebar{
-  background:var(--brown);
-  border-radius:17px;
-  padding:12px;
-  height:max-content;
-  position:sticky;
-  top:105px;
-}
-
-.admin-tab{
-  width:100%;
-  text-align:right;
-  border:0;
-  background:transparent;
-  color:#d9cbbd;
-  padding:12px 13px;
-  border-radius:10px;
-  margin-bottom:4px;
-}
-
-.admin-tab:hover,
-.admin-tab.active{
-  background:#4b3628;
-  color:white;
-}
-
-.admin-content{
-  min-width:0;
-}
-
-.admin-section{
-  display:none;
-}
-
-.admin-section.active{
-  display:block;
-}
-
-.kpi-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.kpi{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:19px;
-}
-
-.kpi small{
-  color:#7c7065;
-}
-
-.kpi strong{
-  display:block;
-  color:var(--brown);
-  font-size:28px;
-  margin-top:5px;
-}
-
-.kpi.warning strong{
-  color:var(--orange);
-}
-
-.kpi.danger strong{
-  color:var(--red);
-}
-
-.admin-toolbar{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:17px;
-}
-
-.admin-toolbar input,
-.admin-toolbar select{
-  padding:10px 12px;
-  border:1px solid var(--border);
-  border-radius:9px;
-  background:white;
-}
-
-.cards-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.alert{
-  padding:13px 15px;
-  border-radius:11px;
-  margin-bottom:10px;
-  background:#fff3dc;
-  color:#805817;
-}
-
-.alert.danger{
-  background:#ffe3e3;
-  color:#9a3434;
-}
-
-.alert.success{
-  background:#e5f3df;
-  color:#46753d;
-}
-
-/* MODALS */
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(20,14,10,.58);
-  z-index:3000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
-
-.modal.open{
-  display:flex;
-}
-
-.modal-box{
-  width:min(700px,100%);
-  max-height:92vh;
-  overflow:auto;
-  background:#fffdf9;
-  border-radius:20px;
-  padding:24px;
-  position:relative;
-}
-
-.modal-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:20px;
-}
-
-.close{
-  border:0;
-  background:#eee4d8;
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  font-size:20px;
-}
-
-.cart-item{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:12px 0;
-  border-bottom:1px solid var(--border);
-}
-
-.cart-item-image{
-  width:65px;
-  height:65px;
-  border-radius:10px;
-  overflow:hidden;
-  background:#eee4d8;
-}
-
-.cart-item-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.cart-item-info{
-  flex:1;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-
-.qty button{
-  border:0;
-  width:27px;
-  height:27px;
-  border-radius:7px;
-  background:#eadfce;
-}
-
-.total-box{
-  margin-top:20px;
-  padding:17px;
-  border-radius:13px;
-  background:#f5eee4;
-  display:flex;
-  justify-content:space-between;
-  font-size:18px;
-  font-weight:bold;
-}
-
-/* FOOTER */
 
 footer{
-  background:var(--brown);
-  color:#d8cbbd;
+  background:#2b211b;
+  color:#ddd0c1;
   text-align:center;
-  padding:35px 20px;
-}
-
-footer strong{
-  color:white;
+  padding:30px 15px;
 }
 
 .whatsapp{
   position:fixed;
   bottom:20px;
   left:20px;
+  z-index:2000;
   width:58px;
   height:58px;
   border-radius:50%;
-  background:#25D366;
-  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
+  background:#6d8f65;
+  color:white;
   font-size:27px;
-  z-index:1500;
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  text-decoration:none;
+  box-shadow:0 6px 20px #0003;
 }
 
-/* MOBILE */
+/* CART */
 
-@media(max-width:1100px){
-  .products-grid{
+.cart-panel{
+  position:fixed;
+  top:0;
+  left:-430px;
+  width:400px;
+  max-width:94%;
+  height:100vh;
+  background:#fffaf2;
+  z-index:3000;
+  box-shadow:5px 0 30px #0003;
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-panel.open{
+  left:0;
+}
+
+.panel-head{
+  padding:20px;
+  border-bottom:1px solid #ddd0c0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.close{
+  border:none;
+  background:none;
+  font-size:25px;
+  color:#765536;
+}
+
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:15px;
+}
+
+.cart-item{
+  border-bottom:1px solid #eadfd2;
+  padding:13px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.cart-item h4{
+  font-size:14px;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:7px;
+}
+
+.qty button{
+  border:1px solid #d5c5b1;
+  background:#f5ecdf;
+  width:28px;
+  height:28px;
+  border-radius:7px;
+}
+
+.remove{
+  border:none;
+  background:none;
+  color:#a55;
+}
+
+.cart-bottom{
+  padding:20px;
+  border-top:1px solid #ddd0c0;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.checkout{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:12px;
+  background:#795a3d;
+  color:white;
+  font-weight:bold;
+}
+
+/* MODAL */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:4000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.overlay.show{
+  display:flex;
+}
+
+.modal{
+  background:#fffaf2;
+  width:600px;
+  max-width:100%;
+  max-height:92vh;
+  overflow:auto;
+  border-radius:20px;
+  padding:25px;
+}
+
+.modal h2{
+  color:#4a3423;
+  margin-bottom:18px;
+}
+
+.form-group{
+  margin-bottom:13px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  border:1px solid #d7c7b4;
+  background:white;
+  border-radius:10px;
+  padding:11px;
+  outline:none;
+}
+
+.form-group textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.payment-box{
+  background:#eee3d3;
+  border-radius:13px;
+  padding:15px;
+  margin:15px 0;
+  line-height:2;
+}
+
+.payment-box strong{
+  color:#795a3d;
+}
+
+.modal-actions{
+  display:flex;
+  gap:10px;
+}
+
+.modal-actions button{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+}
+
+.confirm{
+  background:#6d8f65;
+  color:white;
+}
+
+.cancel{
+  background:#e4d7c5;
+  color:#533d2b;
+}
+
+/* ADMIN */
+
+.admin{
+  display:none;
+  min-height:100vh;
+  background:#f4ecdf;
+}
+
+.admin.active{
+  display:block;
+}
+
+.store.hidden{
+  display:none;
+}
+
+.admin-header{
+  background:#3b2b1f;
+  color:white;
+  padding:25px;
+}
+
+.admin-header-inner{
+  max-width:1300px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.admin-header h1{
+  color:#e6cda7;
+}
+
+.back-store{
+  background:#e7d8c4;
+  border:none;
+  padding:11px 16px;
+  border-radius:10px;
+  color:#3b2b1f;
+  font-weight:bold;
+}
+
+.admin-content{
+  max-width:1300px;
+  margin:auto;
+  padding:25px 20px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat{
+  background:#fffaf2;
+  border:1px solid #dfd1bd;
+  padding:20px;
+  border-radius:15px;
+}
+
+.stat span{
+  display:block;
+  color:#8a7761;
+  font-size:13px;
+}
+
+.stat strong{
+  display:block;
+  font-size:28px;
+  color:#795a3d;
+  margin-top:7px;
+}
+
+.admin-section{
+  background:#fffaf2;
+  border:1px solid #dfd1bd;
+  border-radius:17px;
+  padding:20px;
+  margin-bottom:20px;
+  overflow:auto;
+}
+
+.admin-section h2{
+  margin-bottom:15px;
+  color:#4b3524;
+}
+
+.admin-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:850px;
+}
+
+.admin-table th,
+.admin-table td{
+  border-bottom:1px solid #e4d7c7;
+  padding:10px;
+  text-align:right;
+  font-size:13px;
+}
+
+.admin-table th{
+  background:#f0e5d6;
+}
+
+.admin-table input{
+  width:90px;
+  padding:7px;
+  border:1px solid #d5c4ae;
+  border-radius:7px;
+}
+
+.admin-table select{
+  padding:7px;
+  border:1px solid #d5c4ae;
+  border-radius:7px;
+}
+
+.toggle{
+  width:45px;
+  height:25px;
+  border-radius:20px;
+  border:none;
+  background:#aaa;
+  position:relative;
+}
+
+.toggle:after{
+  content:"";
+  position:absolute;
+  width:19px;
+  height:19px;
+  background:white;
+  border-radius:50%;
+  top:3px;
+  right:3px;
+  transition:.2s;
+}
+
+.toggle.on{
+  background:#6d8f65;
+}
+
+.toggle.on:after{
+  right:23px;
+}
+
+.save-btn{
+  background:#795a3d;
+  color:#fff;
+  border:none;
+  padding:9px 14px;
+  border-radius:8px;
+}
+
+.orders-empty{
+  color:#8a7761;
+  text-align:center;
+  padding:20px;
+}
+
+.order{
+  border:1px solid #dfd1bd;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:12px;
+  background:#fbf5ec;
+}
+
+.order-title{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.order small{
+  color:#806e5a;
+  line-height:1.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .products{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .kpi-grid{
+  .stats{
     grid-template-columns:repeat(2,1fr);
   }
 }
 
-@media(max-width:850px){
-  .header-inner{
-    flex-wrap:wrap;
-  }
-
+@media(max-width:650px){
   .nav{
-    order:3;
-    width:100%;
-  }
-
-  .hero-inner{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero p{
-    margin:auto;
-  }
-
-  .hero-buttons{
+    flex-wrap:wrap;
     justify-content:center;
   }
 
-  .products-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .customer-grid{
-    grid-template-columns:1fr;
-  }
-
-  .admin-layout{
-    grid-template-columns:1fr;
-  }
-
-  .admin-sidebar{
-    position:static;
-    display:flex;
-    overflow:auto;
-    gap:5px;
-  }
-
-  .admin-tab{
-    min-width:max-content;
-    width:auto;
-  }
-
-  .cards-2{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:550px){
-  .products-grid{
-    grid-template-columns:1fr;
+  .logo-area{
+    width:100%;
   }
 
   .hero h1{
-    font-size:43px;
+    font-size:36px;
   }
 
-  .hero h2{
-    font-size:22px;
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
   }
 
-  .kpi-grid{
+  .product-image{
+    height:170px;
+  }
+
+  .product-info{
+    padding:12px;
+  }
+
+  .product-info h3{
+    font-size:14px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:430px){
+  .products{
     grid-template-columns:1fr 1fr;
   }
 
-  .kpi strong{
-    font-size:22px;
-  }
-
-  .container{
-    padding:20px 14px;
+  .nav-btn{
+    font-size:12px;
+    padding:8px;
   }
 }
 </style>
@@ -950,1658 +732,1012 @@ footer strong{
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
-<header>
-<div class="header-inner">
-
-  <div class="logo-area">
-    <div class="beans">☕︎</div>
-    <div class="logo">
-      <div class="logo-ar">مِداد</div>
-      <div class="logo-en">MIDAD</div>
-    </div>
-  </div>
-
-  <nav class="nav">
-    <button onclick="showPage('store')">Store</button>
-    <button onclick="showPage('customer')">Customer Page</button>
-    <button onclick="showPage('management')">MIDAD Management</button>
-  </nav>
-
-  <div class="header-actions">
-    <button class="icon-btn" onclick="toggleFavorites()">♡
-      <span id="favCount" class="badge">0</span>
-    </button>
-
-    <button class="icon-btn" onclick="openCart()">🛒
-      <span id="cartCount" class="badge">0</span>
-    </button>
-  </div>
-
-</div>
-</header>
-
-
 <!-- ================= STORE ================= -->
 
-<main id="storePage" class="page">
+<div class="store" id="store">
+
+<header>
+  <div class="nav">
+
+    <div class="logo-area">
+      <div class="beans">☕</div>
+      <div class="logo">مِداد</div>
+      <div class="logo-en">MIDAD</div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="nav-btn" onclick="openCart()">
+        🛒 السلة <span id="cartCount">0</span>
+      </button>
+
+      <button class="nav-btn" onclick="showFavorites()">
+        ♡ المفضلة
+      </button>
+
+      <button class="nav-btn" onclick="openAdmin()">
+        ⚙ إدارة مِداد
+      </button>
+    </div>
+
+  </div>
+</header>
 
 <section class="hero">
-<div class="hero-inner">
+  <div class="hero-label">MIDAD — COFFEE & TEA SUPPLIES</div>
+  <h1>من التفاصيل تبدأ الحكاية</h1>
+  <p>
+    أدوات القهوة والشاي والماتشا المختارة بعناية،
+    لتصنع تجربتك بطريقتك.
+  </p>
 
-  <div>
-    <div class="hero-label">MIDAD — COFFEE & TEA SUPPLIES</div>
-
-    <h1>مِداد</h1>
-
-    <h2>من التفاصيل تبدأ الحكاية</h2>
-
-    <p>
-      أدوات القهوة، الشاي، الماتشا، الأكواب والبكجات المختارة
-      بعناية لكل شخص يهتم بالتفاصيل.
-    </p>
-
-    <div class="hero-buttons">
-      <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView()">Explore Products</button>
-      <button class="btn btn-light" onclick="showPage('customer')">Customer Page</button>
-    </div>
-  </div>
-
-  <div class="hero-art">☕</div>
-
-</div>
-</section>
-
-
-<section id="products" class="section">
-<div class="container">
-
-<div class="section-title">
-  <span>MIDAD COLLECTION</span>
-  <h2>Our Products</h2>
-</div>
-
-<div class="store-tools">
-
-  <div class="search-box">
-    <input id="storeSearch"
-           placeholder="Search products..."
-           oninput="renderStore()">
-  </div>
-
-  <select id="categoryFilter" onchange="renderStore()">
-    <option value="all">All Categories</option>
-  </select>
-
-  <button class="btn btn-light" onclick="showFavoritesOnly()">
-    Favorites
+  <button class="hero-btn" onclick="document.getElementById('productsArea').scrollIntoView()">
+    استكشف منتجات مِداد
   </button>
-
-</div>
-
-<div id="productsGrid" class="products-grid"></div>
-
-</div>
 </section>
 
+<div class="container" id="productsArea"></div>
 
-<section class="about section">
-<div class="container">
-<div class="about-inner">
-
-<h2>عن مِداد</h2>
-
-<p>
-من الحبر يبدأ الأثر، ومن التفاصيل تبدأ الحكاية.
-اخترنا اسم مِداد لأنه يحمل معنى الأصالة،
-والأثر الذي يبقى بعد التفاصيل الصغيرة.
-نؤمن أن تجربة القهوة والشاي والماتشا لا تبدأ من الكوب فقط،
-بل من الأداة والتفصيل والاختيار الصحيح.
-<br><br>
-<strong>مِداد — لأن التفاصيل هي التي تترك الأثر.</strong>
-</p>
-
-</div>
-</div>
+<section class="container">
+  <div class="about">
+    <h2>عن مِداد</h2>
+    <p>
+      من الحبر يبدأ الأثر، ومن التفاصيل تبدأ الحكاية.
+      اخترنا اسم مِداد ليحمل معنى الأصالة والتفاصيل،
+      ونقدّم من خلاله مستلزمات القهوة والشاي والماتشا
+      التي تضيف لمائدتك ولحظاتك الخاصة معنى مختلفاً.
+      <br><br>
+      مِداد — لأن التفاصيل هي التي تترك الأثر.
+    </p>
+  </div>
 </section>
 
-</main>
+<footer>
+  <p>© 2026 مِداد | MIDAD</p>
+  <p>Coffee • Tea • Matcha Supplies</p>
+</footer>
 
+<a class="whatsapp"
+   href="https://wa.me/962799563650"
+   target="_blank"
+   title="تواصل معنا عبر واتساب">
+  ☎
+</a>
 
-<!-- ================= CUSTOMER PAGE ================= -->
-
-<main id="customerPage" class="page hidden">
-
-<section class="customer-head">
-<div class="container">
-<h1>Customer Page</h1>
-<p>Manage your MIDAD orders and customer information.</p>
-</div>
-</section>
-
-<div class="container">
-
-<div class="customer-grid">
-
-<div class="panel">
-
-<h3>Customer Lookup</h3>
-
-<div class="form-group">
-<label>Phone Number</label>
-<input id="customerPhone" placeholder="07XXXXXXXX">
-</div>
-
-<button class="btn btn-primary" onclick="loadCustomer()">Load My Orders</button>
-
-<br><br>
-
-<button class="btn btn-light" onclick="showPage('store')">
-Back to Store
-</button>
-
-</div>
-
-
-<div>
-
-<div class="panel" id="customerProfile">
-<h3>Customer Profile</h3>
-<p>Enter your phone number to view your orders.</p>
-</div>
-
-<br>
-
-<div class="panel">
-<h3>Order History</h3>
-<div id="customerOrders">
-<p>No customer loaded.</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</main>
-
-
-<!-- ================= MANAGEMENT ================= -->
-
-<main id="managementPage" class="page hidden management">
-
-<div class="admin-header">
-<div class="admin-header-inner">
-
-<div>
-<h1>مِداد Management</h1>
-<p>Business Management System — Local ERP</p>
-</div>
-
-<button class="btn btn-light" onclick="showPage('store')">
-Customer Store
-</button>
-
-</div>
-</div>
-
-
-<div class="admin-layout">
-
-<aside class="admin-sidebar">
-
-<button class="admin-tab active" onclick="adminTab('dashboard',this)">📊 Dashboard</button>
-<button class="admin-tab" onclick="adminTab('sales',this)">💰 Sales</button>
-<button class="admin-tab" onclick="adminTab('orders',this)">🧾 Orders</button>
-<button class="admin-tab" onclick="adminTab('products',this)">📦 Products</button>
-<button class="admin-tab" onclick="adminTab('inventory',this)">🏷 Inventory</button>
-<button class="admin-tab" onclick="adminTab('purchases',this)">🚚 Purchases</button>
-<button class="admin-tab" onclick="adminTab('customers',this)">👥 Customers</button>
-<button class="admin-tab" onclick="adminTab('suppliers',this)">🏢 Suppliers</button>
-<button class="admin-tab" onclick="adminTab('reports',this)">📈 Reports</button>
-<button class="admin-tab" onclick="adminTab('settings',this)">⚙ Settings</button>
-
-</aside>
-
-
-<section class="admin-content">
-
-<!-- DASHBOARD -->
-
-<div id="admin-dashboard" class="admin-section active">
-
-<h2>Dashboard</h2>
-<br>
-
-<div id="dashboardAlerts"></div>
-
-<div class="kpi-grid">
-
-<div class="kpi">
-<small>Total Products</small>
-<strong id="kProducts">0</strong>
-</div>
-
-<div class="kpi">
-<small>Active Products</small>
-<strong id="kActive">0</strong>
-</div>
-
-<div class="kpi">
-<small>Stock Units</small>
-<strong id="kStock">0</strong>
-</div>
-
-<div class="kpi warning">
-<small>Low Stock</small>
-<strong id="kLow">0</strong>
-</div>
-
-<div class="kpi">
-<small>Total Orders</small>
-<strong id="kOrders">0</strong>
-</div>
-
-<div class="kpi warning">
-<small>Pending Orders</small>
-<strong id="kPending">0</strong>
-</div>
-
-<div class="kpi">
-<small>Customers</small>
-<strong id="kCustomers">0</strong>
-</div>
-
-<div class="kpi">
-<small>Revenue</small>
-<strong id="kRevenue">0 JOD</strong>
-</div>
-
-</div>
-
-
-<div class="cards-2">
-
-<div class="panel">
-<h3>Recent Orders</h3>
-<div id="recentOrders"></div>
-</div>
-
-<div class="panel">
-<h3>Low Stock Products</h3>
-<div id="lowStockList"></div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SALES -->
-
-<div id="admin-sales" class="admin-section">
-
-<h2>Sales</h2>
-<br>
-
-<div class="kpi-grid">
-
-<div class="kpi">
-<small>Completed Sales</small>
-<strong id="salesCount">0</strong>
-</div>
-
-<div class="kpi">
-<small>Sales Revenue</small>
-<strong id="salesRevenue">0 JOD</strong>
-</div>
-
-<div class="kpi">
-<small>Average Order</small>
-<strong id="averageOrder">0 JOD</strong>
-</div>
-
-<div class="kpi">
-<small>Cancelled</small>
-<strong id="cancelledSales">0</strong>
-</div>
-
-</div>
-
-<div class="panel">
-
-<div class="admin-toolbar">
-<h3>Sales Transactions</h3>
-<input id="salesSearch" placeholder="Search..." oninput="renderSales()">
-</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Order ID</th>
-<th>Customer</th>
-<th>Payment</th>
-<th>Status</th>
-<th>Total</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody id="salesTable"></tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ORDERS -->
-
-<div id="admin-orders" class="admin-section">
-
-<h2>Orders</h2>
-<br>
-
-<div class="panel">
-
-<div class="admin-toolbar">
-<h3>Order Management</h3>
-<input id="orderSearch" placeholder="Search order / customer / phone..." oninput="renderOrders()">
-</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Order</th>
-<th>Customer</th>
-<th>Phone</th>
-<th>Total</th>
-<th>Payment</th>
-<th>Status</th>
-<th>Date</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody id="ordersTable"></tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCTS -->
-
-<div id="admin-products" class="admin-section">
-
-<h2>Products</h2>
-<br>
-
-<div class="panel">
-
-<div class="admin-toolbar">
-<h3>Product Catalog</h3>
-<input id="productSearchAdmin" placeholder="Search..." oninput="renderAdminProducts()">
-</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>SKU</th>
-<th>Product</th>
-<th>Category</th>
-<th>Price</th>
-<th>Cost</th>
-<th>Stock</th>
-<th>Min Stock</th>
-<th>Active</th>
-<th>Save</th>
-</tr>
-</thead>
-<tbody id="productsAdminTable"></tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- INVENTORY -->
-
-<div id="admin-inventory" class="admin-section">
-
-<h2>Inventory</h2>
-<br>
-
-<div class="panel">
-
-<h3>Stock Adjustment</h3>
-
-<div class="cards-2">
-
-<div class="form-group">
-<label>Product</label>
-<select id="inventoryProduct"></select>
-</div>
-
-<div class="form-group">
-<label>Quantity</label>
-<input id="inventoryQty" type="number" min="1" value="1">
-</div>
-
-<div class="form-group">
-<label>Action</label>
-<select id="inventoryAction">
-<option value="add">Add Stock</option>
-<option value="remove">Remove Stock</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Reason</label>
-<input id="inventoryReason" placeholder="Stock adjustment reason">
-</div>
-
-</div>
-
-<button class="btn btn-primary" onclick="adjustInventory()">
-Save Inventory Adjustment
-</button>
-
-</div>
-
-<br>
-
-<div class="panel">
-<h3>Inventory Status</h3>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>SKU</th>
-<th>Product</th>
-<th>Stock</th>
-<th>Min Stock</th>
-<th>Status</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody id="inventoryTable"></tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PURCHASES -->
-
-<div id="admin-purchases" class="admin-section">
-
-<h2>Purchases</h2>
-<br>
-
-<div class="panel">
-
-<h3>New Purchase</h3>
-
-<div class="cards-2">
-
-<div class="form-group">
-<label>Supplier</label>
-<select id="purchaseSupplier"></select>
-</div>
-
-<div class="form-group">
-<label>Product</label>
-<select id="purchaseProduct"></select>
-</div>
-
-<div class="form-group">
-<label>Quantity</label>
-<input id="purchaseQty" type="number" min="1" value="1">
-</div>
-
-<div class="form-group">
-<label>Unit Cost (JOD)</label>
-<input id="purchaseCost" type="number" min="0" step="0.01" value="0">
-</div>
-
-</div>
-
-<button class="btn btn-primary" onclick="createPurchase()">
-Record Purchase
-</button>
-
-</div>
-
-<br>
-
-<div class="panel">
-
-<h3>Purchase History</h3>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Purchase ID</th>
-<th>Supplier</th>
-<th>Product</th>
-<th>Qty</th>
-<th>Cost</th>
-<th>Total</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody id="purchasesTable"></tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- CUSTOMERS -->
-
-<div id="admin-customers" class="admin-section">
-
-<h2>Customers</h2>
-<br>
-
-<div class="panel">
-
-<div class="admin-toolbar">
-<h3>Customer Database</h3>
-<input id="customerSearchAdmin" placeholder="Search customer / phone..." oninput="renderCustomers()">
-</div>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Phone</th>
-<th>Address</th>
-<th>Orders</th>
-<th>Total Spend</th>
-<th>Last Order</th>
-</tr>
-</thead>
-<tbody id="customersTable"></tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SUPPLIERS -->
-
-<div id="admin-suppliers" class="admin-section">
-
-<h2>Suppliers</h2>
-<br>
-
-<div class="panel">
-
-<h3>Add Supplier</h3>
-
-<div class="cards-2">
-
-<div class="form-group">
-<label>Supplier Name</label>
-<input id="supplierName">
-</div>
-
-<div class="form-group">
-<label>Phone</label>
-<input id="supplierPhone">
-</div>
-
-<div class="form-group">
-<label>WhatsApp</label>
-<input id="supplierWhatsapp">
-</div>
-
-<div class="form-group">
-<label>Notes</label>
-<input id="supplierNotes">
-</div>
-
-</div>
-
-<button class="btn btn-primary" onclick="addSupplier()">
-Add Supplier
-</button>
-
-</div>
-
-<br>
-
-<div class="panel">
-
-<h3>Supplier List</h3>
-
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Phone</th>
-<th>WhatsApp</th>
-<th>Notes</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody id="suppliersTable"></tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- REPORTS -->
-
-<div id="admin-reports" class="admin-section">
-
-<h2>Reports</h2>
-<br>
-
-<div class="kpi-grid">
-
-<div class="kpi">
-<small>Stock Value</small>
-<strong id="reportStockValue">0 JOD</strong>
-</div>
-
-<div class="kpi">
-<small>Purchase Value</small>
-<strong id="reportPurchaseValue">0 JOD</strong>
-</div>
-
-<div class="kpi">
-<small>Estimated Gross Profit</small>
-<strong id="reportProfit">0 JOD</strong>
-</div>
-
-<div class="kpi">
-<small>Products Out of Stock</small>
-<strong id="reportOut">0</strong>
-</div>
-
-</div>
-
-
-<div class="cards-2">
-
-<div class="panel">
-<h3>Orders By Status</h3>
-<div id="statusReport"></div>
-</div>
-
-<div class="panel">
-<h3>Top Products</h3>
-<div id="topProductsReport"></div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SETTINGS -->
-
-<div id="admin-settings" class="admin-section">
-
-<h2>Settings</h2>
-<br>
-
-<div class="panel">
-
-<h3>Store Settings</h3>
-
-<div class="form-group">
-<label>
-<input type="checkbox" id="salesOpen">
- Store is accepting orders
-</label>
-</div>
-
-<div class="form-group">
-<label>Default Low Stock Level</label>
-<input id="defaultMinStock" type="number" min="0">
-</div>
-
-<div class="form-group">
-<label>Store Name</label>
-<input id="storeName">
-</div>
-
-<button class="btn btn-primary" onclick="saveSettings()">
-Save Settings
-</button>
-
-</div>
-
-<br>
-
-<div class="panel">
-
-<h3>Payment Information</h3>
-
-<p><strong>Click</strong></p>
-<p>Ibrahim Nidar Mohammad Yousef</p>
-<p>0799563650</p>
-
-<br>
-
-<p><strong>Bank Transfer</strong></p>
-<p>Union Bank — بنك الاتحاد</p>
-<p>Beneficiary: Ibrahim Nidar Mohammad Yousef</p>
-
-<br>
-
-<p><strong>WhatsApp</strong></p>
-<p>0799563650</p>
-
-</div>
-
-<br>
-
-<div class="panel">
-
-<h3>Data Management</h3>
-
-<button class="btn btn-light" onclick="exportData()">
-Export Data
-</button>
-
-<button class="btn btn-danger" onclick="resetData()">
-Reset Demo Data
-</button>
-
 </div>
 
-</div>
-
-</section>
-
-</div>
-</main>
-
 
-<!-- ================= CART MODAL ================= -->
+<!-- ================= CART ================= -->
 
-<div id="cartModal" class="modal">
+<div class="cart-panel" id="cartPanel">
 
-<div class="modal-box">
+  <div class="panel-head">
+    <h2>سلة مِداد</h2>
+    <button class="close" onclick="closeCart()">×</button>
+  </div>
 
-<div class="modal-head">
-<h2>Your Cart</h2>
-<button class="close" onclick="closeModal('cartModal')">×</button>
-</div>
-
-<div id="cartItems"></div>
+  <div class="cart-items" id="cartItems"></div>
 
-<div id="cartTotal"></div>
+  <div class="cart-bottom">
+    <div class="total">
+      <span>الإجمالي</span>
+      <span id="cartTotal">السعر عند الطلب</span>
+    </div>
 
-<br>
-
-<button class="btn btn-primary" style="width:100%" onclick="openCheckout()">
-Proceed to Checkout
-</button>
-
-</div>
+    <button class="checkout" onclick="openCheckout()">
+      متابعة الطلب
+    </button>
+  </div>
 
 </div>
 
 
 <!-- ================= CHECKOUT ================= -->
 
-<div id="checkoutModal" class="modal">
+<div class="overlay" id="checkoutOverlay">
 
-<div class="modal-box">
+  <div class="modal">
 
-<div class="modal-head">
-<h2>Checkout</h2>
-<button class="close" onclick="closeModal('checkoutModal')">×</button>
-</div>
+    <h2>إتمام طلب مِداد</h2>
 
-<div class="form-group">
-<label>Full Name</label>
-<input id="checkoutName">
-</div>
+    <div class="form-group">
+      <label>الاسم</label>
+      <input id="customerName" placeholder="اكتب اسمك">
+    </div>
 
-<div class="form-group">
-<label>Phone Number</label>
-<input id="checkoutPhone" placeholder="07XXXXXXXX">
-</div>
+    <div class="form-group">
+      <label>رقم الهاتف</label>
+      <input id="customerPhone" placeholder="07XXXXXXXX">
+    </div>
 
-<div class="form-group">
-<label>Address</label>
-<textarea id="checkoutAddress"></textarea>
-</div>
+    <div class="form-group">
+      <label>العنوان</label>
+      <textarea id="customerAddress" placeholder="المحافظة، المنطقة، الشارع..."></textarea>
+    </div>
 
-<div class="form-group">
-<label>Payment Method</label>
-<select id="paymentMethod" onchange="paymentChanged()">
-<option value="click">Click</option>
-<option value="cod">Cash on Delivery</option>
-<option value="bank">Bank Transfer</option>
-</select>
-</div>
+    <div class="payment-box">
+      <strong>الدفع عبر كليك</strong><br>
+      البنك: بنك الاتحاد<br>
+      اسم المستفيد: <strong>Ibrahim Nidar Mohammad Yousef</strong><br>
+      رقم كليك: <strong>0799563650</strong>
+      <br><br>
+      بعد التحويل، اكتب رقم العملية أو مرجع التحويل بالأسفل.
+    </div>
 
-<div id="clickInfo" class="alert">
-<strong>Click Payment</strong><br>
-Beneficiary: Ibrahim Nidar Mohammad Yousef<br>
-Click Number: 0799563650
-</div>
+    <div class="form-group">
+      <label>رقم العملية / مرجع التحويل</label>
+      <input id="transactionRef" placeholder="مثال: 123456789">
+    </div>
 
-<div id="bankInfo" class="alert hidden">
-<strong>Bank Transfer</strong><br>
-Bank: Union Bank — بنك الاتحاد<br>
-Beneficiary: Ibrahim Nidar Mohammad Yousef
-</div>
+    <div class="form-group">
+      <label>ملاحظات إضافية</label>
+      <textarea id="orderNotes" placeholder="أي ملاحظات على الطلب"></textarea>
+    </div>
 
-<div class="form-group">
-<label>Transaction Reference (optional)</label>
-<input id="transactionRef">
-</div>
+    <div class="modal-actions">
+      <button class="cancel" onclick="closeCheckout()">إلغاء</button>
+      <button class="confirm" onclick="sendOrder()">إرسال الطلب عبر واتساب</button>
+    </div>
 
-<div class="form-group">
-<label>Order Notes</label>
-<textarea id="checkoutNotes"></textarea>
-</div>
-
-<div id="checkoutSummary"></div>
-
-<br>
-
-<button class="btn btn-primary" style="width:100%" onclick="placeOrder()">
-Place Order
-</button>
-
-</div>
+  </div>
 
 </div>
 
 
-<!-- ================= ORDER DETAILS ================= -->
+<!-- ================= ADMIN ================= -->
 
-<div id="orderDetailsModal" class="modal">
+<div class="admin" id="admin">
 
-<div class="modal-box">
+  <div class="admin-header">
 
-<div class="modal-head">
-<h2>Order Details</h2>
-<button class="close" onclick="closeModal('orderDetailsModal')">×</button>
+    <div class="admin-header-inner">
+
+      <div>
+        <h1>إدارة مِداد</h1>
+        <p>لوحة التحكم بالمنتجات والمخزون والطلبات</p>
+      </div>
+
+      <button class="back-store" onclick="closeAdmin()">
+        ← العودة للمتجر
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="admin-content">
+
+    <div class="stats">
+
+      <div class="stat">
+        <span>عدد المنتجات</span>
+        <strong id="statProducts">27</strong>
+      </div>
+
+      <div class="stat">
+        <span>إجمالي المخزون</span>
+        <strong id="statStock">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>الطلبات</span>
+        <strong id="statOrders">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>البيع</span>
+        <strong id="statSales">مفتوح</strong>
+      </div>
+
+    </div>
+
+
+    <div class="admin-section">
+
+      <h2>التحكم العام</h2>
+
+      <button class="save-btn" onclick="toggleAllSales()">
+        تشغيل / إيقاف البيع
+      </button>
+
+      <button class="save-btn" onclick="saveProducts()">
+        حفظ التعديلات
+      </button>
+
+    </div>
+
+
+    <div class="admin-section">
+
+      <h2>الأصناف والمخزون والأسعار</h2>
+
+      <table class="admin-table">
+
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>الصنف</th>
+            <th>القسم</th>
+            <th>السعر</th>
+            <th>المخزون</th>
+            <th>البيع</th>
+          </tr>
+        </thead>
+
+        <tbody id="adminProducts"></tbody>
+
+      </table>
+
+    </div>
+
+
+    <div class="admin-section">
+
+      <h2>الطلبات</h2>
+
+      <div id="adminOrders"></div>
+
+    </div>
+
+  </div>
+
 </div>
-
-<div id="orderDetails"></div>
-
-</div>
-
-</div>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-<strong>مِداد | MIDAD</strong>
-<br>
-Coffee • Tea • Matcha Supplies
-<br><br>
-© 2026 MIDAD. All Rights Reserved.
-</footer>
-
-
-<a class="whatsapp"
-   href="https://wa.me/962799563650"
-   target="_blank">
-☏
-</a>
 
 
 <script>
 
 /* =========================================================
-   MIDAD DATABASE
+   PRODUCTS — 27 ITEMS EXACTLY
 ========================================================= */
 
-const defaultProducts = [
+const products = [
 
-{
- id:1,
- sku:"MID-COF-001",
- name:"Coffee Scale",
- category:"Coffee Tools",
- desc:"Precise digital coffee scale for brewing and espresso.",
- stock:10,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"scale",
- active:true
-},
+  {
+    id:1,
+    name:"ميزان قهوة",
+    category:"أدوات القهوة",
+    kind:"scale",
+    description:"ميزان دقيق لتحضير القهوة ومتابعة الوزن والوقت."
+  },
 
-{
- id:2,
- sku:"MID-COF-002",
- name:"Coffee Thermometer",
- category:"Coffee Tools",
- desc:"Practical thermometer for monitoring brewing temperature.",
- stock:10,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"thermometer",
- active:true
-},
+  {
+    id:2,
+    name:"ترمومتر قهوة",
+    category:"أدوات القهوة",
+    kind:"thermometer",
+    description:"لقياس حرارة الماء والحليب أثناء التحضير."
+  },
 
-{
- id:3,
- sku:"MID-COF-003",
- name:"Knock Box",
- category:"Coffee Tools",
- desc:"Compact knock box for clean espresso preparation.",
- stock:8,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"knockbox",
- active:true
-},
+  {
+    id:3,
+    name:"نوك بوكس",
+    category:"أدوات القهوة",
+    kind:"knockbox",
+    description:"لتفريغ بقايا القهوة بسهولة ونظافة."
+  },
 
-{
- id:4,
- sku:"MID-COF-004",
- name:"Espresso Portafilter",
- category:"Coffee Tools",
- desc:"Professional espresso portafilter for coffee preparation.",
- stock:8,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"portafilter",
- active:true
-},
+  {
+    id:4,
+    name:"بورتلفلتر",
+    category:"أدوات القهوة",
+    kind:"portafilter",
+    description:"بورتلفلتر لتحضير الإسبريسو."
+  },
 
-{
- id:5,
- sku:"MID-COF-005",
- name:"Milk Pitcher",
- category:"Coffee Tools",
- desc:"Stainless steel milk pitcher for steaming and pouring.",
- stock:12,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"pitcher",
- active:true
-},
+  {
+    id:5,
+    name:"بيتشر حليب",
+    category:"أدوات القهوة",
+    kind:"pitcher",
+    description:"بيتشر لتبخير الحليب وتحضير اللاتيه."
+  },
 
-{
- id:6,
- sku:"MID-COF-006",
- name:"Coffee Tamper",
- category:"Coffee Tools",
- desc:"Solid espresso tamper for consistent coffee extraction.",
- stock:10,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"tamper",
- active:true
-},
+  {
+    id:6,
+    name:"تامب للقهوة",
+    category:"أدوات القهوة",
+    kind:"tamper",
+    description:"تامب لضغط البن داخل البورتلفلتر."
+  },
 
-{
- id:7,
- sku:"MID-COF-007",
- name:"Grinder Cleaning Brush",
- category:"Coffee Tools",
- desc:"Brush designed for cleaning coffee grinders.",
- stock:15,
- minStock:4,
- price:0,
- cost:0,
- imageKind:"brush",
- active:true
-},
+  {
+    id:7,
+    name:"فرشاة تنظيف المطحنة",
+    category:"أدوات القهوة",
+    kind:"brush",
+    description:"فرشاة مخصصة لتنظيف مطحنة القهوة."
+  },
 
-{
- id:8,
- sku:"MID-COF-008",
- name:"Espresso Shot Glass",
- category:"Coffee Tools",
- desc:"Glass cup for measuring and serving espresso shots.",
- stock:15,
- minStock:4,
- price:0,
- cost:0,
- imageKind:"shot",
- active:true
-},
+  {
+    id:8,
+    name:"شوت اسبرسو",
+    category:"أدوات القهوة",
+    kind:"shot",
+    description:"كوب شوت لقياس وتقديم الإسبريسو."
+  },
 
-{
- id:9,
- sku:"MID-COF-009",
- name:"Tamper Mat",
- category:"Coffee Tools",
- desc:"Protective silicone mat for espresso tamping.",
- stock:9,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"mat",
- active:true
-},
+  {
+    id:9,
+    name:"جلدة للتامب",
+    category:"أدوات القهوة",
+    kind:"mat",
+    description:"جلدة لحماية السطح أثناء التامب."
+  },
 
-{
- id:10,
- sku:"MID-TEA-001",
- name:"Black Tea",
- category:"Tea",
- desc:"Classic black tea selection.",
- stock:20,
- minStock:5,
- price:0,
- cost:0,
- imageKind:null,
- active:true
-},
+  {
+    id:10,
+    name:"شاي أسود",
+    category:"قسم الشاي",
+    kind:"blacktea",
+    description:"شاي أسود لعشاق النكهة الغنية."
+  },
 
-{
- id:11,
- sku:"MID-TEA-002",
- name:"Green Tea",
- category:"Tea",
- desc:"Fresh and delicate green tea.",
- stock:20,
- minStock:5,
- price:0,
- cost:0,
- imageKind:null,
- active:true
-},
+  {
+    id:11,
+    name:"شاي أخضر",
+    category:"قسم الشاي",
+    kind:"greentea",
+    description:"شاي أخضر بنكهة خفيفة ومنعشة."
+  },
 
-{
- id:12,
- sku:"MID-TEA-003",
- name:"Cardamom & Saffron Tea",
- category:"Tea",
- desc:"Aromatic tea blend with cardamom and saffron.",
- stock:20,
- minStock:5,
- price:0,
- cost:0,
- imageKind:null,
- active:true
-},
+  {
+    id:12,
+    name:"شاي هيل وزعفران",
+    category:"قسم الشاي",
+    kind:"cardamom",
+    description:"خلطة شاي بالهيل والزعفران."
+  },
 
-{
- id:13,
- sku:"MID-TEA-004",
- name:"MIDAD Signature Tea",
- category:"Tea",
- desc:"A signature tea blend selected for MIDAD.",
- stock:20,
- minStock:5,
- price:0,
- cost:0,
- imageKind:null,
- active:true
-},
+  {
+    id:13,
+    name:"شاي مِداد",
+    category:"قسم الشاي",
+    kind:"midadtea",
+    description:"خلطة شاي تحمل هوية مِداد."
+  },
 
-{
- id:14,
- sku:"MID-MAT-001",
- name:"Premium MIDAD Matcha",
- category:"Matcha",
- desc:"Premium matcha selected for smooth preparation.",
- stock:15,
- minStock:4,
- price:0,
- cost:0,
- imageKind:"matcha",
- active:true
-},
+  {
+    id:14,
+    name:"ماتشا مِداد الفاخرة",
+    category:"قسم الماتشا",
+    kind:"matcha",
+    description:"ماتشا فاخرة لعشاق الماتشا."
+  },
 
-{
- id:15,
- sku:"MID-MAT-002",
- name:"Matcha Starter Set",
- category:"Matcha Tools",
- desc:"Complete starter selection for preparing matcha.",
- stock:8,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"matchaset",
- active:true
-},
+  {
+    id:15,
+    name:"مستلزمات الماتشا",
+    category:"قسم الماتشا",
+    kind:"matchaset",
+    description:"مجموعة من مستلزمات تحضير الماتشا."
+  },
 
-{
- id:16,
- sku:"MID-MAT-003",
- name:"Matcha Spoon",
- category:"Matcha Tools",
- desc:"Traditional bamboo matcha spoon.",
- stock:15,
- minStock:4,
- price:0,
- cost:0,
- imageKind:"spoon",
- active:true
-},
+  {
+    id:16,
+    name:"ملعقة ماتشا",
+    category:"قسم الماتشا",
+    kind:"matchaspoon",
+    description:"ملعقة ماتشا تقليدية للقياس والتحضير."
+  },
 
-{
- id:17,
- sku:"MID-MAT-004",
- name:"Matcha Bowl",
- category:"Matcha Tools",
- desc:"Traditional bowl designed for whisking matcha.",
- stock:10,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"bowl",
- active:true
-},
+  {
+    id:17,
+    name:"وعاء ماتشا",
+    category:"قسم الماتشا",
+    kind:"matchabowl",
+    description:"وعاء مخصص لخفق وتحضير الماتشا."
+  },
 
-{
- id:18,
- sku:"MID-MAT-005",
- name:"Bamboo Matcha Whisk",
- category:"Matcha Tools",
- desc:"Traditional bamboo whisk for smooth matcha.",
- stock:12,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"whisk",
- active:true
-},
+  {
+    id:18,
+    name:"خفاقه ماتشا",
+    category:"قسم الماتشا",
+    kind:"matchawhisk",
+    description:"خفاقه بامبو لتحضير ماتشا ناعمة."
+  },
 
-{
- id:19,
- sku:"MID-MUG-001",
- name:"Hot Coffee Mug",
- category:"Mugs",
- desc:"MIDAD-style mug for hot coffee.",
- stock:12,
- minStock:3,
- price:0,
- cost:0,
- imageKind:null,
- active:true
-},
+  {
+    id:19,
+    name:"مج قهوة ساخن",
+    category:"مجات لشرب القهوة",
+    kind:"hotmug",
+    description:"مج أنيق للقهوة والمشروبات الساخنة."
+  },
 
-{
- id:20,
- sku:"MID-MUG-002",
- name:"Cold Coffee Mug",
- category:"Mugs",
- desc:"Mug designed for cold coffee drinks.",
- stock:12,
- minStock:3,
- price:0,
- cost:0,
- imageKind:null,
- active:true
-},
+  {
+    id:20,
+    name:"مج قهوة بارد",
+    category:"مجات لشرب القهوة",
+    kind:"coldmug",
+    description:"مج للمشروبات الباردة والقهوة المثلجة."
+  },
 
-{
- id:21,
- sku:"MID-MUG-003",
- name:"Glass Coffee Mug",
- category:"Mugs",
- desc:"Elegant glass mug for coffee.",
- stock:12,
- minStock:3,
- price:0,
- cost:0,
- imageKind:null,
- active:true
-},
+  {
+    id:21,
+    name:"مج زجاجي للقهوة",
+    category:"مجات لشرب القهوة",
+    kind:"glassmug",
+    description:"مج زجاجي أنيق لتقديم القهوة."
+  },
 
-{
- id:22,
- sku:"MID-CUP-001",
- name:"MIDAD Arabic Tea Cups",
- category:"Tea Cups",
- desc:"Special tea cups inspired by Arabic hospitality.",
- stock:15,
- minStock:4,
- price:0,
- cost:0,
- imageKind:"teacups",
- active:true
-},
+  {
+    id:22,
+    name:"فناجين مِداد العربية",
+    category:"قسم فناجين الشاي",
+    kind:"arabiccups",
+    description:"فناجين بطابع عربي أنيق."
+  },
 
-{
- id:23,
- sku:"MID-CUP-002",
- name:"Tea Cup Set",
- category:"Tea Cups",
- desc:"Elegant tea cup set for serving.",
- stock:10,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"teasetcups",
- active:true
-},
+  {
+    id:23,
+    name:"طقم فناجين الشاي",
+    category:"قسم فناجين الشاي",
+    kind:"teacups",
+    description:"طقم فناجين مناسب لتقديم الشاي."
+  },
 
-{
- id:24,
- sku:"MID-CUP-003",
- name:"MIDAD Tea Set",
- category:"Tea Cups",
- desc:"Complete MIDAD-inspired tea serving set.",
- stock:8,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"teaset",
- active:true
-},
+  {
+    id:24,
+    name:"طقم شاي مِداد",
+    category:"قسم فناجين الشاي",
+    kind:"teaset",
+    description:"طقم شاي متكامل بهوية مِداد."
+  },
 
-{
- id:25,
- sku:"MID-BUN-001",
- name:"Coffee Bundle",
- category:"MIDAD Bundles",
- desc:"Selected coffee tools combined in one practical bundle.",
- stock:5,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"coffeebundle",
- active:true
-},
+  {
+    id:25,
+    name:"بكج القهوة",
+    category:"بكجات مِداد",
+    kind:"coffeebundle",
+    description:"مجموعة مختارة لعشاق تحضير القهوة."
+  },
 
-{
- id:26,
- sku:"MID-BUN-002",
- name:"Matcha Bundle",
- category:"MIDAD Bundles",
- desc:"Matcha essentials combined into one starter bundle.",
- stock:5,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"matchabundle",
- active:true
-},
+  {
+    id:26,
+    name:"بكج ماتشا",
+    category:"بكجات مِداد",
+    kind:"matchabundle",
+    description:"مجموعة مختارة لتحضير الماتشا."
+  },
 
-{
- id:27,
- sku:"MID-BUN-003",
- name:"Tea Bundle",
- category:"MIDAD Bundles",
- desc:"Selected tea essentials for home serving.",
- stock:5,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"teabundle",
- active:true
-},
+  {
+    id:27,
+    name:"بكج شاي",
+    category:"بكجات مِداد",
+    kind:"teabundle",
+    description:"مجموعة مختارة لعشاق الشاي."
+  }
 
-{
- id:28,
- sku:"MID-COF-010",
- name:"Coffee Dosing Cup",
- category:"Coffee Tools",
- desc:"Dosing cup for accurate and clean coffee transfer.",
- stock:10,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"dosing",
- active:true
-},
-
-{
- id:29,
- sku:"MID-COF-011",
- name:"Espresso Funnel",
- category:"Coffee Tools",
- desc:"Espresso dosing funnel designed to reduce coffee mess.",
- stock:8,
- minStock:2,
- price:0,
- cost:0,
- imageKind:"funnel",
- active:true
-},
-
-{
- id:30,
- sku:"MID-COF-012",
- name:"Coffee Bean Storage Container",
- category:"Coffee Tools",
- desc:"Airtight storage container for keeping coffee beans fresh.",
- stock:10,
- minStock:3,
- price:0,
- cost:0,
- imageKind:"container",
- active:true
-}
 ];
 
 
 /* =========================================================
-   DATABASE
+   CATEGORY ORDER
 ========================================================= */
 
-let products = JSON.parse(localStorage.getItem("midad_products")) || defaultProducts;
-
-let cart = JSON.parse(localStorage.getItem("midad_cart")) || [];
-
-let favorites = JSON.parse(localStorage.getItem("midad_favorites")) || [];
-
-let orders = JSON.parse(localStorage.getItem("midad_orders")) || [];
-
-let suppliers = JSON.parse(localStorage.getItem("midad_suppliers")) || [];
-
-let purchases = JSON.parse(localStorage.getItem("midad_purchases")) || [];
-
-let settings = JSON.parse(localStorage.getItem("midad_settings")) || {
- salesOpen:true,
- defaultMinStock:3,
- storeName:"مِداد | MIDAD"
-};
+const categoryOrder = [
+  "أدوات القهوة",
+  "قسم الشاي",
+  "قسم الماتشا",
+  "مجات لشرب القهوة",
+  "قسم فناجين الشاي",
+  "بكجات مِداد"
+];
 
 
 /* =========================================================
    STORAGE
 ========================================================= */
 
-function saveAll(){
+let cart = JSON.parse(localStorage.getItem("midad_cart") || "[]");
 
- localStorage.setItem("midad_products",JSON.stringify(products));
- localStorage.setItem("midad_cart",JSON.stringify(cart));
- localStorage.setItem("midad_favorites",JSON.stringify(favorites));
- localStorage.setItem("midad_orders",JSON.stringify(orders));
- localStorage.setItem("midad_suppliers",JSON.stringify(suppliers));
- localStorage.setItem("midad_purchases",JSON.stringify(purchases));
- localStorage.setItem("midad_settings",JSON.stringify(settings));
+let favorites =
+  JSON.parse(localStorage.getItem("midad_favorites") || "[]");
 
+let settings =
+  JSON.parse(localStorage.getItem("midad_settings") || "{}");
+
+let orders =
+  JSON.parse(localStorage.getItem("midad_orders") || "[]");
+
+
+if(!settings.products){
+
+  settings.products = {};
+
+  products.forEach(p=>{
+    settings.products[p.id] = {
+      price:0,
+      stock:10,
+      active:true
+    };
+  });
+
+  saveSettings();
 }
 
 
 /* =========================================================
-   IMAGE ENGINE
-   Every non-tea/mug product receives its own image.
+   SAVE
 ========================================================= */
 
-function svgImage(kind,title){
-
- let icon="☕";
-
- const icons={
-   scale:"⚖",
-   thermometer:"🌡",
-   knockbox:"▣",
-   portafilter:"◉",
-   pitcher:"🥛",
-   tamper:"●",
-   brush:"🖌",
-   shot:"▥",
-   mat:"▰",
-   matcha:"🍵",
-   matchaset:"🍵",
-   spoon:"🥄",
-   bowl:"◯",
-   whisk:"〰",
-   teacups:"☕",
-   teasetcups:"☕",
-   teaset:"🫖",
-   coffeebundle:"☕",
-   matchabundle:"🍵",
-   teabundle:"🫖",
-   dosing:"◉",
-   funnel:"▽",
-   container:"▣"
- };
-
- icon=icons[kind]||icon;
-
- const svg=`
- <svg xmlns="http://www.w3.org/2000/svg" width="700" height="500">
- <defs>
- <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
- <stop offset="0%" stop-color="#f5ead9"/>
- <stop offset="100%" stop-color="#d8c3a5"/>
- </linearGradient>
- </defs>
-
- <rect width="700" height="500" fill="url(#g)"/>
-
- <circle cx="350" cy="235" r="145"
- fill="#fffaf0" opacity=".72"/>
-
- <text x="350" y="265"
- text-anchor="middle"
- font-size="110">${icon}</text>
-
- <text x="350" y="390"
- text-anchor="middle"
- font-family="Arial"
- font-size="27"
- font-weight="bold"
- fill="#2B211B">${title}</text>
-
- <text x="350" y="425"
- text-anchor="middle"
- font-family="Arial"
- font-size="16"
- fill="#A88455">MIDAD</text>
-
- </svg>
- `;
-
- return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+function saveSettings(){
+  localStorage.setItem(
+    "midad_settings",
+    JSON.stringify(settings)
+  );
 }
 
+function saveCart(){
+  localStorage.setItem(
+    "midad_cart",
+    JSON.stringify(cart)
+  );
+}
 
-function productImage(product){
+function saveFavorites(){
+  localStorage.setItem(
+    "midad_favorites",
+    JSON.stringify(favorites)
+  );
+}
 
- if(!product.imageKind){
-   return null;
- }
-
- return svgImage(product.imageKind,product.name);
+function saveOrders(){
+  localStorage.setItem(
+    "midad_orders",
+    JSON.stringify(orders)
+  );
 }
 
 
 /* =========================================================
-   PAGE NAVIGATION
+   SVG PRODUCT IMAGES
+   EACH PRODUCT HAS ITS OWN VISUAL
 ========================================================= */
 
-function showPage(page){
+function imageFor(kind,title){
 
- document.getElementById("storePage").classList.toggle("hidden",page!=="store");
- document.getElementById("customerPage").classList.toggle("hidden",page!=="customer");
- document.getElementById("managementPage").classList.toggle("hidden",page!=="management");
+  let art="";
 
- window.scrollTo(0,0);
+  if(kind==="scale"){
+    art=`
+      <rect x="130" y="125" width="260" height="145" rx="22" fill="#665345"/>
+      <rect x="160" y="150" width="200" height="65" rx="10" fill="#30271f"/>
+      <rect x="180" y="165" width="160" height="35" rx="6" fill="#d9c7aa"/>
+      <circle cx="250" cy="245" r="10" fill="#a88455"/>
+      <path d="M190 120 Q250 85 330 120" fill="none" stroke="#a88455" stroke-width="12"/>
+    `;
+  }
 
- if(page==="store"){
-   renderStore();
- }
+  if(kind==="thermometer"){
+    art=`
+      <rect x="235" y="70" width="30" height="250" rx="15" fill="#765536"/>
+      <circle cx="250" cy="325" r="45" fill="#a88455"/>
+      <circle cx="250" cy="325" r="25" fill="#fffaf2"/>
+      <rect x="244" y="105" width="12" height="205" rx="6" fill="#d16b48"/>
+      <line x1="280" y1="100" x2="330" y2="100" stroke="#765536" stroke-width="5"/>
+      <line x1="280" y1="160" x2="320" y2="160" stroke="#765536" stroke-width="5"/>
+      <line x1="280" y1="220" x2="330" y2="220" stroke="#765536" stroke-width="5"/>
+    `;
+  }
 
- if(page==="management"){
-   renderManagement();
- }
+  if(kind==="knockbox"){
+    art=`
+      <rect x="115" y="135" width="270" height="160" rx="20" fill="#4b3729"/>
+      <rect x="140" y="155" width="220" height="115" rx="13" fill="#765536"/>
+      <rect x="180" y="175" width="140" height="30" rx="15" fill="#2b211b"/>
+      <rect x="205" y="105" width="90" height="20" rx="10" fill="#a88455"/>
+      <path d="M200 205 L300 205" stroke="#c8b397" stroke-width="8"/>
+    `;
+  }
+
+  if(kind==="portafilter"){
+    art=`
+      <circle cx="205" cy="175" r="75" fill="#4b4b48"/>
+      <circle cx="205" cy="175" r="55" fill="#20201f"/>
+      <circle cx="205" cy="175" r="38" fill="#70533e"/>
+      <path d="M265 175 L405 100 Q430 90 440 110 L438 125 L285 215 Z" fill="#302f2d"/>
+      <circle cx="400" cy="113" r="15" fill="#8a674b"/>
+    `;
+  }
+
+  if(kind==="pitcher"){
+    art=`
+      <path d="M145 100 L350 100 L325 315 Q250 345 175 315 Z" fill="#b8b3aa"/>
+      <path d="M350 145 Q430 145 390 230 Q375 260 335 240" fill="none" stroke="#89847d" stroke-width="22"/>
+      <ellipse cx="248" cy="100" rx="103" ry="22" fill="#d8d4cc"/>
+      <path d="M170 140 Q250 165 330 140" fill="none" stroke="#eee" stroke-width="8"/>
+    `;
+  }
+
+  if(kind==="tamper"){
+    art=`
+      <rect x="205" y="105" width="90" height="90" rx="20" fill="#765536"/>
+      <rect x="220" y="185" width="60" height="55" fill="#4b3524"/>
+      <ellipse cx="250" cy="250" rx="85" ry="25" fill="#a88455"/>
+      <rect x="175" y="250" width="150" height="25" rx="12" fill="#765536"/>
+    `;
+  }
+
+  if(kind==="brush"){
+    art=`
+      <rect x="215" y="80" width="70" height="230" rx="25" fill="#765536"/>
+      <rect x="220" y="205" width="60" height="105" fill="#4b3524"/>
+      <path d="M150 80 L210 115 M150 110 L210 135 M150 140 L210 155 M290 115 L350 80 M290 135 L350 110 M290 155 L350 140"
+        stroke="#a88455" stroke-width="10" stroke-linecap="round"/>
+    `;
+  }
+
+  if(kind==="shot"){
+    art=`
+      <path d="M175 105 L325 105 L305 300 Q250 325 195 300 Z" fill="#d9d5ce" opacity=".9"/>
+      <path d="M185 190 L315 190 L307 270 Q250 295 193 270 Z" fill="#4a2a19"/>
+      <path d="M195 180 Q250 150 305 180" fill="#d5a06b"/>
+      <path d="M325 145 Q400 145 385 205 Q375 235 325 225" fill="none" stroke="#bbb7af" stroke-width="18"/>
+    `;
+  }
+
+  if(kind==="mat"){
+    art=`
+      <rect x="100" y="135" width="300" height="160" rx="30" fill="#332923"/>
+      <path d="M135 160 L365 160 L365 270 L135 270 Z" fill="#5b4434"/>
+      <circle cx="250" cy="215" r="48" fill="#8b6b50"/>
+      <circle cx="250" cy="215" r="32" fill="#332923"/>
+    `;
+  }
+
+  if(kind==="blacktea"){
+    art=`
+      <path d="M155 85 L345 85 L365 315 L135 315 Z" fill="#3a302a"/>
+      <rect x="165" y="120" width="170" height="120" rx="12" fill="#765536"/>
+      <text x="250" y="175" text-anchor="middle" fill="#f4ecdf" font-size="30">شاي</text>
+      <text x="250" y="210" text-anchor="middle" fill="#e5c99f" font-size="20">أسود</text>
+      <circle cx="250" cy="265" r="20" fill="#2b211b"/>
+    `;
+  }
+
+  if(kind==="greentea"){
+    art=`
+      <path d="M155 85 L345 85 L365 315 L135 315 Z" fill="#68724d"/>
+      <rect x="165" y="120" width="170" height="120" rx="12" fill="#e1ddbd"/>
+      <text x="250" y="175" text-anchor="middle" fill="#4e613c" font-size="30">شاي</text>
+      <text x="250" y="210" text-anchor="middle" fill="#6b7b4d" font-size="20">أخضر</text>
+      <path d="M225 260 Q250 230 275 260" fill="none" stroke="#71845b" stroke-width="8"/>
+    `;
+  }
+
+  if(kind==="cardamom"){
+    art=`
+      <path d="M155 85 L345 85 L365 315 L135 315 Z" fill="#8c7047"/>
+      <rect x="165" y="115" width="170" height="135" rx="12" fill="#efe2bd"/>
+      <text x="250" y="165" text-anchor="middle" fill="#765536" font-size="27">هيل</text>
+      <text x="250" y="202" text-anchor="middle" fill="#765536" font-size="25">وزعفران</text>
+      <circle cx="215" cy="270" r="12" fill="#b4a06c"/>
+      <circle cx="285" cy="270" r="12" fill="#d39b32"/>
+    `;
+  }
+
+  if(kind==="midadtea"){
+    art=`
+      <path d="M145 80 L355 80 L375 315 L125 315 Z" fill="#765536"/>
+      <rect x="155" y="115" width="190" height="145" rx="15" fill="#f4ecdf"/>
+      <text x="250" y="175" text-anchor="middle" fill="#765536" font-size="38">مِداد</text>
+      <text x="250" y="215" text-anchor="middle" fill="#a88455" font-size="19">شاي مِداد</text>
+      <circle cx="250" cy="265" r="18" fill="#765536"/>
+    `;
+  }
+
+  if(kind==="matcha"){
+    art=`
+      <rect x="150" y="90" width="200" height="210" rx="30" fill="#68724d"/>
+      <ellipse cx="250" cy="90" rx="100" ry="25" fill="#879764"/>
+      <ellipse cx="250" cy="300" rx="100" ry="25" fill="#52603e"/>
+      <rect x="170" y="150" width="160" height="80" rx="12" fill="#f0e8d5"/>
+      <text x="250" y="200" text-anchor="middle" fill="#52603e" font-size="32">ماتشا</text>
+    `;
+  }
+
+  if(kind==="matchaset"){
+    art=`
+      <circle cx="150" cy="230" r="70" fill="#7a8a5b"/>
+      <circle cx="150" cy="230" r="45" fill="#d9d0b9"/>
+      <path d="M250 120 L275 120 L330 290 L305 300 Z" fill="#d0b17a"/>
+      <rect x="300" y="130" width="30" height="150" rx="12" fill="#765536"/>
+      <path d="M220 210 Q250 170 280 210" fill="none" stroke="#9a845e" stroke-width="16"/>
+    `;
+  }
+
+  if(kind==="matchaspoon"){
+    art=`
+      <path d="M250 80 Q285 90 275 130 L265 265 Q260 315 230 315 Q200 310 205 265 L220 130 Q215 90 250 80Z"
+        fill="#c39b61"/>
+      <ellipse cx="250" cy="95" rx="45" ry="25" fill="#d4b079"/>
+    `;
+  }
+
+  if(kind==="matchabowl"){
+    art=`
+      <path d="M120 150 Q250 125 380 150 L350 285 Q250 335 150 285Z" fill="#68724d"/>
+      <ellipse cx="250" cy="155" rx="130" ry="38" fill="#879764"/>
+      <ellipse cx="250" cy="160" rx="95" ry="25" fill="#53613e"/>
+      <ellipse cx="250" cy="158" rx="75" ry="17" fill="#73864d"/>
+    `;
+  }
+
+  if(kind==="matchawhisk"){
+    art=`
+      <path d="M225 75 L275 75 L265 215 L235 215 Z" fill="#c69b61"/>
+      <path d="M235 205 Q250 300 175 320 M240 205 Q250 310 205 325 M245 205 Q250 315 250 330 M255 205 Q250 315 295 325 M260 205 Q250 300 325 320"
+        fill="none" stroke="#d6b578" stroke-width="8" stroke-linecap="round"/>
+    `;
+  }
+
+  if(kind==="hotmug"){
+    art=`
+      <path d="M150 120 L330 120 L315 290 Q250 320 185 290Z" fill="#765536"/>
+      <path d="M330 160 Q410 150 390 220 Q380 250 325 235" fill="none" stroke="#765536" stroke-width="22"/>
+      <ellipse cx="240" cy="120" rx="90" ry="25" fill="#a88455"/>
+      <path d="M205 80 Q190 55 210 35 M250 80 Q235 50 255 30 M295 80 Q280 50 300 35"
+        stroke="#b8a38b" stroke-width="7" fill="none"/>
+    `;
+  }
+
+  if(kind==="coldmug"){
+    art=`
+      <path d="M165 105 L335 105 L320 310 Q250 330 180 310Z" fill="#a9c4c8" opacity=".8"/>
+      <rect x="195" y="150" width="110" height="15" rx="7" fill="#765536"/>
+      <path d="M205 170 L295 170 L285 270 Q250 290 215 270Z" fill="#6e4b34"/>
+      <path d="M310 125 L380 75" stroke="#765536" stroke-width="12"/>
+      <circle cx="215" cy="130" r="10" fill="#d9d9d9"/>
+      <circle cx="250" cy="125" r="10" fill="#d9d9d9"/>
+      <circle cx="285" cy="130" r="10" fill="#d9d9d9"/>
+    `;
+  }
+
+  if(kind==="glassmug"){
+    art=`
+      <path d="M150 120 L350 120 L325 300 Q250 325 175 300Z" fill="#dce7e5" opacity=".65" stroke="#8ca09c" stroke-width="6"/>
+      <path d="M350 155 Q425 150 400 225 Q385 255 335 235" fill="none" stroke="#8ca09c" stroke-width="12"/>
+      <path d="M170 205 L330 205 L320 280 Q250 305 180 280Z" fill="#79543a"/>
+      <ellipse cx="250" cy="205" rx="80" ry="20" fill="#c8a071"/>
+    `;
+  }
+
+  if(kind==="arabiccups"){
+    art=`
+      <ellipse cx="180" cy="220" rx="60" ry="70" fill="#e4d7bd"/>
+      <ellipse cx="180" cy="205" rx="42" ry="18" fill="#795a3d"/>
+      <ellipse cx="320" cy="220" rx="60" ry="70" fill="#e4d7bd"/>
+      <ellipse cx="320" cy="205" rx="42" ry="18" fill="#795a3d"/>
+      <path d="M140 180 Q180 155 220 180 M280 180 Q320 155 360 180"
+        stroke="#a88455" stroke-width="5" fill="none"/>
+    `;
+  }
+
+  if(kind==="teacups"){
+    art=`
+      <circle cx="160" cy="220" r="70" fill="#d9c8ad"/>
+      <circle cx="160" cy="220" r="48" fill="#795a3d"/>
+      <circle cx="250" cy="220" r="70" fill="#e6dccb"/>
+      <circle cx="250" cy="220" r="48" fill="#795a3d"/>
+      <circle cx="340" cy="220" r="70" fill="#d9c8ad"/>
+      <circle cx="340" cy="220" r="48" fill="#795a3d"/>
+      <rect x="115" y="285" width="90" height="15" rx="7" fill="#765536"/>
+      <rect x="205" y="285" width="90" height="15" rx="7" fill="#765536"/>
+      <rect x="295" y="285" width="90" height="15" rx="7" fill="#765536"/>
+    `;
+  }
+
+  if(kind==="teaset"){
+    art=`
+      <path d="M115 150 Q250 115 385 150 L355 280 Q250 320 145 280Z" fill="#d8c5a5"/>
+      <ellipse cx="250" cy="150" rx="135" ry="35" fill="#efe3ca"/>
+      <path d="M385 165 Q445 150 425 215 Q410 240 375 225" fill="none" stroke="#d8c5a5" stroke-width="18"/>
+      <path d="M180 120 Q250 80 320 120" fill="none" stroke="#765536" stroke-width="13"/>
+      <circle cx="180" cy="285" r="25" fill="#765536"/>
+      <circle cx="320" cy="285" r="25" fill="#765536"/>
+    `;
+  }
+
+  if(kind==="coffeebundle"){
+    art=`
+      <rect x="90" y="125" width="300" height="175" rx="20" fill="#765536"/>
+      <rect x="115" y="150" width="100" height="100" rx="15" fill="#a88455"/>
+      <rect x="235" y="150" width="120" height="25" rx="12" fill="#e5d4ba"/>
+      <rect x="235" y="195" width="90" height="25" rx="12" fill="#e5d4ba"/>
+      <circle cx="165" cy="200" r="30" fill="#332923"/>
+      <text x="295" y="265" text-anchor="middle" fill="#fffaf2" font-size="23">COFFEE</text>
+    `;
+  }
+
+  if(kind==="matchabundle"){
+    art=`
+      <rect x="90" y="125" width="300" height="175" rx="20" fill="#68724d"/>
+      <circle cx="160" cy="210" r="55" fill="#d9d0b9"/>
+      <rect x="240" y="155" width="100" height="90" rx="15" fill="#879764"/>
+      <path d="M270 140 L300 140 L315 270 L285 270Z" fill="#c39b61"/>
+      <text x="280" y="290" text-anchor="middle" fill="#f4ecdf" font-size="22">MATCHA</text>
+    `;
+  }
+
+  if(kind==="teabundle"){
+    art=`
+      <rect x="90" y="125" width="300" height="175" rx="20" fill="#765536"/>
+      <path d="M120 155 L200 155 L210 270 L110 270Z" fill="#e4d7bd"/>
+      <path d="M225 155 L305 155 L315 270 L215 270Z" fill="#8c7047"/>
+      <circle cx="355" cy="210" r="38" fill="#d8c5a5"/>
+      <circle cx="355" cy="210" r="25" fill="#795a3d"/>
+      <text x="250" y="290" text-anchor="middle" fill="#f4ecdf" font-size="23">TEA</text>
+    `;
+  }
+
+  return `
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 500 380">
+
+    <rect width="500" height="380" fill="#eee4d5"/>
+
+    <ellipse cx="250" cy="330" rx="170" ry="18"
+             fill="#d2c1aa"/>
+
+    ${art}
+
+    <text x="250"
+          y="355"
+          text-anchor="middle"
+          font-family="Arial"
+          font-size="17"
+          font-weight="bold"
+          fill="#4b3524">
+      ${escapeSvg(title)}
+    </text>
+
+  </svg>
+  `;
+}
+
+
+function escapeSvg(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&apos;");
+}
+
+
+function imageData(product){
+
+  return "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(
+      imageFor(product.kind,product.name)
+    );
 
 }
 
 
 /* =========================================================
-   CATEGORY
-========================================================= */
-
-function initCategories(){
-
- const select=document.getElementById("categoryFilter");
-
- const cats=[...new Set(products.map(p=>p.category))];
-
- select.innerHTML=`<option value="all">All Categories</option>`;
-
- cats.forEach(c=>{
-   select.innerHTML+=`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`;
- });
-
-}
-
-
-/* =========================================================
-   STORE
+   RENDER STORE
 ========================================================= */
 
 function renderStore(){
 
- initCategories();
+  const area =
+    document.getElementById("productsArea");
 
- const grid=document.getElementById("productsGrid");
+  area.innerHTML="";
 
- const search=(document.getElementById("storeSearch")?.value||"").toLowerCase();
+  categoryOrder.forEach(category=>{
 
- const category=document.getElementById("categoryFilter")?.value||"all";
+    const list =
+      products.filter(p=>p.category===category);
 
- let list=products.filter(p=>p.active);
+    const section =
+      document.createElement("section");
 
- if(search){
-   list=list.filter(p=>
-      p.name.toLowerCase().includes(search) ||
-      p.category.toLowerCase().includes(search)
-   );
- }
+    section.className="category";
 
- if(category!=="all"){
-   list=list.filter(p=>p.category===category);
- }
+    section.innerHTML=`
 
- grid.innerHTML=list.map(productCard).join("");
+      <div class="category-head">
 
- updateCounts();
+        <h2>${category}</h2>
+
+        <span>${list.length} أصناف</span>
+
+      </div>
+
+      <div class="products">
+
+        ${list.map(productCard).join("")}
+
+      </div>
+
+    `;
+
+    area.appendChild(section);
+
+  });
+
+  updateCartCount();
+
 }
 
 
 function productCard(p){
 
- const fav=favorites.includes(p.id);
+  const s =
+    settings.products[p.id];
 
- const image=p.imageKind
- ? `<img src="${productImage(p)}" alt="${escapeHtml(p.name)}">`
- : `<div style="font-size:70px;color:#A88455">MIDAD</div>`;
+  const isFavorite =
+    favorites.includes(p.id);
 
- const soldOut=p.stock<=0;
+  let priceText =
+    "السعر عند الطلب";
 
- let priceText=p.price>0
- ? `${Number(p.price).toFixed(2)} JOD`
- : "Price on request";
+  if(s.price > 0){
 
- return `
- <article class="product-card">
+    priceText =
+      Number(s.price).toFixed(2) + " د.أ";
 
- <button class="favorite ${fav?"active":""}"
- onclick="toggleFavorite(${p.id})">
- ${fav?"♥":"♡"}
- </button>
+  }
 
- <div class="product-image">
- ${image}
- </div>
+  const soldOut =
+    !s.active || s.stock <= 0;
 
- <div class="product-info">
+  return `
 
- <div class="category">${escapeHtml(p.category)}</div>
+    <article class="card">
 
- <h3>${escapeHtml(p.name)}</h3>
+      <img
+        class="product-image"
+        src="${imageData(p)}"
+        alt="${p.name}"
+      >
 
- <div class="product-desc">
- ${escapeHtml(p.desc)}
- </div>
+      <div class="product-info">
 
- <div class="product-bottom">
+        <h3>${p.name}</h3>
 
- <div class="price ${p.price>0?"":"request"}">
- ${priceText}
- </div>
+        <p>${p.description}</p>
 
- <div class="product-actions">
+        <div class="price ${s.price<=0?"request":""}">
+          ${priceText}
+        </div>
 
- ${
- soldOut
- ? `<button class="small-btn" disabled style="opacity:.5">Out of Stock</button>`
- : `<button class="small-btn" onclick="addToCart(${p.id})">Add</button>`
- }
+        <div class="card-actions">
 
- </div>
+          <button
+            class="add"
+            ${soldOut?"disabled":""}
+            onclick="addToCart(${p.id})">
 
- </div>
+            ${
+              !s.active
+              ? "البيع متوقف"
+              : s.stock<=0
+              ? "غير متوفر"
+              : "أضف للسلة"
+            }
 
- </div>
+          </button>
 
- </article>
- `;
-}
+          <button
+            class="favorite ${isFavorite?"active":""}"
+            onclick="toggleFavorite(${p.id})">
 
+            ${isFavorite?"♥":"♡"}
 
-/* =========================================================
-   FAVORITES
-========================================================= */
+          </button>
 
-function toggleFavorite(id){
+        </div>
 
- if(favorites.includes(id)){
-   favorites=favorites.filter(x=>x!==id);
- }else{
-   favorites.push(id);
- }
+      </div>
 
- saveAll();
- renderStore();
- updateCounts();
-}
+    </article>
 
-
-function toggleFavorites(){
-
- const favs=products.filter(p=>favorites.includes(p.id));
-
- const grid=document.getElementById("productsGrid");
-
- if(!favs.length){
-   grid.innerHTML=`
-   <div class="panel" style="grid-column:1/-1;text-align:center">
-   No favorite products yet.
-   </div>`;
-   return;
- }
-
- grid.innerHTML=favs.map(productCard).join("");
+  `;
 }
 
 
@@ -2611,186 +1747,265 @@ function toggleFavorites(){
 
 function addToCart(id){
 
- if(!settings.salesOpen){
-   alert("Sales are currently closed.");
-   return;
- }
+  const setting =
+    settings.products[id];
 
- const product=products.find(p=>p.id===id);
+  if(!setting.active || setting.stock<=0){
 
- if(!product || product.stock<=0){
-   alert("Product is out of stock.");
-   return;
- }
+    alert("هذا المنتج غير متوفر حالياً.");
 
- const item=cart.find(x=>x.id===id);
+    return;
+  }
 
- if(item){
+  const existing =
+    cart.find(x=>x.id===id);
 
-   if(item.qty>=product.stock){
-     alert("Maximum available stock reached.");
-     return;
-   }
+  if(existing){
 
-   item.qty++;
+    if(existing.qty < setting.stock){
 
- }else{
+      existing.qty++;
 
-   cart.push({
-     id,
-     qty:1
-   });
+    }else{
 
- }
+      alert("لا يوجد مخزون كافٍ.");
 
- saveAll();
- updateCounts();
- openCart();
+    }
+
+  }else{
+
+    cart.push({
+      id:id,
+      qty:1
+    });
+
+  }
+
+  saveCart();
+
+  updateCartCount();
+
+  renderCart();
+
 }
 
 
-function changeQty(id,delta){
+function changeQty(id,amount){
 
- const item=cart.find(x=>x.id===id);
+  const item =
+    cart.find(x=>x.id===id);
 
- const product=products.find(p=>p.id===id);
+  if(!item) return;
 
- if(!item||!product)return;
+  const stock =
+    settings.products[id].stock;
 
- item.qty+=delta;
+  item.qty += amount;
 
- if(item.qty<=0){
-   cart=cart.filter(x=>x.id!==id);
- }
+  if(item.qty <= 0){
 
- if(item.qty>product.stock){
-   item.qty=product.stock;
- }
+    cart =
+      cart.filter(x=>x.id!==id);
 
- saveAll();
- renderCart();
- updateCounts();
+  }else if(item.qty > stock){
+
+    item.qty=stock;
+
+    alert("لا يوجد مخزون كافٍ.");
+
+  }
+
+  saveCart();
+
+  renderCart();
+
+  updateCartCount();
+
 }
 
 
-function removeCart(id){
+function removeFromCart(id){
 
- cart=cart.filter(x=>x.id!==id);
+  cart =
+    cart.filter(x=>x.id!==id);
 
- saveAll();
- renderCart();
- updateCounts();
+  saveCart();
+
+  renderCart();
+
+  updateCartCount();
+
 }
 
 
-function cartTotals(){
+function updateCartCount(){
 
- let knownTotal=0;
- let hasUnknown=false;
+  const count =
+    cart.reduce(
+      (sum,item)=>sum+item.qty,
+      0
+    );
 
- cart.forEach(item=>{
+  document.getElementById("cartCount")
+    .textContent=count;
 
-   const p=products.find(x=>x.id===item.id);
-
-   if(!p)return;
-
-   if(Number(p.price)>0){
-     knownTotal+=Number(p.price)*item.qty;
-   }else{
-     hasUnknown=true;
-   }
-
- });
-
- return {
-   knownTotal,
-   hasUnknown
- };
 }
 
 
 function renderCart(){
 
- const box=document.getElementById("cartItems");
+  const box =
+    document.getElementById("cartItems");
 
- if(!cart.length){
+  if(cart.length===0){
 
-   box.innerHTML=`
-   <div style="text-align:center;padding:35px">
-   Your cart is empty.
-   </div>`;
+    box.innerHTML=
+      `<div class="orders-empty">
+        السلة فارغة حالياً.
+      </div>`;
 
-   document.getElementById("cartTotal").innerHTML="";
-   return;
- }
+    document.getElementById("cartTotal")
+      .textContent="السعر عند الطلب";
 
- box.innerHTML=cart.map(item=>{
+    return;
+  }
 
-   const p=products.find(x=>x.id===item.id);
+  let total=0;
+  let hasPrice=false;
 
-   if(!p)return "";
+  box.innerHTML =
+    cart.map(item=>{
 
-   const image=p.imageKind
-   ? `<img src="${productImage(p)}">`
-   : `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#A88455">MIDAD</div>`;
+      const p =
+        products.find(x=>x.id===item.id);
 
-   return `
-   <div class="cart-item">
+      const s =
+        settings.products[item.id];
 
-   <div class="cart-item-image">
-   ${image}
-   </div>
+      if(s.price>0){
 
-   <div class="cart-item-info">
-   <strong>${escapeHtml(p.name)}</strong>
-   <br>
-   <small>${p.price>0?Number(p.price).toFixed(2)+" JOD":"Price on request"}</small>
-   </div>
+        total += s.price * item.qty;
 
-   <div class="qty">
-   <button onclick="changeQty(${p.id},-1)">−</button>
-   <span>${item.qty}</span>
-   <button onclick="changeQty(${p.id},1)">+</button>
-   </div>
+        hasPrice=true;
 
-   <button onclick="removeCart(${p.id})"
-   style="border:0;background:none;color:#b84b4b;font-size:18px">
-   ×
-   </button>
+      }
 
-   </div>
-   `;
+      return `
 
- }).join("");
+        <div class="cart-item">
 
- const totals=cartTotals();
+          <div>
 
- document.getElementById("cartTotal").innerHTML=`
- <div class="total-box">
- <span>Total</span>
- <span>
- ${
- totals.hasUnknown
- ? "Price on request"
- : totals.knownTotal.toFixed(2)+" JOD"
- }
- </span>
- </div>
- `;
+            <h4>${p.name}</h4>
+
+            <div class="qty">
+
+              <button
+                onclick="changeQty(${p.id},-1)">
+                −
+              </button>
+
+              <span>${item.qty}</span>
+
+              <button
+                onclick="changeQty(${p.id},1)">
+                +
+              </button>
+
+              <button
+                class="remove"
+                onclick="removeFromCart(${p.id})">
+                حذف
+              </button>
+
+            </div>
+
+          </div>
+
+          <strong>
+            ${
+              s.price>0
+              ? (s.price*item.qty).toFixed(2)+" د.أ"
+              : "عند الطلب"
+            }
+          </strong>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+  document.getElementById("cartTotal")
+    .textContent =
+      hasPrice
+      ? total.toFixed(2)+" د.أ"
+      : "السعر عند الطلب";
+
 }
 
 
 function openCart(){
 
- renderCart();
- document.getElementById("cartModal").classList.add("open");
+  renderCart();
+
+  document.getElementById("cartPanel")
+    .classList.add("open");
 
 }
 
 
-function closeModal(id){
+function closeCart(){
 
- document.getElementById(id).classList.remove("open");
+  document.getElementById("cartPanel")
+    .classList.remove("open");
+
+}
+
+
+/* =========================================================
+   FAVORITES
+========================================================= */
+
+function toggleFavorite(id){
+
+  if(favorites.includes(id)){
+
+    favorites =
+      favorites.filter(x=>x!==id);
+
+  }else{
+
+    favorites.push(id);
+
+  }
+
+  saveFavorites();
+
+  renderStore();
+
+}
+
+
+function showFavorites(){
+
+  if(favorites.length===0){
+
+    alert("لا يوجد منتجات في المفضلة.");
+
+    return;
+  }
+
+  const names =
+    favorites
+      .map(id=>{
+        const p =
+          products.find(x=>x.id===id);
+        return p ? "• "+p.name : "";
+      })
+      .join("\n");
+
+  alert("منتجاتك المفضلة:\n\n"+names);
 
 }
 
@@ -2801,1223 +2016,527 @@ function closeModal(id){
 
 function openCheckout(){
 
- if(!cart.length){
-   alert("Your cart is empty.");
-   return;
- }
+  if(cart.length===0){
 
- if(!settings.salesOpen){
-   alert("Sales are currently closed.");
-   return;
- }
+    alert("السلة فارغة.");
 
- closeModal("cartModal");
+    return;
+  }
 
- document.getElementById("checkoutModal").classList.add("open");
+  document.getElementById("checkoutOverlay")
+    .classList.add("show");
 
- paymentChanged();
-
- const totals=cartTotals();
-
- document.getElementById("checkoutSummary").innerHTML=`
- <div class="total-box">
- <span>Order Total</span>
- <span>
- ${
- totals.hasUnknown
- ? "Price on request"
- : totals.knownTotal.toFixed(2)+" JOD"
- }
- </span>
- </div>
- `;
 }
 
 
-function paymentChanged(){
+function closeCheckout(){
 
- const method=document.getElementById("paymentMethod").value;
+  document.getElementById("checkoutOverlay")
+    .classList.remove("show");
 
- document.getElementById("clickInfo")
- .classList.toggle("hidden",method!=="click");
+}
 
- document.getElementById("bankInfo")
- .classList.toggle("hidden",method!=="bank");
+
+function sendOrder(){
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  const ref =
+    document.getElementById("transactionRef").value.trim();
+
+  const notes =
+    document.getElementById("orderNotes").value.trim();
+
+
+  if(!name || !phone || !address){
+
+    alert("يرجى تعبئة الاسم ورقم الهاتف والعنوان.");
+
+    return;
+  }
+
+
+  let message =
+    "طلب جديد من متجر مِداد\n\n";
+
+  message +=
+    "الاسم: "+name+"\n";
+
+  message +=
+    "الهاتف: "+phone+"\n";
+
+  message +=
+    "العنوان: "+address+"\n\n";
+
+  message +=
+    "المنتجات:\n";
+
+
+  let total=0;
+  let hasPrice=false;
+
+  cart.forEach(item=>{
+
+    const p =
+      products.find(x=>x.id===item.id);
+
+    const s =
+      settings.products[item.id];
+
+    message +=
+      "- "+p.name+
+      " × "+item.qty;
+
+    if(s.price>0){
+
+      const line =
+        s.price * item.qty;
+
+      total += line;
+
+      hasPrice=true;
+
+      message +=
+        " = "+line.toFixed(2)+" د.أ";
+
+    }else{
+
+      message +=
+        " = السعر عند الطلب";
+
+    }
+
+    message += "\n";
+
+  });
+
+
+  message += "\n";
+
+  message +=
+    "الإجمالي: "+
+    (
+      hasPrice
+      ? total.toFixed(2)+" د.أ"
+      : "السعر عند الطلب"
+    )+
+    "\n\n";
+
+
+  message +=
+    "الدفع: كليك - بنك الاتحاد\n";
+
+  message +=
+    "اسم المستفيد: Ibrahim Nidar Mohammad Yousef\n";
+
+  message +=
+    "رقم كليك: 0799563650\n";
+
+  message +=
+    "مرجع العملية: "+
+    (ref || "لم يتم إدخاله")+
+    "\n";
+
+
+  if(notes){
+
+    message +=
+      "\nملاحظات: "+notes+"\n";
+
+  }
+
+
+  const order = {
+
+    id:
+      "MID-"+Date.now(),
+
+    date:
+      new Date().toLocaleString("ar-JO"),
+
+    customer:{
+      name,
+      phone,
+      address
+    },
+
+    transactionRef:ref,
+
+    notes,
+
+    items:
+      JSON.parse(JSON.stringify(cart)),
+
+    total:
+      hasPrice ? total : null
+
+  };
+
+
+  orders.unshift(order);
+
+  saveOrders();
+
+
+  /* decrease stock */
+
+  cart.forEach(item=>{
+
+    if(settings.products[item.id]){
+
+      settings.products[item.id].stock =
+        Math.max(
+          0,
+          settings.products[item.id].stock-item.qty
+        );
+
+    }
+
+  });
+
+
+  saveSettings();
+
+
+  const url =
+    "https://wa.me/962799563650?text="+
+    encodeURIComponent(message);
+
+
+  window.open(url,"_blank");
+
+
+  cart=[];
+
+  saveCart();
+
+  renderCart();
+
+  renderStore();
+
+  closeCheckout();
+
+  closeCart();
+
+  alert("تم تجهيز الطلب وإرساله إلى واتساب مِداد.");
 
 }
 
 
 /* =========================================================
-   ORDER ID
+   ADMIN
 ========================================================= */
 
-function generateOrderId(){
+function openAdmin(){
 
- const date=new Date();
+  document.getElementById("store")
+    .classList.add("hidden");
 
- const d=date.getFullYear()+
- String(date.getMonth()+1).padStart(2,"0")+
- String(date.getDate()).padStart(2,"0");
+  document.getElementById("admin")
+    .classList.add("active");
 
- const count=orders.length+1;
+  renderAdmin();
 
- return `MID-${d}-${String(count).padStart(4,"0")}`;
-}
-
-
-/* =========================================================
-   PLACE ORDER
-========================================================= */
-
-function placeOrder(){
-
- const name=document.getElementById("checkoutName").value.trim();
-
- const phone=document.getElementById("checkoutPhone").value.trim();
-
- const address=document.getElementById("checkoutAddress").value.trim();
-
- const payment=document.getElementById("paymentMethod").value;
-
- const ref=document.getElementById("transactionRef").value.trim();
-
- const notes=document.getElementById("checkoutNotes").value.trim();
-
- if(!name||!phone||!address){
-
-   alert("Please complete name, phone and address.");
-   return;
-
- }
-
- if(!cart.length){
-   alert("Your cart is empty.");
-   return;
- }
-
-
- for(const item of cart){
-
-   const p=products.find(x=>x.id===item.id);
-
-   if(!p || p.stock<item.qty){
-
-     alert(`Not enough stock for ${p?.name||"product"}.`);
-     return;
-
-   }
-
- }
-
-
- const totals=cartTotals();
-
- const items=cart.map(item=>{
-
-   const p=products.find(x=>x.id===item.id);
-
-   return {
-     productId:p.id,
-     sku:p.sku,
-     name:p.name,
-     qty:item.qty,
-     price:Number(p.price)||0,
-     cost:Number(p.cost)||0
-   };
-
- });
-
-
- /* Deduct stock */
-
- items.forEach(item=>{
-
-   const p=products.find(x=>x.id===item.productId);
-
-   p.stock-=item.qty;
-
- });
-
-
- const order={
-
-   id:generateOrderId(),
-
-   customer:{
-     name,
-     phone,
-     address
-   },
-
-   items,
-
-   total:totals.hasUnknown?null:totals.knownTotal,
-
-   paymentMethod:payment,
-
-   transactionRef:ref,
-
-   notes,
-
-   status:"Pending",
-
-   date:new Date().toISOString(),
-
-   stockDeducted:true,
-
-   cancelledStockRestored:false
-
- };
-
-
- orders.unshift(order);
-
- cart=[];
-
- saveAll();
-
- closeModal("checkoutModal");
-
- updateCounts();
-
- renderStore();
-
- sendWhatsAppOrder(order);
-
- alert(
- `Order submitted successfully!\n\nOrder ID: ${order.id}`
- );
+  window.scrollTo(0,0);
 
 }
 
 
-/* =========================================================
-   WHATSAPP
-========================================================= */
+function closeAdmin(){
 
-function sendWhatsAppOrder(order){
+  document.getElementById("admin")
+    .classList.remove("active");
 
- let text=`MIDAD New Order\n\n`;
+  document.getElementById("store")
+    .classList.remove("hidden");
 
- text+=`Order ID: ${order.id}\n`;
- text+=`Customer: ${order.customer.name}\n`;
- text+=`Phone: ${order.customer.phone}\n`;
- text+=`Address: ${order.customer.address}\n\n`;
+  renderStore();
 
- text+=`Products:\n`;
-
- order.items.forEach(i=>{
-   text+=`- ${i.name} x ${i.qty}\n`;
- });
-
- text+=`\nPayment: ${order.paymentMethod}\n`;
-
- if(order.transactionRef){
-   text+=`Transaction Ref: ${order.transactionRef}\n`;
- }
-
- if(order.total!==null){
-   text+=`Total: ${order.total.toFixed(2)} JOD\n`;
- }else{
-   text+=`Total: Price on request\n`;
- }
-
- if(order.notes){
-   text+=`\nNotes: ${order.notes}`;
- }
-
- const url=
- "https://wa.me/962799563650?text="+
- encodeURIComponent(text);
-
- window.open(url,"_blank");
+  window.scrollTo(0,0);
 
 }
 
 
-/* =========================================================
-   MANAGEMENT
-========================================================= */
+function renderAdmin(){
 
-function adminTab(tab,button){
+  const tbody =
+    document.getElementById("adminProducts");
 
- document.querySelectorAll(".admin-tab")
- .forEach(x=>x.classList.remove("active"));
 
- document.querySelectorAll(".admin-section")
- .forEach(x=>x.classList.remove("active"));
+  tbody.innerHTML =
+    products.map((p,index)=>{
 
- button.classList.add("active");
+      const s =
+        settings.products[p.id];
 
- document.getElementById("admin-"+tab)
- .classList.add("active");
+      return `
 
- renderManagement();
+        <tr>
+
+          <td>${index+1}</td>
+
+          <td>
+            <strong>${p.name}</strong>
+          </td>
+
+          <td>${p.category}</td>
+
+          <td>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value="${s.price}"
+              id="price-${p.id}"
+            >
+          </td>
+
+          <td>
+            <input
+              type="number"
+              min="0"
+              value="${s.stock}"
+              id="stock-${p.id}"
+            >
+          </td>
+
+          <td>
+
+            <button
+              class="toggle ${s.active?"on":""}"
+              onclick="toggleProduct(${p.id})"
+              title="تشغيل/إيقاف البيع">
+            </button>
+
+          </td>
+
+        </tr>
+
+      `;
+
+    }).join("");
+
+
+  let totalStock=0;
+
+  products.forEach(p=>{
+
+    totalStock +=
+      Number(settings.products[p.id].stock)||0;
+
+  });
+
+
+  document.getElementById("statProducts")
+    .textContent=products.length;
+
+  document.getElementById("statStock")
+    .textContent=totalStock;
+
+  document.getElementById("statOrders")
+    .textContent=orders.length;
+
+
+  const allActive =
+    products.every(
+      p=>settings.products[p.id].active
+    );
+
+  document.getElementById("statSales")
+    .textContent =
+      allActive
+      ? "مفتوح"
+      : "متوقف جزئياً";
+
+
+  renderOrders();
 
 }
 
 
-function renderManagement(){
+function toggleProduct(id){
 
- renderDashboard();
- renderOrders();
- renderAdminProducts();
- renderInventory();
- renderPurchases();
- renderCustomers();
- renderSuppliers();
- renderSales();
- renderReports();
- renderSettings();
- initAdminSelects();
+  settings.products[id].active =
+    !settings.products[id].active;
+
+  saveSettings();
+
+  renderAdmin();
+
+  renderStore();
+
+}
+
+
+function toggleAllSales(){
+
+  const allActive =
+    products.every(
+      p=>settings.products[p.id].active
+    );
+
+  products.forEach(p=>{
+
+    settings.products[p.id].active =
+      !allActive;
+
+  });
+
+  saveSettings();
+
+  renderAdmin();
+
+  renderStore();
+
+}
+
+
+function saveProducts(){
+
+  products.forEach(p=>{
+
+    const price =
+      Number(
+        document.getElementById(
+          "price-"+p.id
+        ).value
+      );
+
+    const stock =
+      Number(
+        document.getElementById(
+          "stock-"+p.id
+        ).value
+      );
+
+
+    settings.products[p.id].price =
+      Math.max(0,price);
+
+    settings.products[p.id].stock =
+      Math.max(0,stock);
+
+  });
+
+
+  saveSettings();
+
+  renderAdmin();
+
+  renderStore();
+
+  alert("تم حفظ جميع تعديلات المنتجات.");
 
 }
 
 
 /* =========================================================
-   DASHBOARD
-========================================================= */
-
-function validSales(){
-
- return orders.filter(o=>o.status!=="Cancelled");
-
-}
-
-
-function revenue(){
-
- return validSales()
- .filter(o=>o.total!==null)
- .reduce((sum,o)=>sum+Number(o.total),0);
-
-}
-
-
-function renderDashboard(){
-
- const low=products.filter(p=>p.stock<=p.minStock);
-
- document.getElementById("kProducts").textContent=products.length;
-
- document.getElementById("kActive").textContent=
- products.filter(p=>p.active).length;
-
- document.getElementById("kStock").textContent=
- products.reduce((s,p)=>s+Number(p.stock),0);
-
- document.getElementById("kLow").textContent=low.length;
-
- document.getElementById("kOrders").textContent=orders.length;
-
- document.getElementById("kPending").textContent=
- orders.filter(o=>o.status==="Pending").length;
-
- document.getElementById("kCustomers").textContent=
- getCustomers().length;
-
- document.getElementById("kRevenue").textContent=
- revenue().toFixed(2)+" JOD";
-
-
- let alerts="";
-
- if(!settings.salesOpen){
-   alerts+=`<div class="alert danger">Sales are currently CLOSED.</div>`;
- }
-
- if(orders.filter(o=>o.status==="Pending").length){
-   alerts+=`
-   <div class="alert">
-   You have ${orders.filter(o=>o.status==="Pending").length}
-   pending order(s).
-   </div>`;
- }
-
- if(low.length){
-   alerts+=`
-   <div class="alert danger">
-   ${low.length} product(s) need stock replenishment.
-   </div>`;
- }
-
- document.getElementById("dashboardAlerts").innerHTML=alerts;
-
-
- document.getElementById("recentOrders").innerHTML=
- orders.slice(0,5).map(o=>`
- <div style="padding:9px 0;border-bottom:1px solid #eee">
- <strong>${o.id}</strong>
- <br>
- <small>${escapeHtml(o.customer.name)} — ${o.status}</small>
- </div>
- `).join("")||"<p>No orders.</p>";
-
-
- document.getElementById("lowStockList").innerHTML=
- low.slice(0,8).map(p=>`
- <div style="padding:9px 0;border-bottom:1px solid #eee">
- <strong>${escapeHtml(p.name)}</strong>
- <br>
- <small>Stock: ${p.stock} / Minimum: ${p.minStock}</small>
- </div>
- `).join("")||"<p>No low stock products.</p>";
-
-}
-
-
-/* =========================================================
-   ORDERS
+   ADMIN ORDERS
 ========================================================= */
 
 function renderOrders(){
 
- const search=
- (document.getElementById("orderSearch")?.value||"")
- .toLowerCase();
-
- let list=orders;
-
- if(search){
-
-   list=orders.filter(o=>
-      o.id.toLowerCase().includes(search) ||
-      o.customer.name.toLowerCase().includes(search) ||
-      o.customer.phone.toLowerCase().includes(search)
-   );
-
- }
-
- document.getElementById("ordersTable").innerHTML=
- list.map(o=>`
-
- <tr>
-
- <td>
- <strong>${o.id}</strong>
- </td>
-
- <td>${escapeHtml(o.customer.name)}</td>
-
- <td>${escapeHtml(o.customer.phone)}</td>
-
- <td>
- ${
-   o.total===null
-   ? "On request"
-   : o.total.toFixed(2)+" JOD"
- }
- </td>
-
- <td>${paymentName(o.paymentMethod)}</td>
-
- <td>
- <span class="status ${statusClass(o.status)}">
- ${o.status}
- </span>
- </td>
-
- <td>${formatDate(o.date)}</td>
-
- <td>
-
- <button class="small-btn"
- onclick="viewOrder('${o.id}')">
- View
- </button>
-
- <select
- onchange="changeOrderStatus('${o.id}',this.value)"
- style="padding:6px;border:1px solid #ddd;border-radius:7px">
-
- ${[
- "Pending",
- "Confirmed",
- "Preparing",
- "Shipped",
- "Delivered",
- "Cancelled"
- ].map(s=>`
- <option ${s===o.status?"selected":""}>${s}</option>
- `).join("")}
-
- </select>
-
- </td>
-
- </tr>
-
- `).join("")||`
- <tr><td colspan="8">No orders found.</td></tr>
- `;
-
-}
+  const box =
+    document.getElementById("adminOrders");
 
 
-function changeOrderStatus(id,newStatus){
+  if(orders.length===0){
 
- const order=orders.find(o=>o.id===id);
+    box.innerHTML =
+      `<div class="orders-empty">
+        لا توجد طلبات حتى الآن.
+      </div>`;
 
- if(!order)return;
+    return;
+  }
 
- if(order.status!=="Cancelled" && newStatus==="Cancelled"){
 
-   if(order.stockDeducted && !order.cancelledStockRestored){
+  box.innerHTML =
+    orders.map(order=>{
 
-     order.items.forEach(item=>{
+      let itemsText =
+        order.items.map(item=>{
 
-       const p=products.find(x=>x.id===item.productId);
+          const p =
+            products.find(x=>x.id===item.id);
 
-       if(p){
-         p.stock+=item.qty;
-       }
+          return p
+            ? p.name+" × "+item.qty
+            : "";
 
-     });
+        }).join("، ");
 
-     order.cancelledStockRestored=true;
 
-   }
+      return `
 
- }
+        <div class="order">
 
- if(order.status==="Cancelled" && newStatus!=="Cancelled"){
+          <div class="order-title">
 
-   if(order.cancelledStockRestored){
+            <span>
+              ${order.id}
+            </span>
 
-     for(const item of order.items){
+            <span>
+              ${order.date}
+            </span>
 
-       const p=products.find(x=>x.id===item.productId);
+          </div>
 
-       if(!p || p.stock<item.qty){
+          <small>
 
-         alert(`Cannot reactivate order. Not enough stock for ${item.name}.`);
-         return;
+            العميل:
+            ${order.customer.name}
+            <br>
 
-       }
+            الهاتف:
+            ${order.customer.phone}
+            <br>
 
-     }
+            العنوان:
+            ${order.customer.address}
+            <br>
 
-     order.items.forEach(item=>{
+            المنتجات:
+            ${itemsText}
+            <br>
 
-       const p=products.find(x=>x.id===item.productId);
+            مرجع كليك:
+            ${order.transactionRef || "غير مضاف"}
 
-       p.stock-=item.qty;
+            ${
+              order.notes
+              ? "<br>ملاحظات: "+order.notes
+              : ""
+            }
 
-     });
+          </small>
 
-     order.cancelledStockRestored=false;
+        </div>
 
-   }
+      `;
 
- }
-
- order.status=newStatus;
-
- saveAll();
-
- renderManagement();
+    }).join("");
 
 }
 
 
 /* =========================================================
-   ORDER DETAILS
+   START
 ========================================================= */
 
-function viewOrder(id){
+renderStore();
 
- const o=orders.find(x=>x.id===id);
+renderCart();
 
- if(!o)return;
+</script>
 
- document.getElementById("orderDetails").innerHTML=`
-
- <p><strong>Order ID:</strong> ${o.id}</p>
-
- <p><strong>Customer:</strong>
- ${escapeHtml(o.customer.name)}</p>
-
- <p><strong>Phone:</strong>
- ${escapeHtml(o.customer.phone)}</p>
-
- <p><strong>Address:</strong>
- ${escapeHtml(o.customer.address)}</p>
-
- <p><strong>Status:</strong> ${o.status}</p>
-
- <p><strong>Payment:</strong>
- ${paymentName(o.paymentMethod)}</p>
-
- ${o.transactionRef?
- `<p><strong>Transaction:</strong>
- ${escapeHtml(o.transactionRef)}</p>`:""}
-
- <hr style="margin:17px 0;border:0;border-top:1px solid #ddd">
-
- <h3>Items</h3>
-
- ${o.items.map(i=>`
- <div style="padding:8px 0;border-bottom:1px solid #eee">
- ${escapeHtml(i.name)}
- × ${i.qty}
- </div>
- `).join("")}
-
- <br>
-
- <strong>
- Total:
- ${
- o.total===null
- ? "Price on request"
- : o.total.toFixed(2)+" JOD"
- }
- </strong>
-
- ${o.notes?
- `<br><br><strong>Notes:</strong><br>${escapeHtml(o.notes)}`
- :""}
-
- `;
-
- document.getElementById("orderDetailsModal")
- .classList.add("open");
-
-}
-
-
-/* =========================================================
-   PRODUCTS ADMIN
-========================================================= */
-
-function renderAdminProducts(){
-
- const search=
- (document.getElementById("productSearchAdmin")?.value||"")
- .toLowerCase();
-
- let list=products;
-
- if(search){
-   list=products.filter(p=>
-     p.name.toLowerCase().includes(search) ||
-     p.sku.toLowerCase().includes(search) ||
-     p.category.toLowerCase().includes(search)
-   );
- }
-
- document.getElementById("productsAdminTable").innerHTML=
- list.map(p=>`
-
- <tr>
-
- <td>${p.sku}</td>
-
- <td><strong>${escapeHtml(p.name)}</strong></td>
-
- <td>${escapeHtml(p.category)}</td>
-
- <td>
- <input
- id="price-${p.id}"
- value="${p.price}"
- type="number"
- min="0"
- step="0.01"
- style="width:90px">
- </td>
-
- <td>
- <input
- id="cost-${p.id}"
- value="${p.cost}"
- type="number"
- min="0"
- step="0.01"
- style="width:90px">
- </td>
-
- <td>
- <input
- id="stock-${p.id}"
- value="${p.stock}"
- type="number"
- min="0"
- style="width:70px">
- </td>
-
- <td>
- <input
- id="min-${p.id}"
- value="${p.minStock}"
- type="number"
- min="0"
- style="width:70px">
- </td>
-
- <td>
- <input
- id="active-${p.id}"
- type="checkbox"
- ${p.active?"checked":""}>
- </td>
-
- <td>
- <button class="small-btn"
- onclick="saveProduct(${p.id})">
- Save
- </button>
- </td>
-
- </tr>
-
- `).join("");
-
-}
-
-
-function saveProduct(id){
-
- const p=products.find(x=>x.id===id);
-
- if(!p)return;
-
- p.price=Number(document.getElementById(`price-${id}`).value)||0;
-
- p.cost=Number(document.getElementById(`cost-${id}`).value)||0;
-
- p.stock=Math.max(
-   0,
-   Number(document.getElementById(`stock-${id}`).value)||0
- );
-
- p.minStock=Math.max(
-   0,
-   Number(document.getElementById(`min-${id}`).value)||0
- );
-
- p.active=document.getElementById(`active-${id}`).checked;
-
- saveAll();
-
- alert("Product saved.");
-
- renderManagement();
-
- renderStore();
-
-}
-
-
-/* =========================================================
-   INVENTORY
-========================================================= */
-
-function renderInventory(){
-
- document.getElementById("inventoryTable").innerHTML=
- products.map(p=>`
-
- <tr>
-
- <td>${p.sku}</td>
-
- <td>${escapeHtml(p.name)}</td>
-
- <td>${p.stock}</td>
-
- <td>${p.minStock}</td>
-
- <td>
- ${
- p.stock<=0
- ? `<span class="status status-cancelled">Out</span>`
- : p.stock<=p.minStock
- ? `<span class="status status-pending">Low</span>`
- : `<span class="status status-delivered">Available</span>`
- }
- </td>
-
- <td>
- ${(p.stock*(Number(p.cost)||0)).toFixed(2)} JOD
- </td>
-
- </tr>
-
- `).join("");
-
-}
-
-
-function adjustInventory(){
-
- const id=Number(document.getElementById("inventoryProduct").value);
-
- const qty=Number(document.getElementById("inventoryQty").value);
-
- const action=document.getElementById("inventoryAction").value;
-
- const reason=document.getElementById("inventoryReason").value;
-
- const p=products.find(x=>x.id===id);
-
- if(!p||qty<=0)return;
-
- if(action==="add"){
-
-   p.stock+=qty;
-
- }else{
-
-   if(p.stock<qty){
-     alert("Not enough stock.");
-     return;
-   }
-
-   p.stock-=qty;
-
- }
-
- saveAll();
-
- alert(`Inventory updated for ${p.name}.`);
-
- renderManagement();
-
-}
-
-
-/* =========================================================
-   PURCHASES
-========================================================= */
-
-function createPurchase(){
-
- const supplierId=document.getElementById("purchaseSupplier").value;
-
- const productId=Number(document.getElementById("purchaseProduct").value);
-
- const qty=Number(document.getElementById("purchaseQty").value);
-
- const cost=Number(document.getElementById("purchaseCost").value)||0;
-
- const supplier=suppliers.find(s=>s.id===supplierId);
-
- const product=products.find(p=>p.id===productId);
-
- if(!supplier||!product||qty<=0){
-
-   alert("Complete purchase information.");
-   return;
-
- }
-
- product.stock+=qty;
-
- product.cost=cost;
-
- purchases.unshift({
-
-   id:"PUR-"+Date.now(),
-
-   supplierId:supplier.id,
-
-   supplier:supplier.name,
-
-   productId:product.id,
-
-   product:product.name,
-
-   qty,
-
-   cost,
-
-   total:qty*cost,
-
-   date:new Date().toISOString()
-
- });
-
- saveAll();
-
- alert("Purchase recorded and stock updated.");
-
- renderManagement();
-
-}
-
-
-function renderPurchases(){
-
- document.getElementById("purchasesTable").innerHTML=
- purchases.map(p=>`
-
- <tr>
- <td>${p.id}</td>
- <td>${escapeHtml(p.supplier)}</td>
- <td>${escapeHtml(p.product)}</td>
- <td>${p.qty}</td>
- <td>${p.cost.toFixed(2)} JOD</td>
- <td>${p.total.toFixed(2)} JOD</td>
- <td>${formatDate(p.date)}</td>
- </tr>
-
- `).join("")||`
- <tr><td colspan="7">No purchases recorded.</td></tr>
- `;
-
-}
-
-
-/* =========================================================
-   CUSTOMERS
-========================================================= */
-
-function getCustomers(){
-
- const map={};
-
- orders.forEach(o=>{
-
-   const phone=o.customer.phone;
-
-   if(!map[phone]){
-
-     map[phone]={
-       name:o.customer.name,
-       phone,
-       address:o.customer.address,
-       orders:0,
-       spend:0,
-       last:o.date
-     };
-
-   }
-
-   map[phone].orders++;
-
-   if(o.total!==null && o.status!=="Cancelled"){
-     map[phone].spend+=Number(o.total);
-   }
-
-   if(new Date(o.date)>new Date(map[phone].last)){
-     map[phone].last=o.date;
-   }
-
- });
-
- return Object.values(map);
-
-}
-
-
-function renderCustomers(){
-
- const search=
- (document.getElementById("customerSearchAdmin")?.value||"")
- .toLowerCase();
-
- let list=getCustomers();
-
- if(search){
-
-   list=list.filter(c=>
-     c.name.toLowerCase().includes(search) ||
-     c.phone.toLowerCase().includes(search)
-   );
-
- }
-
- document.getElementById("customersTable").innerHTML=
- list.map(c=>`
-
- <tr>
-
- <td>${escapeHtml(c.name)}</td>
-
- <td>${escapeHtml(c.phone)}</td>
-
- <td>${escapeHtml(c.address)}</td>
-
- <td>${c.orders}</td>
-
- <td>${c.spend.toFixed(2)} JOD</td>
-
- <td>${formatDate(c.last)}</td>
-
- </tr>
-
- `).join("")||`
- <tr><td colspan="6">No customers yet.</td></tr>
- `;
-
-}
-
-
-/* =========================================================
-   CUSTOMER PAGE
-========================================================= */
-
-function loadCustomer(){
-
- const phone=document.getElementById("customerPhone").value.trim();
-
- if(!phone){
-   alert("Enter your phone number.");
-   return;
- }
-
- const list=orders.filter(o=>o.customer.phone===phone);
-
- if(!list.length){
-
-   document.getElementById("customerProfile").innerHTML=`
-   <h3>Customer Profile</h3>
-   <p>No orders found for this phone number.</p>
-   `;
-
-   document.getElementById("customerOrders").innerHTML=
-   "<p>No orders found.</p>";
-
-   return;
-
- }
-
- const c=list[0].customer;
-
- document.getElementById("customerProfile").innerHTML=`
-
- <h3>Customer Profile</h3>
-
- <p><strong>Name:</strong>
- ${escapeHtml(c.name)}</p>
-
- <p><strong>Phone:</strong>
- ${escapeHtml(c.phone)}</p>
-
- <p><strong>Address:</strong>
- ${escapeHtml(c.address)}</p>
-
- <p><strong>Total Orders:</strong>
- ${list.length}</p>
-
- `;
-
-
- document.getElementById("customerOrders").innerHTML=
- list.map(o=>`
-
- <div style="
- padding:15px;
- margin-bottom:10px;
- background:#f8f1e7;
- border-radius:12px;
- ">
-
- <strong>${o.id}</strong>
-
- <span class="status ${statusClass(o.status)}"
- style="float:left">
- ${o.status}
- </span>
-
- <br>
-
- <small>${formatDate(o.date)}</small>
-
- <br><br>
-
- ${o.items.map(i=>`
- ${escapeHtml(i.name)} × ${i.qty}<br>
- `).join("")}
-
- <br>
-
- <strong>
- ${
- o.total===null
- ? "Price on request"
- : o.total.toFixed(2)+" JOD"
- }
- </strong>
-
- </div>
-
- `).join("");
-
-}
-
-
-/* =========================================================
-   SUPPLIERS
-========================================================= */
-
-function addSupplier(){
-
- const name=document.getElementById("supplierName").value.trim();
-
- const phone=document.getElementById("supplierPhone").value.trim();
-
- const whatsapp=document.getElementById("supplierWhatsapp").value.trim();
-
- const notes=document.getElementById("supplierNotes").value.trim();
-
- if(!name){
-
-   alert("Supplier name is required.");
-   return;
-
- }
-
- suppliers.push({
-
-   id:"SUP-"+String(Date.now()).slice(-6),
-
-   name,
-   phone,
-   whatsapp,
-   notes
-
- });
-
- saveAll();
-
- document.getElementById("supplierName").value="";
- document.getElementById("supplierPhone").value="";
- document.getElementById("supplierWhatsapp").value="";
- document.getElementById("supplierNotes").value="";
-
- renderManagement();
-
-}
-
-
-function renderSuppliers(){
-
- document.getElementById("suppliersTable").innerHTML=
- suppliers.map(s=>`
-
- <tr>
-
- <td>${s.id}</td>
-
- <td>${escapeHtml(s.name)}</td>
-
- <td>${escapeHtml(s.phone||"-")}</td>
-
- <td>${escapeHtml(s.whatsapp||"-")}</td>
-
- <td>${escapeHtml(s.notes||"-")}</td>
-
- <td>
- <button class="small-btn"
- onclick="deleteSupplier('${s.id}')">
- Delete
- </button>
- </td>
-
- </tr>
-
- `).join("")||`
- <tr><td colspan="6">No suppliers added.</td></tr>
- `;
-
-}
-
-
-function deleteSupplier(id){
-
- if(!confirm("Delete this supplier?"))return;
-
- suppliers=suppliers.filter(s=>s.id!==id);
-
- saveAll();
-
- renderManagement();
-
-}
-
-
-/* =========================================================
-   SALES
-========================================================= */
-
-function renderSales(){
-
- const search=
- (document.getElementById("salesSearch")?.value||"")
- .toLowerCase();
-
- let list=validSales();
-
- if(search){
-
-   list=list.filter(o=>
-     o.id.toLowerCase().includes(search) ||
-     o.customer.name.toLowerCase().includes(search)
-   );
-
- }
-
- const completed=list.filter(o=>o.status==="Delivered");
-
- const rev=list
- .filter(o=>o.total!==null)
- .reduce((s,o)=>s+Number(o.total),0);
-
- document.getElementById("salesCount").textContent=completed.length;
-
- document.getElementById("salesRevenue").textContent=
- rev.toFixed(2)+" JOD";
-
- document.getElementById("averageOrder").textContent=
- list.length&&rev
- ? (rev/list.length).toFixed(2)+" JOD"
- : "0 JOD";
-
- document.getElementById("cancelledSales").textContent=
- orders.filter(o=>o.status==="Cancelled").length;
-
-
- document.getElementById("salesTable").innerHTML=
- list.map(o=>`
-
- <tr>
- <td>${o.id}</td>
- <td>${escapeHtml(o.customer.name)}</td>
- <td>${paymentName(o.paymentMethod)}</td>
- <td>
- <span class="status ${statusClass(o.status)}">
- ${o.status}
- </span>
- </td>
- <td>
- ${o.total===null?"On request":o.total.toFixed(2)+" JOD"}
- </td>
- <td>${formatDate(o.date)}</td>
- </tr>
-
- `).join("")||`
- <tr><td colspan="6">No sales.</td></tr>
- `;
-
-}
-
-
-/* =========================================================
-   REPORTS
-========================================================= */
-
-function renderReports(){
-
- const stockValue=products.reduce(
-   (s,p)=>s+(p.stock*(Number(p.cost)||0)),0
- );
-
- const purchaseValue=purchases.reduce(
-   (s,p)=>s+(Number(p.total)||0),0
- );
-
- const profit=orders
- .filter(o=>o.status!=="Cancelled" && o.total!==null)
- .reduce((sum,o
+</body>
+</html>
