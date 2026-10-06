@@ -1,1964 +1,689 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>مِداد | MIDAD</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Tahoma,Arial,sans-serif;
-  background:#f4ecdf;
-  color:#30271f;
-}
-
-button,input,select,textarea{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#fffaf2;
-  border-bottom:1px solid #dfd1bd;
-  box-shadow:0 3px 15px #00000010;
-}
-
-.nav{
-  max-width:1250px;
-  margin:auto;
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  padding:12px 20px;
-}
-
-.logo-area{
-  position:relative;
-  text-align:center;
-}
-
-.logo{
-  font-size:34px;
-  font-weight:900;
-  color:#765536;
-  letter-spacing:1px;
-}
-
-.logo-en{
-  font-size:11px;
-  letter-spacing:4px;
-  color:#a88455;
-}
-
-.beans{
-  position:absolute;
-  left:-35px;
-  top:5px;
-  font-size:18px;
-  transform:rotate(-20deg);
-}
-
-.nav-actions{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-
-.nav-btn{
-  border:1px solid #d6c5ae;
-  background:#f7efe4;
-  color:#5d432c;
-  padding:10px 13px;
-  border-radius:12px;
-  font-weight:bold;
-}
-
-.nav-btn:hover{
-  background:#e9dbc8;
-}
-
-.hero{
-  max-width:1250px;
-  margin:auto;
-  padding:70px 20px 55px;
-  text-align:center;
-}
-
-.hero-label{
-  color:#a88455;
-  font-size:13px;
-  letter-spacing:3px;
-  margin-bottom:12px;
-}
-
-.hero h1{
-  font-size:48px;
-  color:#3b2b1f;
-  margin-bottom:15px;
-}
-
-.hero p{
-  font-size:18px;
-  color:#715e4c;
-  line-height:1.9;
-}
-
-.hero-btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 27px;
-  border:none;
-  border-radius:13px;
-  background:#795a3d;
-  color:white;
-  font-weight:bold;
-  font-size:16px;
-}
-
-.container{
-  max-width:1250px;
-  margin:auto;
-  padding:0 20px 50px;
-}
-
-.category{
-  margin-top:50px;
-}
-
-.category-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid #d7c7b2;
-  padding-bottom:13px;
-  margin-bottom:20px;
-}
-
-.category-head h2{
-  color:#4c3625;
-  font-size:26px;
-}
-
-.category-head span{
-  color:#a88455;
-  font-size:13px;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.card{
-  background:#fffaf2;
-  border:1px solid #e1d5c5;
-  border-radius:18px;
-  overflow:hidden;
-  position:relative;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 30px #00000012;
-}
-
-.product-image{
-  width:100%;
-  height:220px;
-  background:#eee4d5;
-  display:block;
-}
-
-.product-info{
-  padding:16px;
-}
-
-.product-info h3{
-  font-size:17px;
-  color:#4b3524;
-  margin-bottom:7px;
-}
-
-.product-info p{
-  font-size:13px;
-  color:#806f5c;
-  min-height:38px;
-  line-height:1.6;
-}
-
-.price{
-  margin:12px 0;
-  font-weight:bold;
-  color:#795a3d;
-}
-
-.price.request{
-  color:#a88455;
-}
-
-.card-actions{
-  display:flex;
-  gap:8px;
-}
-
-.add{
-  flex:1;
-  border:none;
-  border-radius:10px;
-  background:#795a3d;
-  color:#fff;
-  padding:10px;
-  font-weight:bold;
-}
-
-.favorite{
-  width:43px;
-  border:1px solid #d5c4ae;
-  background:#f8f0e5;
-  border-radius:10px;
-  font-size:19px;
-  color:#795a3d;
-}
-
-.favorite.active{
-  background:#795a3d;
-  color:#fff;
-}
-
-.about{
-  margin:50px 0;
-  background:#3b2b1f;
-  color:#fff;
-  border-radius:25px;
-  padding:45px 30px;
-  text-align:center;
-}
-
-.about h2{
-  color:#e6cda7;
-  margin-bottom:15px;
-}
-
-.about p{
-  max-width:750px;
-  margin:auto;
-  line-height:2;
-  color:#eadfd1;
-}
-
-footer{
-  background:#2b211b;
-  color:#ddd0c1;
-  text-align:center;
-  padding:30px 15px;
-}
-
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  z-index:2000;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#6d8f65;
-  color:white;
-  font-size:27px;
-  text-decoration:none;
-  box-shadow:0 6px 20px #0003;
-}
-
-/* CART */
-
-.cart-panel{
-  position:fixed;
-  top:0;
-  left:-430px;
-  width:400px;
-  max-width:94%;
-  height:100vh;
-  background:#fffaf2;
-  z-index:3000;
-  box-shadow:5px 0 30px #0003;
-  transition:.3s;
-  display:flex;
-  flex-direction:column;
-}
-
-.cart-panel.open{
-  left:0;
-}
-
-.panel-head{
-  padding:20px;
-  border-bottom:1px solid #ddd0c0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.close{
-  border:none;
-  background:none;
-  font-size:25px;
-  color:#765536;
-}
-
-.cart-items{
-  flex:1;
-  overflow:auto;
-  padding:15px;
-}
-
-.cart-item{
-  border-bottom:1px solid #eadfd2;
-  padding:13px 0;
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.cart-item h4{
-  font-size:14px;
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:7px;
-}
-
-.qty button{
-  border:1px solid #d5c5b1;
-  background:#f5ecdf;
-  width:28px;
-  height:28px;
-  border-radius:7px;
-}
-
-.remove{
-  border:none;
-  background:none;
-  color:#a55;
-}
-
-.cart-bottom{
-  padding:20px;
-  border-top:1px solid #ddd0c0;
-}
-
-.total{
-  display:flex;
-  justify-content:space-between;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-
-.checkout{
-  width:100%;
-  padding:13px;
-  border:none;
-  border-radius:12px;
-  background:#795a3d;
-  color:white;
-  font-weight:bold;
-}
-
-/* MODAL */
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:#0008;
-  z-index:4000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.overlay.show{
-  display:flex;
-}
-
-.modal{
-  background:#fffaf2;
-  width:600px;
-  max-width:100%;
-  max-height:92vh;
-  overflow:auto;
-  border-radius:20px;
-  padding:25px;
-}
-
-.modal h2{
-  color:#4a3423;
-  margin-bottom:18px;
-}
-
-.form-group{
-  margin-bottom:13px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:6px;
-  font-size:13px;
-  font-weight:bold;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select{
-  width:100%;
-  border:1px solid #d7c7b4;
-  background:white;
-  border-radius:10px;
-  padding:11px;
-  outline:none;
-}
-
-.form-group textarea{
-  min-height:80px;
-  resize:vertical;
-}
-
-.payment-box{
-  background:#eee3d3;
-  border-radius:13px;
-  padding:15px;
-  margin:15px 0;
-  line-height:2;
-}
-
-.payment-box strong{
-  color:#795a3d;
-}
-
-.modal-actions{
-  display:flex;
-  gap:10px;
-}
-
-.modal-actions button{
-  flex:1;
-  padding:12px;
-  border-radius:10px;
-  border:none;
-}
-
-.confirm{
-  background:#6d8f65;
-  color:white;
-}
-
-.cancel{
-  background:#e4d7c5;
-  color:#533d2b;
-}
-
-/* ADMIN */
-
-.admin{
-  display:none;
-  min-height:100vh;
-  background:#f4ecdf;
-}
-
-.admin.active{
-  display:block;
-}
-
-.store.hidden{
-  display:none;
-}
-
-.admin-header{
-  background:#3b2b1f;
-  color:white;
-  padding:25px;
-}
-
-.admin-header-inner{
-  max-width:1300px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.admin-header h1{
-  color:#e6cda7;
-}
-
-.back-store{
-  background:#e7d8c4;
-  border:none;
-  padding:11px 16px;
-  border-radius:10px;
-  color:#3b2b1f;
-  font-weight:bold;
-}
-
-.admin-content{
-  max-width:1300px;
-  margin:auto;
-  padding:25px 20px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:25px;
-}
-
-.stat{
-  background:#fffaf2;
-  border:1px solid #dfd1bd;
-  padding:20px;
-  border-radius:15px;
-}
-
-.stat span{
-  display:block;
-  color:#8a7761;
-  font-size:13px;
-}
-
-.stat strong{
-  display:block;
-  font-size:28px;
-  color:#795a3d;
-  margin-top:7px;
-}
-
-.admin-section{
-  background:#fffaf2;
-  border:1px solid #dfd1bd;
-  border-radius:17px;
-  padding:20px;
-  margin-bottom:20px;
-  overflow:auto;
-}
-
-.admin-section h2{
-  margin-bottom:15px;
-  color:#4b3524;
-}
-
-.admin-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:850px;
-}
-
-.admin-table th,
-.admin-table td{
-  border-bottom:1px solid #e4d7c7;
-  padding:10px;
-  text-align:right;
-  font-size:13px;
-}
-
-.admin-table th{
-  background:#f0e5d6;
-}
-
-.admin-table input{
-  width:90px;
-  padding:7px;
-  border:1px solid #d5c4ae;
-  border-radius:7px;
-}
-
-.admin-table select{
-  padding:7px;
-  border:1px solid #d5c4ae;
-  border-radius:7px;
-}
-
-.toggle{
-  width:45px;
-  height:25px;
-  border-radius:20px;
-  border:none;
-  background:#aaa;
-  position:relative;
-}
-
-.toggle:after{
-  content:"";
-  position:absolute;
-  width:19px;
-  height:19px;
-  background:white;
-  border-radius:50%;
-  top:3px;
-  right:3px;
-  transition:.2s;
-}
-
-.toggle.on{
-  background:#6d8f65;
-}
-
-.toggle.on:after{
-  right:23px;
-}
-
-.save-btn{
-  background:#795a3d;
-  color:#fff;
-  border:none;
-  padding:9px 14px;
-  border-radius:8px;
-}
-
-.orders-empty{
-  color:#8a7761;
-  text-align:center;
-  padding:20px;
-}
-
-.order{
-  border:1px solid #dfd1bd;
-  border-radius:12px;
-  padding:15px;
-  margin-bottom:12px;
-  background:#fbf5ec;
-}
-
-.order-title{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
-.order small{
-  color:#806e5a;
-  line-height:1.8;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-  .products{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:650px){
-  .nav{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .logo-area{
-    width:100%;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .product-image{
-    height:170px;
-  }
-
-  .product-info{
-    padding:12px;
-  }
-
-  .product-info h3{
-    font-size:14px;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:430px){
-  .products{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .nav-btn{
-    font-size:12px;
-    padding:8px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- ================= STORE ================= -->
-
-<div class="store" id="store">
-
-<header>
-  <div class="nav">
-
-    <div class="logo-area">
-      <div class="beans">☕</div>
-      <div class="logo">مِداد</div>
-      <div class="logo-en">MIDAD</div>
-    </div>
-
-    <div class="nav-actions">
-      <button class="nav-btn" onclick="openCart()">
-        🛒 السلة <span id="cartCount">0</span>
-      </button>
-
-      <button class="nav-btn" onclick="showFavorites()">
-        ♡ المفضلة
-      </button>
-
-      <button class="nav-btn" onclick="openAdmin()">
-        ⚙ إدارة مِداد
-      </button>
-    </div>
-
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-label">MIDAD — COFFEE & TEA SUPPLIES</div>
-  <h1>من التفاصيل تبدأ الحكاية</h1>
-  <p>
-    أدوات القهوة والشاي والماتشا المختارة بعناية،
-    لتصنع تجربتك بطريقتك.
-  </p>
-
-  <button class="hero-btn" onclick="document.getElementById('productsArea').scrollIntoView()">
-    استكشف منتجات مِداد
-  </button>
-</section>
-
-<div class="container" id="productsArea"></div>
-
-<section class="container">
-  <div class="about">
-    <h2>عن مِداد</h2>
-    <p>
-      من الحبر يبدأ الأثر، ومن التفاصيل تبدأ الحكاية.
-      اخترنا اسم مِداد ليحمل معنى الأصالة والتفاصيل،
-      ونقدّم من خلاله مستلزمات القهوة والشاي والماتشا
-      التي تضيف لمائدتك ولحظاتك الخاصة معنى مختلفاً.
-      <br><br>
-      مِداد — لأن التفاصيل هي التي تترك الأثر.
-    </p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 مِداد | MIDAD</p>
-  <p>Coffee • Tea • Matcha Supplies</p>
-</footer>
-
-<a class="whatsapp"
-   href="https://wa.me/962799563650"
-   target="_blank"
-   title="تواصل معنا عبر واتساب">
-  ☎
-</a>
-
-</div>
-
-
-<!-- ================= CART ================= -->
-
-<div class="cart-panel" id="cartPanel">
-
-  <div class="panel-head">
-    <h2>سلة مِداد</h2>
-    <button class="close" onclick="closeCart()">×</button>
-  </div>
-
-  <div class="cart-items" id="cartItems"></div>
-
-  <div class="cart-bottom">
-    <div class="total">
-      <span>الإجمالي</span>
-      <span id="cartTotal">السعر عند الطلب</span>
-    </div>
-
-    <button class="checkout" onclick="openCheckout()">
-      متابعة الطلب
-    </button>
-  </div>
-
-</div>
-
-
-<!-- ================= CHECKOUT ================= -->
-
-<div class="overlay" id="checkoutOverlay">
-
-  <div class="modal">
-
-    <h2>إتمام طلب مِداد</h2>
-
-    <div class="form-group">
-      <label>الاسم</label>
-      <input id="customerName" placeholder="اكتب اسمك">
-    </div>
-
-    <div class="form-group">
-      <label>رقم الهاتف</label>
-      <input id="customerPhone" placeholder="07XXXXXXXX">
-    </div>
-
-    <div class="form-group">
-      <label>العنوان</label>
-      <textarea id="customerAddress" placeholder="المحافظة، المنطقة، الشارع..."></textarea>
-    </div>
-
-    <div class="payment-box">
-      <strong>الدفع عبر كليك</strong><br>
-      البنك: بنك الاتحاد<br>
-      اسم المستفيد: <strong>Ibrahim Nidar Mohammad Yousef</strong><br>
-      رقم كليك: <strong>0799563650</strong>
-      <br><br>
-      بعد التحويل، اكتب رقم العملية أو مرجع التحويل بالأسفل.
-    </div>
-
-    <div class="form-group">
-      <label>رقم العملية / مرجع التحويل</label>
-      <input id="transactionRef" placeholder="مثال: 123456789">
-    </div>
-
-    <div class="form-group">
-      <label>ملاحظات إضافية</label>
-      <textarea id="orderNotes" placeholder="أي ملاحظات على الطلب"></textarea>
-    </div>
-
-    <div class="modal-actions">
-      <button class="cancel" onclick="closeCheckout()">إلغاء</button>
-      <button class="confirm" onclick="sendOrder()">إرسال الطلب عبر واتساب</button>
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= ADMIN ================= -->
-
-<div class="admin" id="admin">
-
-  <div class="admin-header">
-
-    <div class="admin-header-inner">
-
-      <div>
-        <h1>إدارة مِداد</h1>
-        <p>لوحة التحكم بالمنتجات والمخزون والطلبات</p>
-      </div>
-
-      <button class="back-store" onclick="closeAdmin()">
-        ← العودة للمتجر
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="admin-content">
-
-    <div class="stats">
-
-      <div class="stat">
-        <span>عدد المنتجات</span>
-        <strong id="statProducts">27</strong>
-      </div>
-
-      <div class="stat">
-        <span>إجمالي المخزون</span>
-        <strong id="statStock">0</strong>
-      </div>
-
-      <div class="stat">
-        <span>الطلبات</span>
-        <strong id="statOrders">0</strong>
-      </div>
-
-      <div class="stat">
-        <span>البيع</span>
-        <strong id="statSales">مفتوح</strong>
-      </div>
-
-    </div>
-
-
-    <div class="admin-section">
-
-      <h2>التحكم العام</h2>
-
-      <button class="save-btn" onclick="toggleAllSales()">
-        تشغيل / إيقاف البيع
-      </button>
-
-      <button class="save-btn" onclick="saveProducts()">
-        حفظ التعديلات
-      </button>
-
-    </div>
-
-
-    <div class="admin-section">
-
-      <h2>الأصناف والمخزون والأسعار</h2>
-
-      <table class="admin-table">
-
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>الصنف</th>
-            <th>القسم</th>
-            <th>السعر</th>
-            <th>المخزون</th>
-            <th>البيع</th>
-          </tr>
-        </thead>
-
-        <tbody id="adminProducts"></tbody>
-
-      </table>
-
-    </div>
-
-
-    <div class="admin-section">
-
-      <h2>الطلبات</h2>
-
-      <div id="adminOrders"></div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
 <script>
 
 /* =========================================================
-   PRODUCTS — 27 ITEMS EXACTLY
+   MIDAD — SUPABASE CONNECTED VERSION
 ========================================================= */
 
-const products = [
+const SUPABASE_URL =
+  "https://fbmzettluevtekxrnfem.supabase.co";
 
-  {
-    id:1,
-    name:"ميزان قهوة",
-    category:"أدوات القهوة",
-    kind:"scale",
-    description:"ميزان دقيق لتحضير القهوة ومتابعة الوزن والوقت."
-  },
+const SUPABASE_KEY =
+  "sb_publishable_fi2aktOp4BP7c_KK2F5zTQ_l7X-thZD";
 
-  {
-    id:2,
-    name:"ترمومتر قهوة",
-    category:"أدوات القهوة",
-    kind:"thermometer",
-    description:"لقياس حرارة الماء والحليب أثناء التحضير."
-  },
-
-  {
-    id:3,
-    name:"نوك بوكس",
-    category:"أدوات القهوة",
-    kind:"knockbox",
-    description:"لتفريغ بقايا القهوة بسهولة ونظافة."
-  },
-
-  {
-    id:4,
-    name:"بورتلفلتر",
-    category:"أدوات القهوة",
-    kind:"portafilter",
-    description:"بورتلفلتر لتحضير الإسبريسو."
-  },
-
-  {
-    id:5,
-    name:"بيتشر حليب",
-    category:"أدوات القهوة",
-    kind:"pitcher",
-    description:"بيتشر لتبخير الحليب وتحضير اللاتيه."
-  },
-
-  {
-    id:6,
-    name:"تامب للقهوة",
-    category:"أدوات القهوة",
-    kind:"tamper",
-    description:"تامب لضغط البن داخل البورتلفلتر."
-  },
-
-  {
-    id:7,
-    name:"فرشاة تنظيف المطحنة",
-    category:"أدوات القهوة",
-    kind:"brush",
-    description:"فرشاة مخصصة لتنظيف مطحنة القهوة."
-  },
-
-  {
-    id:8,
-    name:"شوت اسبرسو",
-    category:"أدوات القهوة",
-    kind:"shot",
-    description:"كوب شوت لقياس وتقديم الإسبريسو."
-  },
-
-  {
-    id:9,
-    name:"جلدة للتامب",
-    category:"أدوات القهوة",
-    kind:"mat",
-    description:"جلدة لحماية السطح أثناء التامب."
-  },
-
-  {
-    id:10,
-    name:"شاي أسود",
-    category:"قسم الشاي",
-    kind:"blacktea",
-    description:"شاي أسود لعشاق النكهة الغنية."
-  },
-
-  {
-    id:11,
-    name:"شاي أخضر",
-    category:"قسم الشاي",
-    kind:"greentea",
-    description:"شاي أخضر بنكهة خفيفة ومنعشة."
-  },
-
-  {
-    id:12,
-    name:"شاي هيل وزعفران",
-    category:"قسم الشاي",
-    kind:"cardamom",
-    description:"خلطة شاي بالهيل والزعفران."
-  },
-
-  {
-    id:13,
-    name:"شاي مِداد",
-    category:"قسم الشاي",
-    kind:"midadtea",
-    description:"خلطة شاي تحمل هوية مِداد."
-  },
-
-  {
-    id:14,
-    name:"ماتشا مِداد الفاخرة",
-    category:"قسم الماتشا",
-    kind:"matcha",
-    description:"ماتشا فاخرة لعشاق الماتشا."
-  },
-
-  {
-    id:15,
-    name:"مستلزمات الماتشا",
-    category:"قسم الماتشا",
-    kind:"matchaset",
-    description:"مجموعة من مستلزمات تحضير الماتشا."
-  },
-
-  {
-    id:16,
-    name:"ملعقة ماتشا",
-    category:"قسم الماتشا",
-    kind:"matchaspoon",
-    description:"ملعقة ماتشا تقليدية للقياس والتحضير."
-  },
-
-  {
-    id:17,
-    name:"وعاء ماتشا",
-    category:"قسم الماتشا",
-    kind:"matchabowl",
-    description:"وعاء مخصص لخفق وتحضير الماتشا."
-  },
-
-  {
-    id:18,
-    name:"خفاقه ماتشا",
-    category:"قسم الماتشا",
-    kind:"matchawhisk",
-    description:"خفاقه بامبو لتحضير ماتشا ناعمة."
-  },
-
-  {
-    id:19,
-    name:"مج قهوة ساخن",
-    category:"مجات لشرب القهوة",
-    kind:"hotmug",
-    description:"مج أنيق للقهوة والمشروبات الساخنة."
-  },
-
-  {
-    id:20,
-    name:"مج قهوة بارد",
-    category:"مجات لشرب القهوة",
-    kind:"coldmug",
-    description:"مج للمشروبات الباردة والقهوة المثلجة."
-  },
-
-  {
-    id:21,
-    name:"مج زجاجي للقهوة",
-    category:"مجات لشرب القهوة",
-    kind:"glassmug",
-    description:"مج زجاجي أنيق لتقديم القهوة."
-  },
-
-  {
-    id:22,
-    name:"فناجين مِداد العربية",
-    category:"قسم فناجين الشاي",
-    kind:"arabiccups",
-    description:"فناجين بطابع عربي أنيق."
-  },
-
-  {
-    id:23,
-    name:"طقم فناجين الشاي",
-    category:"قسم فناجين الشاي",
-    kind:"teacups",
-    description:"طقم فناجين مناسب لتقديم الشاي."
-  },
-
-  {
-    id:24,
-    name:"طقم شاي مِداد",
-    category:"قسم فناجين الشاي",
-    kind:"teaset",
-    description:"طقم شاي متكامل بهوية مِداد."
-  },
-
-  {
-    id:25,
-    name:"بكج القهوة",
-    category:"بكجات مِداد",
-    kind:"coffeebundle",
-    description:"مجموعة مختارة لعشاق تحضير القهوة."
-  },
-
-  {
-    id:26,
-    name:"بكج ماتشا",
-    category:"بكجات مِداد",
-    kind:"matchabundle",
-    description:"مجموعة مختارة لتحضير الماتشا."
-  },
-
-  {
-    id:27,
-    name:"بكج شاي",
-    category:"بكجات مِداد",
-    kind:"teabundle",
-    description:"مجموعة مختارة لعشاق الشاي."
-  }
-
-];
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 
 /* =========================================================
-   CATEGORY ORDER
+   LOCAL UI DATA
 ========================================================= */
 
-const categoryOrder = [
-  "أدوات القهوة",
-  "قسم الشاي",
-  "قسم الماتشا",
-  "مجات لشرب القهوة",
-  "قسم فناجين الشاي",
-  "بكجات مِداد"
-];
-
-
-/* =========================================================
-   STORAGE
-========================================================= */
-
-let cart = JSON.parse(localStorage.getItem("midad_cart") || "[]");
+let cart =
+  JSON.parse(
+    localStorage.getItem("midad_cart") || "[]"
+  );
 
 let favorites =
-  JSON.parse(localStorage.getItem("midad_favorites") || "[]");
+  JSON.parse(
+    localStorage.getItem("midad_favorites") || "[]"
+  );
 
-let settings =
-  JSON.parse(localStorage.getItem("midad_settings") || "{}");
-
-let orders =
-  JSON.parse(localStorage.getItem("midad_orders") || "[]");
-
-
-if(!settings.products){
-
-  settings.products = {};
-
-  products.forEach(p=>{
-    settings.products[p.id] = {
-      price:0,
-      stock:10,
-      active:true
-    };
-  });
-
-  saveSettings();
-}
+let products = [];
+let categories = [];
+let orders = [];
 
 
 /* =========================================================
-   SAVE
+   ARABIC PRODUCT DISPLAY DATA
 ========================================================= */
 
-function saveSettings(){
-  localStorage.setItem(
-    "midad_settings",
-    JSON.stringify(settings)
-  );
-}
+const productMeta = {
 
-function saveCart(){
-  localStorage.setItem(
-    "midad_cart",
-    JSON.stringify(cart)
-  );
-}
+  "coffee-scale":{
+    title:"ميزان قهوة",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"ميزان دقيق لتحضير القهوة باحترافية.",
+    imageKey:"scale"
+  },
 
-function saveFavorites(){
-  localStorage.setItem(
-    "midad_favorites",
-    JSON.stringify(favorites)
-  );
-}
+  "coffee-thermometer":{
+    title:"ترمومتر قهوة",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"لقياس حرارة الماء والحليب بدقة.",
+    imageKey:"thermometer"
+  },
 
-function saveOrders(){
-  localStorage.setItem(
-    "midad_orders",
-    JSON.stringify(orders)
-  );
-}
+  "knock-box":{
+    title:"نوك بوكس",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"للتخلص من بقايا الإسبريسو بسهولة.",
+    imageKey:"knockbox"
+  },
+
+  "espresso-portafilter":{
+    title:"بورتفلتر",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"قطعة أساسية لتحضير الإسبريسو.",
+    imageKey:"portafilter"
+  },
+
+  "milk-pitcher":{
+    title:"بيتشر حليب",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"لتحضير وتبخير الحليب والرسم على القهوة.",
+    imageKey:"pitcher"
+  },
+
+  "coffee-tamper":{
+    title:"تامب للقهوة",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"لكبس البن داخل البورتفلتر.",
+    imageKey:"tamper"
+  },
+
+  "grinder-cleaning-brush":{
+    title:"فرشاة تنظيف المطحنة",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"لتنظيف مطحنة القهوة والمحافظة عليها.",
+    imageKey:"brush"
+  },
+
+  "espresso-shot-glass":{
+    title:"شوت اسبرسو",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"كأس مخصص لاستخلاص الإسبريسو.",
+    imageKey:"shot"
+  },
+
+  "tamper-mat":{
+    title:"جلدة للتامب",
+    category:"coffee-tools",
+    categoryName:"أدوات القهوة",
+    description:"قاعدة لحماية السطح أثناء كبس القهوة.",
+    imageKey:"mat"
+  },
+
+  "black-tea":{
+    title:"شاي أسود",
+    category:"tea",
+    categoryName:"قسم الشاي",
+    description:"شاي أسود بطابع غني ومميز.",
+    imageKey:"blacktea"
+  },
+
+  "green-tea":{
+    title:"شاي أخضر",
+    category:"tea",
+    categoryName:"قسم الشاي",
+    description:"شاي أخضر بنكهة خفيفة ومنعشة.",
+    imageKey:"greentea"
+  },
+
+  "cardamom-saffron-tea":{
+    title:"شاي هيل وزعفران",
+    category:"tea",
+    categoryName:"قسم الشاي",
+    description:"مزيج شاي مع الهيل والزعفران.",
+    imageKey:"cardamom"
+  },
+
+  "midad-signature-tea":{
+    title:"شاي مِداد",
+    category:"tea",
+    categoryName:"قسم الشاي",
+    description:"خلطة شاي خاصة من مِداد.",
+    imageKey:"midadtea"
+  },
+
+  "premium-midad-matcha":{
+    title:"ماتشا مِداد الفاخرة",
+    category:"matcha",
+    categoryName:"قسم الماتشا",
+    description:"ماتشا فاخرة لمحبي الماتشا.",
+    imageKey:"matcha"
+  },
+
+  "matcha-starter-set":{
+    title:"مستلزمات الماتشا",
+    category:"matcha",
+    categoryName:"قسم الماتشا",
+    description:"مجموعة من أدوات تحضير الماتشا.",
+    imageKey:"matchaset"
+  },
+
+  "matcha-spoon":{
+    title:"ملعقة ماتشا",
+    category:"matcha",
+    categoryName:"قسم الماتشا",
+    description:"ملعقة مخصصة لقياس الماتشا.",
+    imageKey:"matchaspoon"
+  },
+
+  "matcha-bowl":{
+    title:"وعاء ماتشا",
+    category:"matcha",
+    categoryName:"قسم الماتشا",
+    description:"وعاء مخصص لتحضير الماتشا.",
+    imageKey:"matchabowl"
+  },
+
+  "bamboo-matcha-whisk":{
+    title:"خفاقه ماتشا",
+    category:"matcha",
+    categoryName:"قسم الماتشا",
+    description:"خفاقه تقليدية لتحضير الماتشا.",
+    imageKey:"matchawhisk"
+  },
+
+  "hot-coffee-mug":{
+    title:"مج قهوة ساخن",
+    category:"mugs",
+    categoryName:"مجات لشرب القهوة",
+    description:"مج أنيق للمشروبات الساخنة.",
+    imageKey:"hotmug"
+  },
+
+  "cold-coffee-mug":{
+    title:"مج قهوة بارد",
+    category:"mugs",
+    categoryName:"مجات لشرب القهوة",
+    description:"مج للمشروبات الباردة والقهوة المثلجة.",
+    imageKey:"coldmug"
+  },
+
+  "glass-coffee-mug":{
+    title:"مج زجاجي للقهوة",
+    category:"mugs",
+    categoryName:"مجات لشرب القهوة",
+    description:"مج زجاجي أنيق للقهوة.",
+    imageKey:"glassmug"
+  },
+
+  "midad-arabic-tea-cups":{
+    title:"فناجين مِداد العربية",
+    category:"tea-cups",
+    categoryName:"قسم فناجين الشاي",
+    description:"فناجين شاي عربية بطابع مِداد.",
+    imageKey:"arabiccups"
+  },
+
+  "tea-cup-set":{
+    title:"طقم فناجين الشاي",
+    category:"tea-cups",
+    categoryName:"قسم فناجين الشاي",
+    description:"طقم فناجين مناسب لتقديم الشاي.",
+    imageKey:"teacups"
+  },
+
+  "midad-tea-set":{
+    title:"طقم شاي مِداد",
+    category:"tea-cups",
+    categoryName:"قسم فناجين الشاي",
+    description:"طقم شاي متكامل من مِداد.",
+    imageKey:"teaset"
+  },
+
+  "coffee-bundle":{
+    title:"بكج القهوة",
+    category:"bundles",
+    categoryName:"بكجات مِداد",
+    description:"مجموعة مختارة لمحبي القهوة.",
+    imageKey:"coffeebundle"
+  },
+
+  "matcha-bundle":{
+    title:"بكج ماتشا",
+    category:"bundles",
+    categoryName:"بكجات مِداد",
+    description:"مجموعة متكاملة لتحضير الماتشا.",
+    imageKey:"matchabundle"
+  },
+
+  "tea-bundle":{
+    title:"بكج شاي",
+    category:"bundles",
+    categoryName:"بكجات مِداد",
+    description:"مجموعة مختارة لمحبي الشاي.",
+    imageKey:"teabundle"
+  }
+
+};
 
 
 /* =========================================================
-   SVG PRODUCT IMAGES
-   EACH PRODUCT HAS ITS OWN VISUAL
+   CATEGORY MAP
+========================================================= */
+
+const categoryMap = {
+
+  "coffee-tools":{
+    name:"أدوات القهوة"
+  },
+
+  "tea":{
+    name:"قسم الشاي"
+  },
+
+  "matcha":{
+    name:"قسم الماتشا"
+  },
+
+  "mugs":{
+    name:"مجات لشرب القهوة"
+  },
+
+  "tea-cups":{
+    name:"قسم فناجين الشاي"
+  },
+
+  "bundles":{
+    name:"بكجات مِداد"
+  }
+
+};
+
+const categoryOrder = [
+  "coffee-tools",
+  "tea",
+  "matcha",
+  "mugs",
+  "tea-cups",
+  "bundles"
+];
+
+
+/* =========================================================
+   IMAGE GENERATOR
 ========================================================= */
 
 function imageFor(kind,title){
 
-  let art="";
+  const colors = {
 
-  if(kind==="scale"){
-    art=`
-      <rect x="130" y="125" width="260" height="145" rx="22" fill="#665345"/>
-      <rect x="160" y="150" width="200" height="65" rx="10" fill="#30271f"/>
-      <rect x="180" y="165" width="160" height="35" rx="6" fill="#d9c7aa"/>
-      <circle cx="250" cy="245" r="10" fill="#a88455"/>
-      <path d="M190 120 Q250 85 330 120" fill="none" stroke="#a88455" stroke-width="12"/>
-    `;
-  }
+    scale:"#d7c3a7",
+    thermometer:"#cbb49a",
+    knockbox:"#b69a7b",
+    portafilter:"#9b8164",
+    pitcher:"#d2bda3",
+    tamper:"#8f7255",
+    brush:"#bda78d",
+    shot:"#d9c9b7",
+    mat:"#a88d6e",
 
-  if(kind==="thermometer"){
-    art=`
-      <rect x="235" y="70" width="30" height="250" rx="15" fill="#765536"/>
-      <circle cx="250" cy="325" r="45" fill="#a88455"/>
-      <circle cx="250" cy="325" r="25" fill="#fffaf2"/>
-      <rect x="244" y="105" width="12" height="205" rx="6" fill="#d16b48"/>
-      <line x1="280" y1="100" x2="330" y2="100" stroke="#765536" stroke-width="5"/>
-      <line x1="280" y1="160" x2="320" y2="160" stroke="#765536" stroke-width="5"/>
-      <line x1="280" y1="220" x2="330" y2="220" stroke="#765536" stroke-width="5"/>
-    `;
-  }
+    blacktea:"#9b7655",
+    greentea:"#a3ad82",
+    cardamom:"#b89c70",
+    midadtea:"#a9815e",
 
-  if(kind==="knockbox"){
-    art=`
-      <rect x="115" y="135" width="270" height="160" rx="20" fill="#4b3729"/>
-      <rect x="140" y="155" width="220" height="115" rx="13" fill="#765536"/>
-      <rect x="180" y="175" width="140" height="30" rx="15" fill="#2b211b"/>
-      <rect x="205" y="105" width="90" height="20" rx="10" fill="#a88455"/>
-      <path d="M200 205 L300 205" stroke="#c8b397" stroke-width="8"/>
-    `;
-  }
+    matcha:"#9baa72",
+    matchaset:"#b2b78a",
+    matchaspoon:"#c2b28e",
+    matchabowl:"#9b9c70",
+    matchawhisk:"#c7b28e",
 
-  if(kind==="portafilter"){
-    art=`
-      <circle cx="205" cy="175" r="75" fill="#4b4b48"/>
-      <circle cx="205" cy="175" r="55" fill="#20201f"/>
-      <circle cx="205" cy="175" r="38" fill="#70533e"/>
-      <path d="M265 175 L405 100 Q430 90 440 110 L438 125 L285 215 Z" fill="#302f2d"/>
-      <circle cx="400" cy="113" r="15" fill="#8a674b"/>
-    `;
-  }
+    hotmug:"#a47b5b",
+    coldmug:"#8ea2a0",
+    glassmug:"#c6c1b5",
 
-  if(kind==="pitcher"){
-    art=`
-      <path d="M145 100 L350 100 L325 315 Q250 345 175 315 Z" fill="#b8b3aa"/>
-      <path d="M350 145 Q430 145 390 230 Q375 260 335 240" fill="none" stroke="#89847d" stroke-width="22"/>
-      <ellipse cx="248" cy="100" rx="103" ry="22" fill="#d8d4cc"/>
-      <path d="M170 140 Q250 165 330 140" fill="none" stroke="#eee" stroke-width="8"/>
-    `;
-  }
+    arabiccups:"#a48667",
+    teacups:"#b89b79",
+    teaset:"#94775a",
 
-  if(kind==="tamper"){
-    art=`
-      <rect x="205" y="105" width="90" height="90" rx="20" fill="#765536"/>
-      <rect x="220" y="185" width="60" height="55" fill="#4b3524"/>
-      <ellipse cx="250" cy="250" rx="85" ry="25" fill="#a88455"/>
-      <rect x="175" y="250" width="150" height="25" rx="12" fill="#765536"/>
-    `;
-  }
+    coffeebundle:"#8e6a4c",
+    matchabundle:"#8c9b6d",
+    teabundle:"#9e7958"
 
-  if(kind==="brush"){
-    art=`
-      <rect x="215" y="80" width="70" height="230" rx="25" fill="#765536"/>
-      <rect x="220" y="205" width="60" height="105" fill="#4b3524"/>
-      <path d="M150 80 L210 115 M150 110 L210 135 M150 140 L210 155 M290 115 L350 80 M290 135 L350 110 M290 155 L350 140"
-        stroke="#a88455" stroke-width="10" stroke-linecap="round"/>
-    `;
-  }
+  };
 
-  if(kind==="shot"){
-    art=`
-      <path d="M175 105 L325 105 L305 300 Q250 325 195 300 Z" fill="#d9d5ce" opacity=".9"/>
-      <path d="M185 190 L315 190 L307 270 Q250 295 193 270 Z" fill="#4a2a19"/>
-      <path d="M195 180 Q250 150 305 180" fill="#d5a06b"/>
-      <path d="M325 145 Q400 145 385 205 Q375 235 325 225" fill="none" stroke="#bbb7af" stroke-width="18"/>
-    `;
-  }
+  const color =
+    colors[kind] || "#b79a78";
 
-  if(kind==="mat"){
-    art=`
-      <rect x="100" y="135" width="300" height="160" rx="30" fill="#332923"/>
-      <path d="M135 160 L365 160 L365 270 L135 270 Z" fill="#5b4434"/>
-      <circle cx="250" cy="215" r="48" fill="#8b6b50"/>
-      <circle cx="250" cy="215" r="32" fill="#332923"/>
-    `;
-  }
-
-  if(kind==="blacktea"){
-    art=`
-      <path d="M155 85 L345 85 L365 315 L135 315 Z" fill="#3a302a"/>
-      <rect x="165" y="120" width="170" height="120" rx="12" fill="#765536"/>
-      <text x="250" y="175" text-anchor="middle" fill="#f4ecdf" font-size="30">شاي</text>
-      <text x="250" y="210" text-anchor="middle" fill="#e5c99f" font-size="20">أسود</text>
-      <circle cx="250" cy="265" r="20" fill="#2b211b"/>
-    `;
-  }
-
-  if(kind==="greentea"){
-    art=`
-      <path d="M155 85 L345 85 L365 315 L135 315 Z" fill="#68724d"/>
-      <rect x="165" y="120" width="170" height="120" rx="12" fill="#e1ddbd"/>
-      <text x="250" y="175" text-anchor="middle" fill="#4e613c" font-size="30">شاي</text>
-      <text x="250" y="210" text-anchor="middle" fill="#6b7b4d" font-size="20">أخضر</text>
-      <path d="M225 260 Q250 230 275 260" fill="none" stroke="#71845b" stroke-width="8"/>
-    `;
-  }
-
-  if(kind==="cardamom"){
-    art=`
-      <path d="M155 85 L345 85 L365 315 L135 315 Z" fill="#8c7047"/>
-      <rect x="165" y="115" width="170" height="135" rx="12" fill="#efe2bd"/>
-      <text x="250" y="165" text-anchor="middle" fill="#765536" font-size="27">هيل</text>
-      <text x="250" y="202" text-anchor="middle" fill="#765536" font-size="25">وزعفران</text>
-      <circle cx="215" cy="270" r="12" fill="#b4a06c"/>
-      <circle cx="285" cy="270" r="12" fill="#d39b32"/>
-    `;
-  }
-
-  if(kind==="midadtea"){
-    art=`
-      <path d="M145 80 L355 80 L375 315 L125 315 Z" fill="#765536"/>
-      <rect x="155" y="115" width="190" height="145" rx="15" fill="#f4ecdf"/>
-      <text x="250" y="175" text-anchor="middle" fill="#765536" font-size="38">مِداد</text>
-      <text x="250" y="215" text-anchor="middle" fill="#a88455" font-size="19">شاي مِداد</text>
-      <circle cx="250" cy="265" r="18" fill="#765536"/>
-    `;
-  }
-
-  if(kind==="matcha"){
-    art=`
-      <rect x="150" y="90" width="200" height="210" rx="30" fill="#68724d"/>
-      <ellipse cx="250" cy="90" rx="100" ry="25" fill="#879764"/>
-      <ellipse cx="250" cy="300" rx="100" ry="25" fill="#52603e"/>
-      <rect x="170" y="150" width="160" height="80" rx="12" fill="#f0e8d5"/>
-      <text x="250" y="200" text-anchor="middle" fill="#52603e" font-size="32">ماتشا</text>
-    `;
-  }
-
-  if(kind==="matchaset"){
-    art=`
-      <circle cx="150" cy="230" r="70" fill="#7a8a5b"/>
-      <circle cx="150" cy="230" r="45" fill="#d9d0b9"/>
-      <path d="M250 120 L275 120 L330 290 L305 300 Z" fill="#d0b17a"/>
-      <rect x="300" y="130" width="30" height="150" rx="12" fill="#765536"/>
-      <path d="M220 210 Q250 170 280 210" fill="none" stroke="#9a845e" stroke-width="16"/>
-    `;
-  }
-
-  if(kind==="matchaspoon"){
-    art=`
-      <path d="M250 80 Q285 90 275 130 L265 265 Q260 315 230 315 Q200 310 205 265 L220 130 Q215 90 250 80Z"
-        fill="#c39b61"/>
-      <ellipse cx="250" cy="95" rx="45" ry="25" fill="#d4b079"/>
-    `;
-  }
-
-  if(kind==="matchabowl"){
-    art=`
-      <path d="M120 150 Q250 125 380 150 L350 285 Q250 335 150 285Z" fill="#68724d"/>
-      <ellipse cx="250" cy="155" rx="130" ry="38" fill="#879764"/>
-      <ellipse cx="250" cy="160" rx="95" ry="25" fill="#53613e"/>
-      <ellipse cx="250" cy="158" rx="75" ry="17" fill="#73864d"/>
-    `;
-  }
-
-  if(kind==="matchawhisk"){
-    art=`
-      <path d="M225 75 L275 75 L265 215 L235 215 Z" fill="#c69b61"/>
-      <path d="M235 205 Q250 300 175 320 M240 205 Q250 310 205 325 M245 205 Q250 315 250 330 M255 205 Q250 315 295 325 M260 205 Q250 300 325 320"
-        fill="none" stroke="#d6b578" stroke-width="8" stroke-linecap="round"/>
-    `;
-  }
-
-  if(kind==="hotmug"){
-    art=`
-      <path d="M150 120 L330 120 L315 290 Q250 320 185 290Z" fill="#765536"/>
-      <path d="M330 160 Q410 150 390 220 Q380 250 325 235" fill="none" stroke="#765536" stroke-width="22"/>
-      <ellipse cx="240" cy="120" rx="90" ry="25" fill="#a88455"/>
-      <path d="M205 80 Q190 55 210 35 M250 80 Q235 50 255 30 M295 80 Q280 50 300 35"
-        stroke="#b8a38b" stroke-width="7" fill="none"/>
-    `;
-  }
-
-  if(kind==="coldmug"){
-    art=`
-      <path d="M165 105 L335 105 L320 310 Q250 330 180 310Z" fill="#a9c4c8" opacity=".8"/>
-      <rect x="195" y="150" width="110" height="15" rx="7" fill="#765536"/>
-      <path d="M205 170 L295 170 L285 270 Q250 290 215 270Z" fill="#6e4b34"/>
-      <path d="M310 125 L380 75" stroke="#765536" stroke-width="12"/>
-      <circle cx="215" cy="130" r="10" fill="#d9d9d9"/>
-      <circle cx="250" cy="125" r="10" fill="#d9d9d9"/>
-      <circle cx="285" cy="130" r="10" fill="#d9d9d9"/>
-    `;
-  }
-
-  if(kind==="glassmug"){
-    art=`
-      <path d="M150 120 L350 120 L325 300 Q250 325 175 300Z" fill="#dce7e5" opacity=".65" stroke="#8ca09c" stroke-width="6"/>
-      <path d="M350 155 Q425 150 400 225 Q385 255 335 235" fill="none" stroke="#8ca09c" stroke-width="12"/>
-      <path d="M170 205 L330 205 L320 280 Q250 305 180 280Z" fill="#79543a"/>
-      <ellipse cx="250" cy="205" rx="80" ry="20" fill="#c8a071"/>
-    `;
-  }
-
-  if(kind==="arabiccups"){
-    art=`
-      <ellipse cx="180" cy="220" rx="60" ry="70" fill="#e4d7bd"/>
-      <ellipse cx="180" cy="205" rx="42" ry="18" fill="#795a3d"/>
-      <ellipse cx="320" cy="220" rx="60" ry="70" fill="#e4d7bd"/>
-      <ellipse cx="320" cy="205" rx="42" ry="18" fill="#795a3d"/>
-      <path d="M140 180 Q180 155 220 180 M280 180 Q320 155 360 180"
-        stroke="#a88455" stroke-width="5" fill="none"/>
-    `;
-  }
-
-  if(kind==="teacups"){
-    art=`
-      <circle cx="160" cy="220" r="70" fill="#d9c8ad"/>
-      <circle cx="160" cy="220" r="48" fill="#795a3d"/>
-      <circle cx="250" cy="220" r="70" fill="#e6dccb"/>
-      <circle cx="250" cy="220" r="48" fill="#795a3d"/>
-      <circle cx="340" cy="220" r="70" fill="#d9c8ad"/>
-      <circle cx="340" cy="220" r="48" fill="#795a3d"/>
-      <rect x="115" y="285" width="90" height="15" rx="7" fill="#765536"/>
-      <rect x="205" y="285" width="90" height="15" rx="7" fill="#765536"/>
-      <rect x="295" y="285" width="90" height="15" rx="7" fill="#765536"/>
-    `;
-  }
-
-  if(kind==="teaset"){
-    art=`
-      <path d="M115 150 Q250 115 385 150 L355 280 Q250 320 145 280Z" fill="#d8c5a5"/>
-      <ellipse cx="250" cy="150" rx="135" ry="35" fill="#efe3ca"/>
-      <path d="M385 165 Q445 150 425 215 Q410 240 375 225" fill="none" stroke="#d8c5a5" stroke-width="18"/>
-      <path d="M180 120 Q250 80 320 120" fill="none" stroke="#765536" stroke-width="13"/>
-      <circle cx="180" cy="285" r="25" fill="#765536"/>
-      <circle cx="320" cy="285" r="25" fill="#765536"/>
-    `;
-  }
-
-  if(kind==="coffeebundle"){
-    art=`
-      <rect x="90" y="125" width="300" height="175" rx="20" fill="#765536"/>
-      <rect x="115" y="150" width="100" height="100" rx="15" fill="#a88455"/>
-      <rect x="235" y="150" width="120" height="25" rx="12" fill="#e5d4ba"/>
-      <rect x="235" y="195" width="90" height="25" rx="12" fill="#e5d4ba"/>
-      <circle cx="165" cy="200" r="30" fill="#332923"/>
-      <text x="295" y="265" text-anchor="middle" fill="#fffaf2" font-size="23">COFFEE</text>
-    `;
-  }
-
-  if(kind==="matchabundle"){
-    art=`
-      <rect x="90" y="125" width="300" height="175" rx="20" fill="#68724d"/>
-      <circle cx="160" cy="210" r="55" fill="#d9d0b9"/>
-      <rect x="240" y="155" width="100" height="90" rx="15" fill="#879764"/>
-      <path d="M270 140 L300 140 L315 270 L285 270Z" fill="#c39b61"/>
-      <text x="280" y="290" text-anchor="middle" fill="#f4ecdf" font-size="22">MATCHA</text>
-    `;
-  }
-
-  if(kind==="teabundle"){
-    art=`
-      <rect x="90" y="125" width="300" height="175" rx="20" fill="#765536"/>
-      <path d="M120 155 L200 155 L210 270 L110 270Z" fill="#e4d7bd"/>
-      <path d="M225 155 L305 155 L315 270 L215 270Z" fill="#8c7047"/>
-      <circle cx="355" cy="210" r="38" fill="#d8c5a5"/>
-      <circle cx="355" cy="210" r="25" fill="#795a3d"/>
-      <text x="250" y="290" text-anchor="middle" fill="#f4ecdf" font-size="23">TEA</text>
-    `;
-  }
-
-  return `
+  const svg = `
   <svg xmlns="http://www.w3.org/2000/svg"
-       viewBox="0 0 500 380">
+       width="600"
+       height="450"
+       viewBox="0 0 600 450">
 
-    <rect width="500" height="380" fill="#eee4d5"/>
+    <rect width="600"
+          height="450"
+          fill="#efe7d8"/>
 
-    <ellipse cx="250" cy="330" rx="170" ry="18"
-             fill="#d2c1aa"/>
+    <circle
+      cx="300"
+      cy="205"
+      r="120"
+      fill="${color}"
+      opacity=".92"/>
 
-    ${art}
+    <ellipse
+      cx="300"
+      cy="350"
+      rx="155"
+      ry="24"
+      fill="#2B211B"
+      opacity=".12"/>
 
-    <text x="250"
-          y="355"
-          text-anchor="middle"
-          font-family="Arial"
-          font-size="17"
-          font-weight="bold"
-          fill="#4b3524">
-      ${escapeSvg(title)}
+    <text
+      x="300"
+      y="190"
+      text-anchor="middle"
+      font-family="Arial"
+      font-size="25"
+      font-weight="bold"
+      fill="#2B211B">
+      مِداد
+    </text>
+
+    <text
+      x="300"
+      y="225"
+      text-anchor="middle"
+      font-family="Arial"
+      font-size="15"
+      fill="#fffaf2">
+      ${title}
+    </text>
+
+    <text
+      x="300"
+      y="285"
+      text-anchor="middle"
+      font-family="Arial"
+      font-size="13"
+      fill="#fffaf2">
+      MIDAD
     </text>
 
   </svg>
   `;
-}
 
-
-function escapeSvg(text){
-
-  return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&apos;");
-}
-
-
-function imageData(product){
-
-  return "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(
-      imageFor(product.kind,product.name)
-    );
+  return "data:image/svg+xml;charset=UTF-8,"+
+    encodeURIComponent(svg);
 
 }
 
 
 /* =========================================================
-   RENDER STORE
+   LOAD PRODUCTS FROM SUPABASE
 ========================================================= */
 
-function renderStore(){
+async function loadProducts(){
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .select(`
+        id,
+        name,
+        slug,
+        description,
+        price,
+        price_visible,
+        image_url,
+        is_active,
+        stock,
+        category_id,
+        categories(
+          name,
+          slug
+        )
+      `)
+      .order("created_at");
+
+  if(error){
+
+    console.error(error);
+
+    alert("تعذر تحميل منتجات مِداد من قاعدة البيانات.");
+
+    return;
+
+  }
+
+  products =
+    (data || []).map(p=>{
+
+      const meta =
+        productMeta[p.slug] || {};
+
+      const categorySlug =
+        p.categories?.slug ||
+        meta.category ||
+        "coffee-tools";
+
+      return {
+
+        ...p,
+
+        title:
+          meta.title ||
+          p.name,
+
+        category:
+          categorySlug,
+
+        categoryName:
+          meta.categoryName ||
+          categoryMap[categorySlug]?.name ||
+          p.categories?.name ||
+          "مِداد",
+
+        description:
+          meta.description ||
+          p.description ||
+          "منتج من مِداد",
+
+        imageKey:
+          meta.imageKey ||
+          p.slug
+
+      };
+
+    });
+
+  renderProducts();
+
+}
+
+
+/* =========================================================
+   STORE RENDER
+========================================================= */
+
+function renderProducts(){
 
   const area =
     document.getElementById("productsArea");
 
-  area.innerHTML="";
+  if(!area){
+    return;
+  }
+
+  const search =
+    (
+      document.getElementById("searchInput")
+        ?.value || ""
+    ).trim().toLowerCase();
+
+  const filter =
+    document.getElementById("categoryFilter")
+      ?.value || "all";
+
+  let html = "";
 
   categoryOrder.forEach(category=>{
 
+    if(
+      filter !== "all" &&
+      filter !== category
+    ){
+      return;
+    }
+
     const list =
-      products.filter(p=>p.category===category);
+      products.filter(p=>{
 
-    const section =
-      document.createElement("section");
+        if(!p.is_active){
+          return false;
+        }
 
-    section.className="category";
+        const matchesCategory =
+          p.category === category;
 
-    section.innerHTML=`
+        const text =
+          (
+            p.title +
+            " " +
+            p.name +
+            " " +
+            p.description
+          ).toLowerCase();
 
-      <div class="category-head">
+        const matchesSearch =
+          !search ||
+          text.includes(search);
 
-        <h2>${category}</h2>
+        return matchesCategory &&
+               matchesSearch;
 
-        <span>${list.length} أصناف</span>
+      });
 
-      </div>
+    if(!list.length){
+      return;
+    }
 
-      <div class="products">
+    html += `
 
-        ${list.map(productCard).join("")}
+      <div class="category">
 
-      </div>
+        <div class="category-title">
+
+          <h3>
+            ${categoryMap[category]?.name || "مِداد"}
+          </h3>
+
+          <span></span>
+
+        </div>
+
+        <div class="products-grid">
 
     `;
 
-    area.appendChild(section);
+    list.forEach(p=>{
 
-  });
+      const isFav =
+        favorites.includes(p.id);
 
-  updateCartCount();
+      const image =
+        p.image_url ||
+        imageFor(p.imageKey,p.title);
 
-}
+      const price =
+        Number(p.price || 0);
 
+      html += `
 
-function productCard(p){
-
-  const s =
-    settings.products[p.id];
-
-  const isFavorite =
-    favorites.includes(p.id);
-
-  let priceText =
-    "السعر عند الطلب";
-
-  if(s.price > 0){
-
-    priceText =
-      Number(s.price).toFixed(2) + " د.أ";
-
-  }
-
-  const soldOut =
-    !s.active || s.stock <= 0;
-
-  return `
-
-    <article class="card">
-
-      <img
-        class="product-image"
-        src="${imageData(p)}"
-        alt="${p.name}"
-      >
-
-      <div class="product-info">
-
-        <h3>${p.name}</h3>
-
-        <p>${p.description}</p>
-
-        <div class="price ${s.price<=0?"request":""}">
-          ${priceText}
-        </div>
-
-        <div class="card-actions">
+        <article
+          class="product-card"
+          onclick="openProduct('${p.id}')">
 
           <button
-            class="add"
-            ${soldOut?"disabled":""}
-            onclick="addToCart(${p.id})">
+            class="favorite"
+            onclick="event.stopPropagation();toggleFavorite('${p.id}')">
 
-            ${
-              !s.active
-              ? "البيع متوقف"
-              : s.stock<=0
-              ? "غير متوفر"
-              : "أضف للسلة"
-            }
+            ${isFav ? "♥" : "♡"}
 
           </button>
 
-          <button
-            class="favorite ${isFavorite?"active":""}"
-            onclick="toggleFavorite(${p.id})">
+          <div class="product-image">
 
-            ${isFavorite?"♥":"♡"}
+            <img
+              src="${image}"
+              alt="${p.title}">
 
-          </button>
+          </div>
 
-        </div>
+          <div class="product-info">
 
-      </div>
+            <h4>
+              ${p.title}
+            </h4>
 
-    </article>
+            <div class="product-description">
+              ${p.description}
+            </div>
 
-  `;
-}
+            <div class="product-bottom">
 
+              <span class="product-price">
 
-/* =========================================================
-   CART
-========================================================= */
+                ${
+                  p.price_visible && price > 0
+                  ? price.toFixed(2)+" د.أ"
+                  : "السعر عند الطلب"
+                }
 
-function addToCart(id){
-
-  const setting =
-    settings.products[id];
-
-  if(!setting.active || setting.stock<=0){
-
-    alert("هذا المنتج غير متوفر حالياً.");
-
-    return;
-  }
-
-  const existing =
-    cart.find(x=>x.id===id);
-
-  if(existing){
-
-    if(existing.qty < setting.stock){
-
-      existing.qty++;
-
-    }else{
-
-      alert("لا يوجد مخزون كافٍ.");
-
-    }
-
-  }else{
-
-    cart.push({
-      id:id,
-      qty:1
-    });
-
-  }
-
-  saveCart();
-
-  updateCartCount();
-
-  renderCart();
-
-}
-
-
-function changeQty(id,amount){
-
-  const item =
-    cart.find(x=>x.id===id);
-
-  if(!item) return;
-
-  const stock =
-    settings.products[id].stock;
-
-  item.qty += amount;
-
-  if(item.qty <= 0){
-
-    cart =
-      cart.filter(x=>x.id!==id);
-
-  }else if(item.qty > stock){
-
-    item.qty=stock;
-
-    alert("لا يوجد مخزون كافٍ.");
-
-  }
-
-  saveCart();
-
-  renderCart();
-
-  updateCartCount();
-
-}
-
-
-function removeFromCart(id){
-
-  cart =
-    cart.filter(x=>x.id!==id);
-
-  saveCart();
-
-  renderCart();
-
-  updateCartCount();
-
-}
-
-
-function updateCartCount(){
-
-  const count =
-    cart.reduce(
-      (sum,item)=>sum+item.qty,
-      0
-    );
-
-  document.getElementById("cartCount")
-    .textContent=count;
-
-}
-
-
-function renderCart(){
-
-  const box =
-    document.getElementById("cartItems");
-
-  if(cart.length===0){
-
-    box.innerHTML=
-      `<div class="orders-empty">
-        السلة فارغة حالياً.
-      </div>`;
-
-    document.getElementById("cartTotal")
-      .textContent="السعر عند الطلب";
-
-    return;
-  }
-
-  let total=0;
-  let hasPrice=false;
-
-  box.innerHTML =
-    cart.map(item=>{
-
-      const p =
-        products.find(x=>x.id===item.id);
-
-      const s =
-        settings.products[item.id];
-
-      if(s.price>0){
-
-        total += s.price * item.qty;
-
-        hasPrice=true;
-
-      }
-
-      return `
-
-        <div class="cart-item">
-
-          <div>
-
-            <h4>${p.name}</h4>
-
-            <div class="qty">
+              </span>
 
               <button
-                onclick="changeQty(${p.id},-1)">
-                −
-              </button>
+                class="add-btn"
+                onclick="event.stopPropagation();addToCart('${p.id}')"
+                ${Number(p.stock) <= 0 ? "disabled" : ""}>
 
-              <span>${item.qty}</span>
+                ${
+                  Number(p.stock) <= 0
+                  ? "نفد المخزون"
+                  : "أضف للسلة"
+                }
 
-              <button
-                onclick="changeQty(${p.id},1)">
-                +
-              </button>
-
-              <button
-                class="remove"
-                onclick="removeFromCart(${p.id})">
-                حذف
               </button>
 
             </div>
 
           </div>
 
-          <strong>
-            ${
-              s.price>0
-              ? (s.price*item.qty).toFixed(2)+" د.أ"
-              : "عند الطلب"
-            }
-          </strong>
-
-        </div>
+        </article>
 
       `;
 
-    }).join("");
+    });
 
-  document.getElementById("cartTotal")
-    .textContent =
-      hasPrice
-      ? total.toFixed(2)+" د.أ"
-      : "السعر عند الطلب";
+    html += `
 
-}
+        </div>
 
+      </div>
 
-function openCart(){
+    `;
 
-  renderCart();
+  });
 
-  document.getElementById("cartPanel")
-    .classList.add("open");
+  if(!html){
 
-}
+    html = `
+      <div class="empty">
+        لا توجد منتجات مطابقة للبحث.
+      </div>
+    `;
 
+  }
 
-function closeCart(){
-
-  document.getElementById("cartPanel")
-    .classList.remove("open");
+  area.innerHTML = html;
 
 }
 
@@ -1972,7 +697,7 @@ function toggleFavorite(id){
   if(favorites.includes(id)){
 
     favorites =
-      favorites.filter(x=>x!==id);
+      favorites.filter(x=>x !== id);
 
   }else{
 
@@ -1980,544 +705,463 @@ function toggleFavorite(id){
 
   }
 
-  saveFavorites();
+  localStorage.setItem(
+    "midad_favorites",
+    JSON.stringify(favorites)
+  );
 
-  renderStore();
+  renderProducts();
 
 }
 
 
 function showFavorites(){
 
-  if(favorites.length===0){
+  const list =
+    products.filter(
+      p=>favorites.includes(p.id)
+    );
 
-    alert("لا يوجد منتجات في المفضلة.");
+  if(!list.length){
+
+    alert("لا توجد منتجات في المفضلة حالياً.");
 
     return;
+
   }
 
-  const names =
-    favorites
-      .map(id=>{
-        const p =
-          products.find(x=>x.id===id);
-        return p ? "• "+p.name : "";
-      })
-      .join("\n");
+  const area =
+    document.getElementById("productsArea");
 
-  alert("منتجاتك المفضلة:\n\n"+names);
+  area.innerHTML = `
+
+    <div class="category">
+
+      <div class="category-title">
+
+        <h3>
+          منتجاتك المفضلة
+        </h3>
+
+        <span></span>
+
+      </div>
+
+      <div class="products-grid">
+
+        ${list.map(p=>{
+
+          const image =
+            p.image_url ||
+            imageFor(p.imageKey,p.title);
+
+          const price =
+            Number(p.price || 0);
+
+          return `
+
+            <article
+              class="product-card"
+              onclick="openProduct('${p.id}')">
+
+              <button
+                class="favorite"
+                onclick="event.stopPropagation();toggleFavorite('${p.id}')">
+                ♥
+              </button>
+
+              <div class="product-image">
+
+                <img
+                  src="${image}"
+                  alt="${p.title}">
+
+              </div>
+
+              <div class="product-info">
+
+                <h4>
+                  ${p.title}
+                </h4>
+
+                <div class="product-description">
+                  ${p.description}
+                </div>
+
+                <div class="product-bottom">
+
+                  <span class="product-price">
+
+                    ${
+                      p.price_visible && price > 0
+                      ? price.toFixed(2)+" د.أ"
+                      : "السعر عند الطلب"
+                    }
+
+                  </span>
+
+                  <button
+                    class="add-btn"
+                    onclick="event.stopPropagation();addToCart('${p.id}')">
+
+                    أضف للسلة
+
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+
+          `;
+
+        }).join("")}
+
+      </div>
+
+    </div>
+
+  `;
+
+  window.scrollTo({
+    top:
+      document.getElementById("productsArea").offsetTop - 80,
+    behavior:"smooth"
+  });
 
 }
 
 
 /* =========================================================
-   CHECKOUT
+   PRODUCT DETAILS
 ========================================================= */
 
-function openCheckout(){
+function openProduct(id){
 
-  if(cart.length===0){
+  const p =
+    products.find(x=>x.id===id);
 
-    alert("السلة فارغة.");
-
+  if(!p){
     return;
   }
 
-  document.getElementById("checkoutOverlay")
-    .classList.add("show");
+  const price =
+    Number(p.price || 0);
 
-}
+  const image =
+    p.image_url ||
+    imageFor(p.imageKey,p.title);
 
+  document
+    .getElementById("productModalContent")
+    .innerHTML = `
 
-function closeCheckout(){
+      <div
+        style="
+          background:#efe7d8;
+          border-radius:15px;
+          overflow:hidden;
+          margin-bottom:20px;
+        ">
 
-  document.getElementById("checkoutOverlay")
-    .classList.remove("show");
+        <img
+          src="${image}"
+          alt="${p.title}"
+          style="width:100%;display:block;">
 
-}
+      </div>
 
+      <h2>
+        ${p.title}
+      </h2>
 
-function sendOrder(){
+      <p
+        style="
+          color:#746354;
+          line-height:1.9;
+          margin-bottom:15px;
+        ">
 
-  const name =
-    document.getElementById("customerName").value.trim();
+        ${p.description}
 
-  const phone =
-    document.getElementById("customerPhone").value.trim();
+      </p>
 
-  const address =
-    document.getElementById("customerAddress").value.trim();
+      <div
+        style="
+          background:#efe7d8;
+          padding:15px;
+          border-radius:13px;
+          line-height:2;
+        ">
 
-  const ref =
-    document.getElementById("transactionRef").value.trim();
+        <strong>القسم:</strong>
+        ${p.categoryName}
 
-  const notes =
-    document.getElementById("orderNotes").value.trim();
+        <br>
 
+        <strong>السعر:</strong>
 
-  if(!name || !phone || !address){
+        ${
+          p.price_visible && price > 0
+          ? price.toFixed(2)+" د.أ"
+          : "السعر عند الطلب"
+        }
 
-    alert("يرجى تعبئة الاسم ورقم الهاتف والعنوان.");
+        <br>
 
-    return;
-  }
+        <strong>المخزون:</strong>
+        ${
+          Number(p.stock)>0
+          ? p.stock+" قطعة"
+          : "غير متوفر حالياً"
+        }
 
+      </div>
 
-  let message =
-    "طلب جديد من متجر مِداد\n\n";
+      <div class="modal-actions">
 
-  message +=
-    "الاسم: "+name+"\n";
+        <button
+          class="primary-btn"
+          onclick="addToCart('${p.id}');closeProductModal()">
 
-  message +=
-    "الهاتف: "+phone+"\n";
+          أضف للسلة
 
-  message +=
-    "العنوان: "+address+"\n\n";
+        </button>
 
-  message +=
-    "المنتجات:\n";
+        <button
+          class="secondary-btn"
+          onclick="closeProductModal()">
 
+          إغلاق
 
-  let total=0;
-  let hasPrice=false;
+        </button>
 
-  cart.forEach(item=>{
+      </div>
 
-    const p =
-      products.find(x=>x.id===item.id);
+  `;
 
-    const s =
-      settings.products[item.id];
-
-    message +=
-      "- "+p.name+
-      " × "+item.qty;
-
-    if(s.price>0){
-
-      const line =
-        s.price * item.qty;
-
-      total += line;
-
-      hasPrice=true;
-
-      message +=
-        " = "+line.toFixed(2)+" د.أ";
-
-    }else{
-
-      message +=
-        " = السعر عند الطلب";
-
-    }
-
-    message += "\n";
-
-  });
-
-
-  message += "\n";
-
-  message +=
-    "الإجمالي: "+
-    (
-      hasPrice
-      ? total.toFixed(2)+" د.أ"
-      : "السعر عند الطلب"
-    )+
-    "\n\n";
-
-
-  message +=
-    "الدفع: كليك - بنك الاتحاد\n";
-
-  message +=
-    "اسم المستفيد: Ibrahim Nidar Mohammad Yousef\n";
-
-  message +=
-    "رقم كليك: 0799563650\n";
-
-  message +=
-    "مرجع العملية: "+
-    (ref || "لم يتم إدخاله")+
-    "\n";
-
-
-  if(notes){
-
-    message +=
-      "\nملاحظات: "+notes+"\n";
-
-  }
-
-
-  const order = {
-
-    id:
-      "MID-"+Date.now(),
-
-    date:
-      new Date().toLocaleString("ar-JO"),
-
-    customer:{
-      name,
-      phone,
-      address
-    },
-
-    transactionRef:ref,
-
-    notes,
-
-    items:
-      JSON.parse(JSON.stringify(cart)),
-
-    total:
-      hasPrice ? total : null
-
-  };
-
-
-  orders.unshift(order);
-
-  saveOrders();
-
-
-  /* decrease stock */
-
-  cart.forEach(item=>{
-
-    if(settings.products[item.id]){
-
-      settings.products[item.id].stock =
-        Math.max(
-          0,
-          settings.products[item.id].stock-item.qty
-        );
-
-    }
-
-  });
-
-
-  saveSettings();
-
-
-  const url =
-    "https://wa.me/962799563650?text="+
-    encodeURIComponent(message);
-
-
-  window.open(url,"_blank");
-
-
-  cart=[];
-
-  saveCart();
-
-  renderCart();
-
-  renderStore();
-
-  closeCheckout();
-
-  closeCart();
-
-  alert("تم تجهيز الطلب وإرساله إلى واتساب مِداد.");
-
-}
-
-
-/* =========================================================
-   ADMIN
-========================================================= */
-
-function openAdmin(){
-
-  document.getElementById("store")
-    .classList.add("hidden");
-
-  document.getElementById("admin")
+  document
+    .getElementById("productModal")
     .classList.add("active");
 
-  renderAdmin();
-
-  window.scrollTo(0,0);
-
 }
 
 
-function closeAdmin(){
+function closeProductModal(){
 
-  document.getElementById("admin")
+  document
+    .getElementById("productModal")
     .classList.remove("active");
-
-  document.getElementById("store")
-    .classList.remove("hidden");
-
-  renderStore();
-
-  window.scrollTo(0,0);
-
-}
-
-
-function renderAdmin(){
-
-  const tbody =
-    document.getElementById("adminProducts");
-
-
-  tbody.innerHTML =
-    products.map((p,index)=>{
-
-      const s =
-        settings.products[p.id];
-
-      return `
-
-        <tr>
-
-          <td>${index+1}</td>
-
-          <td>
-            <strong>${p.name}</strong>
-          </td>
-
-          <td>${p.category}</td>
-
-          <td>
-            <input
-              type="number"
-              min="0"
-              step="0.01"
-              value="${s.price}"
-              id="price-${p.id}"
-            >
-          </td>
-
-          <td>
-            <input
-              type="number"
-              min="0"
-              value="${s.stock}"
-              id="stock-${p.id}"
-            >
-          </td>
-
-          <td>
-
-            <button
-              class="toggle ${s.active?"on":""}"
-              onclick="toggleProduct(${p.id})"
-              title="تشغيل/إيقاف البيع">
-            </button>
-
-          </td>
-
-        </tr>
-
-      `;
-
-    }).join("");
-
-
-  let totalStock=0;
-
-  products.forEach(p=>{
-
-    totalStock +=
-      Number(settings.products[p.id].stock)||0;
-
-  });
-
-
-  document.getElementById("statProducts")
-    .textContent=products.length;
-
-  document.getElementById("statStock")
-    .textContent=totalStock;
-
-  document.getElementById("statOrders")
-    .textContent=orders.length;
-
-
-  const allActive =
-    products.every(
-      p=>settings.products[p.id].active
-    );
-
-  document.getElementById("statSales")
-    .textContent =
-      allActive
-      ? "مفتوح"
-      : "متوقف جزئياً";
-
-
-  renderOrders();
-
-}
-
-
-function toggleProduct(id){
-
-  settings.products[id].active =
-    !settings.products[id].active;
-
-  saveSettings();
-
-  renderAdmin();
-
-  renderStore();
-
-}
-
-
-function toggleAllSales(){
-
-  const allActive =
-    products.every(
-      p=>settings.products[p.id].active
-    );
-
-  products.forEach(p=>{
-
-    settings.products[p.id].active =
-      !allActive;
-
-  });
-
-  saveSettings();
-
-  renderAdmin();
-
-  renderStore();
-
-}
-
-
-function saveProducts(){
-
-  products.forEach(p=>{
-
-    const price =
-      Number(
-        document.getElementById(
-          "price-"+p.id
-        ).value
-      );
-
-    const stock =
-      Number(
-        document.getElementById(
-          "stock-"+p.id
-        ).value
-      );
-
-
-    settings.products[p.id].price =
-      Math.max(0,price);
-
-    settings.products[p.id].stock =
-      Math.max(0,stock);
-
-  });
-
-
-  saveSettings();
-
-  renderAdmin();
-
-  renderStore();
-
-  alert("تم حفظ جميع تعديلات المنتجات.");
 
 }
 
 
 /* =========================================================
-   ADMIN ORDERS
+   CART
 ========================================================= */
 
-function renderOrders(){
+function addToCart(id){
 
-  const box =
-    document.getElementById("adminOrders");
+  const p =
+    products.find(x=>x.id===id);
+
+  if(
+    !p ||
+    !p.is_active ||
+    Number(p.stock) <= 0
+  ){
+
+    alert("هذا المنتج غير متوفر حالياً.");
+
+    return;
+
+  }
+
+  const existing =
+    cart.find(x=>x.id===id);
+
+  if(existing){
+
+    if(
+      existing.qty >= Number(p.stock)
+    ){
+
+      alert("لا توجد كمية إضافية متوفرة.");
+
+      return;
+
+    }
+
+    existing.qty++;
+
+  }else{
+
+    cart.push({
+      id,
+      qty:1
+    });
+
+  }
+
+  saveCart();
+  renderCart();
+  updateCartCount();
+
+}
 
 
-  if(orders.length===0){
+function saveCart(){
 
-    box.innerHTML =
-      `<div class="orders-empty">
-        لا توجد طلبات حتى الآن.
-      </div>`;
+  localStorage.setItem(
+    "midad_cart",
+    JSON.stringify(cart)
+  );
 
+}
+
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(x=>x.id!==id);
+
+  saveCart();
+  renderCart();
+  updateCartCount();
+
+}
+
+
+function changeQty(id,delta){
+
+  const item =
+    cart.find(x=>x.id===id);
+
+  const p =
+    products.find(x=>x.id===id);
+
+  if(!item || !p){
     return;
   }
 
+  item.qty += delta;
+
+  if(item.qty <= 0){
+
+    removeFromCart(id);
+
+    return;
+
+  }
+
+  if(item.qty > Number(p.stock)){
+
+    item.qty =
+      Number(p.stock);
+
+  }
+
+  saveCart();
+  renderCart();
+  updateCartCount();
+
+}
+
+
+function updateCartCount(){
+
+  const count =
+    cart.reduce(
+      (sum,item)=>
+        sum + Number(item.qty),
+      0
+    );
+
+  document
+    .getElementById("cartCount")
+    .textContent = count;
+
+}
+
+
+function renderCart(){
+
+  const box =
+    document.getElementById("cartItems");
+
+  if(!cart.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        السلة فارغة حالياً.
+      </div>
+    `;
+
+    return;
+
+  }
 
   box.innerHTML =
-    orders.map(order=>{
+    cart.map(item=>{
 
-      let itemsText =
-        order.items.map(item=>{
+      const p =
+        products.find(x=>x.id===item.id);
 
-          const p =
-            products.find(x=>x.id===item.id);
+      if(!p){
+        return "";
+      }
 
-          return p
-            ? p.name+" × "+item.qty
-            : "";
-
-        }).join("، ");
-
+      const price =
+        Number(p.price || 0);
 
       return `
 
-        <div class="order">
+        <div class="cart-item">
 
-          <div class="order-title">
+          <div>
 
-            <span>
-              ${order.id}
-            </span>
+            <h4>
+              ${p.title}
+            </h4>
 
-            <span>
-              ${order.date}
-            </span>
+            <small>
+
+              ${
+                p.price_visible && price > 0
+                ? price.toFixed(2)+" د.أ"
+                : "السعر عند الطلب"
+              }
+
+            </small>
 
           </div>
 
-          <small>
+          <div class="cart-controls">
 
-            العميل:
-            ${order.customer.name}
-            <br>
+            <button
+              class="qty-btn"
+              onclick="changeQty('${p.id}',1)">
+              +
+            </button>
 
-            الهاتف:
-            ${order.customer.phone}
-            <br>
+            <strong>
+              ${item.qty}
+            </strong>
 
-            العنوان:
-            ${order.customer.address}
-            <br>
+            <button
+              class="qty-btn"
+              onclick="changeQty('${p.id}',-1)">
+              −
+            </button>
 
-            المنتجات:
-            ${itemsText}
-            <br>
+            <button
+              class="remove-btn"
+              onclick="removeFromCart('${p.id}')">
+              حذف
+            </button>
 
-            مرجع كليك:
-            ${order.transactionRef || "غير مضاف"}
-
-            ${
-              order.notes
-              ? "<br>ملاحظات: "+order.notes
-              : ""
-            }
-
-          </small>
+          </div>
 
         </div>
 
@@ -2528,15 +1172,1288 @@ function renderOrders(){
 }
 
 
+function openCart(){
+
+  renderCart();
+
+  document
+    .getElementById("cartOverlay")
+    .classList.add("active");
+
+  document
+    .getElementById("cartPanel")
+    .classList.add("active");
+
+}
+
+
+function closeCart(){
+
+  document
+    .getElementById("cartOverlay")
+    .classList.remove("active");
+
+  document
+    .getElementById("cartPanel")
+    .classList.remove("active");
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+document
+  .getElementById("paymentMethod")
+  .addEventListener(
+    "change",
+    function(){
+
+      document
+        .getElementById("clickDetails")
+        .style.display =
+          this.value === "click"
+          ? "block"
+          : "none";
+
+    }
+  );
+
+
+function openCheckout(){
+
+  if(!cart.length){
+
+    alert("السلة فارغة.");
+
+    return;
+
+  }
+
+  closeCart();
+
+  document
+    .getElementById("checkoutOverlay")
+    .classList.add("active");
+
+}
+
+
+function closeCheckout(){
+
+  document
+    .getElementById("checkoutOverlay")
+    .classList.remove("active");
+
+}
+
+
+/* =========================================================
+   CREATE REAL SUPABASE ORDER
+========================================================= */
+
+async function sendOrder(){
+
+  if(!cart.length){
+
+    alert("السلة فارغة.");
+
+    return;
+
+  }
+
+  const name =
+    document
+      .getElementById("customerName")
+      .value.trim();
+
+  const phone =
+    document
+      .getElementById("customerPhone")
+      .value.trim();
+
+  const address =
+    document
+      .getElementById("customerAddress")
+      .value.trim();
+
+  const payment =
+    document
+      .getElementById("paymentMethod")
+      .value;
+
+  if(!name || !phone || !address){
+
+    alert(
+      "يرجى تعبئة الاسم ورقم الهاتف والعنوان."
+    );
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+  const itemRows = [];
+
+  for(const item of cart){
+
+    const p =
+      products.find(x=>x.id===item.id);
+
+    if(!p){
+      continue;
+    }
+
+    const price =
+      Number(p.price || 0);
+
+    const subtotal =
+      price * Number(item.qty);
+
+    total += subtotal;
+
+    itemRows.push({
+
+      product_id:p.id,
+
+      product_name:p.title,
+
+      quantity:Number(item.qty),
+
+      unit_price:price,
+
+      subtotal:subtotal
+
+    });
+
+  }
+
+
+  const orderNumber =
+    "MID-" +
+    Date.now();
+
+
+  const {
+    data:order,
+    error:orderError
+  } =
+    await supabaseClient
+      .from("orders")
+      .insert({
+
+        order_number:orderNumber,
+
+        customer_id:null,
+
+        customer_name:name,
+
+        customer_phone:phone,
+
+        delivery_address:address,
+
+        status:"pending",
+
+        payment_method:
+          payment === "click"
+          ? "click"
+          : "cod",
+
+        payment_status:"pending",
+
+        total:total
+
+      })
+      .select()
+      .single();
+
+
+  if(orderError){
+
+    console.error(orderError);
+
+    alert(
+      "تعذر حفظ الطلب في قاعدة البيانات.\n"+
+      orderError.message
+    );
+
+    return;
+
+  }
+
+
+  const rows =
+    itemRows.map(item=>({
+
+      ...item,
+
+      order_id:order.id
+
+    }));
+
+
+  if(rows.length){
+
+    const {
+      error:itemError
+    } =
+      await supabaseClient
+        .from("order_items")
+        .insert(rows);
+
+    if(itemError){
+
+      console.error(itemError);
+
+      alert(
+        "تم إنشاء الطلب ولكن حدث خطأ في تفاصيل المنتجات."
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  let message =
+    `طلب جديد من مِداد%0A%0A`;
+
+  message +=
+    `رقم الطلب: ${encodeURIComponent(orderNumber)}%0A`;
+
+  message +=
+    `الاسم: ${encodeURIComponent(name)}%0A`;
+
+  message +=
+    `الهاتف: ${encodeURIComponent(phone)}%0A`;
+
+  message +=
+    `العنوان: ${encodeURIComponent(address)}%0A`;
+
+  message +=
+    `طريقة الدفع: ${
+      payment === "click"
+      ? "Click - بنك الاتحاد"
+      : "الدفع عند الاستلام"
+    }%0A%0A`;
+
+  message +=
+    `المنتجات:%0A`;
+
+
+  cart.forEach(item=>{
+
+    const p =
+      products.find(x=>x.id===item.id);
+
+    if(p){
+
+      message +=
+        `• ${encodeURIComponent(p.title)} × ${item.qty}%0A`;
+
+    }
+
+  });
+
+
+  if(payment === "click"){
+
+    message +=
+      `%0Aبيانات Click:%0A`;
+
+    message +=
+      `بنك الاتحاد%0A`;
+
+    message +=
+      `Ibrahim Nidar Mohammad Yousef%0A`;
+
+    message +=
+      `0799563650%0A`;
+
+  }
+
+
+  cart = [];
+
+  saveCart();
+
+  updateCartCount();
+
+  renderCart();
+
+  closeCheckout();
+
+
+  alert(
+    "تم تسجيل طلبك في نظام مِداد بنجاح."
+  );
+
+
+  window.open(
+    "https://wa.me/962799563650?text="+message,
+    "_blank"
+  );
+
+
+  if(
+    document
+      .getElementById("admin")
+      .classList.contains("active")
+  ){
+
+    await loadAdminOrders();
+
+  }
+
+}
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+async function openAdmin(){
+
+  const {
+    data:{
+      session
+    }
+  } =
+    await supabaseClient.auth.getSession();
+
+  if(!session){
+
+    document
+      .getElementById("adminLoginOverlay")
+      .classList.add("active");
+
+    document
+      .getElementById("adminLoginError")
+      .textContent = "";
+
+    return;
+
+  }
+
+  await verifyAdmin(session.user);
+
+}
+
+
+async function adminLogin(){
+
+  const email =
+    document
+      .getElementById("adminEmail")
+      .value.trim();
+
+  const password =
+    document
+      .getElementById("adminPassword")
+      .value;
+
+  const error =
+    document
+      .getElementById("adminLoginError");
+
+  error.textContent = "";
+
+  if(!email || !password){
+
+    error.textContent =
+      "أدخل البريد الإلكتروني وكلمة المرور.";
+
+    return;
+
+  }
+
+
+  const {
+    data,
+    error:loginError
+  } =
+    await supabaseClient.auth
+      .signInWithPassword({
+
+        email,
+        password
+
+      });
+
+
+  if(loginError){
+
+    console.error(loginError);
+
+    error.textContent =
+      "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+
+    return;
+
+  }
+
+
+  await verifyAdmin(data.user);
+
+}
+
+
+/* =========================================================
+   VERIFY OWNER / STAFF
+========================================================= */
+
+async function verifyAdmin(user){
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("user_roles")
+      .select("role")
+      .eq("user_id",user.id)
+      .maybeSingle();
+
+
+  if(error){
+
+    console.error(error);
+
+    document
+      .getElementById("adminLoginError")
+      .textContent =
+      "حدث خطأ أثناء التحقق من صلاحيات الإدارة.";
+
+    return;
+
+  }
+
+
+  if(
+    !data ||
+    !["owner","manager","staff"].includes(data.role)
+  ){
+
+    await supabaseClient.auth.signOut();
+
+    document
+      .getElementById("adminLoginError")
+      .textContent =
+      "هذا الحساب لا يملك صلاحية إدارة مِداد.";
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("adminLoginOverlay")
+    .classList.remove("active");
+
+
+  document
+    .getElementById("store")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("admin")
+    .classList.add("active");
+
+
+  await renderAdmin();
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =========================================================
+   ADMIN LOGOUT
+========================================================= */
+
+async function adminLogout(){
+
+  await supabaseClient.auth.signOut();
+
+  document
+    .getElementById("admin")
+    .classList.remove("active");
+
+  document
+    .getElementById("store")
+    .classList.remove("hidden");
+
+  window.scrollTo(0,0);
+
+}
+
+
+function closeAdminLogin(){
+
+  document
+    .getElementById("adminLoginOverlay")
+    .classList.remove("active");
+
+  document
+    .getElementById("adminLoginError")
+    .textContent = "";
+
+  document
+    .getElementById("adminPassword")
+    .value = "";
+
+}
+
+
+function backToStore(){
+
+  document
+    .getElementById("admin")
+    .classList.remove("active");
+
+  document
+    .getElementById("store")
+    .classList.remove("hidden");
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD — REAL DATABASE
+========================================================= */
+
+async function renderAdmin(){
+
+  await loadAdminProducts();
+
+  await loadAdminOrders();
+
+  await updateAdminStats();
+
+}
+
+
+/* =========================================================
+   ADMIN PRODUCTS
+========================================================= */
+
+async function loadAdminProducts(){
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .select(`
+        id,
+        name,
+        slug,
+        price,
+        price_visible,
+        is_active,
+        stock,
+        categories(
+          name,
+          slug
+        )
+      `)
+      .order("created_at");
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "تعذر تحميل منتجات الإدارة."
+    );
+
+    return;
+
+  }
+
+
+  const tbody =
+    document.getElementById("adminProducts");
+
+
+  tbody.innerHTML =
+    (data || []).map(p=>{
+
+      const meta =
+        productMeta[p.slug] || {};
+
+      const title =
+        meta.title || p.name;
+
+
+      return `
+
+        <tr>
+
+          <td>
+            ${title}
+          </td>
+
+          <td>
+
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value="${p.price ?? 0}"
+              onchange="updateProductPrice('${p.id}',this.value)">
+
+          </td>
+
+          <td>
+
+            <input
+              type="number"
+              min="0"
+              value="${p.stock ?? 0}"
+              onchange="updateProductStock('${p.id}',this.value)">
+
+          </td>
+
+          <td>
+
+            <select
+              onchange="updateProductActive('${p.id}',this.value)">
+
+              <option
+                value="true"
+                ${p.is_active ? "selected" : ""}>
+                فعال
+              </option>
+
+              <option
+                value="false"
+                ${!p.is_active ? "selected" : ""}>
+                مخفي
+              </option>
+
+            </select>
+
+          </td>
+
+        </tr>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =========================================================
+   ADMIN PRODUCT UPDATE
+========================================================= */
+
+async function updateProductPrice(id,value){
+
+  const price =
+    Math.max(
+      0,
+      Number(value) || 0
+    );
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .update({
+
+        price:price,
+
+        price_visible:
+          price > 0
+
+      })
+      .eq("id",id);
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "تعذر تحديث السعر."
+    );
+
+    return;
+
+  }
+
+}
+
+
+async function updateProductStock(id,value){
+
+  const stock =
+    Math.max(
+      0,
+      Number(value) || 0
+    );
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .update({
+
+        stock:stock
+
+      })
+      .eq("id",id);
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "تعذر تحديث المخزون."
+    );
+
+    return;
+
+  }
+
+}
+
+
+async function updateProductActive(id,value){
+
+  const active =
+    value === "true";
+
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .update({
+
+        is_active:active
+
+      })
+      .eq("id",id);
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "تعذر تحديث حالة المنتج."
+    );
+
+    return;
+
+  }
+
+
+  await loadProducts();
+
+}
+
+
+/* =========================================================
+   SAVE PRODUCTS
+========================================================= */
+
+async function saveProducts(){
+
+  await loadProducts();
+
+  await loadAdminProducts();
+
+  await updateAdminStats();
+
+  alert(
+    "تم تحديث بيانات المنتجات من قاعدة بيانات مِداد."
+  );
+
+}
+
+
+/* =========================================================
+   TOGGLE ALL SALES
+========================================================= */
+
+async function toggleAllSales(){
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("products")
+      .select("is_active");
+
+
+  if(error){
+
+    alert("تعذر قراءة حالة المنتجات.");
+
+    return;
+
+  }
+
+
+  const shouldEnable =
+    (data || []).some(
+      p=>!p.is_active
+    );
+
+
+  const {
+    error:updateError
+  } =
+    await supabaseClient
+      .from("products")
+      .update({
+
+        is_active:
+          shouldEnable
+
+      })
+      .neq(
+        "id",
+        "00000000-0000-0000-0000-000000000000"
+      );
+
+
+  if(updateError){
+
+    console.error(updateError);
+
+    alert(
+      "تعذر تغيير حالة البيع."
+    );
+
+    return;
+
+  }
+
+
+  await loadProducts();
+
+  await loadAdminProducts();
+
+  await updateAdminStats();
+
+
+  alert(
+    shouldEnable
+    ? "تم تفعيل البيع لجميع المنتجات."
+    : "تم تعطيل البيع لجميع المنتجات."
+  );
+
+}
+
+
+/* =========================================================
+   ADMIN ORDERS
+========================================================= */
+
+async function loadAdminOrders(){
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("orders")
+      .select(`
+        id,
+        order_number,
+        customer_name,
+        customer_phone,
+        delivery_address,
+        status,
+        payment_method,
+        payment_status,
+        total,
+        created_at,
+        order_items(
+          product_name,
+          quantity,
+          unit_price,
+          subtotal
+        )
+      `)
+      .order(
+        "created_at",
+        {
+          ascending:false
+        }
+      );
+
+
+  if(error){
+
+    console.error(error);
+
+    alert(
+      "تعذر تحميل الطلبات."
+    );
+
+    return;
+
+  }
+
+
+  orders =
+    data || [];
+
+
+  renderAdminOrders();
+
+}
+
+
+/* =========================================================
+   ADMIN ORDER DISPLAY
+========================================================= */
+
+function renderAdminOrders(){
+
+  const box =
+    document.getElementById("adminOrders");
+
+
+  if(!orders.length){
+
+    box.innerHTML = `
+
+      <div class="empty">
+        لا توجد طلبات حالياً.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    orders.map(order=>{
+
+      const date =
+        new Date(order.created_at)
+          .toLocaleString("ar-JO");
+
+
+      const items =
+        (order.order_items || [])
+          .map(item=>
+            `${item.product_name} × ${item.quantity}`
+          )
+          .join("، ");
+
+
+      return `
+
+        <div class="order-card">
+
+          <strong>
+            ${order.order_number}
+          </strong>
+
+          <br>
+
+          <small>
+            ${date}
+          </small>
+
+          <hr
+            style="
+              margin:10px 0;
+              border:0;
+              border-top:1px solid #dfd0bf;
+            ">
+
+          <strong>
+            العميل:
+          </strong>
+
+          ${order.customer_name || "-"}
+
+          <br>
+
+          <strong>
+            الهاتف:
+          </strong>
+
+          ${order.customer_phone || "-"}
+
+          <br>
+
+          <strong>
+            العنوان:
+          </strong>
+
+          ${order.delivery_address || "-"}
+
+          <br><br>
+
+          <strong>
+            المنتجات:
+          </strong>
+
+          ${items || "-"}
+
+          <br>
+
+          <strong>
+            الدفع:
+          </strong>
+
+          ${
+            order.payment_method === "click"
+            ? "Click"
+            : "الدفع عند الاستلام"
+          }
+
+          <br>
+
+          <strong>
+            الإجمالي:
+          </strong>
+
+          ${
+            Number(order.total || 0).toFixed(2)
+          }
+          د.أ
+
+          <br><br>
+
+          <span class="status">
+            ${
+              translateStatus(
+                order.status
+              )
+            }
+          </span>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+function translateStatus(status){
+
+  const map = {
+
+    pending:"جديد",
+
+    confirmed:"تم التأكيد",
+
+    preparing:"قيد التجهيز",
+
+    ready:"جاهز",
+
+    out_for_delivery:"خرج للتوصيل",
+
+    delivered:"تم التسليم",
+
+    cancelled:"ملغي"
+
+  };
+
+  return map[status] || status || "جديد";
+
+}
+
+
+/* =========================================================
+   ADMIN STATS — REAL DATABASE
+========================================================= */
+
+async function updateAdminStats(){
+
+  const {
+    count:productCount
+  } =
+    await supabaseClient
+      .from("products")
+      .select(
+        "id",
+        {
+          count:"exact",
+          head:true
+        }
+      );
+
+
+  const {
+    data:stockData
+  } =
+    await supabaseClient
+      .from("products")
+      .select("stock");
+
+
+  const totalStock =
+    (stockData || []).reduce(
+      (sum,p)=>
+        sum + Number(p.stock || 0),
+      0
+    );
+
+
+  const {
+    count:orderCount
+  } =
+    await supabaseClient
+      .from("orders")
+      .select(
+        "id",
+        {
+          count:"exact",
+          head:true
+        }
+      );
+
+
+  const {
+    data:salesData
+  } =
+    await supabaseClient
+      .from("orders")
+      .select("total")
+      .neq(
+        "status",
+        "cancelled"
+      );
+
+
+  const totalSales =
+    (salesData || []).reduce(
+      (sum,o)=>
+        sum + Number(o.total || 0),
+      0
+    );
+
+
+  document
+    .getElementById("statProducts")
+    .textContent =
+      productCount || 0;
+
+
+  document
+    .getElementById("statStock")
+    .textContent =
+      totalStock;
+
+
+  document
+    .getElementById("statOrders")
+    .textContent =
+      orderCount || 0;
+
+
+  document
+    .getElementById("statSales")
+    .textContent =
+      totalSales > 0
+      ? totalSales.toFixed(2)+" د.أ"
+      : "0";
+
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+async function initializeMidad(){
+
+  try{
+
+    await loadProducts();
+
+    renderCart();
+
+    updateCartCount();
+
+
+    const {
+      data:{
+        session
+      }
+    } =
+      await supabaseClient.auth.getSession();
+
+
+    if(session){
+
+      await verifyAdmin(session.user);
+
+    }
+
+  }catch(error){
+
+    console.error(
+      "MIDAD initialization error:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   AUTH LISTENER
+========================================================= */
+
+supabaseClient.auth
+  .onAuthStateChange(
+    (event,session)=>{
+
+      if(event === "SIGNED_OUT"){
+
+        document
+          .getElementById("admin")
+          .classList.remove("active");
+
+        document
+          .getElementById("store")
+          .classList.remove("hidden");
+
+      }
+
+    }
+  );
+
+
 /* =========================================================
    START
 ========================================================= */
 
-renderStore();
-
-renderCart();
+initializeMidad();
 
 </script>
-
-</body>
-</html>
