@@ -1,416 +1,1565 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>مِداد | MIDAD</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --brown:#2B211B;
+  --ivory:#EFE7D8;
+  --gold:#A88455;
+  --bg:#f4ecdf;
+  --white:#fffaf2;
+  --text:#30271f;
+  --button:#795a3d;
+  --green:#6d8f65;
+  --red:#9b4b42;
+  --shadow:0 12px 35px rgba(43,33,27,.10);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,"Tahoma",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+  border:0;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,250,242,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,132,85,.2);
+}
+
+.header-inner{
+  max-width:1250px;
+  margin:auto;
+  min-height:78px;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  line-height:1;
+  color:var(--logo,#765536);
+  cursor:pointer;
+}
+
+.logo strong{
+  font-size:31px;
+  letter-spacing:1px;
+}
+
+.logo span{
+  font-size:11px;
+  letter-spacing:4px;
+  margin-top:6px;
+  direction:ltr;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.nav button{
+  background:transparent;
+  color:var(--text);
+  padding:10px 13px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+.nav button:hover{
+  background:var(--ivory);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.icon-btn{
+  position:relative;
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  background:var(--ivory);
+  color:var(--brown);
+  font-size:19px;
+}
+
+.badge{
+  position:absolute;
+  top:-5px;
+  left:-5px;
+  background:var(--red);
+  color:white;
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  max-width:1250px;
+  margin:25px auto 0;
+  padding:65px 30px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(168,132,85,.17),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(43,33,27,.09),transparent 30%),
+    var(--white);
+  box-shadow:var(--shadow);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before,
+.hero:after{
+  content:"";
+  position:absolute;
+  width:130px;
+  height:130px;
+  border:1px solid rgba(168,132,85,.25);
+  border-radius:50%;
+}
+
+.hero:before{
+  top:-55px;
+  right:-45px;
+}
+
+.hero:after{
+  bottom:-60px;
+  left:-45px;
+}
+
+.hero-label{
+  color:var(--gold);
+  font-size:13px;
+  letter-spacing:2px;
+  direction:ltr;
+  margin-bottom:16px;
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,75px);
+  color:var(--brown);
+  margin-bottom:12px;
+}
+
+.hero p{
+  font-size:20px;
+  margin-bottom:24px;
+}
+
+.hero button{
+  background:var(--button);
+  color:white;
+  padding:14px 25px;
+  border-radius:13px;
+  font-weight:bold;
+}
+
+/* ================= MAIN ================= */
+
+main{
+  max-width:1250px;
+  margin:auto;
+  padding:55px 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-title h2{
+  color:var(--brown);
+  font-size:31px;
+}
+
+.section-title p{
+  color:#75675c;
+  margin-top:8px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.category{
+  margin-bottom:55px;
+}
+
+.category-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+  border-bottom:1px solid rgba(168,132,85,.25);
+  padding-bottom:12px;
+}
+
+.category-head h3{
+  font-size:24px;
+  color:var(--brown);
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.product-card{
+  background:var(--white);
+  border-radius:20px;
+  padding:14px;
+  box-shadow:0 8px 25px rgba(43,33,27,.07);
+  transition:.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+
+.product-image{
+  height:200px;
+  border-radius:15px;
+  overflow:hidden;
+  background:var(--ivory);
+  margin-bottom:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.product-image img,
+.product-image svg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-card h4{
+  font-size:17px;
+  color:var(--brown);
+  margin-bottom:7px;
+  cursor:pointer;
+}
+
+.product-description{
+  min-height:36px;
+  color:#766b62;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.product-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:13px;
+}
+
+.price{
+  font-weight:bold;
+  color:var(--gold);
+  font-size:16px;
+}
+
+.out{
+  color:var(--red);
+  font-size:12px;
+  font-weight:bold;
+}
+
+.add-btn{
+  background:var(--button);
+  color:white;
+  border-radius:11px;
+  padding:10px 12px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.add-btn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.favorite{
+  position:absolute;
+  top:23px;
+  left:23px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:white;
+  box-shadow:0 4px 14px rgba(0,0,0,.12);
+  font-size:19px;
+  z-index:3;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+  background:var(--brown);
+  color:white;
+  border-radius:28px;
+  padding:45px 30px;
+  text-align:center;
+  margin-top:20px;
+}
+
+.about h2{
+  color:#e5c999;
+  margin-bottom:18px;
+}
+
+.about p{
+  max-width:800px;
+  margin:auto;
+  line-height:2;
+  color:#eee4d8;
+}
+
+/* ================= MODALS ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(20,15,12,.62);
+  z-index:5000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  background:var(--white);
+  width:min(650px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:24px;
+  padding:25px;
+  box-shadow:0 25px 80px rgba(0,0,0,.25);
+}
+
+.modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.modal-head h2{
+  color:var(--brown);
+}
+
+.close{
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  background:var(--ivory);
+  font-size:20px;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  border:1px solid #d9cdbd;
+  background:white;
+  border-radius:11px;
+  padding:12px;
+  outline:none;
+}
+
+.form-group textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.primary{
+  width:100%;
+  padding:13px;
+  border-radius:12px;
+  background:var(--button);
+  color:white;
+  font-weight:bold;
+}
+
+.secondary{
+  padding:12px 17px;
+  border-radius:11px;
+  background:var(--ivory);
+  color:var(--brown);
+  font-weight:bold;
+}
+
+/* ================= CART ================= */
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:#fff;
+  border:1px solid #eadfce;
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.cart-info{
+  flex:1;
+}
+
+.cart-info strong{
+  color:var(--brown);
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.qty button{
+  width:30px;
+  height:30px;
+  border-radius:8px;
+  background:var(--ivory);
+  font-weight:bold;
+}
+
+.remove{
+  color:var(--red);
+  background:transparent;
+  font-size:18px;
+}
+
+.cart-total{
+  margin-top:20px;
+  border-top:1px solid #ddd0c0;
+  padding-top:15px;
+  display:flex;
+  justify-content:space-between;
+  font-size:19px;
+  font-weight:bold;
+}
+
+/* ================= ADMIN ================= */
+
+.admin-shell{
+  width:min(1150px,100%);
+  background:#f6f7f8;
+  border-radius:24px;
+  overflow:hidden;
+  color:#27313a;
+}
+
+.admin-top{
+  background:#202b33;
+  color:white;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.admin-top h2{
+  font-size:21px;
+}
+
+.admin-top small{
+  color:#b9c4ca;
+}
+
+.admin-body{
+  padding:22px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:22px;
+}
+
+.stat{
+  background:white;
+  border:1px solid #e2e5e7;
+  border-radius:15px;
+  padding:18px;
+}
+
+.stat small{
+  color:#7a858d;
+}
+
+.stat strong{
+  display:block;
+  font-size:28px;
+  margin-top:8px;
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.admin-panel{
+  background:white;
+  border:1px solid #e2e5e7;
+  border-radius:17px;
+  padding:18px;
+  margin-bottom:18px;
+}
+
+.admin-panel.full{
+  grid-column:1/-1;
+}
+
+.admin-panel h3{
+  margin-bottom:15px;
+  font-size:18px;
+}
+
+.admin-product{
+  display:grid;
+  grid-template-columns:1.4fr .7fr .7fr .7fr auto;
+  gap:8px;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid #edf0f1;
+}
+
+.admin-product input,
+.admin-product select{
+  width:100%;
+  padding:9px;
+  border:1px solid #d8dde0;
+  border-radius:8px;
+}
+
+.save-product{
+  background:#394b55;
+  color:white;
+  padding:9px 12px;
+  border-radius:8px;
+  font-size:12px;
+}
+
+.orders-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.order-card{
+  border:1px solid #e1e5e7;
+  border-radius:13px;
+  padding:15px;
+}
+
+.order-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.order-number{
+  font-weight:bold;
+}
+
+.order-meta{
+  color:#69757d;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.order-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr auto;
+  gap:8px;
+  margin-top:12px;
+}
+
+.order-controls select{
+  padding:9px;
+  border:1px solid #d8dde0;
+  border-radius:8px;
+}
+
+.save-order{
+  background:#394b55;
+  color:white;
+  border-radius:8px;
+  padding:9px 14px;
+}
+
+.loading{
+  text-align:center;
+  padding:50px;
+  color:#77695d;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:var(--brown);
+  color:#d9cdbc;
+  text-align:center;
+  padding:25px 15px;
+  margin-top:30px;
+}
+
+footer strong{
+  color:#e5c999;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+  .product-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  .header-inner{
+    flex-wrap:wrap;
+  }
+
+  .nav{
+    order:3;
+    width:100%;
+  }
+
+  .hero{
+    margin:12px;
+    padding:45px 20px;
+  }
+
+  main{
+    padding:35px 12px;
+  }
+
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+  }
+
+  .product-image{
+    height:155px;
+  }
+
+  .admin-grid{
+    grid-template-columns:1fr;
+  }
+
+  .admin-panel.full{
+    grid-column:auto;
+  }
+
+  .admin-product{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .admin-product .name{
+    grid-column:1/-1;
+  }
+
+  .order-controls{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:430px){
+  .product-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .product-card{
+    padding:9px;
+  }
+
+  .product-image{
+    height:135px;
+  }
+
+  .product-card h4{
+    font-size:14px;
+  }
+
+  .product-description{
+    font-size:11px;
+  }
+
+  .add-btn{
+    padding:8px;
+    font-size:11px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <div class="logo" onclick="scrollToStore()">
+      <strong>مِداد</strong>
+      <span>MIDAD</span>
+    </div>
+
+    <nav class="nav">
+      <button onclick="scrollToStore()">الرئيسية</button>
+      <button onclick="scrollToProducts()">المنتجات</button>
+      <button onclick="openCart()">السلة</button>
+      <button onclick="openAdmin()">إدارة مِداد</button>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" onclick="openFavorites()">
+        ♡
+        <span class="badge" id="favCount">0</span>
+      </button>
+
+      <button class="icon-btn" onclick="openCart()">
+        🛒
+        <span class="badge" id="cartCount">0</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<section class="hero" id="home">
+
+  <div class="hero-label">
+    MIDAD — COFFEE &amp; TEA SUPPLIES
+  </div>
+
+  <h1>مِداد</h1>
+
+  <p>من التفاصيل تبدأ الحكاية</p>
+
+  <button onclick="scrollToProducts()">
+    اكتشف منتجات مِداد
+  </button>
+
+</section>
+
+<main id="products">
+
+  <div class="section-title">
+    <h2>منتجات مِداد</h2>
+    <p>اختياراتنا للقهوة والشاي والماتشا</p>
+  </div>
+
+  <div id="storeContent">
+    <div class="loading">جاري تحميل منتجات مِداد...</div>
+  </div>
+
+  <section class="about">
+
+    <h2>عن مِداد</h2>
+
+    <p>
+      مِداد هو متجر متخصص بمستلزمات القهوة والشاي والماتشا،
+      اخترنا لكم الأدوات والمنتجات التي تجمع بين الجودة،
+      البساطة والتفاصيل الجميلة.
+      <br><br>
+      مِداد — لأن التفاصيل هي التي تترك الأثر.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+  <strong>مِداد | MIDAD</strong>
+  <br>
+  Coffee &amp; Tea Supplies
+</footer>
+
+
+<!-- ================= CART MODAL ================= -->
+
+<div class="modal" id="cartModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>سلة مِداد</h2>
+      <button class="close" onclick="closeModal('cartModal')">×</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+      <span>الإجمالي</span>
+      <span id="cartTotal">0.00 JOD</span>
+    </div>
+
+    <br>
+
+    <button class="primary" onclick="openCheckout()">
+      متابعة الطلب
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<div class="modal" id="checkoutModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>إتمام الطلب</h2>
+      <button class="close" onclick="closeModal('checkoutModal')">×</button>
+    </div>
+
+    <div class="form-group">
+      <label>الاسم</label>
+      <input id="customerName" placeholder="اكتب اسمك">
+    </div>
+
+    <div class="form-group">
+      <label>رقم الهاتف</label>
+      <input id="customerPhone" placeholder="07XXXXXXXX">
+    </div>
+
+    <div class="form-group">
+      <label>عنوان التوصيل</label>
+      <textarea id="customerAddress" placeholder="اكتب عنوان التوصيل"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>طريقة الدفع</label>
+
+      <select id="paymentMethod">
+        <option value="click">Click</option>
+        <option value="cod">الدفع عند الاستلام</option>
+        <option value="bank_transfer">تحويل بنكي</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>رقم عملية Click / ملاحظات</label>
+      <textarea id="orderNotes" placeholder="اختياري"></textarea>
+    </div>
+
+    <div style="
+      background:var(--ivory);
+      padding:15px;
+      border-radius:13px;
+      margin-bottom:15px;
+      line-height:1.9;
+    ">
+
+      <strong>بيانات الدفع عند اختيار Click:</strong><br>
+      البنك: بنك الاتحاد<br>
+      الاسم:
+      Ibrahim Nidar Mohammad Yousef
+      <br>
+      Click:
+      0799563650
+
+    </div>
+
+    <button class="primary" id="submitOrderBtn" onclick="submitOrder()">
+      تأكيد الطلب
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= PRODUCT DETAILS ================= -->
+
+<div class="modal" id="productModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2 id="productModalTitle">تفاصيل المنتج</h2>
+      <button class="close" onclick="closeModal('productModal')">×</button>
+    </div>
+
+    <div id="productModalContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= FAVORITES ================= -->
+
+<div class="modal" id="favoritesModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>المفضلة</h2>
+      <button class="close" onclick="closeModal('favoritesModal')">×</button>
+    </div>
+
+    <div id="favoritesContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ADMIN LOGIN ================= -->
+
+<div class="modal" id="adminLoginModal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>دخول إدارة مِداد</h2>
+      <button class="close" onclick="closeModal('adminLoginModal')">×</button>
+    </div>
+
+    <p style="color:#75675c;margin-bottom:18px;line-height:1.7">
+      هذه الصفحة خاصة بإدارة مِداد.
+      استخدم حساب الإدارة الموجود في Supabase.
+    </p>
+
+    <div class="form-group">
+      <label>البريد الإلكتروني</label>
+      <input id="adminEmail" type="email" placeholder="البريد الإلكتروني">
+    </div>
+
+    <div class="form-group">
+      <label>كلمة المرور</label>
+      <input id="adminPassword" type="password" placeholder="كلمة المرور">
+    </div>
+
+    <button class="primary" id="adminLoginBtn" onclick="adminLogin()">
+      تسجيل الدخول
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ADMIN ================= -->
+
+<div class="modal" id="adminModal">
+
+  <div class="admin-shell">
+
+    <div class="admin-top">
+
+      <div>
+        <h2>إدارة مِداد</h2>
+        <small id="adminUserText">لوحة التحكم</small>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center">
+
+        <button
+          class="secondary"
+          onclick="refreshAdmin()"
+        >
+          تحديث
+        </button>
+
+        <button
+          class="secondary"
+          onclick="adminLogout()"
+        >
+          تسجيل خروج
+        </button>
+
+        <button
+          class="secondary"
+          onclick="closeModal('adminModal')"
+        >
+          إغلاق
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="admin-body">
+
+      <div class="stats">
+
+        <div class="stat">
+          <small>المنتجات</small>
+          <strong id="statProducts">0</strong>
+        </div>
+
+        <div class="stat">
+          <small>المخزون</small>
+          <strong id="statStock">0</strong>
+        </div>
+
+        <div class="stat">
+          <small>الطلبات</small>
+          <strong id="statOrders">0</strong>
+        </div>
+
+        <div class="stat">
+          <small>المبيعات</small>
+          <strong id="statSales">0.00</strong>
+        </div>
+
+      </div>
+
+      <div class="admin-grid">
+
+        <div class="admin-panel">
+
+          <h3>حالة البيع</h3>
+
+          <p id="salesStateText"
+             style="color:#68737a;margin-bottom:12px">
+            جاري القراءة...
+          </p>
+
+          <button
+            class="primary"
+            style="background:#394b55"
+            onclick="toggleAllSales()"
+          >
+            تشغيل / إيقاف البيع
+          </button>
+
+        </div>
+
+        <div class="admin-panel">
+
+          <h3>حساب الإدارة</h3>
+
+          <p id="adminAccountInfo"
+             style="line-height:1.8;color:#68737a">
+          </p>
+
+        </div>
+
+        <div class="admin-panel full">
+
+          <h3>إدارة المنتجات والمخزون</h3>
+
+          <div id="adminProducts">
+            جاري تحميل المنتجات...
+          </div>
+
+        </div>
+
+        <div class="admin-panel full">
+
+          <h3>إدارة الطلبات</h3>
+
+          <div id="adminOrders" class="orders-list">
+            جاري تحميل الطلبات...
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <script>
 
 /* =========================================================
-   MIDAD — SUPABASE CONNECTED VERSION
+   SUPABASE
 ========================================================= */
 
 const SUPABASE_URL =
   "https://fbmzettluevtekxrnfem.supabase.co";
 
-const SUPABASE_KEY =
+const SUPABASE_PUBLISHABLE_KEY =
   "sb_publishable_fi2aktOp4BP7c_KK2F5zTQ_l7X-thZD";
 
-const supabaseClient =
+const sb =
   window.supabase.createClient(
     SUPABASE_URL,
-    SUPABASE_KEY
+    SUPABASE_PUBLISHABLE_KEY
   );
 
 
 /* =========================================================
-   LOCAL UI DATA
+   LOCAL UI CATALOG
+   هذه البيانات فقط للمظهر والتصنيفات والصور.
+   الأسعار والمخزون والحالة تأتي من Supabase.
 ========================================================= */
 
-let cart =
-  JSON.parse(
-    localStorage.getItem("midad_cart") || "[]"
-  );
+const catalogDefinitions = [
 
-let favorites =
-  JSON.parse(
-    localStorage.getItem("midad_favorites") || "[]"
-  );
+  {
+    name:"ميزان قهوة",
+    category:"أدوات القهوة",
+    kind:"scale",
+    description:"ميزان دقيق لتحضير القهوة باحترافية."
+  },
+
+  {
+    name:"ترمومتر قهوة",
+    category:"أدوات القهوة",
+    kind:"thermometer",
+    description:"لقياس درجة حرارة الحليب والمشروبات."
+  },
+
+  {
+    name:"نوك بوكس",
+    category:"أدوات القهوة",
+    kind:"knockbox",
+    description:"أداة عملية للتخلص من بقايا الإسبريسو."
+  },
+
+  {
+    name:"بورتلفلتر",
+    category:"أدوات القهوة",
+    kind:"portafilter",
+    description:"بورتلفلتر لتحضير الإسبريسو."
+  },
+
+  {
+    name:"بيتشر حليب",
+    category:"أدوات القهوة",
+    kind:"pitcher",
+    description:"بيتشر لتبخير وصب الحليب."
+  },
+
+  {
+    name:"تامب للقهوة",
+    category:"أدوات القهوة",
+    kind:"tamper",
+    description:"تامبر لضغط القهوة داخل البورتفلتر."
+  },
+
+  {
+    name:"فرشاة تنظيف المطحنة",
+    category:"أدوات القهوة",
+    kind:"brush",
+    description:"فرشاة لتنظيف مطحنة القهوة."
+  },
+
+  {
+    name:"شوت اسبرسو",
+    category:"أدوات القهوة",
+    kind:"shot",
+    description:"كأس مخصص لاستخلاص ومراقبة شوت الإسبريسو."
+  },
+
+  {
+    name:"جلدة للتامب",
+    category:"أدوات القهوة",
+    kind:"mat",
+    description:"جلدة لحماية سطح العمل أثناء التامب."
+  },
+
+  {
+    name:"شاي أسود",
+    category:"الشاي",
+    kind:"blacktea",
+    description:"شاي أسود بطعم غني ومتوازن."
+  },
+
+  {
+    name:"شاي أخضر",
+    category:"الشاي",
+    kind:"greentea",
+    description:"شاي أخضر بطابع خفيف ومنعش."
+  },
+
+  {
+    name:"شاي هيل وزعفران",
+    category:"الشاي",
+    kind:"cardamom",
+    description:"مزيج عربي فاخر من الهيل والزعفران."
+  },
+
+  {
+    name:"شاي مِداد",
+    category:"الشاي",
+    kind:"midadtea",
+    description:"خلطة الشاي الخاصة من مِداد."
+  },
+
+  {
+    name:"ماتشا مِداد الفاخرة",
+    category:"الماتشا",
+    kind:"matcha",
+    description:"ماتشا فاخرة لتحضير كوب ماتشا مميز."
+  },
+
+  {
+    name:"مستلزمات الماتشا",
+    category:"الماتشا",
+    kind:"matchasupplies",
+    description:"مجموعة مستلزمات لتحضير الماتشا."
+  },
+
+  {
+    name:"ملعقة ماتشا",
+    category:"الماتشا",
+    kind:"matchaspoon",
+    description:"ملعقة مخصصة لقياس الماتشا."
+  },
+
+  {
+    name:"وعاء ماتشا",
+    category:"الماتشا",
+    kind:"matchabowl",
+    description:"وعاء مناسب لتحضير الماتشا."
+  },
+
+  {
+    name:"خفاقه ماتشا",
+    category:"الماتشا",
+    kind:"whisk",
+    description:"خفاق الماتشا التقليدي لتحضير رغوة ناعمة."
+  },
+
+  {
+    name:"مج قهوة ساخن",
+    category:"الأكواب",
+    kind:"hotmug",
+    description:"مج أنيق للمشروبات الساخنة."
+  },
+
+  {
+    name:"مج قهوة بارد",
+    category:"الأكواب",
+    kind:"coldmug",
+    description:"مج مناسب للمشروبات الباردة."
+  },
+
+  {
+    name:"مج زجاجي للقهوة",
+    category:"الأكواب",
+    kind:"glassmug",
+    description:"مج زجاجي أنيق للقهوة."
+  },
+
+  {
+    name:"فناجين مِداد العربية",
+    category:"فناجين الشاي",
+    kind:"arabiccups",
+    description:"فناجين شاي عربية بطابع مِداد."
+  },
+
+  {
+    name:"طقم فناجين الشاي",
+    category:"فناجين الشاي",
+    kind:"teacupset",
+    description:"طقم فناجين مناسب لتقديم الشاي."
+  },
+
+  {
+    name:"طقم شاي مِداد",
+    category:"فناجين الشاي",
+    kind:"teaset",
+    description:"طقم شاي أنيق من مِداد."
+  },
+
+  {
+    name:"بكج القهوة",
+    category:"البكجات",
+    kind:"coffeebundle",
+    description:"باقة مختارة لعشاق القهوة."
+  },
+
+  {
+    name:"بكج ماتشا",
+    category:"البكجات",
+    kind:"matchabundle",
+    description:"باقة متكاملة لعشاق الماتشا."
+  },
+
+  {
+    name:"بكج شاي",
+    category:"البكجات",
+    kind:"teabundle",
+    description:"باقة مختارة لعشاق الشاي."
+  }
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
 
 let products = [];
-let categories = [];
-let orders = [];
+let allDbProducts = [];
+let adminOrders = [];
 
+let cart =
+  JSON.parse(localStorage.getItem("midad_cart") || "[]");
 
-/* =========================================================
-   ARABIC PRODUCT DISPLAY DATA
-========================================================= */
-
-const productMeta = {
-
-  "coffee-scale":{
-    title:"ميزان قهوة",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"ميزان دقيق لتحضير القهوة باحترافية.",
-    imageKey:"scale"
-  },
-
-  "coffee-thermometer":{
-    title:"ترمومتر قهوة",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"لقياس حرارة الماء والحليب بدقة.",
-    imageKey:"thermometer"
-  },
-
-  "knock-box":{
-    title:"نوك بوكس",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"للتخلص من بقايا الإسبريسو بسهولة.",
-    imageKey:"knockbox"
-  },
-
-  "espresso-portafilter":{
-    title:"بورتفلتر",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"قطعة أساسية لتحضير الإسبريسو.",
-    imageKey:"portafilter"
-  },
-
-  "milk-pitcher":{
-    title:"بيتشر حليب",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"لتحضير وتبخير الحليب والرسم على القهوة.",
-    imageKey:"pitcher"
-  },
-
-  "coffee-tamper":{
-    title:"تامب للقهوة",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"لكبس البن داخل البورتفلتر.",
-    imageKey:"tamper"
-  },
-
-  "grinder-cleaning-brush":{
-    title:"فرشاة تنظيف المطحنة",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"لتنظيف مطحنة القهوة والمحافظة عليها.",
-    imageKey:"brush"
-  },
-
-  "espresso-shot-glass":{
-    title:"شوت اسبرسو",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"كأس مخصص لاستخلاص الإسبريسو.",
-    imageKey:"shot"
-  },
-
-  "tamper-mat":{
-    title:"جلدة للتامب",
-    category:"coffee-tools",
-    categoryName:"أدوات القهوة",
-    description:"قاعدة لحماية السطح أثناء كبس القهوة.",
-    imageKey:"mat"
-  },
-
-  "black-tea":{
-    title:"شاي أسود",
-    category:"tea",
-    categoryName:"قسم الشاي",
-    description:"شاي أسود بطابع غني ومميز.",
-    imageKey:"blacktea"
-  },
-
-  "green-tea":{
-    title:"شاي أخضر",
-    category:"tea",
-    categoryName:"قسم الشاي",
-    description:"شاي أخضر بنكهة خفيفة ومنعشة.",
-    imageKey:"greentea"
-  },
-
-  "cardamom-saffron-tea":{
-    title:"شاي هيل وزعفران",
-    category:"tea",
-    categoryName:"قسم الشاي",
-    description:"مزيج شاي مع الهيل والزعفران.",
-    imageKey:"cardamom"
-  },
-
-  "midad-signature-tea":{
-    title:"شاي مِداد",
-    category:"tea",
-    categoryName:"قسم الشاي",
-    description:"خلطة شاي خاصة من مِداد.",
-    imageKey:"midadtea"
-  },
-
-  "premium-midad-matcha":{
-    title:"ماتشا مِداد الفاخرة",
-    category:"matcha",
-    categoryName:"قسم الماتشا",
-    description:"ماتشا فاخرة لمحبي الماتشا.",
-    imageKey:"matcha"
-  },
-
-  "matcha-starter-set":{
-    title:"مستلزمات الماتشا",
-    category:"matcha",
-    categoryName:"قسم الماتشا",
-    description:"مجموعة من أدوات تحضير الماتشا.",
-    imageKey:"matchaset"
-  },
-
-  "matcha-spoon":{
-    title:"ملعقة ماتشا",
-    category:"matcha",
-    categoryName:"قسم الماتشا",
-    description:"ملعقة مخصصة لقياس الماتشا.",
-    imageKey:"matchaspoon"
-  },
-
-  "matcha-bowl":{
-    title:"وعاء ماتشا",
-    category:"matcha",
-    categoryName:"قسم الماتشا",
-    description:"وعاء مخصص لتحضير الماتشا.",
-    imageKey:"matchabowl"
-  },
-
-  "bamboo-matcha-whisk":{
-    title:"خفاقه ماتشا",
-    category:"matcha",
-    categoryName:"قسم الماتشا",
-    description:"خفاقه تقليدية لتحضير الماتشا.",
-    imageKey:"matchawhisk"
-  },
-
-  "hot-coffee-mug":{
-    title:"مج قهوة ساخن",
-    category:"mugs",
-    categoryName:"مجات لشرب القهوة",
-    description:"مج أنيق للمشروبات الساخنة.",
-    imageKey:"hotmug"
-  },
-
-  "cold-coffee-mug":{
-    title:"مج قهوة بارد",
-    category:"mugs",
-    categoryName:"مجات لشرب القهوة",
-    description:"مج للمشروبات الباردة والقهوة المثلجة.",
-    imageKey:"coldmug"
-  },
-
-  "glass-coffee-mug":{
-    title:"مج زجاجي للقهوة",
-    category:"mugs",
-    categoryName:"مجات لشرب القهوة",
-    description:"مج زجاجي أنيق للقهوة.",
-    imageKey:"glassmug"
-  },
-
-  "midad-arabic-tea-cups":{
-    title:"فناجين مِداد العربية",
-    category:"tea-cups",
-    categoryName:"قسم فناجين الشاي",
-    description:"فناجين شاي عربية بطابع مِداد.",
-    imageKey:"arabiccups"
-  },
-
-  "tea-cup-set":{
-    title:"طقم فناجين الشاي",
-    category:"tea-cups",
-    categoryName:"قسم فناجين الشاي",
-    description:"طقم فناجين مناسب لتقديم الشاي.",
-    imageKey:"teacups"
-  },
-
-  "midad-tea-set":{
-    title:"طقم شاي مِداد",
-    category:"tea-cups",
-    categoryName:"قسم فناجين الشاي",
-    description:"طقم شاي متكامل من مِداد.",
-    imageKey:"teaset"
-  },
-
-  "coffee-bundle":{
-    title:"بكج القهوة",
-    category:"bundles",
-    categoryName:"بكجات مِداد",
-    description:"مجموعة مختارة لمحبي القهوة.",
-    imageKey:"coffeebundle"
-  },
-
-  "matcha-bundle":{
-    title:"بكج ماتشا",
-    category:"bundles",
-    categoryName:"بكجات مِداد",
-    description:"مجموعة متكاملة لتحضير الماتشا.",
-    imageKey:"matchabundle"
-  },
-
-  "tea-bundle":{
-    title:"بكج شاي",
-    category:"bundles",
-    categoryName:"بكجات مِداد",
-    description:"مجموعة مختارة لمحبي الشاي.",
-    imageKey:"teabundle"
-  }
-
-};
-
-
-/* =========================================================
-   CATEGORY MAP
-========================================================= */
-
-const categoryMap = {
-
-  "coffee-tools":{
-    name:"أدوات القهوة"
-  },
-
-  "tea":{
-    name:"قسم الشاي"
-  },
-
-  "matcha":{
-    name:"قسم الماتشا"
-  },
-
-  "mugs":{
-    name:"مجات لشرب القهوة"
-  },
-
-  "tea-cups":{
-    name:"قسم فناجين الشاي"
-  },
-
-  "bundles":{
-    name:"بكجات مِداد"
-  }
-
-};
-
-const categoryOrder = [
-  "coffee-tools",
-  "tea",
-  "matcha",
-  "mugs",
-  "tea-cups",
-  "bundles"
-];
+let favorites =
+  JSON.parse(localStorage.getItem("midad_favorites") || "[]");
 
 
 /* =========================================================
    IMAGE GENERATOR
 ========================================================= */
 
+function esc(value){
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
 function imageFor(kind,title){
 
-  const colors = {
+  const label = esc(title);
 
-    scale:"#d7c3a7",
-    thermometer:"#cbb49a",
-    knockbox:"#b69a7b",
-    portafilter:"#9b8164",
-    pitcher:"#d2bda3",
-    tamper:"#8f7255",
-    brush:"#bda78d",
-    shot:"#d9c9b7",
-    mat:"#a88d6e",
+  let icon = "☕";
 
-    blacktea:"#9b7655",
-    greentea:"#a3ad82",
-    cardamom:"#b89c70",
-    midadtea:"#a9815e",
+  if(kind==="scale") icon="⚖";
+  if(kind==="thermometer") icon="🌡";
+  if(kind==="knockbox") icon="▣";
+  if(kind==="portafilter") icon="◉";
+  if(kind==="pitcher") icon="🥛";
+  if(kind==="tamper") icon="●";
+  if(kind==="brush") icon="✦";
+  if(kind==="shot") icon="☕";
+  if(kind==="mat") icon="▰";
 
-    matcha:"#9baa72",
-    matchaset:"#b2b78a",
-    matchaspoon:"#c2b28e",
-    matchabowl:"#9b9c70",
-    matchawhisk:"#c7b28e",
+  if(kind==="blacktea") icon="🍵";
+  if(kind==="greentea") icon="🍃";
+  if(kind==="cardamom") icon="✦";
+  if(kind==="midadtea") icon="🍵";
 
-    hotmug:"#a47b5b",
-    coldmug:"#8ea2a0",
-    glassmug:"#c6c1b5",
+  if(kind==="matcha") icon="🍵";
+  if(kind==="matchasupplies") icon="◌";
+  if(kind==="matchaspoon") icon="🥄";
+  if(kind==="matchabowl") icon="◯";
+  if(kind==="whisk") icon="〰";
 
-    arabiccups:"#a48667",
-    teacups:"#b89b79",
-    teaset:"#94775a",
+  if(kind==="hotmug") icon="☕";
+  if(kind==="coldmug") icon="🥤";
+  if(kind==="glassmug") icon="◯";
 
-    coffeebundle:"#8e6a4c",
-    matchabundle:"#8c9b6d",
-    teabundle:"#9e7958"
+  if(kind==="arabiccups") icon="☕";
+  if(kind==="teacupset") icon="🍵";
+  if(kind==="teaset") icon="🫖";
 
-  };
-
-  const color =
-    colors[kind] || "#b79a78";
+  if(kind==="coffeebundle") icon="☕";
+  if(kind==="matchabundle") icon="🍵";
+  if(kind==="teabundle") icon="🫖";
 
   const svg = `
   <svg xmlns="http://www.w3.org/2000/svg"
-       width="600"
-       height="450"
-       viewBox="0 0 600 450">
+       viewBox="0 0 600 420">
 
-    <rect width="600"
-          height="450"
-          fill="#efe7d8"/>
+    <rect width="600" height="420" rx="35" fill="#EFE7D8"/>
 
-    <circle
-      cx="300"
-      cy="205"
-      r="120"
-      fill="${color}"
-      opacity=".92"/>
+    <circle cx="90" cy="80" r="60"
+            fill="#A88455" opacity=".12"/>
 
-    <ellipse
-      cx="300"
-      cy="350"
-      rx="155"
-      ry="24"
-      fill="#2B211B"
-      opacity=".12"/>
+    <circle cx="510" cy="340" r="100"
+            fill="#2B211B" opacity=".08"/>
 
-    <text
-      x="300"
-      y="190"
-      text-anchor="middle"
-      font-family="Arial"
-      font-size="25"
-      font-weight="bold"
-      fill="#2B211B">
-      مِداد
+    <path
+      d="M70 335 Q300 285 530 335"
+      stroke="#A88455"
+      stroke-width="3"
+      fill="none"
+      opacity=".5"/>
+
+    <text x="300" y="195"
+          text-anchor="middle"
+          font-size="95">
+      ${icon}
     </text>
 
-    <text
-      x="300"
-      y="225"
-      text-anchor="middle"
-      font-family="Arial"
-      font-size="15"
-      fill="#fffaf2">
-      ${title}
+    <text x="300" y="270"
+          text-anchor="middle"
+          font-size="27"
+          font-family="Arial"
+          fill="#2B211B">
+      ${label}
     </text>
 
-    <text
-      x="300"
-      y="285"
-      text-anchor="middle"
-      font-family="Arial"
-      font-size="13"
-      fill="#fffaf2">
+    <text x="300" y="305"
+          text-anchor="middle"
+          font-size="14"
+          letter-spacing="3"
+          font-family="Arial"
+          fill="#A88455">
       MIDAD
     </text>
 
-  </svg>
-  `;
+  </svg>`;
 
-  return "data:image/svg+xml;charset=UTF-8,"+
+  return "data:image/svg+xml;charset=UTF-8," +
     encodeURIComponent(svg);
+}
 
+function imageData(p){
+
+  if(p.image_url && p.image_url.trim()){
+    return p.image_url;
+  }
+
+  return imageFor(p.kind || "default",p.name);
+}
+
+
+/* =========================================================
+   NORMALIZE / MATCH DATABASE
+========================================================= */
+
+function normalizeName(value){
+
+  return String(value || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[ًٌٍَُِّْـ]/g,"")
+    .replace(/[أإآ]/g,"ا")
+    .replace(/ة/g,"ه")
+    .replace(/\s+/g," ");
+}
+
+
+function findDefinition(db,index){
+
+  const dbName = normalizeName(db.name);
+
+  let def =
+    catalogDefinitions.find(
+      x => normalizeName(x.name) === dbName
+    );
+
+  if(def) return def;
+
+  const slug =
+    normalizeName(db.slug || "");
+
+  if(slug){
+
+    def =
+      catalogDefinitions.find(
+        x =>
+          normalizeName(x.name).replaceAll(" ","-") === slug
+      );
+
+    if(def) return def;
+  }
+
+  if(index < catalogDefinitions.length){
+    return catalogDefinitions[index];
+  }
+
+  return {
+    name:db.name,
+    category:"منتجات أخرى",
+    kind:"default",
+    description:db.description || "منتج من مِداد."
+  };
 }
 
 
@@ -420,14 +1569,13 @@ function imageFor(kind,title){
 
 async function loadProducts(){
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
+  try{
+
+    const {data,error} = await sb
       .from("products")
       .select(`
         id,
+        category_id,
         name,
         slug,
         description,
@@ -436,400 +1584,210 @@ async function loadProducts(){
         image_url,
         is_active,
         stock,
-        category_id,
+        created_at,
+        updated_at,
         categories(
+          id,
           name,
           slug
         )
       `)
-      .order("created_at");
+      .eq("is_active",true)
+      .order("created_at",{ascending:true});
 
-  if(error){
+    if(error) throw error;
+
+    allDbProducts = data || [];
+
+    const mapped =
+      allDbProducts
+        .map((db,index)=>{
+
+          const def =
+            findDefinition(db,index);
+
+          return {
+            ...db,
+            kind:def.kind,
+            uiCategory:def.category,
+            uiDescription:
+              def.description ||
+              db.description ||
+              ""
+          };
+
+        });
+
+    products = mapped;
+
+    renderStore();
+    updateBadges();
+
+    return true;
+
+  }catch(error){
 
     console.error(error);
 
-    alert("تعذر تحميل منتجات مِداد من قاعدة البيانات.");
+    document.getElementById("storeContent").innerHTML = `
+      <div class="loading">
+        <h3>تعذر تحميل المنتجات</h3>
+        <p style="margin-top:10px">
+          تأكد من اتصال Supabase ثم حدّث الصفحة.
+        </p>
+        <button
+          class="primary"
+          style="max-width:250px;margin:20px auto 0"
+          onclick="loadProducts()">
+          إعادة المحاولة
+        </button>
+      </div>
+    `;
 
-    return;
-
+    return false;
   }
-
-  products =
-    (data || []).map(p=>{
-
-      const meta =
-        productMeta[p.slug] || {};
-
-      const categorySlug =
-        p.categories?.slug ||
-        meta.category ||
-        "coffee-tools";
-
-      return {
-
-        ...p,
-
-        title:
-          meta.title ||
-          p.name,
-
-        category:
-          categorySlug,
-
-        categoryName:
-          meta.categoryName ||
-          categoryMap[categorySlug]?.name ||
-          p.categories?.name ||
-          "مِداد",
-
-        description:
-          meta.description ||
-          p.description ||
-          "منتج من مِداد",
-
-        imageKey:
-          meta.imageKey ||
-          p.slug
-
-      };
-
-    });
-
-  renderProducts();
-
 }
 
 
 /* =========================================================
-   STORE RENDER
+   STORE
 ========================================================= */
 
-function renderProducts(){
+function categoryOrder(){
 
-  const area =
-    document.getElementById("productsArea");
+  return [
+    "أدوات القهوة",
+    "الشاي",
+    "الماتشا",
+    "الأكواب",
+    "فناجين الشاي",
+    "البكجات",
+    "منتجات أخرى"
+  ];
+}
 
-  if(!area){
+
+function renderStore(){
+
+  const container =
+    document.getElementById("storeContent");
+
+  if(!products.length){
+
+    container.innerHTML = `
+      <div class="loading">
+        لا توجد منتجات متاحة حاليًا.
+      </div>
+    `;
+
     return;
   }
-
-  const search =
-    (
-      document.getElementById("searchInput")
-        ?.value || ""
-    ).trim().toLowerCase();
-
-  const filter =
-    document.getElementById("categoryFilter")
-      ?.value || "all";
 
   let html = "";
 
-  categoryOrder.forEach(category=>{
-
-    if(
-      filter !== "all" &&
-      filter !== category
-    ){
-      return;
-    }
+  for(const category of categoryOrder()){
 
     const list =
-      products.filter(p=>{
+      products.filter(
+        p => p.uiCategory === category
+      );
 
-        if(!p.is_active){
-          return false;
-        }
-
-        const matchesCategory =
-          p.category === category;
-
-        const text =
-          (
-            p.title +
-            " " +
-            p.name +
-            " " +
-            p.description
-          ).toLowerCase();
-
-        const matchesSearch =
-          !search ||
-          text.includes(search);
-
-        return matchesCategory &&
-               matchesSearch;
-
-      });
-
-    if(!list.length){
-      return;
-    }
+    if(!list.length) continue;
 
     html += `
+      <section class="category">
 
-      <div class="category">
-
-        <div class="category-title">
-
-          <h3>
-            ${categoryMap[category]?.name || "مِداد"}
-          </h3>
-
-          <span></span>
-
+        <div class="category-head">
+          <h3>${esc(category)}</h3>
+          <span>${list.length} منتجات</span>
         </div>
 
-        <div class="products-grid">
-
-    `;
-
-    list.forEach(p=>{
-
-      const isFav =
-        favorites.includes(p.id);
-
-      const image =
-        p.image_url ||
-        imageFor(p.imageKey,p.title);
-
-      const price =
-        Number(p.price || 0);
-
-      html += `
-
-        <article
-          class="product-card"
-          onclick="openProduct('${p.id}')">
-
-          <button
-            class="favorite"
-            onclick="event.stopPropagation();toggleFavorite('${p.id}')">
-
-            ${isFav ? "♥" : "♡"}
-
-          </button>
-
-          <div class="product-image">
-
-            <img
-              src="${image}"
-              alt="${p.title}">
-
-          </div>
-
-          <div class="product-info">
-
-            <h4>
-              ${p.title}
-            </h4>
-
-            <div class="product-description">
-              ${p.description}
-            </div>
-
-            <div class="product-bottom">
-
-              <span class="product-price">
-
-                ${
-                  p.price_visible && price > 0
-                  ? price.toFixed(2)+" د.أ"
-                  : "السعر عند الطلب"
-                }
-
-              </span>
-
-              <button
-                class="add-btn"
-                onclick="event.stopPropagation();addToCart('${p.id}')"
-                ${Number(p.stock) <= 0 ? "disabled" : ""}>
-
-                ${
-                  Number(p.stock) <= 0
-                  ? "نفد المخزون"
-                  : "أضف للسلة"
-                }
-
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      `;
-
-    });
-
-    html += `
-
+        <div class="product-grid">
+          ${list.map(productCard).join("")}
         </div>
 
-      </div>
-
+      </section>
     `;
-
-  });
-
-  if(!html){
-
-    html = `
-      <div class="empty">
-        لا توجد منتجات مطابقة للبحث.
-      </div>
-    `;
-
   }
 
-  area.innerHTML = html;
-
+  container.innerHTML = html;
 }
 
 
-/* =========================================================
-   FAVORITES
-========================================================= */
+function productCard(p){
 
-function toggleFavorite(id){
+  const favorite =
+    favorites.includes(p.id);
 
-  if(favorites.includes(id)){
+  const hasStock =
+    Number(p.stock || 0) > 0;
 
-    favorites =
-      favorites.filter(x=>x !== id);
+  let priceText = "السعر عند الطلب";
 
-  }else{
-
-    favorites.push(id);
-
+  if(
+    p.price_visible &&
+    p.price !== null &&
+    p.price !== undefined
+  ){
+    priceText =
+      Number(p.price).toFixed(2) + " JOD";
   }
 
-  localStorage.setItem(
-    "midad_favorites",
-    JSON.stringify(favorites)
-  );
+  return `
+    <article class="product-card">
 
-  renderProducts();
+      <button
+        class="favorite"
+        onclick="toggleFavorite('${p.id}')"
+        title="المفضلة">
+        ${favorite ? "♥" : "♡"}
+      </button>
 
-}
+      <div
+        class="product-image"
+        onclick="openProduct('${p.id}')">
 
-
-function showFavorites(){
-
-  const list =
-    products.filter(
-      p=>favorites.includes(p.id)
-    );
-
-  if(!list.length){
-
-    alert("لا توجد منتجات في المفضلة حالياً.");
-
-    return;
-
-  }
-
-  const area =
-    document.getElementById("productsArea");
-
-  area.innerHTML = `
-
-    <div class="category">
-
-      <div class="category-title">
-
-        <h3>
-          منتجاتك المفضلة
-        </h3>
-
-        <span></span>
+        <img
+          src="${imageData(p)}"
+          alt="${esc(p.name)}">
 
       </div>
 
-      <div class="products-grid">
+      <h4 onclick="openProduct('${p.id}')">
+        ${esc(p.name)}
+      </h4>
 
-        ${list.map(p=>{
+      <div class="product-description">
+        ${esc(p.uiDescription || p.description || "")}
+      </div>
 
-          const image =
-            p.image_url ||
-            imageFor(p.imageKey,p.title);
+      <div class="product-bottom">
 
-          const price =
-            Number(p.price || 0);
+        <div>
+          <div class="price">
+            ${priceText}
+          </div>
 
-          return `
+          ${
+            hasStock
+            ? `<small>متوفر: ${Number(p.stock)}</small>`
+            : `<span class="out">غير متوفر</span>`
+          }
+        </div>
 
-            <article
-              class="product-card"
-              onclick="openProduct('${p.id}')">
+        <button
+          class="add-btn"
+          ${hasStock ? "" : "disabled"}
+          onclick="addToCart('${p.id}')">
 
-              <button
-                class="favorite"
-                onclick="event.stopPropagation();toggleFavorite('${p.id}')">
-                ♥
-              </button>
+          أضف للسلة
 
-              <div class="product-image">
-
-                <img
-                  src="${image}"
-                  alt="${p.title}">
-
-              </div>
-
-              <div class="product-info">
-
-                <h4>
-                  ${p.title}
-                </h4>
-
-                <div class="product-description">
-                  ${p.description}
-                </div>
-
-                <div class="product-bottom">
-
-                  <span class="product-price">
-
-                    ${
-                      p.price_visible && price > 0
-                      ? price.toFixed(2)+" د.أ"
-                      : "السعر عند الطلب"
-                    }
-
-                  </span>
-
-                  <button
-                    class="add-btn"
-                    onclick="event.stopPropagation();addToCart('${p.id}')">
-
-                    أضف للسلة
-
-                  </button>
-
-                </div>
-
-              </div>
-
-            </article>
-
-          `;
-
-        }).join("")}
+        </button>
 
       </div>
 
-    </div>
-
+    </article>
   `;
-
-  window.scrollTo({
-    top:
-      document.getElementById("productsArea").offsetTop - 80,
-    behavior:"smooth"
-  });
-
 }
 
 
@@ -840,176 +1798,83 @@ function showFavorites(){
 function openProduct(id){
 
   const p =
-    products.find(x=>x.id===id);
+    products.find(x => x.id === id);
 
-  if(!p){
-    return;
-  }
+  if(!p) return;
 
   const price =
-    Number(p.price || 0);
+    p.price_visible && p.price != null
+      ? Number(p.price).toFixed(2) + " JOD"
+      : "السعر عند الطلب";
 
-  const image =
-    p.image_url ||
-    imageFor(p.imageKey,p.title);
+  document.getElementById("productModalTitle")
+    .textContent = p.name;
 
-  document
-    .getElementById("productModalContent")
-    .innerHTML = `
+  document.getElementById("productModalContent").innerHTML = `
 
-      <div
-        style="
-          background:#efe7d8;
-          border-radius:15px;
-          overflow:hidden;
-          margin-bottom:20px;
-        ">
+    <img
+      src="${imageData(p)}"
+      alt="${esc(p.name)}"
+      style="
+        width:100%;
+        height:280px;
+        object-fit:cover;
+        border-radius:18px;
+        margin-bottom:18px;
+      ">
 
-        <img
-          src="${image}"
-          alt="${p.title}"
-          style="width:100%;display:block;">
+    <h3 style="color:var(--brown);margin-bottom:10px">
+      ${esc(p.name)}
+    </h3>
 
-      </div>
+    <p style="line-height:1.9;color:#71665c">
+      ${esc(p.uiDescription || p.description || "منتج من مِداد.")}
+    </p>
 
-      <h2>
-        ${p.title}
-      </h2>
+    <div style="
+      margin-top:18px;
+      padding:15px;
+      background:var(--ivory);
+      border-radius:13px;
+      line-height:2;
+    ">
 
-      <p
-        style="
-          color:#746354;
-          line-height:1.9;
-          margin-bottom:15px;
-        ">
+      <strong>التصنيف:</strong>
+      ${esc(p.uiCategory)}
+      <br>
 
-        ${p.description}
+      <strong>السعر:</strong>
+      ${price}
+      <br>
 
-      </p>
+      <strong>المخزون:</strong>
+      ${
+        Number(p.stock || 0) > 0
+          ? `متوفر (${Number(p.stock)})`
+          : "غير متوفر"
+      }
 
-      <div
-        style="
-          background:#efe7d8;
-          padding:15px;
-          border-radius:13px;
-          line-height:2;
-        ">
+    </div>
 
-        <strong>القسم:</strong>
-        ${p.categoryName}
+    <br>
 
-        <br>
+    <button
+      class="primary"
+      ${Number(p.stock || 0) > 0 ? "" : "disabled"}
+      onclick="addToCart('${p.id}');closeModal('productModal')">
 
-        <strong>السعر:</strong>
+      أضف للسلة
 
-        ${
-          p.price_visible && price > 0
-          ? price.toFixed(2)+" د.أ"
-          : "السعر عند الطلب"
-        }
-
-        <br>
-
-        <strong>المخزون:</strong>
-        ${
-          Number(p.stock)>0
-          ? p.stock+" قطعة"
-          : "غير متوفر حالياً"
-        }
-
-      </div>
-
-      <div class="modal-actions">
-
-        <button
-          class="primary-btn"
-          onclick="addToCart('${p.id}');closeProductModal()">
-
-          أضف للسلة
-
-        </button>
-
-        <button
-          class="secondary-btn"
-          onclick="closeProductModal()">
-
-          إغلاق
-
-        </button>
-
-      </div>
-
+    </button>
   `;
 
-  document
-    .getElementById("productModal")
-    .classList.add("active");
-
-}
-
-
-function closeProductModal(){
-
-  document
-    .getElementById("productModal")
-    .classList.remove("active");
-
+  openModal("productModal");
 }
 
 
 /* =========================================================
    CART
 ========================================================= */
-
-function addToCart(id){
-
-  const p =
-    products.find(x=>x.id===id);
-
-  if(
-    !p ||
-    !p.is_active ||
-    Number(p.stock) <= 0
-  ){
-
-    alert("هذا المنتج غير متوفر حالياً.");
-
-    return;
-
-  }
-
-  const existing =
-    cart.find(x=>x.id===id);
-
-  if(existing){
-
-    if(
-      existing.qty >= Number(p.stock)
-    ){
-
-      alert("لا توجد كمية إضافية متوفرة.");
-
-      return;
-
-    }
-
-    existing.qty++;
-
-  }else{
-
-    cart.push({
-      id,
-      qty:1
-    });
-
-  }
-
-  saveCart();
-  renderCart();
-  updateCartCount();
-
-}
-
 
 function saveCart(){
 
@@ -1018,70 +1883,117 @@ function saveCart(){
     JSON.stringify(cart)
   );
 
+  updateBadges();
 }
 
 
-function removeFromCart(id){
+function addToCart(id){
 
-  cart =
-    cart.filter(x=>x.id!==id);
+  const p =
+    products.find(x => x.id === id);
+
+  if(!p) return;
+
+  if(Number(p.stock || 0) <= 0){
+    alert("هذا المنتج غير متوفر حاليًا.");
+    return;
+  }
+
+  const existing =
+    cart.find(x => x.product_id === id);
+
+  if(existing){
+
+    if(existing.quantity >= Number(p.stock)){
+      alert("لا يمكن إضافة كمية أكبر من المخزون.");
+      return;
+    }
+
+    existing.quantity++;
+
+  }else{
+
+    cart.push({
+      product_id:id,
+      quantity:1
+    });
+
+  }
 
   saveCart();
-  renderCart();
-  updateCartCount();
 
+  openCart();
 }
 
 
 function changeQty(id,delta){
 
   const item =
-    cart.find(x=>x.id===id);
+    cart.find(x => x.product_id === id);
+
+  if(!item) return;
 
   const p =
-    products.find(x=>x.id===id);
+    products.find(x => x.id === id);
 
-  if(!item || !p){
-    return;
-  }
+  if(!p) return;
 
-  item.qty += delta;
+  item.quantity += delta;
 
-  if(item.qty <= 0){
+  if(item.quantity <= 0){
 
-    removeFromCart(id);
+    cart =
+      cart.filter(
+        x => x.product_id !== id
+      );
 
-    return;
+  }else if(item.quantity > Number(p.stock || 0)){
 
-  }
+    item.quantity =
+      Number(p.stock || 0);
 
-  if(item.qty > Number(p.stock)){
-
-    item.qty =
-      Number(p.stock);
-
+    alert("وصلت للكمية المتوفرة.");
   }
 
   saveCart();
   renderCart();
-  updateCartCount();
-
 }
 
 
-function updateCartCount(){
+function removeFromCart(id){
 
-  const count =
-    cart.reduce(
-      (sum,item)=>
-        sum + Number(item.qty),
-      0
+  cart =
+    cart.filter(
+      x => x.product_id !== id
     );
 
-  document
-    .getElementById("cartCount")
-    .textContent = count;
+  saveCart();
+  renderCart();
+}
 
+
+function getCartDetails(){
+
+  return cart
+    .map(item=>{
+
+      const p =
+        products.find(
+          x => x.id === item.product_id
+        );
+
+      if(!p) return null;
+
+      return {
+        ...item,
+        product:p,
+        subtotal:
+          Number(p.price || 0) *
+          Number(item.quantity || 0)
+      };
+
+    })
+    .filter(Boolean);
 }
 
 
@@ -1090,113 +2002,142 @@ function renderCart(){
   const box =
     document.getElementById("cartItems");
 
-  if(!cart.length){
+  const items =
+    getCartDetails();
+
+  if(!items.length){
 
     box.innerHTML = `
-      <div class="empty">
-        السلة فارغة حالياً.
+      <div class="loading" style="padding:30px">
+        السلة فارغة.
       </div>
     `;
 
-    return;
+    document.getElementById("cartTotal")
+      .textContent = "0.00 JOD";
 
+    return;
   }
 
+  let total = 0;
+
   box.innerHTML =
-    cart.map(item=>{
+    items.map(item=>{
 
-      const p =
-        products.find(x=>x.id===item.id);
-
-      if(!p){
-        return "";
-      }
-
-      const price =
-        Number(p.price || 0);
+      total += item.subtotal;
 
       return `
-
         <div class="cart-item">
 
-          <div>
+          <div class="cart-info">
 
-            <h4>
-              ${p.title}
-            </h4>
+            <strong>
+              ${esc(item.product.name)}
+            </strong>
+
+            <br>
 
             <small>
-
-              ${
-                p.price_visible && price > 0
-                ? price.toFixed(2)+" د.أ"
-                : "السعر عند الطلب"
-              }
-
+              ${Number(item.product.price || 0).toFixed(2)} JOD
             </small>
 
           </div>
 
-          <div class="cart-controls">
+          <div class="qty">
 
             <button
-              class="qty-btn"
-              onclick="changeQty('${p.id}',1)">
+              onclick="changeQty('${item.product_id}',1)">
               +
             </button>
 
             <strong>
-              ${item.qty}
+              ${item.quantity}
             </strong>
 
             <button
-              class="qty-btn"
-              onclick="changeQty('${p.id}',-1)">
+              onclick="changeQty('${item.product_id}',-1)">
               −
-            </button>
-
-            <button
-              class="remove-btn"
-              onclick="removeFromCart('${p.id}')">
-              حذف
             </button>
 
           </div>
 
-        </div>
+          <button
+            class="remove"
+            onclick="removeFromCart('${item.product_id}')">
+            ×
+          </button>
 
+        </div>
       `;
 
     }).join("");
 
+  document.getElementById("cartTotal")
+    .textContent =
+      total.toFixed(2) + " JOD";
 }
 
 
-function openCart(){
+/* =========================================================
+   FAVORITES
+========================================================= */
 
-  renderCart();
+function saveFavorites(){
 
-  document
-    .getElementById("cartOverlay")
-    .classList.add("active");
+  localStorage.setItem(
+    "midad_favorites",
+    JSON.stringify(favorites)
+  );
 
-  document
-    .getElementById("cartPanel")
-    .classList.add("active");
-
+  updateBadges();
 }
 
 
-function closeCart(){
+function toggleFavorite(id){
 
-  document
-    .getElementById("cartOverlay")
-    .classList.remove("active");
+  if(favorites.includes(id)){
 
-  document
-    .getElementById("cartPanel")
-    .classList.remove("active");
+    favorites =
+      favorites.filter(x => x !== id);
 
+  }else{
+
+    favorites.push(id);
+  }
+
+  saveFavorites();
+  renderStore();
+}
+
+
+function openFavorites(){
+
+  const box =
+    document.getElementById("favoritesContent");
+
+  const list =
+    products.filter(
+      p => favorites.includes(p.id)
+    );
+
+  if(!list.length){
+
+    box.innerHTML = `
+      <div class="loading" style="padding:30px">
+        لا توجد منتجات في المفضلة.
+      </div>
+    `;
+
+  }else{
+
+    box.innerHTML = `
+      <div class="product-grid">
+        ${list.map(productCard).join("")}
+      </div>
+    `;
+  }
+
+  openModal("favoritesModal");
 }
 
 
@@ -1204,866 +2145,698 @@ function closeCart(){
    CHECKOUT
 ========================================================= */
 
-document
-  .getElementById("paymentMethod")
-  .addEventListener(
-    "change",
-    function(){
-
-      document
-        .getElementById("clickDetails")
-        .style.display =
-          this.value === "click"
-          ? "block"
-          : "none";
-
-    }
-  );
-
-
-function openCheckout(){
+async function openCheckout(){
 
   if(!cart.length){
 
     alert("السلة فارغة.");
-
     return;
-
   }
 
-  closeCart();
+  closeModal("cartModal");
 
-  document
-    .getElementById("checkoutOverlay")
-    .classList.add("active");
+  /*
+    نعيد قراءة المنتجات قبل الطلب حتى يكون
+    المخزون والسعر آخر نسخة من Supabase.
+  */
 
-}
-
-
-function closeCheckout(){
-
-  document
-    .getElementById("checkoutOverlay")
-    .classList.remove("active");
-
-}
-
-
-/* =========================================================
-   CREATE REAL SUPABASE ORDER
-========================================================= */
-
-async function sendOrder(){
-
-  if(!cart.length){
-
-    alert("السلة فارغة.");
-
-    return;
-
-  }
-
-  const name =
-    document
-      .getElementById("customerName")
-      .value.trim();
-
-  const phone =
-    document
-      .getElementById("customerPhone")
-      .value.trim();
-
-  const address =
-    document
-      .getElementById("customerAddress")
-      .value.trim();
-
-  const payment =
-    document
-      .getElementById("paymentMethod")
-      .value;
-
-  if(!name || !phone || !address){
-
-    alert(
-      "يرجى تعبئة الاسم ورقم الهاتف والعنوان."
-    );
-
-    return;
-
-  }
-
-
-  let total = 0;
-
-  const itemRows = [];
-
-  for(const item of cart){
-
-    const p =
-      products.find(x=>x.id===item.id);
-
-    if(!p){
-      continue;
-    }
-
-    const price =
-      Number(p.price || 0);
-
-    const subtotal =
-      price * Number(item.qty);
-
-    total += subtotal;
-
-    itemRows.push({
-
-      product_id:p.id,
-
-      product_name:p.title,
-
-      quantity:Number(item.qty),
-
-      unit_price:price,
-
-      subtotal:subtotal
-
-    });
-
-  }
-
-
-  const orderNumber =
-    "MID-" +
-    Date.now();
-
-
-  const {
-    data:order,
-    error:orderError
-  } =
-    await supabaseClient
-      .from("orders")
-      .insert({
-
-        order_number:orderNumber,
-
-        customer_id:null,
-
-        customer_name:name,
-
-        customer_phone:phone,
-
-        delivery_address:address,
-
-        status:"pending",
-
-        payment_method:
-          payment === "click"
-          ? "click"
-          : "cod",
-
-        payment_status:"pending",
-
-        total:total
-
-      })
-      .select()
-      .single();
-
-
-  if(orderError){
-
-    console.error(orderError);
-
-    alert(
-      "تعذر حفظ الطلب في قاعدة البيانات.\n"+
-      orderError.message
-    );
-
-    return;
-
-  }
-
-
-  const rows =
-    itemRows.map(item=>({
-
-      ...item,
-
-      order_id:order.id
-
-    }));
-
-
-  if(rows.length){
-
-    const {
-      error:itemError
-    } =
-      await supabaseClient
-        .from("order_items")
-        .insert(rows);
-
-    if(itemError){
-
-      console.error(itemError);
-
-      alert(
-        "تم إنشاء الطلب ولكن حدث خطأ في تفاصيل المنتجات."
-      );
-
-      return;
-
-    }
-
-  }
-
-
-  let message =
-    `طلب جديد من مِداد%0A%0A`;
-
-  message +=
-    `رقم الطلب: ${encodeURIComponent(orderNumber)}%0A`;
-
-  message +=
-    `الاسم: ${encodeURIComponent(name)}%0A`;
-
-  message +=
-    `الهاتف: ${encodeURIComponent(phone)}%0A`;
-
-  message +=
-    `العنوان: ${encodeURIComponent(address)}%0A`;
-
-  message +=
-    `طريقة الدفع: ${
-      payment === "click"
-      ? "Click - بنك الاتحاد"
-      : "الدفع عند الاستلام"
-    }%0A%0A`;
-
-  message +=
-    `المنتجات:%0A`;
-
-
-  cart.forEach(item=>{
-
-    const p =
-      products.find(x=>x.id===item.id);
-
-    if(p){
-
-      message +=
-        `• ${encodeURIComponent(p.title)} × ${item.qty}%0A`;
-
-    }
-
-  });
-
-
-  if(payment === "click"){
-
-    message +=
-      `%0Aبيانات Click:%0A`;
-
-    message +=
-      `بنك الاتحاد%0A`;
-
-    message +=
-      `Ibrahim Nidar Mohammad Yousef%0A`;
-
-    message +=
-      `0799563650%0A`;
-
-  }
-
-
-  cart = [];
-
-  saveCart();
-
-  updateCartCount();
+  await loadProducts();
 
   renderCart();
 
-  closeCheckout();
+  openModal("checkoutModal");
+}
 
 
-  alert(
-    "تم تسجيل طلبك في نظام مِداد بنجاح."
-  );
+async function submitOrder(){
 
+  const name =
+    document.getElementById("customerName")
+      .value.trim();
 
-  window.open(
-    "https://wa.me/962799563650?text="+message,
-    "_blank"
-  );
+  const phone =
+    document.getElementById("customerPhone")
+      .value.trim();
 
+  const address =
+    document.getElementById("customerAddress")
+      .value.trim();
 
-  if(
-    document
-      .getElementById("admin")
-      .classList.contains("active")
-  ){
+  const paymentMethod =
+    document.getElementById("paymentMethod")
+      .value;
 
-    await loadAdminOrders();
+  const notes =
+    document.getElementById("orderNotes")
+      .value.trim();
 
+  if(!name || !phone || !address){
+
+    alert("يرجى تعبئة الاسم ورقم الهاتف والعنوان.");
+    return;
   }
 
+  if(!cart.length){
+
+    alert("السلة فارغة.");
+    closeModal("checkoutModal");
+    return;
+  }
+
+  const button =
+    document.getElementById("submitOrderBtn");
+
+  button.disabled = true;
+  button.textContent = "جاري إنشاء الطلب...";
+
+  try{
+
+    /*
+      مهم:
+      لا نعمل INSERT مباشر على orders/order_items.
+      الطلب ينشأ من RPC الآمنة create_order.
+    */
+
+    const items =
+      cart.map(item=>({
+
+        product_id:item.product_id,
+        quantity:Number(item.quantity)
+
+      }));
+
+    let finalNotes = notes;
+
+    if(paymentMethod === "click"){
+
+      finalNotes =
+        (
+          notes
+            ? notes + "\n"
+            : ""
+        ) +
+        "طريقة الدفع: Click\n" +
+        "بيانات Click: 0799563650";
+    }
+
+    const {data,error} =
+      await sb.rpc(
+        "create_order",
+        {
+          p_customer_name:name,
+          p_customer_phone:phone,
+          p_delivery_address:address,
+          p_payment_method:paymentMethod,
+          p_notes:finalNotes,
+          p_items:items
+        }
+      );
+
+    if(error) throw error;
+
+    const result =
+      Array.isArray(data)
+        ? data[0]
+        : data;
+
+    const orderNumber =
+      result?.order_number || "MIDAD";
+
+    const total =
+      Number(result?.total || 0);
+
+    let whatsappText =
+      "طلب جديد من مِداد ☕\n\n";
+
+    whatsappText +=
+      "رقم الطلب: " +
+      orderNumber +
+      "\n";
+
+    whatsappText +=
+      "الاسم: " +
+      name +
+      "\n";
+
+    whatsappText +=
+      "الهاتف: " +
+      phone +
+      "\n";
+
+    whatsappText +=
+      "العنوان: " +
+      address +
+      "\n\n";
+
+    whatsappText +=
+      "المنتجات:\n";
+
+    const details =
+      getCartDetails();
+
+    details.forEach(item=>{
+
+      whatsappText +=
+        "• " +
+        item.product.name +
+        " × " +
+        item.quantity +
+        "\n";
+
+    });
+
+    whatsappText +=
+      "\nالإجمالي: " +
+      total.toFixed(2) +
+      " JOD";
+
+    if(paymentMethod === "click"){
+
+      whatsappText +=
+        "\n\nالدفع عبر Click: 0799563650";
+    }
+
+    if(finalNotes){
+
+      whatsappText +=
+        "\n\nملاحظات: " +
+        finalNotes;
+    }
+
+    /*
+      الطلب صار محفوظ في Supabase أولًا،
+      وبعدها نفتح WhatsApp للتواصل.
+    */
+
+    cart = [];
+
+    saveCart();
+
+    closeModal("checkoutModal");
+
+    await loadProducts();
+
+    alert(
+      "تم إنشاء طلبك بنجاح ✅\nرقم الطلب: " +
+      orderNumber
+    );
+
+    const whatsappUrl =
+      "https://wa.me/962799563650?text=" +
+      encodeURIComponent(whatsappText);
+
+    window.open(
+      whatsappUrl,
+      "_blank"
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "تعذر إنشاء الطلب:\n" +
+      (error.message || "خطأ غير معروف")
+    );
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent = "تأكيد الطلب";
+  }
 }
 
 
 /* =========================================================
-   ADMIN LOGIN
+   ADMIN AUTH
 ========================================================= */
 
 async function openAdmin(){
 
-  const {
-    data:{
-      session
+  try{
+
+    const {data} =
+      await sb.auth.getSession();
+
+    const session =
+      data?.session;
+
+    if(!session){
+
+      openModal("adminLoginModal");
+      return;
     }
-  } =
-    await supabaseClient.auth.getSession();
 
-  if(!session){
+    const isStaff =
+      await checkStaffRole(session.user.id);
 
-    document
-      .getElementById("adminLoginOverlay")
-      .classList.add("active");
+    if(!isStaff){
 
-    document
-      .getElementById("adminLoginError")
-      .textContent = "";
+      alert(
+        "هذا الحساب لا يملك صلاحية إدارة مِداد."
+      );
 
-    return;
+      await sb.auth.signOut();
 
+      openModal("adminLoginModal");
+
+      return;
+    }
+
+    await showAdmin();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "حدث خطأ أثناء فتح الإدارة."
+    );
+  }
+}
+
+
+async function checkStaffRole(userId){
+
+  const {data,error} =
+    await sb
+      .from("user_roles")
+      .select("role")
+      .eq("user_id",userId)
+      .maybeSingle();
+
+  if(error){
+
+    console.error(error);
+    return false;
   }
 
-  await verifyAdmin(session.user);
-
+  return [
+    "staff",
+    "manager",
+    "owner"
+  ].includes(data?.role);
 }
 
 
 async function adminLogin(){
 
   const email =
-    document
-      .getElementById("adminEmail")
+    document.getElementById("adminEmail")
       .value.trim();
 
   const password =
-    document
-      .getElementById("adminPassword")
+    document.getElementById("adminPassword")
       .value;
-
-  const error =
-    document
-      .getElementById("adminLoginError");
-
-  error.textContent = "";
 
   if(!email || !password){
 
-    error.textContent =
-      "أدخل البريد الإلكتروني وكلمة المرور.";
-
+    alert("أدخل البريد الإلكتروني وكلمة المرور.");
     return;
-
   }
 
+  const button =
+    document.getElementById("adminLoginBtn");
 
-  const {
-    data,
-    error:loginError
-  } =
-    await supabaseClient.auth
-      .signInWithPassword({
+  button.disabled = true;
+  button.textContent = "جاري الدخول...";
 
+  try{
+
+    const {data,error} =
+      await sb.auth.signInWithPassword({
         email,
         password
-
       });
 
+    if(error) throw error;
 
-  if(loginError){
+    const isStaff =
+      await checkStaffRole(data.user.id);
 
-    console.error(loginError);
+    if(!isStaff){
 
-    error.textContent =
-      "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+      await sb.auth.signOut();
 
-    return;
+      throw new Error(
+        "هذا الحساب لا يملك صلاحية إدارة مِداد."
+      );
+    }
 
-  }
+    closeModal("adminLoginModal");
 
+    await showAdmin();
 
-  await verifyAdmin(data.user);
-
-}
-
-
-/* =========================================================
-   VERIFY OWNER / STAFF
-========================================================= */
-
-async function verifyAdmin(user){
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from("user_roles")
-      .select("role")
-      .eq("user_id",user.id)
-      .maybeSingle();
-
-
-  if(error){
+  }catch(error){
 
     console.error(error);
 
-    document
-      .getElementById("adminLoginError")
-      .textContent =
-      "حدث خطأ أثناء التحقق من صلاحيات الإدارة.";
+    alert(
+      error.message ||
+      "فشل تسجيل الدخول."
+    );
 
-    return;
+  }finally{
 
+    button.disabled = false;
+    button.textContent = "تسجيل الدخول";
   }
-
-
-  if(
-    !data ||
-    !["owner","manager","staff"].includes(data.role)
-  ){
-
-    await supabaseClient.auth.signOut();
-
-    document
-      .getElementById("adminLoginError")
-      .textContent =
-      "هذا الحساب لا يملك صلاحية إدارة مِداد.";
-
-    return;
-
-  }
-
-
-  document
-    .getElementById("adminLoginOverlay")
-    .classList.remove("active");
-
-
-  document
-    .getElementById("store")
-    .classList.add("hidden");
-
-
-  document
-    .getElementById("admin")
-    .classList.add("active");
-
-
-  await renderAdmin();
-
-  window.scrollTo(0,0);
-
 }
 
-
-/* =========================================================
-   ADMIN LOGOUT
-========================================================= */
 
 async function adminLogout(){
 
-  await supabaseClient.auth.signOut();
+  await sb.auth.signOut();
 
-  document
-    .getElementById("admin")
-    .classList.remove("active");
+  closeModal("adminModal");
 
-  document
-    .getElementById("store")
-    .classList.remove("hidden");
-
-  window.scrollTo(0,0);
-
-}
-
-
-function closeAdminLogin(){
-
-  document
-    .getElementById("adminLoginOverlay")
-    .classList.remove("active");
-
-  document
-    .getElementById("adminLoginError")
-    .textContent = "";
-
-  document
-    .getElementById("adminPassword")
-    .value = "";
-
-}
-
-
-function backToStore(){
-
-  document
-    .getElementById("admin")
-    .classList.remove("active");
-
-  document
-    .getElementById("store")
-    .classList.remove("hidden");
-
-  window.scrollTo(0,0);
-
+  alert("تم تسجيل الخروج من إدارة مِداد.");
 }
 
 
 /* =========================================================
-   ADMIN DASHBOARD — REAL DATABASE
+   ADMIN
 ========================================================= */
 
-async function renderAdmin(){
+async function showAdmin(){
+
+  const {data} =
+    await sb.auth.getSession();
+
+  const session =
+    data?.session;
+
+  if(!session) return;
+
+  document.getElementById("adminUserText")
+    .textContent =
+      session.user.email || "مدير مِداد";
+
+  document.getElementById("adminAccountInfo")
+    .innerHTML =
+      "الحساب الحالي:<br><strong>" +
+      esc(session.user.email || "") +
+      "</strong>";
+
+  openModal("adminModal");
+
+  await refreshAdmin();
+}
+
+
+async function refreshAdmin(){
+
+  const {data} =
+    await sb.auth.getSession();
+
+  const session =
+    data?.session;
+
+  if(!session){
+
+    closeModal("adminModal");
+    return;
+  }
+
+  const isStaff =
+    await checkStaffRole(session.user.id);
+
+  if(!isStaff){
+
+    closeModal("adminModal");
+
+    alert(
+      "انتهت صلاحية صلاحية الإدارة."
+    );
+
+    return;
+  }
 
   await loadAdminProducts();
-
   await loadAdminOrders();
-
-  await updateAdminStats();
-
+  renderAdminStats();
 }
 
-
-/* =========================================================
-   ADMIN PRODUCTS
-========================================================= */
 
 async function loadAdminProducts(){
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
+  const {data,error} =
+    await sb
       .from("products")
       .select(`
         id,
+        category_id,
         name,
         slug,
+        description,
         price,
         price_visible,
+        image_url,
         is_active,
         stock,
-        categories(
-          name,
-          slug
-        )
+        created_at,
+        updated_at,
+        categories(name)
       `)
-      .order("created_at");
-
+      .order("created_at",{ascending:true});
 
   if(error){
 
     console.error(error);
 
-    alert(
-      "تعذر تحميل منتجات الإدارة."
-    );
+    document.getElementById("adminProducts")
+      .innerHTML =
+        "<p>تعذر تحميل المنتجات.</p>";
 
     return;
-
   }
 
+  allDbProducts = data || [];
 
-  const tbody =
+  renderAdminProducts();
+}
+
+
+function renderAdminProducts(){
+
+  const box =
     document.getElementById("adminProducts");
 
+  if(!allDbProducts.length){
 
-  tbody.innerHTML =
-    (data || []).map(p=>{
+    box.innerHTML =
+      "<p>لا توجد منتجات.</p>";
 
-      const meta =
-        productMeta[p.slug] || {};
+    return;
+  }
 
-      const title =
-        meta.title || p.name;
-
+  box.innerHTML =
+    allDbProducts.map(p=>{
 
       return `
+        <div class="admin-product">
 
-        <tr>
+          <div class="name">
+            <strong>${esc(p.name)}</strong>
+            <br>
+            <small style="color:#849099">
+              ${esc(p.categories?.name || "")}
+            </small>
+          </div>
 
-          <td>
-            ${title}
-          </td>
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            value="${p.price ?? 0}"
+            id="price_${p.id}">
 
-          <td>
+          <input
+            type="number"
+            min="0"
+            step="1"
+            value="${p.stock ?? 0}"
+            id="stock_${p.id}">
 
-            <input
-              type="number"
-              min="0"
-              step="0.01"
-              value="${p.price ?? 0}"
-              onchange="updateProductPrice('${p.id}',this.value)">
+          <select id="active_${p.id}">
+            <option value="true"
+              ${p.is_active ? "selected" : ""}>
+              فعال
+            </option>
 
-          </td>
+            <option value="false"
+              ${!p.is_active ? "selected" : ""}>
+              متوقف
+            </option>
+          </select>
 
-          <td>
+          <button
+            class="save-product"
+            onclick="saveProduct('${p.id}')">
+            حفظ
+          </button>
 
-            <input
-              type="number"
-              min="0"
-              value="${p.stock ?? 0}"
-              onchange="updateProductStock('${p.id}',this.value)">
-
-          </td>
-
-          <td>
-
-            <select
-              onchange="updateProductActive('${p.id}',this.value)">
-
-              <option
-                value="true"
-                ${p.is_active ? "selected" : ""}>
-                فعال
-              </option>
-
-              <option
-                value="false"
-                ${!p.is_active ? "selected" : ""}>
-                مخفي
-              </option>
-
-            </select>
-
-          </td>
-
-        </tr>
-
+        </div>
       `;
 
     }).join("");
-
 }
 
 
-/* =========================================================
-   ADMIN PRODUCT UPDATE
-========================================================= */
+async function saveProduct(id){
 
-async function updateProductPrice(id,value){
+  const p =
+    allDbProducts.find(x => x.id === id);
+
+  if(!p) return;
 
   const price =
-    Math.max(
-      0,
-      Number(value) || 0
+    Number(
+      document.getElementById("price_" + id).value
     );
-
-
-  const {
-    error
-  } =
-    await supabaseClient
-      .from("products")
-      .update({
-
-        price:price,
-
-        price_visible:
-          price > 0
-
-      })
-      .eq("id",id);
-
-
-  if(error){
-
-    console.error(error);
-
-    alert(
-      "تعذر تحديث السعر."
-    );
-
-    return;
-
-  }
-
-}
-
-
-async function updateProductStock(id,value){
 
   const stock =
-    Math.max(
-      0,
-      Number(value) || 0
+    Number(
+      document.getElementById("stock_" + id).value
     );
 
+  const isActive =
+    document.getElementById("active_" + id).value === "true";
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .from("products")
-      .update({
+  if(!Number.isFinite(price) || price < 0){
 
-        stock:stock
+    alert("السعر غير صحيح.");
+    return;
+  }
 
-      })
-      .eq("id",id);
+  if(!Number.isInteger(stock) || stock < 0){
 
+    alert("المخزون يجب أن يكون رقمًا صحيحًا.");
+    return;
+  }
 
-  if(error){
+  try{
+
+    const oldStock =
+      Number(p.stock || 0);
+
+    const {error} =
+      await sb
+        .from("products")
+        .update({
+          price:price,
+          price_visible:true,
+          stock:stock,
+          is_active:isActive,
+          updated_at:new Date().toISOString()
+        })
+        .eq("id",id);
+
+    if(error) throw error;
+
+    const difference =
+      stock - oldStock;
+
+    if(difference !== 0){
+
+      const {data:sessionData} =
+        await sb.auth.getSession();
+
+      const userId =
+        sessionData?.session?.user?.id || null;
+
+      const movement =
+        await sb
+          .from("inventory_movements")
+          .insert({
+            product_id:id,
+            quantity_change:difference,
+            reason:"تعديل المخزون من إدارة مِداد",
+            created_by:userId
+          });
+
+      if(movement.error){
+
+        console.warn(
+          "Inventory movement warning:",
+          movement.error
+        );
+      }
+    }
+
+    alert("تم حفظ المنتج في Supabase ✅");
+
+    await loadProducts();
+    await loadAdminProducts();
+    renderAdminStats();
+
+  }catch(error){
 
     console.error(error);
 
     alert(
-      "تعذر تحديث المخزون."
+      "تعذر حفظ المنتج:\n" +
+      (error.message || "خطأ")
     );
-
-    return;
-
   }
-
-}
-
-
-async function updateProductActive(id,value){
-
-  const active =
-    value === "true";
-
-
-  const {
-    error
-  } =
-    await supabaseClient
-      .from("products")
-      .update({
-
-        is_active:active
-
-      })
-      .eq("id",id);
-
-
-  if(error){
-
-    console.error(error);
-
-    alert(
-      "تعذر تحديث حالة المنتج."
-    );
-
-    return;
-
-  }
-
-
-  await loadProducts();
-
 }
 
 
 /* =========================================================
-   SAVE PRODUCTS
-========================================================= */
-
-async function saveProducts(){
-
-  await loadProducts();
-
-  await loadAdminProducts();
-
-  await updateAdminStats();
-
-  alert(
-    "تم تحديث بيانات المنتجات من قاعدة بيانات مِداد."
-  );
-
-}
-
-
-/* =========================================================
-   TOGGLE ALL SALES
+   GLOBAL SALES
 ========================================================= */
 
 async function toggleAllSales(){
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
+  const {data,error} =
+    await sb
       .from("products")
-      .select("is_active");
-
+      .select("id,is_active");
 
   if(error){
 
     alert("تعذر قراءة حالة المنتجات.");
-
     return;
-
   }
 
+  if(!data?.length) return;
 
-  const shouldEnable =
-    (data || []).some(
-      p=>!p.is_active
-    );
+  const allActive =
+    data.every(p => p.is_active === true);
 
+  const newState =
+    !allActive;
 
-  const {
-    error:updateError
-  } =
-    await supabaseClient
+  const {error:updateError} =
+    await sb
       .from("products")
       .update({
-
-        is_active:
-          shouldEnable
-
+        is_active:newState,
+        updated_at:new Date().toISOString()
       })
-      .neq(
+      .in(
         "id",
-        "00000000-0000-0000-0000-000000000000"
+        data.map(p => p.id)
       );
-
 
   if(updateError){
 
-    console.error(updateError);
-
     alert(
-      "تعذر تغيير حالة البيع."
+      "تعذر تغيير حالة البيع:\n" +
+      updateError.message
     );
 
     return;
-
   }
 
-
-  await loadProducts();
-
-  await loadAdminProducts();
-
-  await updateAdminStats();
-
-
   alert(
-    shouldEnable
-    ? "تم تفعيل البيع لجميع المنتجات."
-    : "تم تعطيل البيع لجميع المنتجات."
+    newState
+      ? "تم تشغيل البيع لجميع المنتجات ✅"
+      : "تم إيقاف البيع لجميع المنتجات."
   );
 
+  await loadProducts();
+  await refreshAdmin();
 }
 
 
@@ -2073,11 +2846,8 @@ async function toggleAllSales(){
 
 async function loadAdminOrders(){
 
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
+  const {data,error} =
+    await sb
       .from("orders")
       .select(`
         id,
@@ -2089,371 +2859,434 @@ async function loadAdminOrders(){
         payment_method,
         payment_status,
         total,
+        notes,
         created_at,
         order_items(
+          id,
+          product_id,
           product_name,
           quantity,
           unit_price,
           subtotal
         )
       `)
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      );
-
+      .order("created_at",{ascending:false});
 
   if(error){
 
     console.error(error);
 
-    alert(
-      "تعذر تحميل الطلبات."
-    );
+    document.getElementById("adminOrders")
+      .innerHTML =
+        "<p>تعذر تحميل الطلبات.</p>";
 
     return;
-
   }
 
-
-  orders =
-    data || [];
-
+  adminOrders = data || [];
 
   renderAdminOrders();
-
 }
 
 
-/* =========================================================
-   ADMIN ORDER DISPLAY
-========================================================= */
+function paymentName(value){
+
+  if(value==="click") return "Click";
+  if(value==="cod") return "الدفع عند الاستلام";
+  if(value==="bank_transfer") return "تحويل بنكي";
+
+  return value || "-";
+}
+
 
 function renderAdminOrders(){
 
   const box =
     document.getElementById("adminOrders");
 
+  if(!adminOrders.length){
 
-  if(!orders.length){
-
-    box.innerHTML = `
-
-      <div class="empty">
-        لا توجد طلبات حالياً.
+    box.innerHTML =
+      `
+      <div style="
+        padding:25px;
+        text-align:center;
+        color:#7b858b">
+        لا توجد طلبات حتى الآن.
       </div>
-
-    `;
+      `;
 
     return;
-
   }
 
-
   box.innerHTML =
-    orders.map(order=>{
-
-      const date =
-        new Date(order.created_at)
-          .toLocaleString("ar-JO");
-
+    adminOrders.map(order=>{
 
       const items =
-        (order.order_items || [])
-          .map(item=>
-            `${item.product_name} × ${item.quantity}`
-          )
-          .join("، ");
+        order.order_items || [];
 
+      const itemText =
+        items.map(item =>
+          `${esc(item.product_name)} × ${item.quantity}`
+        ).join("<br>");
 
       return `
-
         <div class="order-card">
 
-          <strong>
-            ${order.order_number}
-          </strong>
+          <div class="order-head">
 
-          <br>
+            <div>
+              <div class="order-number">
+                ${esc(order.order_number)}
+              </div>
 
-          <small>
-            ${date}
-          </small>
+              <div class="order-meta">
+                ${esc(order.customer_name || "")}
+                —
+                ${esc(order.customer_phone || "")}
+              </div>
+            </div>
 
-          <hr
-            style="
-              margin:10px 0;
-              border:0;
-              border-top:1px solid #dfd0bf;
-            ">
+            <strong>
+              ${Number(order.total || 0).toFixed(2)} JOD
+            </strong>
 
-          <strong>
-            العميل:
-          </strong>
+          </div>
 
-          ${order.customer_name || "-"}
+          <div class="order-meta">
 
-          <br>
+            <strong>المنتجات:</strong><br>
+            ${itemText || "-"}
 
-          <strong>
-            الهاتف:
-          </strong>
+            <br><br>
 
-          ${order.customer_phone || "-"}
+            <strong>العنوان:</strong><br>
+            ${esc(order.delivery_address || "-")}
 
-          <br>
+            <br><br>
 
-          <strong>
-            العنوان:
-          </strong>
+            <strong>الدفع:</strong>
+            ${paymentName(order.payment_method)}
 
-          ${order.delivery_address || "-"}
-
-          <br><br>
-
-          <strong>
-            المنتجات:
-          </strong>
-
-          ${items || "-"}
-
-          <br>
-
-          <strong>
-            الدفع:
-          </strong>
-
-          ${
-            order.payment_method === "click"
-            ? "Click"
-            : "الدفع عند الاستلام"
-          }
-
-          <br>
-
-          <strong>
-            الإجمالي:
-          </strong>
-
-          ${
-            Number(order.total || 0).toFixed(2)
-          }
-          د.أ
-
-          <br><br>
-
-          <span class="status">
             ${
-              translateStatus(
-                order.status
-              )
+              order.notes
+                ? `<br><strong>ملاحظات:</strong>
+                   ${esc(order.notes)}`
+                : ""
             }
-          </span>
+
+            <br><br>
+
+            <small>
+              ${new Date(order.created_at).toLocaleString("ar-JO")}
+            </small>
+
+          </div>
+
+          <div class="order-controls">
+
+            <select id="status_${order.id}">
+
+              <option value="pending"
+                ${order.status==="pending" ? "selected":""}>
+                قيد الانتظار
+              </option>
+
+              <option value="confirmed"
+                ${order.status==="confirmed" ? "selected":""}>
+                مؤكد
+              </option>
+
+              <option value="preparing"
+                ${order.status==="preparing" ? "selected":""}>
+                قيد التحضير
+              </option>
+
+              <option value="ready"
+                ${order.status==="ready" ? "selected":""}>
+                جاهز
+              </option>
+
+              <option value="out_for_delivery"
+                ${order.status==="out_for_delivery" ? "selected":""}>
+                خرج للتوصيل
+              </option>
+
+              <option value="delivered"
+                ${order.status==="delivered" ? "selected":""}>
+                تم التسليم
+              </option>
+
+              <option value="cancelled"
+                ${order.status==="cancelled" ? "selected":""}>
+                ملغي
+              </option>
+
+            </select>
+
+            <select id="payment_${order.id}">
+
+              <option value="pending"
+                ${order.payment_status==="pending" ? "selected":""}>
+                الدفع: معلق
+              </option>
+
+              <option value="paid"
+                ${order.payment_status==="paid" ? "selected":""}>
+                الدفع: مدفوع
+              </option>
+
+              <option value="failed"
+                ${order.payment_status==="failed" ? "selected":""}>
+                الدفع: فشل
+              </option>
+
+            </select>
+
+            <button
+              class="save-order"
+              onclick="saveOrder('${order.id}')">
+              حفظ الطلب
+            </button>
+
+          </div>
 
         </div>
-
       `;
 
     }).join("");
-
 }
 
 
-function translateStatus(status){
+async function saveOrder(id){
 
-  const map = {
+  const status =
+    document.getElementById("status_" + id)
+      .value;
 
-    pending:"جديد",
+  const paymentStatus =
+    document.getElementById("payment_" + id)
+      .value;
 
-    confirmed:"تم التأكيد",
-
-    preparing:"قيد التجهيز",
-
-    ready:"جاهز",
-
-    out_for_delivery:"خرج للتوصيل",
-
-    delivered:"تم التسليم",
-
-    cancelled:"ملغي"
-
-  };
-
-  return map[status] || status || "جديد";
-
-}
-
-
-/* =========================================================
-   ADMIN STATS — REAL DATABASE
-========================================================= */
-
-async function updateAdminStats(){
-
-  const {
-    count:productCount
-  } =
-    await supabaseClient
-      .from("products")
-      .select(
-        "id",
-        {
-          count:"exact",
-          head:true
-        }
-      );
-
-
-  const {
-    data:stockData
-  } =
-    await supabaseClient
-      .from("products")
-      .select("stock");
-
-
-  const totalStock =
-    (stockData || []).reduce(
-      (sum,p)=>
-        sum + Number(p.stock || 0),
-      0
-    );
-
-
-  const {
-    count:orderCount
-  } =
-    await supabaseClient
+  const {error} =
+    await sb
       .from("orders")
-      .select(
-        "id",
-        {
-          count:"exact",
-          head:true
-        }
-      );
+      .update({
+        status:status,
+        payment_status:paymentStatus,
+        updated_at:new Date().toISOString()
+      })
+      .eq("id",id);
 
+  if(error){
 
-  const {
-    data:salesData
-  } =
-    await supabaseClient
-      .from("orders")
-      .select("total")
-      .neq(
-        "status",
-        "cancelled"
-      );
-
-
-  const totalSales =
-    (salesData || []).reduce(
-      (sum,o)=>
-        sum + Number(o.total || 0),
-      0
+    alert(
+      "تعذر تحديث الطلب:\n" +
+      error.message
     );
 
-
-  document
-    .getElementById("statProducts")
-    .textContent =
-      productCount || 0;
-
-
-  document
-    .getElementById("statStock")
-    .textContent =
-      totalStock;
-
-
-  document
-    .getElementById("statOrders")
-    .textContent =
-      orderCount || 0;
-
-
-  document
-    .getElementById("statSales")
-    .textContent =
-      totalSales > 0
-      ? totalSales.toFixed(2)+" د.أ"
-      : "0";
-
-
-}
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
-
-async function initializeMidad(){
-
-  try{
-
-    await loadProducts();
-
-    renderCart();
-
-    updateCartCount();
-
-
-    const {
-      data:{
-        session
-      }
-    } =
-      await supabaseClient.auth.getSession();
-
-
-    if(session){
-
-      await verifyAdmin(session.user);
-
-    }
-
-  }catch(error){
-
-    console.error(
-      "MIDAD initialization error:",
-      error
-    );
-
+    return;
   }
 
+  alert("تم تحديث الطلب ✅");
+
+  await loadAdminOrders();
+  renderAdminStats();
 }
 
 
 /* =========================================================
-   AUTH LISTENER
+   ADMIN STATS
 ========================================================= */
 
-supabaseClient.auth
-  .onAuthStateChange(
-    (event,session)=>{
+function renderAdminStats(){
 
-      if(event === "SIGNED_OUT"){
+  const count =
+    allDbProducts.length;
 
-        document
-          .getElementById("admin")
-          .classList.remove("active");
+  const stock =
+    allDbProducts.reduce(
+      (sum,p)=>sum + Number(p.stock || 0),
+      0
+    );
 
-        document
-          .getElementById("store")
-          .classList.remove("hidden");
+  const orders =
+    adminOrders.length;
 
-      }
+  const sales =
+    adminOrders
+      .filter(order =>
+        order.payment_status === "paid" ||
+        order.status === "delivered"
+      )
+      .reduce(
+        (sum,order)=>
+          sum + Number(order.total || 0),
+        0
+      );
 
-    }
-  );
+  document.getElementById("statProducts")
+    .textContent = count;
+
+  document.getElementById("statStock")
+    .textContent = stock;
+
+  document.getElementById("statOrders")
+    .textContent = orders;
+
+  document.getElementById("statSales")
+    .textContent =
+      sales.toFixed(2) + " JOD";
+
+  const allActive =
+    allDbProducts.length &&
+    allDbProducts.every(
+      p => p.is_active
+    );
+
+  const noneActive =
+    allDbProducts.length &&
+    allDbProducts.every(
+      p => !p.is_active
+    );
+
+  document.getElementById("salesStateText")
+    .textContent =
+      allActive
+        ? "البيع يعمل حاليًا لجميع المنتجات."
+        : noneActive
+          ? "البيع متوقف حاليًا لجميع المنتجات."
+          : "البيع يعمل بشكل جزئي.";
+}
 
 
 /* =========================================================
-   START
+   MODALS
 ========================================================= */
 
-initializeMidad();
+function openModal(id){
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+}
+
+
+function closeModal(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("active");
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+function updateBadges(){
+
+  const cartCount =
+    cart.reduce(
+      (sum,item)=>
+        sum + Number(item.quantity || 0),
+      0
+    );
+
+  document.getElementById("cartCount")
+    .textContent = cartCount;
+
+  document.getElementById("favCount")
+    .textContent = favorites.length;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function scrollToStore(){
+
+  document
+    .getElementById("home")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+}
+
+
+function scrollToProducts(){
+
+  document
+    .getElementById("products")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+}
+
+
+/* =========================================================
+   CLOSE MODAL BY CLICKING OUTSIDE
+========================================================= */
+
+document.querySelectorAll(".modal")
+  .forEach(modal=>{
+
+    modal.addEventListener(
+      "click",
+      function(e){
+
+        if(e.target === modal){
+          modal.classList.remove("active");
+        }
+
+      }
+    );
+
+  });
+
+
+/* =========================================================
+   SUPABASE AUTH STATE
+========================================================= */
+
+sb.auth.onAuthStateChange(
+  (event,session)=>{
+
+    if(!session){
+
+      const admin =
+        document.getElementById("adminModal");
+
+      if(admin){
+        admin.classList.remove("active");
+      }
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INIT
+========================================================= */
+
+async function init(){
+
+  updateBadges();
+
+  renderCart();
+
+  await loadProducts();
+
+}
+
+
+/* START */
+
+init();
 
 </script>
+
+</body>
+</html>
